@@ -130,18 +130,37 @@ const AI_BOTS=[
  {ua:'PerplexityBot',eng:'Perplexity',e:3},
  {ua:'CCBot',eng:'Common Crawl (feeds many models)',e:1}
 ];
+// Browsers cannot fetch other origins directly, so this goes through public
+// CORS proxies. They are third-party and free, which means they fail: in July
+// 2026 corsproxy.io moved to a paid plan and allorigins was returning 522 at
+// the same time, which took the whole tool down. Hence several fallbacks and,
+// importantly, an honest distinction between "every proxy is down" and "that
+// site refused us" — reporting the first as the second tells someone their
+// site blocks crawlers when it does not.
+let PROXY_STATE = {anyResponded:false};
 async function fetchText(url){
   const tries=[
-    u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u),
-    u=>'https://corsproxy.io/?url='+encodeURIComponent(u)
+    {u:t=>'https://api.allorigins.win/raw?url='+encodeURIComponent(t), parse:r=>r.text()},
+    {u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t), parse:r=>r.text()},
+    {u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
+     parse:async r=>{const j=await r.json(); return j && j.contents;}},
+    {u:t=>'https://corsproxy.io/?url='+encodeURIComponent(t), parse:r=>r.text()}
   ];
-  for(const wrap of tries){
-    try{
-      const r=await fetch(wrap(url),{signal:AbortSignal.timeout(15000)});
-      if(r.ok){const t=await r.text(); if(t && t.length>0) return t;}
-    }catch(e){}
-  }
-  return null;
+  // Race them rather than trying each in turn. Sequential attempts mean one
+  // slow proxy blocks every other, and these are routinely slow: allorigins
+  // was answering in ~27s the day this was written, which silently blew the
+  // old 15s timeout and made the tool look broken. Racing means total latency
+  // is the FASTEST working proxy, not the sum of the dead ones.
+  const attempts = tries.map(p => (async () => {
+    const r = await fetch(p.u(url), {signal: AbortSignal.timeout(35000)});
+    PROXY_STATE.anyResponded = true;
+    if(!r.ok) throw new Error('status ' + r.status);
+    const t = await p.parse(r);
+    if(!t || !t.length) throw new Error('empty body');
+    return t;
+  })());
+  try { return await Promise.any(attempts); }
+  catch(e){ return null; }   // every proxy rejected
 }
 function parseRobots(txt){
   const groups=[]; let cur=null;
@@ -167,10 +186,20 @@ $('go').onclick=async()=>{
   if(!/^https?:\/\//i.test(url)) url='https://'+url;
   let origin; try{origin=new URL(url).origin;}catch(e){$('status').textContent='That URL does not look valid.';return;}
   $('go').disabled=true; $('report').style.display='none';
-  $('status').textContent='Fetching homepage, robots.txt, and llms.txt...';
+  PROXY_STATE.anyResponded=false;
+  $('status').textContent='Fetching homepage, robots.txt, and llms.txt… this can take up to 30 seconds.';
   const [html,robots,llms]=await Promise.all([fetchText(url),fetchText(origin+'/robots.txt'),fetchText(origin+'/llms.txt')]);
   $('go').disabled=false;
-  if(!html){$('status').textContent='Could not fetch that site (it may block proxies). Try another URL or the bare domain.';return;}
+  if(!html){
+    // Distinguish a dead fetch layer from a site that refused. Saying "your
+    // site blocks proxies" when our own proxies are down is a false negative,
+    // and on this tool that is the most damaging thing it could say.
+    $('status').innerHTML = PROXY_STATE.anyResponded
+      ? 'Could not read that site. It may block automated requests, or be slow to respond. Try the bare domain (example.com) or another URL.'
+      : '<b>The fetch service this tool relies on is unavailable right now</b> — this is not a finding about your site. '
+        + 'The analyzer runs entirely in your browser and depends on public CORS proxies, which occasionally go down. Please try again later.';
+    return;
+  }
   $('status').textContent='';
   const checks=[]; const fixes=[];
   let e1=0,e1max=0,e2=0,e2max=0,e3=0,e3max=0;
