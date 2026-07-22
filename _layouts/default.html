@@ -9,7 +9,16 @@
   ships a duplicate <title> and duplicate meta description.
   Order matters: posts have both a title and a category, so title wins.
 {%- endcomment -%}
-{%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+{%- comment -%}
+  Guard the lookup. Jekyll's `where` returns the input unfiltered when the
+  value is nil, so on a page with no category `| first` yields the FIRST
+  category and every such page inherits its title. That put "SEO — Blog" on
+  the homepage.
+{%- endcomment -%}
+{%- assign cat = nil -%}
+{%- if page.category -%}
+  {%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+{%- endif -%}
 {%- if page.seo_title -%}
   {%- assign ptitle = page.seo_title -%}
 {%- elsif page.title -%}
@@ -39,7 +48,10 @@
   of the index until they have posts, but follow the links so the crawl still
   reaches everything. They become indexable on their own once a post lands.
 {%- endcomment -%}
-{%- assign catposts = site.posts | where: "category", page.category -%}
+{%- assign catposts = "" | split: "" -%}
+{%- if page.category -%}
+  {%- assign catposts = site.posts | where: "category", page.category -%}
+{%- endif -%}
 {%- if page.layout == 'category' and catposts.size == 0 %}
 <meta name="robots" content="noindex,follow">
 {%- elsif page.noindex %}
