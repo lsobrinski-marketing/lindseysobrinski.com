@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEO/GEO Readiness Scorecard — Is your brand visible where buying decisions now start?</title>
+<style>
+  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;padding:32px 16px;}
+  .wrap{max-width:720px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(26,35,51,.08);padding:32px;}
+  h1{font-size:1.55rem;line-height:1.25;margin-bottom:8px;}
+  h1 span{color:var(--accent);}
+  .sub{color:#51607a;font-size:.98rem;margin-bottom:24px;line-height:1.5;}
+  .q{padding:18px 0;border-top:1px solid #e6ecf2;}
+  .q p{font-weight:600;margin-bottom:10px;line-height:1.4;}
+  .opts{display:flex;gap:8px;flex-wrap:wrap;}
+  .opts button{flex:1;min-width:100px;padding:10px 8px;border:1.5px solid #cfdae4;background:#fff;border-radius:10px;cursor:pointer;font-size:.88rem;color:#41506a;transition:.15s;}
+  .opts button:hover{border-color:var(--accent);}
+  .opts button.sel{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+  .cta{margin-top:24px;width:100%;padding:15px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:1.05rem;font-weight:700;cursor:pointer;}
+  .cta:disabled{background:#b9c8d4;cursor:not-allowed;}
+  #result{display:none;margin-top:28px;padding:24px;border-radius:14px;background:var(--soft);}
+  .score{font-size:2.6rem;font-weight:800;}
+  .verdict{font-size:1.15rem;font-weight:700;margin:6px 0 14px;}
+  .fixes h3{font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;color:#51607a;margin:14px 0 8px;}
+  .fixes li{margin:0 0 8px 18px;line-height:1.45;font-size:.95rem;}
+  .meter{height:10px;background:#dde7ee;border-radius:6px;overflow:hidden;margin:10px 0 4px;}
+  .meter i{display:block;height:100%;border-radius:6px;transition:width .6s ease;}
+  .foot{margin-top:22px;font-size:.85rem;color:#7a8699;line-height:1.5;}
+  .journey{margin:6px 0 24px;}
+  .journey h2{font-size:1.05rem;margin-bottom:4px;}
+  .journey .jsub{color:#51607a;font-size:.9rem;margin-bottom:14px;}
+  .jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  @media(max-width:600px){.jgrid{grid-template-columns:1fr;}}
+  .jcard{border:1.5px solid #e0e9f0;border-radius:12px;padding:16px 14px;background:#fbfdfe;}
+  .jcard .stage{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:9px;color:#fff;}
+  .jcard.aware .stage{background:var(--accent);}
+  .jcard.consider .stage{background:var(--good);}
+  .jcard.research .stage{background:#7a5ea8;}
+  .jcard h4{font-size:1rem;margin-bottom:6px;}
+  .jcard p{font-size:.86rem;color:#41506a;line-height:1.5;}
+  .jcard p b{color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+  <h1>Is your brand visible where buying decisions <span>actually start now?</span></h1>
+  <p class="sub">Buyers increasingly ask ChatGPT, Perplexity, and Google AI Overviews before they ever click. Ten honest questions. Instant score. Built by a practitioner who grew a 9-figure brand's answer-layer citations 3.6x.</p>
+  <div class="journey">
+    <h2>Each engine plays a different position in the journey</h2>
+    <p class="jsub">One "AI SEO playbook" is a mistake. Map the play to where each engine sits.</p>
+    <div class="jgrid">
+      <div class="jcard aware">
+        <span class="stage">Awareness · Top of Funnel</span>
+        <h4>ChatGPT</h4>
+        <p>Your awareness layer. Rewards <b>citations and third-party corroboration</b>. When someone asks a big open question about your category, this is where your brand gets introduced. Think <b>impressions, not clicks</b>.</p>
+      </div>
+      <div class="jcard consider">
+        <span class="stage">Consideration · Mid / Bottom Funnel</span>
+        <h4>Gemini + AI Overviews</h4>
+        <p>Closer to the money. Reward <b>entity authority</b> and surface <b>brand mentions</b> when buyers are comparing, shortlisting, and deciding. Consideration is happening inside the answer box.</p>
+      </div>
+      <div class="jcard research">
+        <span class="stage">Research · Validation</span>
+        <h4>Perplexity</h4>
+        <p>The researcher's engine. <b>Dense citations, sources on display.</b> If your expertise is locked in gated PDFs and webinars, it does not exist here.</p>
+      </div>
+    </div>
+  </div>
+  <div id="quiz"></div>
+  <button class="cta" id="go" disabled>Answer all 10 to get your score</button>
+  <div id="result">
+    <div class="score" id="scoreNum"></div>
+    <div class="meter"><i id="bar"></i></div>
+    <div class="verdict" id="verdict"></div>
+    <div class="fixes"><h3>Fix first</h3><ul id="fixList"></ul></div>
+  </div>
+  <p class="foot">No data leaves this page. Scoring is directional, not a crawl of your site. The gap between "we rank on Google" and "AI engines cite us" is where most brands are quietly losing demand.</p>
+</div></div>
+<script>
+const QS=[
+ {q:"Have you ever actually asked ChatGPT or Perplexity the top 20 questions your buyers ask, and checked if your brand appears?",fix:"Run a question-query audit. Write your buyers' top questions and ask each engine. What gets cited today is your baseline."},
+ {q:"Does your site answer real customer questions in plain language (not just product pages and category copy)?",fix:"Build answer-first content: one clear question, one direct answer, evidence below. Engines lift answers, not brochures."},
+ {q:"Is your brand cited by third parties (press, reviews, forums, industry lists), not just your own site?",fix:"Earned media drives citations. Engines trust corroboration; invest in mentions beyond your own domain."},
+ {q:"Do you know which engine rewards what? (e.g. citation patterns differ between ChatGPT and Gemini)",fix:"Treat each engine as its own channel. One playbook per engine, because they reward different signals."},
+ {q:"Is your structured data (schema, product, FAQ, organization) actually implemented and valid?",fix:"Schema is table stakes for machine readability. Validate it; broken markup is invisible markup."},
+ {q:"Do you measure answer-layer visibility (impressions, citations, mentions) separately from clicks?",fix:"Stop grading the answer layer with a click ruler. Track citations and AI-surface impressions as their own KPI."},
+ {q:"Does someone in your org own AI-search visibility as a named responsibility?",fix:"Unowned channels decay. Give AEO/GEO a name on someone's scorecard, even at one hour a week."},
+ {q:"Is your best expertise published where engines can read it (not locked in PDFs, gated decks, or webinars)?",fix:"Unlock your expertise. If it needs a form fill, the engines never saw it and neither did the answer."},
+ {q:"Have you refreshed cornerstone content in the last 6 months?",fix:"Freshness matters to engines assembling answers. Stale cornerstone pages fade from citations."},
+ {q:"When you search your category (not your brand), do AI answers mention you at all?",fix:"Category queries are where new demand forms. If you only appear on brand queries, you are only reaching people who already knew you."}
+];
+const answers=Array(QS.length).fill(null);
+const quiz=document.getElementById('quiz');
+QS.forEach((item,i)=>{
+  const d=document.createElement('div');d.className='q';
+  d.innerHTML='<p>'+(i+1)+'. '+item.q+'</p>';
+  const o=document.createElement('div');o.className='opts';
+  [['Yes',2],['Partly / not sure',1],['No',0]].forEach(([label,val])=>{
+    const b=document.createElement('button');b.textContent=label;
+    b.onclick=()=>{answers[i]=val;[...o.children].forEach(c=>c.classList.remove('sel'));b.classList.add('sel');check();};
+    o.appendChild(b);
+  });
+  d.appendChild(o);quiz.appendChild(d);
+});
+const go=document.getElementById('go');
+function check(){const done=answers.every(a=>a!==null);go.disabled=!done;go.textContent=done?'Show my score':'Answer all 10 to get your score';}
+go.onclick=()=>{
+  const total=answers.reduce((a,b)=>a+b,0),max=QS.length*2,pct=Math.round(total/max*100);
+  const res=document.getElementById('result');res.style.display='block';
+  document.getElementById('scoreNum').textContent=pct+' / 100';
+  const bar=document.getElementById('bar');bar.style.width=pct+'%';
+  const v=document.getElementById('verdict');
+  let color;
+  if(pct>=75){v.textContent='Answer-layer ready. You are ahead of most of your category.';color='var(--good)';}
+  else if(pct>=45){v.textContent='Visible but fragile. You show up sometimes; competitors can take your spot.';color='var(--warn)';}
+  else{v.textContent='Invisible where demand now starts. Your buyers are getting answers that do not include you.';color='var(--bad)';}
+  v.style.color=color;bar.style.background=color;
+  const fl=document.getElementById('fixList');fl.innerHTML='';
+  QS.forEach((item,i)=>{if(answers[i]<2){const li=document.createElement('li');li.textContent=item.fix;fl.appendChild(li);}});
+  if(!fl.children.length){const li=document.createElement('li');li.textContent='Keep auditing quarterly. The engines change faster than the SERPs ever did.';fl.appendChild(li);}
+  res.scrollIntoView({behavior:'smooth'});
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Incrementality Gap — what your platform ROAS is really telling you</title>
+<style>
+  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;padding:32px 16px;}
+  .wrap{max-width:720px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(26,35,51,.08);padding:32px;}
+  h1{font-size:1.5rem;line-height:1.3;margin-bottom:8px;}
+  h1 span{color:var(--accent);}
+  .sub{color:#51607a;font-size:.97rem;margin-bottom:26px;line-height:1.5;}
+  label{display:block;font-weight:600;font-size:.92rem;margin:18px 0 6px;}
+  label small{display:block;font-weight:400;color:#7a8699;margin-top:2px;}
+  input[type=number]{width:100%;padding:11px 12px;border:1.5px solid #cfdae4;border-radius:10px;font-size:1rem;}
+  input[type=range]{width:100%;accent-color:var(--accent);margin-top:6px;}
+  .rangeVal{font-weight:700;color:var(--accent);}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.row{grid-template-columns:1fr;}}
+  .out{margin-top:28px;padding:24px;border-radius:14px;background:var(--soft);}
+  .big{font-size:2.2rem;font-weight:800;}
+  .lbl{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:#51607a;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+  @media(max-width:560px){.grid3{grid-template-columns:1fr;}}
+  .stat{background:#fff;border-radius:12px;padding:14px;}
+  .stat b{display:block;font-size:1.25rem;}
+  .verdict{margin-top:16px;font-weight:700;line-height:1.45;}
+  .foot{margin-top:22px;font-size:.85rem;color:#7a8699;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+  <h1>Your platform says the campaign worked. <span>How much of that was going to happen anyway?</span></h1>
+  <p class="sub">Platforms grade their own homework. This shows the gap between reported ROAS and likely incremental ROAS, the number a CFO actually cares about. Built by an operator who allocates a $36M program on incrementality and contribution margin, not platform dashboards.</p>
+
+  <div class="row">
+    <div>
+      <label>Monthly spend on the channel ($)</label>
+      <input type="number" id="spend" value="100000" min="0" step="1000">
+    </div>
+    <div>
+      <label>Platform-reported ROAS</label>
+      <input type="number" id="roas" value="4" min="0" step="0.1">
+    </div>
+  </div>
+
+  <label>How much of this channel's traffic is branded or retargeting?
+    <small>Clicks from people who already knew you. The higher this is, the more the platform is claiming demand you already owned.</small>
+  </label>
+  <input type="range" id="branded" min="0" max="100" value="40"><span class="rangeVal" id="brandedV">40%</span>
+
+  <label>Attribution window aggressiveness
+    <small>View-through counting, long click windows, and last-touch greed all inflate credit.</small>
+  </label>
+  <input type="range" id="attr" min="0" max="100" value="50"><span class="rangeVal" id="attrV">Moderate</span>
+
+  <label>Contribution margin on those sales (%)
+    <small>After product cost, shipping, and fulfillment. ROAS without margin is applause without revenue.</small>
+  </label>
+  <input type="range" id="margin" min="10" max="90" value="45"><span class="rangeVal" id="marginV">45%</span>
+
+  <div class="out">
+    <div class="lbl">Estimated incremental ROAS</div>
+    <div class="big" id="iroas">—</div>
+    <div class="grid3">
+      <div class="stat"><span class="lbl">Reported revenue</span><b id="rrev">—</b></div>
+      <div class="stat"><span class="lbl">Likely incremental revenue</span><b id="irev">—</b></div>
+      <div class="stat"><span class="lbl">Incremental profit after margin</span><b id="iprofit">—</b></div>
+    </div>
+    <div class="verdict" id="verdict"></div>
+  </div>
+
+  <p class="foot">This is a directional model, not a measurement. The real answer comes from geo holdouts, incrementality tests, and media-mix modeling. But if this toy math makes you nervous, that is the point: run the test. Platform-reported ROAS is a sales pitch until it is validated.</p>
+</div></div>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>'$'+Math.round(n).toLocaleString();
+function attrLabel(v){return v<25?'Conservative':v<55?'Moderate':v<80?'Aggressive':'Very aggressive';}
+function calc(){
+  const spend=+$('spend').value||0, roas=+$('roas').value||0;
+  const branded=+$('branded').value/100, attr=+$('attr').value/100, margin=+$('margin').value/100;
+  $('brandedV').textContent=Math.round(branded*100)+'%';
+  $('attrV').textContent=attrLabel(+$('attr').value);
+  $('marginV').textContent=Math.round(margin*100)+'%';
+  const rrev=spend*roas;
+  // haircut: branded/retargeting traffic mostly non-incremental; attribution aggressiveness inflates further
+  const brandedHaircut=branded*0.75;            // 75% of branded/RT claimed revenue assumed non-incremental
+  const attrHaircut=(1-brandedHaircut)*attr*0.35; // aggressive windows shave up to ~35% of the remainder
+  const irev=rrev*(1-brandedHaircut-attrHaircut);
+  const iroas=spend? irev/spend : 0;
+  const iprofit=irev*margin-spend;
+  $('rrev').textContent=fmt(rrev);
+  $('irev').textContent=fmt(Math.max(0,irev));
+  $('iprofit').textContent=(iprofit<0?'-':'')+fmt(Math.abs(iprofit));
+  $('iroas').textContent=iroas.toFixed(2)+'x  (reported '+roas.toFixed(1)+'x)';
+  const v=$('verdict');
+  if(iprofit>0){v.textContent='Still profitable after the haircut. Now prove it with a real incrementality test and scale with confidence.';v.style.color='var(--good)';}
+  else if(iroas>1){v.textContent='Revenue-positive but margin-negative. This channel may be buying revenue you already owned, at a loss.';v.style.color='var(--warn)';}
+  else{v.textContent='Under these assumptions this channel likely loses money. The platform dashboard would never tell you that.';v.style.color='var(--bad)';}
+}
+['spend','roas','branded','attr','margin'].forEach(id=>$(id).addEventListener('input',calc));
+calc();
+</script>
+</body>
+</html>

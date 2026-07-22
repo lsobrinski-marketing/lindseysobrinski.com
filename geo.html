@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO Site Analyzer — is your site visible to AI answer engines?</title>
+<style>
+  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;--purple:#7a5ea8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;padding:32px 16px;}
+  .wrap{max-width:780px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(26,35,51,.08);padding:32px;}
+  h1{font-size:1.5rem;line-height:1.3;margin-bottom:8px;}
+  h1 span{color:var(--accent);}
+  .sub{color:#51607a;font-size:.95rem;margin-bottom:22px;line-height:1.5;}
+  .inrow{display:flex;gap:10px;}
+  .inrow input{flex:1;padding:13px 14px;border:1.5px solid #cfdae4;border-radius:10px;font-size:1rem;}
+  .inrow button{padding:13px 22px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;white-space:nowrap;}
+  .inrow button:disabled{background:#b9c8d4;cursor:wait;}
+  #status{margin-top:12px;font-size:.9rem;color:#51607a;min-height:1.2em;}
+  #report{display:none;margin-top:26px;}
+  .scoreRow{display:flex;align-items:center;gap:20px;padding:20px;background:var(--soft);border-radius:14px;flex-wrap:wrap;}
+  .scoreBig{font-size:2.8rem;font-weight:800;}
+  .scoreCtx{flex:1;min-width:220px;}
+  .scoreCtx .v{font-weight:700;font-size:1.05rem;margin-bottom:4px;}
+  .scoreCtx .m{font-size:.88rem;color:#51607a;line-height:1.4;}
+  .meter{height:10px;background:#dde7ee;border-radius:6px;overflow:hidden;margin-top:8px;}
+  .meter i{display:block;height:100%;border-radius:6px;transition:width .7s ease;}
+  h2{font-size:1.05rem;margin:26px 0 10px;}
+  .check{display:flex;gap:12px;padding:12px 0;border-top:1px solid #e9eef4;align-items:flex-start;}
+  .badge{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;margin-top:2px;}
+  .b-pass{background:var(--good);} .b-warn{background:var(--warn);} .b-fail{background:var(--bad);} .b-info{background:#8ea2b5;}
+  .check .t{font-weight:600;font-size:.95rem;}
+  .check .d{font-size:.87rem;color:#51607a;line-height:1.45;margin-top:2px;}
+  .engines{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px;}
+  @media(max-width:640px){.engines{grid-template-columns:1fr;}}
+  .eng{border:1.5px solid #e0e9f0;border-radius:12px;padding:14px;background:#fbfdfe;}
+  .eng .stage{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:8px;color:#fff;}
+  .eng h4{font-size:.98rem;margin-bottom:4px;}
+  .eng .es{font-size:1.35rem;font-weight:800;margin-bottom:4px;}
+  .eng p{font-size:.8rem;color:#41506a;line-height:1.45;}
+  .e1 .stage{background:var(--accent);} .e2 .stage{background:var(--good);} .e3 .stage{background:var(--purple);}
+  .foot{margin-top:22px;font-size:.83rem;color:#7a8699;line-height:1.5;}
+  ul.fix{margin:8px 0 0 18px;} ul.fix li{font-size:.92rem;line-height:1.5;margin-bottom:7px;}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+  <h1>Is your site visible to the engines <span>your buyers actually ask?</span></h1>
+  <p class="sub">Paste a URL. This analyzer fetches your homepage, your robots.txt, and your llms.txt, then checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
+  <div class="inrow">
+    <input type="url" id="url" placeholder="https://yourbrand.com" value="">
+    <button id="go">Analyze</button>
+  </div>
+  <div id="status"></div>
+
+  <div id="report">
+    <div class="scoreRow">
+      <div class="scoreBig" id="score">—</div>
+      <div class="scoreCtx">
+        <div class="v" id="verdict"></div>
+        <div class="m" id="verdictM"></div>
+        <div class="meter"><i id="bar"></i></div>
+      </div>
+    </div>
+
+    <h2>Per-engine readiness (each plays a different position in the journey)</h2>
+    <div class="engines">
+      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h4>ChatGPT</h4><div class="es" id="es1">—</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
+      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h4>Gemini + AI Overviews</h4><div class="es" id="es2">—</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
+      <div class="eng e3"><span class="stage">Research · Validation</span><h4>Perplexity</h4><div class="es" id="es3">—</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
+    </div>
+
+    <h2>What we found</h2>
+    <div id="checks"></div>
+
+    <h2>Fix first</h2>
+    <ul class="fix" id="fixes"></ul>
+  </div>
+
+  <p class="foot">Runs entirely in your browser; no data is stored. Homepage-level analysis via a public fetch proxy, so a few sites will refuse the request. This is the on-site half of GEO; the off-site half (whether third parties cite you) needs a query audit per engine. Built by a practitioner who grew a 9-figure brand's answer-layer citations 3.6x.</p>
+</div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const AI_BOTS=[
+ {ua:'GPTBot',eng:'ChatGPT (training/browse)',e:1},
+ {ua:'OAI-SearchBot',eng:'ChatGPT Search',e:1},
+ {ua:'ChatGPT-User',eng:'ChatGPT live browsing',e:1},
+ {ua:'Google-Extended',eng:'Gemini grounding',e:2},
+ {ua:'ClaudeBot',eng:'Claude',e:1},
+ {ua:'PerplexityBot',eng:'Perplexity',e:3},
+ {ua:'CCBot',eng:'Common Crawl (feeds many models)',e:1}
+];
+async function fetchText(url){
+  const tries=[
+    u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u),
+    u=>'https://corsproxy.io/?url='+encodeURIComponent(u)
+  ];
+  for(const wrap of tries){
+    try{
+      const r=await fetch(wrap(url),{signal:AbortSignal.timeout(15000)});
+      if(r.ok){const t=await r.text(); if(t && t.length>0) return t;}
+    }catch(e){}
+  }
+  return null;
+}
+function parseRobots(txt){
+  const groups=[]; let cur=null;
+  txt.split(/\r?\n/).forEach(line=>{
+    const l=line.replace(/#.*$/,'').trim(); if(!l)return;
+    const m=l.match(/^(user-agent|allow|disallow)\s*:\s*(.*)$/i); if(!m)return;
+    const k=m[1].toLowerCase(), v=m[2].trim();
+    if(k==='user-agent'){ if(!cur||cur.rules.length){cur={agents:[],rules:[]};groups.push(cur);} cur.agents.push(v.toLowerCase()); }
+    else if(cur){ cur.rules.push({type:k,path:v}); }
+  });
+  return groups;
+}
+function botBlocked(groups,ua){
+  const lu=ua.toLowerCase();
+  let g=groups.find(x=>x.agents.some(a=>a===lu));
+  if(!g) g=groups.find(x=>x.agents.includes('*'));
+  if(!g) return false;
+  return g.rules.some(r=>r.type==='disallow'&&(r.path==='/'||r.path==='/*'));
+}
+function add(list,status,title,desc){ list.push({status,title,desc}); }
+$('go').onclick=async()=>{
+  let url=$('url').value.trim(); if(!url) return;
+  if(!/^https?:\/\//i.test(url)) url='https://'+url;
+  let origin; try{origin=new URL(url).origin;}catch(e){$('status').textContent='That URL does not look valid.';return;}
+  $('go').disabled=true; $('report').style.display='none';
+  $('status').textContent='Fetching homepage, robots.txt, and llms.txt...';
+  const [html,robots,llms]=await Promise.all([fetchText(url),fetchText(origin+'/robots.txt'),fetchText(origin+'/llms.txt')]);
+  $('go').disabled=false;
+  if(!html){$('status').textContent='Could not fetch that site (it may block proxies). Try another URL or the bare domain.';return;}
+  $('status').textContent='';
+  const checks=[]; const fixes=[];
+  let e1=0,e1max=0,e2=0,e2max=0,e3=0,e3max=0;
+
+  // --- robots.txt AI access ---
+  if(robots&&/user-agent/i.test(robots)){
+    const groups=parseRobots(robots);
+    const blocked=AI_BOTS.filter(b=>botBlocked(groups,b.ua));
+    AI_BOTS.forEach(b=>{const m=b.e===1?(e1max+=2):b.e===2?(e2max+=2):(e3max+=2);});
+    if(blocked.length===0){
+      add(checks,'pass','All major AI crawlers allowed','GPTBot, OAI-SearchBot, ChatGPT-User, Google-Extended, ClaudeBot, PerplexityBot, and CCBot can all read this site.');
+      e1+= AI_BOTS.filter(b=>b.e===1).length*2; e2+=AI_BOTS.filter(b=>b.e===2).length*2; e3+=AI_BOTS.filter(b=>b.e===3).length*2;
+    } else {
+      blocked.forEach(b=>{add(checks,'fail','robots.txt blocks '+b.ua,'You are telling '+b.eng+' not to read your site. You cannot be cited by an engine you lock out.');});
+      const allowed=AI_BOTS.filter(b=>!botBlocked(groups,b.ua));
+      allowed.forEach(b=>{if(b.e===1)e1+=2;else if(b.e===2)e2+=2;else e3+=2;});
+      fixes.push('Unblock the AI crawlers in robots.txt ('+blocked.map(b=>b.ua).join(', ')+'). This is the single fastest GEO fix that exists.');
+    }
+  } else {
+    AI_BOTS.forEach(b=>{b.e===1?(e1max+=2,e1+=2):b.e===2?(e2max+=2,e2+=2):(e3max+=2,e3+=2);});
+    add(checks,'warn','robots.txt not readable','Could not fetch robots.txt. If it exists and blocks AI crawlers, nothing else on this report matters. Verify manually at '+origin+'/robots.txt');
+  }
+
+  // --- llms.txt ---
+  e1max+=1;e2max+=1;e3max+=1;
+  if(llms&&llms.length>20&&!/^\s*</.test(llms)){
+    add(checks,'pass','llms.txt found','You publish an llms.txt, an emerging standard that hands AI engines a curated map of your best content. Very few sites have this.');
+    e1+=1;e2+=1;e3+=1;
+  } else {
+    add(checks,'info','No llms.txt','An emerging standard (llmstxt.org): a markdown file that tells AI engines what your site is and where your best content lives. Cheap to add, early-mover advantage.');
+    fixes.push('Publish an llms.txt at '+origin+'/llms.txt with a one-paragraph brand description and links to your cornerstone content.');
+  }
+
+  // --- parse HTML ---
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const text=(doc.body?doc.body.innerText||doc.body.textContent||'':'').replace(/\s+/g,' ').trim();
+
+  // JS-shell detection
+  e1max+=2;e2max+=2;e3max+=2;
+  if(text.length<600){
+    add(checks,'fail','Site appears client-rendered (JS shell)','The raw HTML contains almost no readable text ('+text.length+' chars). Most AI crawlers do not execute JavaScript, so to them this page is nearly empty.');
+    fixes.push('Server-render or pre-render key pages. If the HTML is empty, you are invisible to most AI crawlers regardless of content quality.');
+  } else {
+    add(checks,'pass','Readable server-side content','The raw HTML carries '+text.length.toLocaleString()+' characters of readable text. Crawlers that skip JavaScript can still read you.');
+    e1+=2;e2+=2;e3+=2;
+  }
+
+  // Title & meta description
+  e2max+=1;
+  const title=(doc.querySelector('title')||{}).textContent||'';
+  const md=doc.querySelector('meta[name="description"]');
+  if(title&&md&&md.content&&md.content.length>50){
+    add(checks,'pass','Title + meta description present','"'+title.trim().slice(0,80)+'" with a substantive description. Engines use these to understand and summarize you.');
+    e2+=1;
+  } else {
+    add(checks,'warn','Weak title or meta description','Missing or thin. This is how engines summarize who you are; write it like the one-sentence answer you want quoted.');
+    fixes.push('Write a meta description that answers "what is this brand?" in one quotable sentence.');
+  }
+
+  // JSON-LD structured data
+  e2max+=3;
+  const ld=[...doc.querySelectorAll('script[type="application/ld+json"]')];
+  let types=[];
+  ld.forEach(s=>{try{const j=JSON.parse(s.textContent);const arr=Array.isArray(j)?j:(j['@graph']||[j]);arr.forEach(o=>{if(o&&o['@type'])types=types.concat(o['@type']);});}catch(e){}});
+  types=[...new Set(types.flat())];
+  if(types.length){
+    add(checks,'pass','Structured data found: '+types.slice(0,6).join(', '),'JSON-LD gives engines machine-readable facts about you. Types found: '+types.join(', ')+'.');
+    e2+=2;
+    if(types.some(t=>/organization|localbusiness|brand/i.test(t))) e2+=1;
+    else {add(checks,'warn','No Organization schema','Entity authority (what Gemini rewards) starts with Organization/Brand schema plus sameAs links to your profiles.'); fixes.push('Add Organization schema with sameAs links to your LinkedIn, Wikipedia/Wikidata, and social profiles.');}
+  } else {
+    add(checks,'fail','No structured data (JSON-LD)','No machine-readable markup at all. Engines have to guess what you are. Gemini and AI Overviews lean on entity data heavily.');
+    fixes.push('Add JSON-LD: Organization (with sameAs), plus FAQPage/Product/Article where relevant.');
+  }
+
+  // FAQ / question-style headings
+  e1max+=2;e3max+=1;
+  const heads=[...doc.querySelectorAll('h1,h2,h3')].map(h=>h.textContent.trim());
+  const qHeads=heads.filter(h=>/\?$/.test(h)||/^(how|what|why|which|when|can|does|do|is|are|should)\b/i.test(h));
+  const hasFaqSchema=types.some(t=>/faqpage/i.test(t));
+  if(hasFaqSchema||qHeads.length>=2){
+    add(checks,'pass','Answer-first content signals','Found '+(hasFaqSchema?'FAQPage schema':'')+(hasFaqSchema&&qHeads.length?' and ':'')+(qHeads.length?qHeads.length+' question-style headings':'')+'. Engines lift answers; you are giving them answers to lift.');
+    e1+=2;e3+=1;
+  } else {
+    add(checks,'warn','No question-answering content on this page','No FAQ schema and no question-style headings. AI answers are assembled from content that asks and answers real questions in plain language.');
+    fixes.push('Create answer-first content: real buyer questions as headings, direct answers underneath, FAQPage schema on top.');
+  }
+
+  // Freshness
+  e2max+=1;
+  const dates=html.match(/dateModified|datePublished|article:modified_time/gi);
+  if(dates&&dates.length){ add(checks,'pass','Freshness signals present','Machine-readable dates found. Engines assembling answers prefer content they can date.'); e2+=1; }
+  else { add(checks,'info','No machine-readable dates','No dateModified/datePublished markup. Add dates to cornerstone content; stale-looking pages fade from citations.'); }
+
+  // Off-site note
+  add(checks,'info','What this cannot check from here','Third-party corroboration (press, reviews, forums) drives ChatGPT citations, and only a per-engine query audit shows whether you appear for your category questions. That is the other half of GEO.');
+
+  // scores
+  const pct=(n,m)=>m?Math.round(n/m*100):0;
+  const s1=pct(e1,e1max), s2=pct(e2,e2max), s3=pct(e3,e3max);
+  const overall=Math.round((s1+s2+s3)/3);
+  $('es1').textContent=s1+'%'; $('es2').textContent=s2+'%'; $('es3').textContent=s3+'%';
+  $('score').textContent=overall;
+  const bar=$('bar'); bar.style.width=overall+'%';
+  let color,v,m;
+  if(overall>=75){color='var(--good)';v='Answer-layer ready.';m='Ahead of most of your category on the on-site half of GEO. Now audit the off-site half: who cites you.';}
+  else if(overall>=45){color='var(--warn)';v='Visible but fragile.';m='Engines can partly see you, but the gaps below are exactly where a competitor takes your spot in the answer.';}
+  else{color='var(--bad)';v='Nearly invisible to answer engines.';m='Your buyers are getting AI answers assembled without you. The fixes below are ranked; start at the top.';}
+  $('verdict').textContent=v; $('verdict').style.color=color; $('verdictM').textContent=m; bar.style.background=color;
+  const cc=$('checks'); cc.innerHTML='';
+  checks.forEach(c=>{
+    const d=document.createElement('div');d.className='check';
+    const b=document.createElement('div');b.className='badge b-'+c.status;b.textContent=c.status==='pass'?'✓':c.status==='fail'?'✕':c.status==='warn'?'!':'i';
+    const w=document.createElement('div');w.innerHTML='<div class="t">'+c.title+'</div><div class="d">'+c.desc+'</div>';
+    d.appendChild(b);d.appendChild(w);cc.appendChild(d);
+  });
+  const fl=$('fixes'); fl.innerHTML='';
+  (fixes.length?fixes:['Nothing structural to fix on this page. Move to the off-site half: run a 20-query audit per engine and count your citations.']).forEach(f=>{const li=document.createElement('li');li.textContent=f;fl.appendChild(li);});
+  $('report').style.display='block';
+  $('report').scrollIntoView({behavior:'smooth'});
+};
+$('url').addEventListener('keydown',e=>{if(e.key==='Enter')$('go').click();});
+</script>
+</body>
+</html>
