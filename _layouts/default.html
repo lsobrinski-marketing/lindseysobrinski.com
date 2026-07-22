@@ -74,8 +74,8 @@
   "url": "{{ site.url }}",
   "email": "{{ site.author.email }}",
   "jobTitle": "{{ site.author.jobTitle }}",
-{%- if site.og_image %}
-  "image": "{{ site.url }}{{ site.og_image }}",
+{%- if site.portrait_image or site.og_image %}
+  "image": "{{ site.url }}{{ site.portrait_image | default: site.og_image }}",
 {%- endif %}
   "knowsAbout": ["Performance Marketing","SEO","AEO","GEO","Generative Engine Optimization","Answer Engine Optimization","Paid Media","Media Mix Modeling","Incrementality","Lifecycle Marketing","Retention Marketing","Subscription Economics","Conversion Rate Optimization","User Journey Mapping","DTC Growth","AI Marketing Agents"],
   "sameAs": ["{{ site.author.linkedin }}"]

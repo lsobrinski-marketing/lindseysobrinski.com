@@ -22,8 +22,10 @@ kramdown:
 permalink: /blog/:title/
 timezone: America/Chicago
 
-# Social share image. 1424x752 (~1.89:1), which is what Open Graph wants.
-og_image: /assets/img/lindsey-sobrinski.jpg
+# Social share image, cut to exactly 1200x630 — the Open Graph target size.
+og_image: /assets/img/lindsey-hero.jpg
+# Used for Person.image in schema, where an actual portrait is the right subject.
+portrait_image: /assets/img/lindsey-portrait.jpg
 
 plugins:
   - jekyll-feed

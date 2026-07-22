@@ -72,23 +72,30 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
 .go.soon{color:#8ea2b5;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
 
 /* ---------- hero ---------- */
-.hero-grid{
-  display:grid;grid-template-columns:1fr 290px;
-  gap:34px;align-items:center;margin-bottom:8px;
-}
-.hero-grid .lede{margin-bottom:0;}
-/* The source art has the site URL set beneath the portrait, which is redundant
-   here. Crop it off with object-position rather than re-cutting the file, so
-   the original stays intact and reversible. */
-.hero-portrait{
+.hero-banner{
   display:block;width:100%;height:auto;
-  aspect-ratio:1024/872;object-fit:cover;object-position:center top;
-  border-radius:14px;
+  margin:26px 0 4px;border-radius:14px;
 }
 @media(max-width:700px){
-  .hero-grid{grid-template-columns:1fr;gap:22px;}
-  /* portrait first on narrow screens would push the H1 below the fold */
-  .hero-portrait{max-width:260px;margin:0 auto;}
+  /* A 1.9:1 banner on a phone renders the face about 90px tall. Re-crop toward
+     the portrait side so she stays the subject; the circuit art is atmosphere
+     and can be sacrificed. Art direction in CSS rather than a second file. */
+  .hero-banner{
+    aspect-ratio:5/4;object-fit:cover;object-position:26% center;
+  }
+}
+
+/* ---------- portrait (about page) ---------- */
+/* The source art sets the site URL beneath the portrait, which is redundant on
+   the site itself. Crop it with object-position rather than re-cutting the
+   file, so the original stays intact and reversible. */
+.portrait{
+  display:block;width:100%;max-width:240px;height:auto;
+  aspect-ratio:1024/872;object-fit:cover;object-position:center top;
+  border-radius:14px;float:right;margin:0 0 18px 22px;
+}
+@media(max-width:640px){
+  .portrait{float:none;margin:0 auto 20px;max-width:220px;}
 }
 
 /* ---------- inline SVG diagrams ---------- */
