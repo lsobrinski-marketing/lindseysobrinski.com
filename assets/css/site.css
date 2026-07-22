@@ -71,11 +71,24 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
 .tile-soon h3{color:#51607a;}
 .go.soon{color:#8ea2b5;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
 
-/* ---------- hero image ---------- */
-.hero-img{
+/* ---------- hero ---------- */
+.hero-grid{
+  display:grid;grid-template-columns:1fr 290px;
+  gap:34px;align-items:center;margin-bottom:8px;
+}
+.hero-grid .lede{margin-bottom:0;}
+/* The source art has the site URL set beneath the portrait, which is redundant
+   here. Crop it off with object-position rather than re-cutting the file, so
+   the original stays intact and reversible. */
+.hero-portrait{
   display:block;width:100%;height:auto;
-  margin:26px 0 4px;border-radius:14px;
-  box-shadow:0 4px 18px rgba(26,35,51,.06);
+  aspect-ratio:1024/872;object-fit:cover;object-position:center top;
+  border-radius:14px;
+}
+@media(max-width:700px){
+  .hero-grid{grid-template-columns:1fr;gap:22px;}
+  /* portrait first on narrow screens would push the H1 below the fold */
+  .hero-portrait{max-width:260px;margin:0 auto;}
 }
 
 /* ---------- inline SVG diagrams ---------- */
@@ -146,7 +159,12 @@ a.pill:hover{background:#e2ecf4;}
 footer.sitefoot{margin-top:52px;padding:20px 0 40px;border-top:1px solid var(--line);font-size:.85rem;color:#7a8699;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 footer.sitefoot a{color:var(--accent);text-decoration:none;}
 
-@media(max-width:640px){
+@media(max-width:700px){
   h1{font-size:1.65rem;}
   .wrap{padding-top:28px;}
+  /* The flex spacer pushes "About" onto a line of its own once the nav wraps,
+     which reads as broken. Drop it and let the links flow. */
+  .sitenav .spacer{display:none;}
+  .sitenav{gap:10px 14px;font-size:.9rem;}
+  .sitenav .brand{flex-basis:100%;margin-right:0;}
 }
