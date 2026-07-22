@@ -71,6 +71,13 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
 .tile-soon h3{color:#51607a;}
 .go.soon{color:#8ea2b5;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
 
+/* ---------- hero image ---------- */
+.hero-img{
+  display:block;width:100%;height:auto;
+  margin:26px 0 4px;border-radius:14px;
+  box-shadow:0 4px 18px rgba(26,35,51,.06);
+}
+
 /* ---------- inline SVG diagrams ---------- */
 /* Authored as SVG rather than raster so the labels stay crawlable, stay sharp
    on retina, and weigh a few KB. The text inside is real <text>, not pixels. */

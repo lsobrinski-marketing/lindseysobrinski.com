@@ -7,6 +7,15 @@ description: "Growth and performance marketing: cross-channel paid media, SEO/AE
 <div class="hero">
   <h1>Lindsey Sobrinski<br><span>Growth that survives the measurement.</span></h1>
   <p class="lede">I build growth systems end to end: cross-channel paid media, SEO/AEO/GEO from a standing start, lifecycle and retention, and the analytics that keep it all honest. I allocate by incrementality and contribution, not platform-reported ROAS, and I do the work as readily as I lead it.</p>
+  {%- comment -%}
+    Above the fold, so it is eagerly loaded with high priority. Explicit
+    width/height reserve the box and prevent layout shift while it decodes.
+  {%- endcomment -%}
+  <img class="hero-img"
+       src="/assets/img/lindsey-sobrinski.jpg"
+       width="1424" height="752"
+       fetchpriority="high" decoding="async"
+       alt="Illustrated portrait of Lindsey Sobrinski beside a circuit-board pattern of linked terminals and binary, representing AI-driven marketing measurement.">
 </div>
 
 <h2>Four lanes</h2>

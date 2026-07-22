@@ -22,6 +22,9 @@ kramdown:
 permalink: /blog/:title/
 timezone: America/Chicago
 
+# Social share image. 1424x752 (~1.89:1), which is what Open Graph wants.
+og_image: /assets/img/lindsey-sobrinski.jpg
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
