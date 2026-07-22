@@ -127,9 +127,32 @@ on push either way.
 
 ## Known follow-ups
 
+- **Category colors do not map to lane colors.** Five of the eight entries in
+  `_data/categories.yml` use a color that contradicts their lane: GEO is purple
+  but belongs to the blue lane, Lifecycle and Subscriptions are green but the
+  Lifecycle lane is purple, User Journey and Conversion Optimization should both
+  be amber. Making color mean *lane* turns it into wayfinding instead of
+  decoration.
+- **Pill text contrast fails WCAG AA.** The lane colors were chosen for 4px card
+  borders, where contrast rules do not apply. As `.pill` text on `--soft` they
+  are marginal: amber (`#c98a1b`) is roughly 2.6:1 and green (`#1e8e5a`) roughly
+  3.5:1, both under the 4.5:1 AA needs for small text. Add darker text variants
+  (amber to around `#8a5e12`) and keep the vivid originals for borders and fills.
+- **Four tools are advertised as "In build"** on the Lifecycle and User Journey
+  lanes. Committed for the week of 2026-07-27. Giving an entry a `url` in the
+  lane's `tools:` front matter makes it stop rendering as "In build".
 - The three interactive tools (`geo.html`, `roas.html`, `scorecard.html`) are
-  passthrough files with their own inline styles, so they do not show the shared
-  site nav. Converting them to use `_layouts/default.html` would unify
-  navigation but means untangling their self-contained `<style>` blocks.
-- No OG images are set. Adding a default social share image would improve link
-  previews.
+  passthrough files with their own inline styles. They now carry a hand-rolled
+  nav, meta description, canonical, and `WebApplication` schema, but they still
+  do not share `_layouts/default.html`, so their styling has to be maintained
+  separately.
+- Seven of eight blog categories are empty and therefore `noindex` until a post
+  lands. That is correct behavior, but it is a content-volume gap, not a
+  technical one.
+
+## Local checks
+
+There is no Jekyll on the author's machine (system Ruby is 2.6; `github-pages`
+needs 3.x), so GitHub Pages performs the only real build. Before pushing, it is
+worth confirming the front matter YAML parses and the JSON-LD is valid — a
+broken `faq:` block or an unescaped quote will fail the remote build.
