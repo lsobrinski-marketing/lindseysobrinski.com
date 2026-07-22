@@ -1,0 +1,72 @@
+<svg class="figure-svg" viewBox="0 0 780 250" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-labelledby="eng-title eng-desc" preserveAspectRatio="xMidYMid meet">
+  <title id="eng-title">Generative Engine Optimization: one play per engine</title>
+  <desc id="eng-desc">Each AI answer engine sits at a different stage of the buyer journey. ChatGPT acts as
+    the awareness layer and rewards citations and third-party corroboration. Gemini and AI Overviews sit in
+    consideration and reward entity authority and brand mentions. Perplexity is the research and validation
+    engine, with dense visible citations, where gated expertise does not exist.</desc>
+
+  <defs>
+    <marker id="jarw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8ea2b5"/>
+    </marker>
+  </defs>
+
+  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
+
+    <text x="390" y="14" text-anchor="middle" font-size="11" font-weight="700"
+          letter-spacing="0.08em" fill="#8ea2b5">GENERATIVE ENGINE OPTIMIZATION — ONE PLAY PER ENGINE</text>
+
+    <!-- ChatGPT : awareness -->
+    <g>
+      <rect x="0" y="30" width="244" height="152" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="0" y="30" width="244" height="4" rx="2" fill="#1D6FA3"/>
+      <rect x="16" y="48" width="84" height="19" rx="9.5" fill="#1D6FA3"/>
+      <text x="58" y="61" text-anchor="middle" font-size="9" font-weight="700"
+            letter-spacing="0.06em" fill="#ffffff">AWARENESS</text>
+      <text x="16" y="93" font-size="15" font-weight="700" fill="#1a2333">ChatGPT</text>
+      <text x="16" y="117" font-size="11" fill="#41506a">Rewards citations and third-party</text>
+      <text x="16" y="133" font-size="11" fill="#41506a">corroboration. Where your brand</text>
+      <text x="16" y="149" font-size="11" fill="#41506a">gets introduced.</text>
+      <text x="16" y="169" font-size="10" font-style="italic" fill="#8ea2b5">impressions, not clicks</text>
+    </g>
+
+    <!-- Gemini : consideration -->
+    <g>
+      <rect x="268" y="30" width="244" height="152" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="268" y="30" width="244" height="4" rx="2" fill="#1e8e5a"/>
+      <rect x="284" y="48" width="106" height="19" rx="9.5" fill="#1e8e5a"/>
+      <text x="337" y="61" text-anchor="middle" font-size="9" font-weight="700"
+            letter-spacing="0.06em" fill="#ffffff">CONSIDERATION</text>
+      <text x="284" y="93" font-size="15" font-weight="700" fill="#1a2333">Gemini + AI Overviews</text>
+      <text x="284" y="117" font-size="11" fill="#41506a">Rewards entity authority and</text>
+      <text x="284" y="133" font-size="11" fill="#41506a">brand mentions while buyers</text>
+      <text x="284" y="149" font-size="11" fill="#41506a">compare and shortlist.</text>
+      <text x="284" y="169" font-size="10" font-style="italic" fill="#8ea2b5">decided inside the answer box</text>
+    </g>
+
+    <!-- Perplexity : validation -->
+    <g>
+      <rect x="536" y="30" width="244" height="152" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="536" y="30" width="244" height="4" rx="2" fill="#7a5ea8"/>
+      <rect x="552" y="48" width="88" height="19" rx="9.5" fill="#7a5ea8"/>
+      <text x="596" y="61" text-anchor="middle" font-size="9" font-weight="700"
+            letter-spacing="0.06em" fill="#ffffff">VALIDATION</text>
+      <text x="552" y="93" font-size="15" font-weight="700" fill="#1a2333">Perplexity</text>
+      <text x="552" y="117" font-size="11" fill="#41506a">Dense citations, sources on</text>
+      <text x="552" y="133" font-size="11" fill="#41506a">display. Gated expertise does</text>
+      <text x="552" y="149" font-size="11" fill="#41506a">not exist here.</text>
+      <text x="552" y="169" font-size="10" font-style="italic" fill="#8ea2b5">the researcher's engine</text>
+    </g>
+
+    <!-- journey axis -->
+    <line x1="8" y1="212" x2="772" y2="212" stroke="#8ea2b5" stroke-width="1.5" marker-end="url(#jarw)"/>
+    <circle cx="122" cy="212" r="3.5" fill="#1D6FA3"/>
+    <circle cx="390" cy="212" r="3.5" fill="#1e8e5a"/>
+    <circle cx="658" cy="212" r="3.5" fill="#7a5ea8"/>
+    <text x="8" y="236" font-size="10" font-weight="600" fill="#8ea2b5">first question asked</text>
+    <text x="772" y="236" text-anchor="end" font-size="10" font-weight="600" fill="#8ea2b5">decision made</text>
+    <text x="390" y="236" text-anchor="middle" font-size="10" font-weight="700"
+          letter-spacing="0.05em" fill="#8ea2b5">THE BUYER JOURNEY</text>
+  </g>
+</svg>

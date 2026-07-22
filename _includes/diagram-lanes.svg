@@ -1,0 +1,71 @@
+<svg class="figure-svg" viewBox="0 0 780 232" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-labelledby="lanes-title lanes-desc" preserveAspectRatio="xMidYMid meet">
+  <title id="lanes-title">Four lanes, one growth system</title>
+  <desc id="lanes-desc">SEO, AEO and GEO builds visibility; paid media creates demand; lifecycle drives
+    retention and expansion; user journey work converts. Measurement from each lane re-informs the
+    other three.</desc>
+
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8ea2b5"/>
+    </marker>
+    <marker id="arwS" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8ea2b5"/>
+    </marker>
+  </defs>
+
+  <g font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
+
+    <!-- lane 1 -->
+    <g>
+      <rect x="0" y="30" width="174" height="88" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="0" y="30" width="174" height="4" rx="2" fill="#1D6FA3"/>
+      <text x="87" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#1a2333">SEO / AEO / GEO</text>
+      <text x="87" y="86" text-anchor="middle" font-size="11" fill="#51607a">organic and AI-search</text>
+      <text x="87" y="101" text-anchor="middle" font-size="11" fill="#51607a">visibility</text>
+    </g>
+
+    <!-- lane 2 -->
+    <g>
+      <rect x="202" y="30" width="174" height="88" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="202" y="30" width="174" height="4" rx="2" fill="#1e8e5a"/>
+      <text x="289" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#1a2333">Paid Media</text>
+      <text x="289" y="86" text-anchor="middle" font-size="11" fill="#51607a">demand creation,</text>
+      <text x="289" y="101" text-anchor="middle" font-size="11" fill="#51607a">allocated by incrementality</text>
+    </g>
+
+    <!-- lane 3 -->
+    <g>
+      <rect x="404" y="30" width="174" height="88" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="404" y="30" width="174" height="4" rx="2" fill="#7a5ea8"/>
+      <text x="491" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#1a2333">Lifecycle</text>
+      <text x="491" y="86" text-anchor="middle" font-size="11" fill="#51607a">retention, churn,</text>
+      <text x="491" y="101" text-anchor="middle" font-size="11" fill="#51607a">subscription economics</text>
+    </g>
+
+    <!-- lane 4 -->
+    <g>
+      <rect x="606" y="30" width="174" height="88" rx="12" fill="#ffffff" stroke="#e0e9f0" stroke-width="1.5"/>
+      <rect x="606" y="30" width="174" height="4" rx="2" fill="#c98a1b"/>
+      <text x="693" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#1a2333">User Journey</text>
+      <text x="693" y="86" text-anchor="middle" font-size="11" fill="#51607a">where intent dies,</text>
+      <text x="693" y="101" text-anchor="middle" font-size="11" fill="#51607a">and the test that proves it</text>
+    </g>
+
+    <!-- connectors between adjacent lanes -->
+    <line x1="178" y1="74" x2="198" y2="74" stroke="#8ea2b5" stroke-width="1.5" marker-end="url(#arw)" marker-start="url(#arwS)"/>
+    <line x1="380" y1="74" x2="400" y2="74" stroke="#8ea2b5" stroke-width="1.5" marker-end="url(#arw)" marker-start="url(#arwS)"/>
+    <line x1="582" y1="74" x2="602" y2="74" stroke="#8ea2b5" stroke-width="1.5" marker-end="url(#arw)" marker-start="url(#arwS)"/>
+
+    <!-- feedback loop -->
+    <path d="M693,118 C693,170 87,170 87,122" fill="none" stroke="#8ea2b5" stroke-width="1.5"
+          stroke-dasharray="5 4" marker-end="url(#arw)"/>
+    <rect x="252" y="150" width="276" height="22" rx="11" fill="#eef4f8"/>
+    <text x="390" y="165" text-anchor="middle" font-size="11" font-weight="600" fill="#41506a">
+      measurement from each lane re-informs the others
+    </text>
+
+    <text x="390" y="14" text-anchor="middle" font-size="11" font-weight="700"
+          letter-spacing="0.08em" fill="#8ea2b5">ONE SYSTEM, FOUR ENTRY POINTS</text>
+  </g>
+</svg>

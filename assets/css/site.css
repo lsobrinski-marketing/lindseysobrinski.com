@@ -71,6 +71,18 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
 .tile-soon h3{color:#51607a;}
 .go.soon{color:#8ea2b5;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
 
+/* ---------- inline SVG diagrams ---------- */
+/* Authored as SVG rather than raster so the labels stay crawlable, stay sharp
+   on retina, and weigh a few KB. The text inside is real <text>, not pixels. */
+.figure{margin:22px 0 30px;}
+.figure-svg{display:block;width:100%;height:auto;}
+.figure figcaption{margin-top:10px;font-size:.85rem;color:var(--muted);line-height:1.5;}
+@media(max-width:640px){
+  /* the three-column engine map gets unreadable below ~560px; let it scroll */
+  .figure.scroll-sm{overflow-x:auto;}
+  .figure.scroll-sm .figure-svg{min-width:560px;}
+}
+
 /* ---------- table of contents ---------- */
 .toc{background:var(--soft);border-radius:14px;padding:20px 24px;margin:26px 0 34px;border-left:4px solid var(--accent);}
 .toc h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:0 0 10px;}
