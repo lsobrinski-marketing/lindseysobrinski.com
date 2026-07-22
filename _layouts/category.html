@@ -20,6 +20,7 @@ layout: default
 </div>
 
 {% if posts.size > 0 %}
+<h2>{{ posts.size }} post{% unless posts.size == 1 %}s{% endunless %} in {{ cat.name }}</h2>
 <ul class="post-list">
   {%- for post in posts %}
   <li>

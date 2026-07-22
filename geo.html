@@ -3,7 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEO Site Analyzer — is your site visible to AI answer engines?</title>
+<title>GEO Site Analyzer — Free AI Search Visibility Check</title>
+<meta name="description" content="Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.">
+<link rel="canonical" href="https://lindseysobrinski.com/geo.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lindsey Sobrinski">
+<meta property="og:title" content="GEO Site Analyzer">
+<meta property="og:description" content="Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.">
+<meta property="og:url" content="https://lindseysobrinski.com/geo.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://lindseysobrinski.com/geo.html#app",
+  "name": "GEO Site Analyzer",
+  "url": "https://lindseysobrinski.com/geo.html",
+  "description": "Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (runs in the browser)",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@id": "https://lindseysobrinski.com/#person" },
+  "publisher": { "@id": "https://lindseysobrinski.com/#person" },
+  "about": { "@type": "Thing", "name": "Generative Engine Optimization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lindseysobrinski.com/" },
+    { "@type": "ListItem", "position": 2, "name": "GEO Site Analyzer", "item": "https://lindseysobrinski.com/geo.html" }
+  ]
+}
+</script>
 <style>
   :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;--purple:#7a5ea8;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -36,7 +73,7 @@
   @media(max-width:640px){.engines{grid-template-columns:1fr;}}
   .eng{border:1.5px solid #e0e9f0;border-radius:12px;padding:14px;background:#fbfdfe;}
   .eng .stage{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:8px;color:#fff;}
-  .eng h4{font-size:.98rem;margin-bottom:4px;}
+  .eng h3{font-size:.98rem;margin-bottom:4px;}
   .eng .es{font-size:1.35rem;font-weight:800;margin-bottom:4px;}
   .eng p{font-size:.8rem;color:#41506a;line-height:1.45;}
   .e1 .stage{background:var(--accent);} .e2 .stage{background:var(--good);} .e3 .stage{background:var(--purple);}
@@ -45,6 +82,7 @@
 </style>
 </head>
 <body>
+<nav style="max-width:780px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
 <div class="wrap"><div class="card">
   <h1>Is your site visible to the engines <span>your buyers actually ask?</span></h1>
   <p class="sub">Paste a URL. This analyzer fetches your homepage, your robots.txt, and your llms.txt, then checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
@@ -66,9 +104,9 @@
 
     <h2>Per-engine readiness (each plays a different position in the journey)</h2>
     <div class="engines">
-      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h4>ChatGPT</h4><div class="es" id="es1">—</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
-      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h4>Gemini + AI Overviews</h4><div class="es" id="es2">—</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
-      <div class="eng e3"><span class="stage">Research · Validation</span><h4>Perplexity</h4><div class="es" id="es3">—</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
+      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h3>ChatGPT</h3><div class="es" id="es1">—</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
+      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h3>Gemini + AI Overviews</h3><div class="es" id="es2">—</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
+      <div class="eng e3"><span class="stage">Research · Validation</span><h3>Perplexity</h3><div class="es" id="es3">—</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
     </div>
 
     <h2>What we found</h2>

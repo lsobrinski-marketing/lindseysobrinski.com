@@ -5,10 +5,7 @@ title: Paid Media Analysis & Strategy
 eyebrow: Lane 02 — Performance Media
 lane_class: lane-paid
 service_type: Paid Media Strategy and Marketing Analytics
-description: >-
-  Cross-channel paid media planning, buying, and allocation across paid social,
-  search, programmatic, video, CTV, and OOH — with budget decisions made on
-  incrementality and contribution margin rather than platform-reported ROAS.
+description: "Cross-channel paid media planning and buying, with budget allocated by incrementality and contribution margin rather than platform-reported ROAS."
 lede: >-
   Every ad platform grades its own homework, and every one of them gives itself
   an A. The question that matters is not what the campaign reported. It is what

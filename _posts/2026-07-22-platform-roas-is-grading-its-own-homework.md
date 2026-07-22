@@ -1,11 +1,9 @@
 ---
 title: "Platform ROAS is grading its own homework"
+seo_title: "Platform ROAS is grading its own homework"   # bare title; with the site suffix it exceeds 60 chars
 category: paid-media
 tags: [incrementality, ROAS, media mix modeling, attribution]
-description: >-
-  Every ad platform reports on the conversions it can see and stays silent about
-  the counterfactual. Here is how to tell how much of your reported return is
-  real, and what to run first if you suspect it is not.
+description: "Every ad platform reports the conversions it can see and stays silent on the counterfactual. How to tell how much of your reported return is actually real."
 faq:
   - q: What is the difference between reported ROAS and incremental ROAS?
     a: >-

@@ -3,17 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
-<meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+{%- comment -%}
+  Resolve title/description once. Category stub pages carry no title of their
+  own, so without this they inherit the site defaults and every one of them
+  ships a duplicate <title> and duplicate meta description.
+  Order matters: posts have both a title and a category, so title wins.
+{%- endcomment -%}
+{%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+{%- if page.seo_title -%}
+  {%- assign ptitle = page.seo_title -%}
+{%- elsif page.title -%}
+  {%- assign ptitle = page.title | append: " — " | append: site.title -%}
+{%- elsif cat -%}
+  {%- assign ptitle = cat.name | append: " — Blog — " | append: site.title -%}
+{%- else -%}
+  {%- assign ptitle = site.title | append: " — " | append: site.tagline -%}
+{%- endif -%}
+{%- if page.description -%}
+  {%- assign pdesc = page.description -%}
+{%- elsif cat -%}
+  {%- assign pdesc = cat.blurb -%}
+{%- else -%}
+  {%- assign pdesc = site.description -%}
+{%- endif -%}
+{%- assign pdesc = pdesc | strip_newlines | normalize_whitespace | strip -%}
+
+<title>{{ ptitle }}</title>
+<meta name="description" content="{{ pdesc }}">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/blog/feed.xml">
 
+{%- comment -%}
+  An archive with nothing in it is thin content. Keep empty category pages out
+  of the index until they have posts, but follow the links so the crawl still
+  reaches everything. They become indexable on their own once a post lands.
+{%- endcomment -%}
+{%- assign catposts = site.posts | where: "category", page.category -%}
+{%- if page.layout == 'category' and catposts.size == 0 %}
+<meta name="robots" content="noindex,follow">
+{%- elsif page.noindex %}
+<meta name="robots" content="noindex,follow">
+{%- else %}
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+{%- endif %}
+
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-<meta property="og:title" content="{{ page.title | default: site.title }}">
-<meta property="og:description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ page.title | default: cat.name | default: site.title }}">
+<meta property="og:description" content="{{ pdesc }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+{%- if site.og_image %}
+<meta property="og:image" content="{{ site.url }}{{ site.og_image }}">
 <meta name="twitter:card" content="summary_large_image">
+{%- else %}
+<meta name="twitter:card" content="summary">
+{%- endif %}
+{%- if page.layout == 'post' %}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+<meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+{%- endif %}
 
 {%- comment -%} Organization/Person entity, sitewide. Entity authority starts here. {%- endcomment -%}
 <script type="application/ld+json">

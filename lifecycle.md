@@ -5,10 +5,7 @@ title: Lifecycle Marketing & Retention
 eyebrow: Lane 03 — Lifecycle & Retention
 lane_class: lane-lifecycle
 service_type: Lifecycle Marketing, Retention, and Subscription Strategy
-description: >-
-  Retention, loyalty, churn, and win-back programs — plus subscription
-  economics, cohort analysis, and the lifecycle architecture that decides
-  whether your acquisition spend was worth making in the first place.
+description: "Retention, loyalty, churn, and win-back — plus the subscription economics that decide whether your acquisition spend was worth making."
 lede: >-
   Acquisition decides how many customers you get. Retention decides whether
   getting them was a good idea. Most brands staff the first question generously

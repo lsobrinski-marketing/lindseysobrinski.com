@@ -5,10 +5,7 @@ title: User Journey & Conversion
 eyebrow: Lane 04 — Journey & Conversion
 lane_class: lane-journey
 service_type: Conversion Rate Optimization and User Journey Analysis
-description: >-
-  Mapping the real path from first touch to conversion, finding the steps where
-  intent quietly dies, and testing the fixes with enough rigor to tell a genuine
-  lift from noise.
+description: "Mapping the real path to conversion, finding the steps where intent quietly dies, and testing the fixes rigorously enough to tell real lift from noise."
 lede: >-
   Nobody abandons a funnel because they stopped wanting the thing. They abandon
   because something in the path asked for more than the moment could support.

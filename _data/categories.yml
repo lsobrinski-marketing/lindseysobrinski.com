@@ -1,5 +1,8 @@
 # Blog subcategories. Each needs a matching stub in blog/categories/<slug>.html
 # Order here drives the order of the category nav on the blog index.
+#
+# `blurb` is the visible lede AND the page's meta description, so keep it
+# under ~160 characters or it will truncate in search results.
 
 - slug: seo
   name: SEO
@@ -12,28 +15,28 @@
   name: AEO
   color: accent
   blurb: >-
-    Answer Engine Optimization. Structuring content so it gets lifted directly
-    into the answer box, where the click may never happen.
+    Answer Engine Optimization: structuring content so it gets lifted into the
+    answer box, where the click may never happen.
 
 - slug: geo
   name: GEO
   color: purple
   blurb: >-
-    Generative Engine Optimization. Getting cited by ChatGPT, Gemini,
-    Perplexity, and Claude — a different play per engine, per journey stage.
+    Generative Engine Optimization: getting cited by ChatGPT, Gemini, and
+    Perplexity, with a different play per engine and journey stage.
 
 - slug: paid-media
   name: Paid Media
   color: good
   blurb: >-
-    Planning, buying, and allocating across paid social, search, programmatic,
-    video, CTV, and OOH — judged on incremental impact, not reported ROAS.
+    Planning and buying across paid social, search, programmatic, video, CTV,
+    and OOH — judged on incremental impact, not reported ROAS.
 
 - slug: lifecycle
   name: Lifecycle
   color: good
   blurb: >-
-    Retention, loyalty, churn, and win-back. The half of growth that decides
+    Retention, loyalty, churn, and win-back: the half of growth that decides
     whether acquisition was worth paying for.
 
 - slug: subscriptions
@@ -47,8 +50,8 @@
   name: User Journey
   color: purple
   blurb: >-
-    Mapping the real path to conversion and finding the steps where intent
-    quietly dies.
+    Mapping the real path to conversion and finding the steps where buyer
+    intent quietly dies.
 
 - slug: conversion-optimization
   name: Conversion Optimization

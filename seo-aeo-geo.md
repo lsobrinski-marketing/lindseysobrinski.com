@@ -5,10 +5,7 @@ title: SEO, AEO, and GEO
 eyebrow: Lane 01 — Organic & AI Search
 lane_class: lane-seo
 service_type: Search Engine Optimization and Generative Engine Optimization
-description: >-
-  Organic and AI-search visibility built from a standing start: technical SEO,
-  answer engine optimization, and a distinct generative engine play for ChatGPT,
-  Gemini, Perplexity, and Claude — mapped to where each sits in the buyer journey.
+description: "Organic and AI-search visibility from a standing start: technical SEO, answer engine optimization, and a distinct GEO play for ChatGPT, Gemini, and Perplexity."
 lede: >-
   Search stopped being one thing. A buyer asks ChatGPT the open question, checks
   Google's answer box while comparing, and sends Perplexity after the details.
