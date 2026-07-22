@@ -1,101 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lindsey Sobrinski — Performance Marketing, SEO/AEO/GEO, and AI-Driven Measurement</title>
-<meta name="description" content="Lindsey Sobrinski is a growth and performance marketing leader: cross-channel paid media, SEO/AEO/GEO built from a standing start, lifecycle and retention, and AI-native measurement on incrementality and contribution, not platform-reported ROAS.">
+---
+layout: default
+permalink: /
+description: >-
+  Lindsey Sobrinski is a growth and performance marketing leader: cross-channel
+  paid media, SEO/AEO/GEO built from a standing start, lifecycle and retention,
+  and user-journey conversion work — allocated by incrementality and
+  contribution, not platform-reported ROAS.
+---
+
+<div class="hero">
+  <h1>Lindsey Sobrinski<br><span>Growth that survives the measurement.</span></h1>
+  <p class="lede">I build growth systems end to end: cross-channel paid media, SEO/AEO/GEO from a standing start, lifecycle and retention, and the analytics that keep it all honest. I allocate by incrementality and contribution, not platform-reported ROAS, and I do the work as readily as I lead it.</p>
+</div>
+
+<h2>Four lanes</h2>
+<p class="h2sub">They are one system. Each one makes the other three legible.</p>
+<div class="grid">
+  <a class="tile lane-seo" href="/seo-aeo-geo/">
+    <h3>SEO, AEO &amp; GEO</h3>
+    <p>Organic and AI-search visibility built from zero, with a distinct play per engine: ChatGPT for awareness, Gemini for consideration, Perplexity for research. Crawler access, structured data, answer-first content, and the off-site corroboration citations depend on.</p>
+    <span class="go">See the lane →</span>
+  </a>
+  <a class="tile lane-paid" href="/paid-media/">
+    <h3>Paid Media Analysis &amp; Strategy</h3>
+    <p>Planning and buying across paid social, search, programmatic, video, CTV, and OOH — with holdouts, geo tests, and media mix modeling establishing what each channel actually contributes before a budget moves.</p>
+    <span class="go">See the lane →</span>
+  </a>
+  <a class="tile lane-lifecycle" href="/lifecycle/">
+    <h3>Lifecycle Marketing</h3>
+    <p>Retention, loyalty, churn, and win-back, plus the subscription economics underneath them. Acquisition decides how many customers you get; this decides whether getting them was a good idea.</p>
+    <span class="go">See the lane →</span>
+  </a>
+  <a class="tile lane-journey" href="/user-journey/">
+    <h3>User Journey &amp; Conversion</h3>
+    <p>The real path buyers take, the steps where intent quietly dies, and experimentation run with enough rigor to tell a genuine lift from a lucky fortnight.</p>
+    <span class="go">See the lane →</span>
+  </a>
+</div>
+
+<h2>Tools</h2>
+<p class="h2sub">Interactive tools I built. Free, no signup, nothing collected. Use them, argue with them, share them.</p>
+<div class="grid three">
+  <a class="tile lane-seo" href="/geo.html">
+    <h3>GEO Site Analyzer</h3>
+    <p>Paste a URL and see what ChatGPT, Gemini, and Perplexity can actually read and cite: AI-crawler access, structured data, answer-first content, llms.txt, and a per-engine readiness score.</p>
+    <span class="go">Analyze a site →</span>
+  </a>
+  <a class="tile lane-paid" href="/roas.html">
+    <h3>Incrementality Gap Calculator</h3>
+    <p>Your platform says the campaign worked. How much of that was going to happen anyway? See the gap between reported ROAS and likely incremental ROAS.</p>
+    <span class="go">Run the numbers →</span>
+  </a>
+  <a class="tile lane-lifecycle" href="/scorecard.html">
+    <h3>AEO/GEO Readiness Scorecard</h3>
+    <p>Ten blunt questions on whether your brand is visible where buying decisions now start, with a score and a fix-first list.</p>
+    <span class="go">Get your score →</span>
+  </a>
+</div>
+
+{% if site.posts.size > 0 %}
+<h2>Latest writing</h2>
+<p class="h2sub"><a href="/blog/" style="color:var(--accent);font-weight:700;text-decoration:none;">All posts and categories →</a></p>
+<ul class="post-list">
+  {%- for post in site.posts limit: 3 %}
+  {%- assign cat = site.data.categories | where: "slug", post.category | first %}
+  <li>
+    <p class="post-meta">
+      {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    </p>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 32 }}</p>
+  </li>
+  {%- endfor %}
+</ul>
+{% endif %}
+
+<h2>About</h2>
+<div class="card">
+  <p>15+ years in growth and performance marketing across enterprise retail, B2B services, agencies, and subscription DTC. Player-coach, measurement-obsessed, AI-native. <a href="/about.html">Read the full story →</a></p>
+</div>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Lindsey Vandermaas Sobrinski",
-  "url": "https://lindseysobrinski.com",
-  "jobTitle": "Growth & Performance Marketing Leader",
-  "knowsAbout": ["Performance Marketing", "SEO", "AEO", "GEO", "Generative Engine Optimization", "Incrementality", "Media Mix Modeling", "DTC Growth", "AI Marketing Agents"],
-  "sameAs": ["https://www.linkedin.com/in/lindsey-vandermaas"]
+  "@type": "WebSite",
+  "@id": "{{ site.url }}/#website",
+  "url": "{{ site.url }}",
+  "name": "{{ site.title }}",
+  "description": {{ site.description | strip_newlines | strip | jsonify }},
+  "publisher": { "@id": "{{ site.url }}/#person" }
 }
 </script>
-<style>
-  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--purple:#7a5ea8;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;}
-  .wrap{max-width:860px;margin:0 auto;padding:56px 20px;}
-  .hero h1{font-size:2.1rem;line-height:1.2;}
-  .hero h1 span{color:var(--accent);}
-  .hero .tag{font-size:1.05rem;color:#41506a;margin:14px 0 6px;line-height:1.55;max-width:640px;}
-  .links{margin:18px 0 8px;}
-  .links a{display:inline-block;margin-right:14px;color:var(--accent);font-weight:600;text-decoration:none;font-size:.95rem;}
-  .links a:hover{text-decoration:underline;}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 10px;}
-  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr);}}
-  .stat{background:#fff;border-radius:14px;padding:18px 16px;box-shadow:0 4px 18px rgba(26,35,51,.06);}
-  .stat b{display:block;font-size:1.5rem;color:var(--accent);}
-  .stat span{font-size:.82rem;color:#51607a;line-height:1.35;display:block;margin-top:3px;}
-  h2{font-size:1.25rem;margin:44px 0 6px;}
-  .h2sub{color:#51607a;font-size:.95rem;margin-bottom:18px;}
-  .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  @media(max-width:680px){.tools{grid-template-columns:1fr;}}
-  .tool{background:#fff;border-radius:14px;padding:22px;box-shadow:0 4px 18px rgba(26,35,51,.06);display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:.15s;border-top:4px solid var(--accent);}
-  .tool:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(26,35,51,.12);}
-  .tool.t2{border-top-color:var(--good);} .tool.t3{border-top-color:var(--purple);}
-  .tool h3{font-size:1.02rem;margin-bottom:8px;}
-  .tool p{font-size:.88rem;color:#51607a;line-height:1.5;flex:1;}
-  .tool .go{margin-top:14px;font-weight:700;color:var(--accent);font-size:.9rem;}
-  .about{background:#fff;border-radius:14px;padding:26px;box-shadow:0 4px 18px rgba(26,35,51,.06);line-height:1.65;font-size:.97rem;color:#2b3850;}
-  .about p{margin-bottom:12px;} .about p:last-child{margin-bottom:0;}
-  footer{margin-top:52px;padding-top:20px;border-top:1px solid #dde7ee;font-size:.85rem;color:#7a8699;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
-  footer a{color:var(--accent);text-decoration:none;}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="hero">
-    <h1>Lindsey Sobrinski<br><span>Growth that survives the measurement.</span></h1>
-    <p class="tag">I build growth systems end to end: cross-channel paid media, SEO/AEO/GEO from a standing start, lifecycle and retention, and the analytics that keep it all honest. I allocate by incrementality and contribution, not platform-reported ROAS, and I do the work as readily as I lead it.</p>
-    <div class="links">
-      <a href="/about.html">About</a>
-      <a href="https://www.linkedin.com/in/lindsey-vandermaas" rel="me">LinkedIn</a>
-      <a href="mailto:lsobrinski@gmail.com">Email</a>
-    </div>
-  </div>
 
-  <div class="stats">
-    <div class="stat"><b>Performance media</b><span>planning and buying across paid social, search, programmatic, video, CTV, and OOH, with budgets allocated by incremental impact</span></div>
-    <div class="stat"><b>SEO / AEO / GEO</b><span>organic and AI-search visibility built from zero, with a playbook per engine: ChatGPT, Gemini, Perplexity</span></div>
-    <div class="stat"><b>Lifecycle & retention</b><span>subscription economics, loyalty, churn, and win-back, from enterprise retail to DTC turnarounds</span></div>
-    <div class="stat"><b>AI-native measurement</b><span>custom agents for reporting, forecasting, and media-mix modeling, with a human on top validating the decision chain</span></div>
-  </div>
-
-  <h2>Tools</h2>
-  <p class="h2sub">Interactive tools I built. Free, no signup, nothing collected. Use them, argue with them, share them.</p>
-  <div class="tools">
-    <a class="tool" href="/geo.html">
-      <h3>GEO Site Analyzer</h3>
-      <p>Paste a URL and see what ChatGPT, Gemini, and Perplexity can actually read and cite: AI-crawler access in robots.txt, structured data, answer-first content, llms.txt, and a per-engine readiness score mapped to the buyer journey.</p>
-      <span class="go">Analyze a site →</span>
-    </a>
-    <a class="tool t2" href="/roas.html">
-      <h3>Incrementality Gap Calculator</h3>
-      <p>Your platform says the campaign worked. How much of that was going to happen anyway? See the gap between reported ROAS and likely incremental ROAS, the number a CFO actually cares about.</p>
-      <span class="go">Run the numbers →</span>
-    </a>
-    <a class="tool t3" href="/scorecard.html">
-      <h3>AEO/GEO Readiness Scorecard</h3>
-      <p>Ten blunt questions on whether your brand is visible where buying decisions now start, with a score and a fix-first list. Includes the engine-by-journey map: ChatGPT for awareness, Gemini for consideration, Perplexity for research.</p>
-      <span class="go">Get your score →</span>
-    </a>
-  </div>
-
-  <h2>About</h2>
-  <div class="about">
-    <p>15+ years in growth and performance marketing across enterprise retail, B2B services, agencies, and subscription DTC. Player-coach, measurement-obsessed, AI-native. <a href="/about.html" style="color:var(--accent);font-weight:700;text-decoration:none;">Read the full story →</a></p>
-  </div>
-
-  <footer>
-    <span>© 2026 Lindsey Vandermaas Sobrinski</span>
-    <span><a href="https://www.linkedin.com/in/lindsey-vandermaas">LinkedIn</a> · <a href="mailto:lsobrinski@gmail.com">lsobrinski@gmail.com</a></span>
-  </footer>
-</div>
-</body>
-</html>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Service lanes",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "SEO, AEO and GEO", "url": "{{ site.url }}/seo-aeo-geo/" },
+    { "@type": "ListItem", "position": 2, "name": "Paid Media Analysis & Strategy", "url": "{{ site.url }}/paid-media/" },
+    { "@type": "ListItem", "position": 3, "name": "Lifecycle Marketing & Retention", "url": "{{ site.url }}/lifecycle/" },
+    { "@type": "ListItem", "position": 4, "name": "User Journey & Conversion", "url": "{{ site.url }}/user-journey/" }
+  ]
+}
+</script>

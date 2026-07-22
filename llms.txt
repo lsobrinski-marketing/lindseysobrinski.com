@@ -1,0 +1,28 @@
+# Lindsey Sobrinski
+
+> Growth and performance marketing leader with 15+ years across enterprise
+> retail, B2B services, agencies, and subscription DTC. Work spans cross-channel
+> paid media, SEO/AEO/GEO, lifecycle and retention, and user-journey conversion
+> optimization. Budgets are allocated by incrementality and contribution margin
+> rather than platform-reported ROAS.
+
+## Service lanes
+
+- [SEO, AEO & GEO](https://lindseysobrinski.com/seo-aeo-geo/): Organic and AI-search visibility built from a standing start, with a distinct play per engine — ChatGPT for awareness, Gemini and AI Overviews for consideration, Perplexity for research validation.
+- [Paid Media Analysis & Strategy](https://lindseysobrinski.com/paid-media/): Cross-channel planning and buying across paid social, search, programmatic, video, CTV, and OOH, with incrementality testing and media mix modeling underneath the allocation.
+- [Lifecycle Marketing & Retention](https://lindseysobrinski.com/lifecycle/): Retention, loyalty, churn, and win-back programs, plus subscription economics and cohort analysis.
+- [User Journey & Conversion](https://lindseysobrinski.com/user-journey/): Journey mapping, dropoff analysis, and experimentation run with the statistical discipline to distinguish real lift from noise.
+
+## Free tools
+
+- [GEO Site Analyzer](https://lindseysobrinski.com/geo.html): Checks AI-crawler access, structured data, answer-first content, and llms.txt, then scores per-engine readiness.
+- [Incrementality Gap Calculator](https://lindseysobrinski.com/roas.html): Estimates the gap between platform-reported ROAS and likely incremental ROAS.
+- [AEO/GEO Readiness Scorecard](https://lindseysobrinski.com/scorecard.html): Ten questions on AI-search visibility with a score and a fix-first list.
+
+## Writing
+
+- [Blog](https://lindseysobrinski.com/blog/): Categories covering SEO, AEO, GEO, paid media, lifecycle, subscriptions, user journey, and conversion optimization.
+
+## About
+
+- [About](https://lindseysobrinski.com/about.html): Background, sectors, recognition, and approach to AI-assisted measurement.

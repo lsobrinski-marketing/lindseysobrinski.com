@@ -1,0 +1,54 @@
+---
+layout: default
+title: Blog
+description: >-
+  Writing on SEO, AEO, GEO, paid media, lifecycle and subscriptions, user
+  journey, and conversion optimization — from someone who builds these systems
+  rather than only writes about them.
+permalink: /blog/
+---
+
+<div class="lane-hero">
+  <span class="eyebrow">Writing</span>
+  <h1>Notes from <span>inside the work</span></h1>
+</div>
+<p class="lede">{{ page.description }}</p>
+
+<h2>Browse by topic</h2>
+<div class="cat-nav">
+  {%- for c in site.data.categories %}
+  <a class="pill c-{{ c.color }}" href="/blog/categories/{{ c.slug }}/">{{ c.name }}</a>
+  {%- endfor %}
+</div>
+
+{% if site.posts.size > 0 %}
+<h2>Latest</h2>
+<ul class="post-list">
+  {%- for post in site.posts %}
+  {%- assign cat = site.data.categories | where: "slug", post.category | first %}
+  <li>
+    <p class="post-meta">
+      {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    </p>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 38 }}</p>
+  </li>
+  {%- endfor %}
+</ul>
+{% else %}
+<div class="empty">No posts published yet.</div>
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ site.url }}/blog/#blog",
+  "name": "{{ site.title }} — Blog",
+  "description": {{ page.description | strip_newlines | strip | jsonify }},
+  "url": "{{ site.url }}/blog/",
+  "author": { "@id": "{{ site.url }}/#person" },
+  "publisher": { "@id": "{{ site.url }}/#person" }
+}
+</script>

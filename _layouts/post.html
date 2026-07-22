@@ -1,0 +1,125 @@
+---
+layout: default
+---
+{%- comment -%}
+  Blog post. Front matter contract:
+
+    title:       H1 / <title>
+    description: meta description (also the listing excerpt)
+    category:    a slug from _data/categories.yml
+    tags:        [optional, extra, terms]
+    faq:         list of {q, a} — visible FAQ + FAQPage schema
+    toc: false   to suppress the auto outline (defaults on)
+
+  The outline below is generated from the rendered <h2>/<h3> tags, so every
+  post gets one without the author doing anything. Kramdown assigns the ids.
+  Caveat: a heading containing a literal ">" or a quote will parse oddly.
+{%- endcomment -%}
+
+{%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+
+<article>
+  <div class="post-head">
+    {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {%- if page.last_modified_at %}
+      <span>&middot; updated {{ page.last_modified_at | date: "%B %-d, %Y" }}</span>
+      {%- endif %}
+      <span>&middot; {{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+    </p>
+  </div>
+
+  {%- comment -%} ---------- auto-generated outline ---------- {%- endcomment -%}
+  {%- unless page.toc == false -%}
+    {%- assign tocdata = "" -%}
+    {%- assign chunks = content | split: '<h' -%}
+    {%- for chunk in chunks -%}
+      {%- assign lvl = chunk | slice: 0 -%}
+      {%- if lvl == '2' or lvl == '3' -%}
+        {%- if chunk contains 'id="' -%}
+          {%- assign hid = chunk | split: 'id="' | last | split: '"' | first -%}
+          {%- assign aftertag = chunk | split: '>' -%}
+          {%- assign htext = aftertag[1] | split: '</' | first | strip_html | strip -%}
+          {%- if htext != "" -%}
+            {%- capture tocdata -%}{{ tocdata }}{{ lvl }}|~|{{ hid }}|~|{{ htext }}|::|{%- endcapture -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- assign heads = tocdata | split: "|::|" -%}
+    {%- if heads.size >= 2 -%}
+    <nav class="toc" aria-label="Article outline">
+      <h2>What's in this piece</h2>
+      <ul>
+      {%- assign open3 = false -%}
+      {%- for h in heads -%}
+        {%- assign parts = h | split: "|~|" -%}
+        {%- assign lvl = parts[0] -%}
+        {%- assign hid = parts[1] -%}
+        {%- assign htext = parts[2] -%}
+        {%- if lvl == '2' -%}
+          {%- if open3 %}</ul></li>{% assign open3 = false %}{% endif -%}
+          <li><a href="#{{ hid }}">{{ htext }}</a></li>
+        {%- else -%}
+          {%- unless open3 %}<ul>{% assign open3 = true %}{% endunless -%}
+          <li><a href="#{{ hid }}">{{ htext }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if open3 %}</ul></li>{% endif -%}
+      </ul>
+    </nav>
+    {%- endif -%}
+  {%- endunless -%}
+
+  <div class="post-body">
+  {{ content }}
+  </div>
+
+  {% include faq.html %}
+</article>
+
+<div class="cta">
+  <span><b>Disagree with any of this?</b> That's the useful conversation.</span>
+  <span>
+    <a href="{{ site.author.linkedin }}">LinkedIn</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:{{ site.author.email }}">Email</a> &nbsp;&middot;&nbsp;
+    <a href="/blog/">More writing</a>
+  </span>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{ site.url }}{{ page.url }}#post",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | strip_newlines | strip | jsonify }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}" },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "wordCount": {{ content | number_of_words }},
+  "author": { "@id": "{{ site.url }}/#person" },
+  "publisher": { "@id": "{{ site.url }}/#person" }{% if cat %},
+  "articleSection": {{ cat.name | jsonify }}{% endif %}{% if page.tags %},
+  "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ site.url }}/blog/" }{% if cat %},
+    { "@type": "ListItem", "position": 3, "name": {{ cat.name | jsonify }}, "item": "{{ site.url }}/blog/categories/{{ cat.slug }}/" },
+    { "@type": "ListItem", "position": 4, "name": {{ page.title | jsonify }}, "item": "{{ site.url }}{{ page.url }}" }{% else %},
+    { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ site.url }}{{ page.url }}" }{% endif %}
+  ]
+}
+</script>

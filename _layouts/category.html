@@ -1,0 +1,55 @@
+---
+layout: default
+---
+{%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+{%- assign posts = site.posts | where: "category", page.category -%}
+
+<div class="lane-hero">
+  <span class="eyebrow">Blog category</span>
+  <h1>{{ cat.name }}</h1>
+</div>
+<p class="lede">{{ cat.blurb }}</p>
+
+<div class="cat-nav">
+  <a class="pill" href="/blog/">← All posts</a>
+  {%- for c in site.data.categories -%}
+    {%- unless c.slug == page.category -%}
+  <a class="pill c-{{ c.color }}" href="/blog/categories/{{ c.slug }}/">{{ c.name }}</a>
+    {%- endunless -%}
+  {%- endfor -%}
+</div>
+
+{% if posts.size > 0 %}
+<ul class="post-list">
+  {%- for post in posts %}
+  <li>
+    <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 34 }}</p>
+  </li>
+  {%- endfor %}
+</ul>
+{% else %}
+<div class="empty">No posts in {{ cat.name }} yet. First one's in the drafts pile.</div>
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ site.url }}{{ page.url }}#collection",
+  "name": {{ cat.name | jsonify }},
+  "description": {{ cat.blurb | strip_newlines | strip | jsonify }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "isPartOf": { "@type": "Blog", "@id": "{{ site.url }}/blog/#blog" },
+  "about": { "@id": "{{ site.url }}/#person" }{% if posts.size > 0 %},
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+{%- for post in posts %}
+      { "@type": "ListItem", "position": {{ forloop.index }}, "url": "{{ site.url }}{{ post.url }}", "name": {{ post.title | jsonify }} }{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+    ]
+  }{% endif %}
+}
+</script>

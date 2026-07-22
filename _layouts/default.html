@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/blog/feed.xml">
+
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary_large_image">
+
+{%- comment -%} Organization/Person entity, sitewide. Entity authority starts here. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ site.url }}/#person",
+  "name": "{{ site.author.name }}",
+  "url": "{{ site.url }}",
+  "email": "{{ site.author.email }}",
+  "jobTitle": "{{ site.author.jobTitle }}",
+  "knowsAbout": ["Performance Marketing","SEO","AEO","GEO","Generative Engine Optimization","Answer Engine Optimization","Paid Media","Media Mix Modeling","Incrementality","Lifecycle Marketing","Retention Marketing","Subscription Economics","Conversion Rate Optimization","User Journey Mapping","DTC Growth","AI Marketing Agents"],
+  "sameAs": ["{{ site.author.linkedin }}"]
+}
+</script>
+{%- comment -%}
+  Page-specific schema (Service, BlogPosting, FAQPage) is emitted by the child
+  layouts into the body. JSON-LD is valid anywhere in the document.
+{%- endcomment -%}
+</head>
+<body>
+<div class="wrap">
+  {% include nav.html %}
+  {{ content }}
+  {% include footer.html %}
+</div>
+</body>
+</html>

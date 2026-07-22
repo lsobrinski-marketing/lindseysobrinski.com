@@ -1,0 +1,55 @@
+title: Lindsey Sobrinski
+tagline: Growth that survives the measurement.
+description: >-
+  Growth and performance marketing: cross-channel paid media, SEO/AEO/GEO,
+  lifecycle and retention, and user-journey conversion work — allocated by
+  incrementality and contribution, not platform-reported ROAS.
+url: "https://lindseysobrinski.com"
+baseurl: ""
+
+author:
+  name: Lindsey Vandermaas Sobrinski
+  email: lsobrinski@gmail.com
+  linkedin: https://www.linkedin.com/in/lindsey-vandermaas
+  jobTitle: Growth & Performance Marketing Leader
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  toc_levels: 2..3
+  syntax_highlighter: rouge
+
+permalink: /blog/:title/
+timezone: America/Chicago
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# jekyll-feed defaults to /feed.xml; the footer and <head> both point at
+# /blog/feed.xml, so move it rather than leave a broken link.
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - .jekyll-cache
+
+# Note: geo.html, roas.html, and scorecard.html have no front matter, so Jekyll
+# copies them through untouched and they keep their own self-contained styles.
+# That also means they do NOT get the shared nav — see README.
