@@ -53,8 +53,14 @@
 <meta property="og:title" content="{{ page.title | default: cat.name | default: site.title }}">
 <meta property="og:description" content="{{ pdesc }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-{%- if site.og_image %}
-<meta property="og:image" content="{{ site.url }}{{ site.og_image }}">
+{%- assign ogimg = page.image | default: site.og_image %}
+{%- if ogimg %}
+<meta property="og:image" content="{{ site.url }}{{ ogimg }}">
+{%- if page.image %}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ page.title | default: site.title | escape }}">
+{%- endif %}
 <meta name="twitter:card" content="summary_large_image">
 {%- else %}
 <meta name="twitter:card" content="summary">

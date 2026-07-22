@@ -29,6 +29,7 @@ permalink: /blog/
   {%- for post in site.posts %}
   {%- assign cat = site.data.categories | where: "slug", post.category | first %}
   <li>
+    {%- if post.hero %}<a href="{{ post.url }}"><img src="{{ post.hero }}" alt="{{ post.title | escape }}" width="1200" height="630" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #dde7ee;margin-bottom:14px;" /></a>{% endif %}
     <p class="post-meta">
       {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>

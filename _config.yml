@@ -27,6 +27,11 @@ og_image: /assets/img/lindsey-hero.jpg
 # Used for Person.image in schema, where an actual portrait is the right subject.
 portrait_image: /assets/img/lindsey-portrait.jpg
 
+# Scheduled posts: any post dated in the future is held back at build time.
+# A daily GitHub Action re-triggers the Pages build so each post goes live on
+# its own date. See .github/workflows/daily-rebuild.yml.
+future: false
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

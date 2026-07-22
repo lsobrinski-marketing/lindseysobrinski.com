@@ -1,0 +1,40 @@
+name: Daily rebuild for scheduled posts
+
+# The site uses future-dated posts (future: false in _config.yml), which Jekyll
+# holds back until their date arrives. GitHub Pages only rebuilds on push, so a
+# scheduled post would never appear on its own. This workflow re-triggers the
+# Pages build twice a day, publishing any post whose date has now passed.
+#
+# Times are UTC (GitHub cron does not observe DST). 13:05 UTC ~ 08:05 and
+# 17:05 UTC ~ 12:05 in America/Chicago during CDT — just after the two daily
+# post timestamps.
+
+on:
+  schedule:
+    - cron: "5 13 * * *"
+    - cron: "5 17 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  pages: write
+
+concurrency:
+  group: pages-rebuild
+  cancel-in-progress: false
+
+jobs:
+  trigger-pages-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request a fresh GitHub Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Requesting Pages build for $REPO"
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPO/pages/builds"
+          echo "Build requested."

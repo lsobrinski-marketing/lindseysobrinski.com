@@ -24,6 +24,7 @@ layout: default
 <ul class="post-list">
   {%- for post in posts %}
   <li>
+    {%- if post.hero %}<a href="{{ post.url }}"><img src="{{ post.hero }}" alt="{{ post.title | escape }}" width="1200" height="630" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #dde7ee;margin-bottom:14px;" /></a>{% endif %}
     <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time></p>
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
     <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 34 }}</p>

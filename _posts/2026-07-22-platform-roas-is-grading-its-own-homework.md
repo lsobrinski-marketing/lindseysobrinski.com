@@ -1,6 +1,8 @@
 ---
 title: "Platform ROAS is grading its own homework"
 seo_title: "Platform ROAS is grading its own homework"   # bare title; with the site suffix it exceeds 60 chars
+hero: /assets/img/blog/platform-roas-is-grading-its-own-homework.svg
+image: /assets/img/blog/platform-roas-is-grading-its-own-homework.png
 category: paid-media
 tags: [incrementality, ROAS, media mix modeling, attribution]
 description: "Every ad platform reports the conversions it can see and stays silent on the counterfactual. How to tell how much of your reported return is actually real."
