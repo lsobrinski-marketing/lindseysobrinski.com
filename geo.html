@@ -3,44 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEO Site Analyzer — Free AI Search Visibility Check</title>
-<meta name="description" content="Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.">
-<link rel="canonical" href="https://lindseysobrinski.com/geo.html">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Lindsey Sobrinski">
-<meta property="og:title" content="GEO Site Analyzer">
-<meta property="og:description" content="Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.">
-<meta property="og:url" content="https://lindseysobrinski.com/geo.html">
-<meta name="twitter:card" content="summary">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "@id": "https://lindseysobrinski.com/geo.html#app",
-  "name": "GEO Site Analyzer",
-  "url": "https://lindseysobrinski.com/geo.html",
-  "description": "Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Any (runs in the browser)",
-  "browserRequirements": "Requires JavaScript",
-  "isAccessibleForFree": true,
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "author": { "@id": "https://lindseysobrinski.com/#person" },
-  "publisher": { "@id": "https://lindseysobrinski.com/#person" },
-  "about": { "@type": "Thing", "name": "Generative Engine Optimization" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lindseysobrinski.com/" },
-    { "@type": "ListItem", "position": 2, "name": "GEO Site Analyzer", "item": "https://lindseysobrinski.com/geo.html" }
-  ]
-}
-</script>
+<title>GEO Site Analyzer — is your site visible to AI answer engines?</title>
 <style>
   :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;--purple:#7a5ea8;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -73,7 +36,7 @@
   @media(max-width:640px){.engines{grid-template-columns:1fr;}}
   .eng{border:1.5px solid #e0e9f0;border-radius:12px;padding:14px;background:#fbfdfe;}
   .eng .stage{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-bottom:8px;color:#fff;}
-  .eng h3{font-size:.98rem;margin-bottom:4px;}
+  .eng h4{font-size:.98rem;margin-bottom:4px;}
   .eng .es{font-size:1.35rem;font-weight:800;margin-bottom:4px;}
   .eng p{font-size:.8rem;color:#41506a;line-height:1.45;}
   .e1 .stage{background:var(--accent);} .e2 .stage{background:var(--good);} .e3 .stage{background:var(--purple);}
@@ -82,7 +45,6 @@
 </style>
 </head>
 <body>
-<nav style="max-width:780px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
 <div class="wrap"><div class="card">
   <h1>Is your site visible to the engines <span>your buyers actually ask?</span></h1>
   <p class="sub">Paste a URL. This analyzer fetches your homepage, your robots.txt, and your llms.txt, then checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
@@ -104,9 +66,9 @@
 
     <h2>Per-engine readiness (each plays a different position in the journey)</h2>
     <div class="engines">
-      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h3>ChatGPT</h3><div class="es" id="es1">—</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
-      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h3>Gemini + AI Overviews</h3><div class="es" id="es2">—</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
-      <div class="eng e3"><span class="stage">Research · Validation</span><h3>Perplexity</h3><div class="es" id="es3">—</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
+      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h4>ChatGPT</h4><div class="es" id="es1">—</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
+      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h4>Gemini + AI Overviews</h4><div class="es" id="es2">—</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
+      <div class="eng e3"><span class="stage">Research · Validation</span><h4>Perplexity</h4><div class="es" id="es3">—</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
     </div>
 
     <h2>What we found</h2>
@@ -130,41 +92,19 @@ const AI_BOTS=[
  {ua:'PerplexityBot',eng:'Perplexity',e:3},
  {ua:'CCBot',eng:'Common Crawl (feeds many models)',e:1}
 ];
-// Browsers cannot fetch other origins directly, so this goes through public
-// CORS proxies. They are third-party and free, which means they fail: in July
-// 2026 corsproxy.io moved to a paid plan and allorigins was returning 522 at
-// the same time, which took the whole tool down. Hence several fallbacks and,
-// importantly, an honest distinction between "every proxy is down" and "that
-// site refused us" — reporting the first as the second tells someone their
-// site blocks crawlers when it does not.
-let PROXY_STATE = {anyResponded:false};
 async function fetchText(url){
   const tries=[
-    {u:t=>'https://api.allorigins.win/raw?url='+encodeURIComponent(t), parse:r=>r.text()},
-    {u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t), parse:r=>r.text()},
-    {u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
-     parse:async r=>{const j=await r.json(); return j && j.contents;}},
-    {u:t=>'https://corsproxy.io/?url='+encodeURIComponent(t), parse:r=>r.text()}
+    u=>'https://geo-proxy.lsobrinski.workers.dev/?url='+encodeURIComponent(u),
+    u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u),
+    u=>'https://corsproxy.io/?url='+encodeURIComponent(u)
   ];
-  // Race them rather than trying each in turn. Sequential attempts mean one
-  // slow proxy blocks every other, and these are routinely slow: allorigins
-  // was answering in ~27s the day this was written, which silently blew the
-  // old 15s timeout and made the tool look broken. Racing means total latency
-  // is the FASTEST working proxy, not the sum of the dead ones.
-  const attempts = tries.map(p => (async () => {
-    const r = await fetch(p.u(url), {signal: AbortSignal.timeout(35000)});
-    // Only a genuine 2xx from the proxy counts as "the fetch layer is alive".
-    // A 522/403/429 is the PROXY failing, not the analyzed site refusing us —
-    // counting those as "responded" made the tool tell people their own site
-    // blocks crawlers when actually every proxy was down.
-    if(!r.ok) throw new Error('proxy status ' + r.status);
-    PROXY_STATE.anyResponded = true;
-    const t = await p.parse(r);
-    if(!t || !t.length) throw new Error('empty body');
-    return t;
-  })());
-  try { return await Promise.any(attempts); }
-  catch(e){ return null; }   // every proxy rejected
+  for(const wrap of tries){
+    try{
+      const r=await fetch(wrap(url),{signal:AbortSignal.timeout(15000)});
+      if(r.ok){const t=await r.text(); if(t && t.length>0) return t;}
+    }catch(e){}
+  }
+  return null;
 }
 function parseRobots(txt){
   const groups=[]; let cur=null;
@@ -190,20 +130,10 @@ $('go').onclick=async()=>{
   if(!/^https?:\/\//i.test(url)) url='https://'+url;
   let origin; try{origin=new URL(url).origin;}catch(e){$('status').textContent='That URL does not look valid.';return;}
   $('go').disabled=true; $('report').style.display='none';
-  PROXY_STATE.anyResponded=false;
-  $('status').textContent='Fetching homepage, robots.txt, and llms.txt… this can take up to 30 seconds.';
+  $('status').textContent='Fetching homepage, robots.txt, and llms.txt...';
   const [html,robots,llms]=await Promise.all([fetchText(url),fetchText(origin+'/robots.txt'),fetchText(origin+'/llms.txt')]);
   $('go').disabled=false;
-  if(!html){
-    // Distinguish a dead fetch layer from a site that refused. Saying "your
-    // site blocks proxies" when our own proxies are down is a false negative,
-    // and on this tool that is the most damaging thing it could say.
-    $('status').innerHTML = PROXY_STATE.anyResponded
-      ? 'Could not read that site. It may block automated requests, or be slow to respond. Try the bare domain (example.com) or another URL.'
-      : '<b>The fetch service this tool relies on is unavailable right now</b> — this is not a finding about your site. '
-        + 'The analyzer runs entirely in your browser and depends on public CORS proxies, which occasionally go down. Please try again later.';
-    return;
-  }
+  if(!html){$('status').textContent='Could not fetch that site (it may block proxies). Try another URL or the bare domain.';return;}
   $('status').textContent='';
   const checks=[]; const fixes=[];
   let e1=0,e1max=0,e2=0,e2max=0,e3=0,e3max=0;
