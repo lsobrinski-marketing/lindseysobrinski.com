@@ -85,7 +85,7 @@
 <nav style="max-width:780px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
 <div class="wrap"><div class="card">
   <h1>Is your site visible to the engines <span>your buyers actually ask?</span></h1>
-  <p class="sub">Paste a URL. This analyzer fetches your homepage, your robots.txt, and your llms.txt, then checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
+  <p class="sub">Paste your domain. This analyzer reads your homepage, robots.txt, and llms.txt, then samples a few interior pages from your sitemap — because a homepage alone doesn't tell the whole story. It checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
   <div class="inrow">
     <input type="url" id="url" placeholder="https://yourbrand.com" value="">
     <button id="go">Analyze</button>
@@ -116,7 +116,7 @@
     <ul class="fix" id="fixes"></ul>
   </div>
 
-  <p class="foot">Runs entirely in your browser; no data is stored. Homepage-level analysis via a public fetch proxy, so a few sites will refuse the request. This is the on-site half of GEO; the off-site half (whether third parties cite you) needs a query audit per engine. Built by a practitioner who builds AI-search visibility for national brands from a standing start.</p>
+  <p class="foot">Runs entirely in your browser; no data is stored. Samples your homepage plus a few pages from your sitemap via a fetch proxy, so a few sites will refuse the request. Answer-content checks (FAQ, question-and-answer structure) are judged on content pages, not your homepage. This is the on-site half of GEO; the off-site half (whether third parties cite you) needs a query audit per engine. Built by a practitioner who builds AI-search visibility for national brands from a standing start.</p>
 </div></div>
 
 <script>
@@ -186,16 +186,79 @@ function botBlocked(groups,ua){
   return g.rules.some(r=>r.type==='disallow'&&(r.path==='/'||r.path==='/*'));
 }
 function add(list,status,title,desc){ list.push({status,title,desc}); }
+
+// ---- multi-page sampling ----------------------------------------------------
+// A homepage doesn't represent the site. We read the sitemap (its location is
+// usually declared in robots.txt) and sample a few interior pages, because
+// answer-first content lives on service/product/guide/FAQ pages — not the HP.
+function sitemapUrlsFromRobots(robots, origin){
+  const urls=[];
+  if(robots){ robots.split(/\r?\n/).forEach(l=>{ const m=l.match(/^\s*sitemap\s*:\s*(\S+)/i); if(m) urls.push(m[1].trim()); }); }
+  urls.push(origin+'/sitemap.xml');            // fallback location
+  return [...new Set(urls)];
+}
+function locsFromSitemap(xml){
+  if(!xml) return [];
+  return [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map(m=>m[1].trim());
+}
+function isSitemapIndex(xml){ return /<sitemapindex[\s>]/i.test(xml||''); }
+function pickInteriorPages(urls, rootUrl, origin, n){
+  let rootPath=''; try{ rootPath=new URL(rootUrl).pathname.replace(/\/$/,''); }catch(e){}
+  const assetRx=/\.(jpg|jpeg|png|gif|webp|svg|pdf|xml|css|js|ico|mp4|zip|rss)$/i;
+  // Listing/archive pages don't hold answer content — sampling them and then
+  // reporting "no FAQ" is exactly the false negative this tool must not make.
+  const archiveRx=/(\/(categor(y|ies)|tags?|authors?|search|feed)(\/|$)|\/page\/\d+)/i;
+  const listingWord=/^(blogs?|news|articles?|posts?|category|categories|tags?|resources?)$/i;
+  const seen=new Set(); const cand=[];
+  for(const u of urls){
+    let x; try{ x=new URL(u); }catch(e){ continue; }
+    if(x.origin!==origin) continue;                                   // same site only
+    if(assetRx.test(x.pathname)) continue;
+    if(archiveRx.test(x.pathname)) continue;                          // skip tag/category/author/pagination
+    const p=x.pathname.replace(/\/$/,'');
+    if(p==='' || p===rootPath) continue;                              // skip the homepage
+    const segs=p.split('/').filter(Boolean);
+    if(segs.length===1 && listingWord.test(segs[0])) continue;        // skip bare section indexes like /blog
+    if(seen.has(p)) continue; seen.add(p);
+    cand.push({href:x.href, sec:segs[0]||''});
+  }
+  // Diversify: round-robin across top-level sections so the sample spans the
+  // site (a service page, a post, a pillar…) instead of 4 near-identical URLs.
+  const bySection={};
+  cand.forEach(c=>{ (bySection[c.sec]=bySection[c.sec]||[]).push(c.href); });
+  const sections=Object.keys(bySection);
+  const out=[];
+  for(let i=0; out.length<n && sections.some(s=>bySection[s].length); i++){
+    const bucket=bySection[sections[i%sections.length]];
+    if(bucket.length) out.push(bucket.shift());
+  }
+  return out.slice(0,n);
+}
+// FAQ schema OR >=2 question-style headings on a single page.
+function answerSignals(html){
+  if(!html) return {faq:false, q:0};
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  let faq=false;
+  [...doc.querySelectorAll('script[type="application/ld+json"]')].forEach(s=>{
+    try{ const j=JSON.parse(s.textContent); const arr=Array.isArray(j)?j:(j['@graph']||[j]);
+      arr.forEach(o=>{ if(o&&/faqpage/i.test([].concat(o['@type']||[]).join(' '))) faq=true; });
+    }catch(e){}
+  });
+  const heads=[...doc.querySelectorAll('h1,h2,h3')].map(h=>h.textContent.trim());
+  const q=heads.filter(h=>/\?$/.test(h)||/^(how|what|why|which|when|can|does|do|is|are|should)\b/i.test(h)).length;
+  return {faq, q};
+}
+function labelFor(u, home){ if(home) return 'homepage'; try{ return new URL(u).pathname || u; }catch(e){ return u; } }
 $('go').onclick=async()=>{
   let url=$('url').value.trim(); if(!url) return;
   if(!/^https?:\/\//i.test(url)) url='https://'+url;
   let origin; try{origin=new URL(url).origin;}catch(e){$('status').textContent='That URL does not look valid.';return;}
   $('go').disabled=true; $('report').style.display='none';
   PROXY_STATE.anyResponded=false;
-  $('status').textContent='Fetching homepage, robots.txt, and llms.txt… this can take up to 30 seconds.';
+  $('status').textContent='Reading your homepage, robots.txt, and llms.txt…';
   const [html,robots,llms]=await Promise.all([fetchText(url),fetchText(origin+'/robots.txt'),fetchText(origin+'/llms.txt')]);
-  $('go').disabled=false;
   if(!html){
+    $('go').disabled=false;
     // Distinguish a dead fetch layer from a site that refused. Saying "your
     // site blocks proxies" when our own proxies are down is a false negative,
     // and on this tool that is the most damaging thing it could say.
@@ -205,6 +268,26 @@ $('go').onclick=async()=>{
         + 'The analyzer runs entirely in your browser and depends on public CORS proxies, which occasionally go down. Please try again later.';
     return;
   }
+
+  // --- discover + sample a few interior pages (answer content lives there) ---
+  $('status').textContent='Reading your sitemap and sampling interior pages…';
+  let candidateUrls=[], sampleSource='sitemap', sitemapXml=null;
+  for(const su of sitemapUrlsFromRobots(robots, origin)){ sitemapXml=await fetchText(su); if(sitemapXml) break; }
+  if(sitemapXml){
+    if(isSitemapIndex(sitemapXml)){
+      for(const child of locsFromSitemap(sitemapXml).slice(0,2)){ const cx=await fetchText(child); if(cx) candidateUrls.push(...locsFromSitemap(cx)); }
+    } else { candidateUrls=locsFromSitemap(sitemapXml); }
+  }
+  if(!candidateUrls.length){                        // fallback: internal links on the homepage
+    sampleSource='links';
+    const hpDoc=new DOMParser().parseFromString(html,'text/html');
+    candidateUrls=[...hpDoc.querySelectorAll('a[href]')].map(a=>{try{return new URL(a.getAttribute('href'),url).href;}catch(e){return null;}}).filter(Boolean);
+  }
+  const interiorUrls=pickInteriorPages(candidateUrls, url, origin, 4);
+  const interiorHtml=await Promise.all(interiorUrls.map(u=>fetchText(u)));
+  const interiorPages=interiorUrls.map((u,i)=>({url:u, html:interiorHtml[i]})).filter(p=>p.html);
+
+  $('go').disabled=false;
   $('status').textContent='';
   const checks=[]; const fixes=[];
   let e1=0,e1max=0,e2=0,e2max=0,e3=0,e3max=0;
@@ -280,17 +363,23 @@ $('go').onclick=async()=>{
     fixes.push('Add JSON-LD: Organization (with sameAs), plus FAQPage/Product/Article where relevant.');
   }
 
-  // FAQ / question-style headings
-  e1max+=2;e3max+=1;
-  const heads=[...doc.querySelectorAll('h1,h2,h3')].map(h=>h.textContent.trim());
-  const qHeads=heads.filter(h=>/\?$/.test(h)||/^(how|what|why|which|when|can|does|do|is|are|should)\b/i.test(h));
-  const hasFaqSchema=types.some(t=>/faqpage/i.test(t));
-  if(hasFaqSchema||qHeads.length>=2){
-    add(checks,'pass','Answer-first content signals','Found '+(hasFaqSchema?'FAQPage schema':'')+(hasFaqSchema&&qHeads.length?' and ':'')+(qHeads.length?qHeads.length+' question-style headings':'')+'. Engines lift answers; you are giving them answers to lift.');
-    e1+=2;e3+=1;
+  // --- answer-first content, judged across the sampled pages, NOT the homepage ---
+  // Homepages legitimately don't carry FAQs; the old check penalized them for it.
+  const analyzed=[{url:url, html:html, home:true}, ...interiorPages.map(p=>({url:p.url, html:p.html, home:false}))];
+  const withAnswers=analyzed.filter(p=>{const s=answerSignals(p.html); return s.faq || s.q>=2;});
+  if(interiorPages.length===0){
+    // Only the homepage was readable — do NOT score answer content off it.
+    add(checks,'info','Answer-first content: not assessed','We could only read your homepage (no reachable sitemap or internal links to sample), so we did not score answer-first content. It belongs on content pages — service, product, guide, and FAQ pages — not the homepage, so judging it from the homepage alone would be misleading.');
   } else {
-    add(checks,'warn','No question-answering content on this page','No FAQ schema and no question-style headings. AI answers are assembled from content that asks and answers real questions in plain language.');
-    fixes.push('Create answer-first content: real buyer questions as headings, direct answers underneath, FAQPage schema on top.');
+    e1max+=2; e3max+=1;
+    if(withAnswers.length){
+      const names=withAnswers.map(p=>labelFor(p.url,p.home)).slice(0,4).join(', ');
+      add(checks,'pass','Answer-first content found','FAQ schema or question-and-answer structure on '+withAnswers.length+' of '+analyzed.length+' pages analyzed ('+names+'). Engines lift answers; you are giving them answers to lift.');
+      e1+=2;e3+=1;
+    } else {
+      add(checks,'warn','No answer-first content across the pages sampled','None of the '+analyzed.length+' pages analyzed (homepage plus '+interiorPages.length+' interior) use FAQ schema or question-and-answer headings. A homepage rarely needs this, but when it is missing site-wide it is the biggest answer-engine opportunity you have.');
+      fixes.push('Add answer-first content on content pages — service, product, or resource pages: real buyer questions as headings, direct answers underneath, FAQPage schema on top. Homepages rarely need it; content pages do.');
+    }
   }
 
   // Freshness
@@ -301,6 +390,13 @@ $('go').onclick=async()=>{
 
   // Off-site note
   add(checks,'info','What this cannot check from here','Third-party corroboration (press, reviews, forums) drives ChatGPT citations, and only a per-engine query audit shows whether you appear for your category questions. That is the other half of GEO.');
+
+  // Transparency: show exactly which pages this report is based on (first item).
+  const analyzedLabels=analyzed.map(p=>labelFor(p.url,p.home));
+  const sampleNote = interiorPages.length
+    ? (sampleSource==='links' ? ' Interior pages were sampled from homepage links (no sitemap found).' : ' Interior pages were sampled from your sitemap.')
+    : ' Only your homepage was readable — no sitemap or internal links to sample.';
+  checks.unshift({status:'info', title:'Pages analyzed: '+analyzed.length, desc:'This report is based on: '+analyzedLabels.join(', ')+'.'+sampleNote});
 
   // scores
   const pct=(n,m)=>m?Math.round(n/m*100):0;
