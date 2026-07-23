@@ -12,6 +12,16 @@ author:
   email: lsobrinski@gmail.com
   linkedin: https://www.linkedin.com/in/lindsey-vandermaas
   jobTitle: Growth & Performance Marketing Leader
+  # Entity-authority fields for the Person schema. Sourced from the About page.
+  description: >-
+    Growth and performance marketing leader with 15+ years across enterprise
+    retail, B2B services, agencies, and subscription DTC.
+  award: "Marketer of the Year, 2022"
+  memberOf: Center for Retail and Sales
+  # sameAs strengthens entity resolution — add more corroborating profiles
+  # (speaker pages, published articles, Crunchbase, Muck Rack) as URLs here.
+  sameAs:
+    - https://www.linkedin.com/in/lindsey-vandermaas
 
 markdown: kramdown
 kramdown:
