@@ -140,6 +140,7 @@ const AI_BOTS=[
 let PROXY_STATE = {anyResponded:false};
 async function fetchText(url){
   const tries=[
+    {u:t=>'https://geo-proxy.lsobrinski.workers.dev/?url='+encodeURIComponent(t), parse:r=>r.text()},
     {u:t=>'https://api.allorigins.win/raw?url='+encodeURIComponent(t), parse:r=>r.text()},
     {u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t), parse:r=>r.text()},
     {u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
