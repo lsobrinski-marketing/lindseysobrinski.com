@@ -153,8 +153,12 @@ async function fetchText(url){
   // is the FASTEST working proxy, not the sum of the dead ones.
   const attempts = tries.map(p => (async () => {
     const r = await fetch(p.u(url), {signal: AbortSignal.timeout(35000)});
+    // Only a genuine 2xx from the proxy counts as "the fetch layer is alive".
+    // A 522/403/429 is the PROXY failing, not the analyzed site refusing us —
+    // counting those as "responded" made the tool tell people their own site
+    // blocks crawlers when actually every proxy was down.
+    if(!r.ok) throw new Error('proxy status ' + r.status);
     PROXY_STATE.anyResponded = true;
-    if(!r.ok) throw new Error('status ' + r.status);
     const t = await p.parse(r);
     if(!t || !t.length) throw new Error('empty body');
     return t;
