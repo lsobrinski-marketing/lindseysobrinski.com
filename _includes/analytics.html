@@ -1,0 +1,15 @@
+{%- comment -%}
+  Google Analytics 4 (gtag.js). ID lives in _config.yml (google_analytics), so
+  it's set in one place. Emits nothing if the ID is unset or when building the
+  site in development, keeping local previews out of the production property.
+{%- endcomment -%}
+{%- if site.google_analytics and jekyll.environment == "production" -%}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{%- endif -%}

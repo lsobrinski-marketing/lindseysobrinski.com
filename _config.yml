@@ -7,6 +7,10 @@ description: >-
 url: "https://lindseysobrinski.com"
 baseurl: ""
 
+# Google Analytics 4 measurement ID. Emitted by _includes/analytics.html on
+# every layout page; the standalone tool pages carry the snippet inline.
+google_analytics: G-6J1KSHKJPV
+
 author:
   name: Lindsey Vandermaas Sobrinski
   email: lsobrinski@gmail.com
