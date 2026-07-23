@@ -1,6 +1,7 @@
 ---
 title: "Platform ROAS is grading its own homework"
-seo_title: "Platform ROAS is grading its own homework"   # bare title; with the site suffix it exceeds 60 chars
+seo_title: "Platform ROAS grades its own homework"
+date: 2026-07-22 09:00:00 -0500
 hero: /assets/img/blog/platform-roas-is-grading-its-own-homework.svg
 image: /assets/img/blog/platform-roas-is-grading-its-own-homework.png
 category: paid-media

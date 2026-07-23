@@ -30,15 +30,21 @@ Here's the trap. A channel posts a 5x. Leadership says fund it. You move another
 
 Every channel has a response curve. Early dollars buy your cheapest, most-qualified demand — people already leaning in, reached at low frequency, won in uncontested auctions. That demand is finite. As you scale, three things happen at once: the audience saturates, so you pay to reach the same people more often; frequency fatigue sets in, so each impression converts worse; and the auction price rises as the platform stretches to less-qualified users to spend your budget. The curve flattens. Sometimes it rolls over entirely.
 
+## Average is the curve, marginal is the slope
+
 **Average ROAS is the whole curve. Marginal ROAS is the slope where you're standing.** Those are different numbers, and only one of them answers "should I add budget here." A channel at a 5x blended average can be returning 1.2x on its next dollar. You'll never see that in the platform dashboard, because the dashboard is proudly averaging the cheap conversions from six weeks ago into today's expensive ones.
 
 The scaling question is never "which channel has the best ROAS." It's "which channel returns the most on the next dollar." Those rankings routinely invert. Your saturated hero returns less at the margin than a mid-tier channel with room left on its curve. Fund the average and you overspend the hero and starve the channel that could actually absorb growth efficiently.
+
+## Find the inflection by provoking it
 
 **So find the inflection. Don't infer it — provoke it.** Steady-state reporting won't reveal the slope, because nothing is changing. You have to change spend on purpose and read the response.
 
 Step a channel up 20-30%, hold everything else constant, and measure incremental revenue against incremental spend. That ratio is your marginal ROAS at the current level. Do it again at the new level and you've got two points on the curve and a direction. Run the same play down and you'll find the floor you can cut to without losing efficient volume.
 
 Geo tests make this clean. Hold budget flat in matched markets, scale in the rest, and the gap is your incremental lift uncontaminated by seasonality or platform self-reporting. A properly calibrated MMM hands you the full response curve and the saturation point directly — if you trust the model and it's fed real spend variation. Most aren't, because most media plans hold spend suspiciously stable, which starves the model of the signal it needs. Variance is not noise. It's how you learn the curve.
+
+## The indicators that move before ROAS does
 
 **And watch the leading indicators, because they move before ROAS does.** Frequency climbing while conversion rate slips means you're re-serving a tapped-out audience. Effective CPM rising at flat outcomes means the auction is reaching past your qualified pool. Both show up weeks ahead of the efficiency drop they cause. By the time blended ROAS visibly cracks, you've been overspending past the frontier for a month.
 

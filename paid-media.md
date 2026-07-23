@@ -116,7 +116,7 @@ push spend toward high-revenue, low-margin products. Allocating on contribution
 margin changes which campaigns look like winners, sometimes dramatically.
 
 **Model the whole mix, including what cannot be clicked.** CTV, video, audio,
-and out-of-home do real work that click-based systems cannot see. Modeling them
+and out-of-home (OOH) do real work that click-based systems cannot see. Modeling them
 alongside the trackable channels is the only way to stop underfunding the top of
 the funnel by default.
 

@@ -28,9 +28,15 @@ faq:
 
 Most retention teams are fighting the wrong war. They pour effort into win-back sequences, loyalty tiers, and save offers aimed at people who consciously decided to leave. Meanwhile a quieter cohort churns every month without ever making a decision: their card expired, their balance was short, an issuer flagged the charge as fraud. The product worked. The relationship was intact. The transaction failed, and nobody noticed because it showed up as "churn," not as a billing metric anyone owns.
 
+## Involuntary churn is invisible by construction
+
 **Involuntary churn is invisible by construction.** It doesn't appear in your NPS. It doesn't hit your exit survey, because there was no exit intent. It lands in the same monthly churn number as your genuine defectors, so it gets treated with the same medicine: more emails, more discounts, more perks. None of which fix an expired card. The failure lives in a payments log that your growth team never opens and your finance team treats as reconciliation noise. Ownership falls in the gap between them, which is exactly why it persists.
 
+## Split voluntary from involuntary, then read the decline codes
+
 So measure it. Segment churn into voluntary and involuntary. Voluntary is anyone who clicked cancel or let a term lapse on purpose. Involuntary is anyone whose subscription ended on a failed charge. Then open the declined-payment logs and read the decline codes: expired card, insufficient funds, do-not-honor, suspected fraud. For card-based subscriptions, involuntary is frequently a large share of the total, often landing somewhere in the 20-40% band. Do not take my number. Take yours. The point isn't the benchmark; it's that you almost certainly have a second churn engine running that no dashboard is showing you.
+
+## The fixes are plumbing, not persuasion
 
 **The fixes are unglamorous and they work.** This is plumbing, not persuasion.
 
@@ -41,6 +47,8 @@ Then fix your dunning. Most retry logic is naive: charge, fail, charge again an 
 Add pre-dunning. Notify customers before the card expires, not after the charge dies. A "your card ends next month" nudge, sent while the account is still active and the customer is still engaged, converts far better than a "your payment failed" message sent after service was interrupted and goodwill already dropped. Prevention beats recovery because the customer is still in a helping mood.
 
 Give the recovery some runway. A grace period keeps access alive while you retry, so a temporary decline doesn't become a permanent loss over a weekend. Offer a backup payment method and prompt for it before you need it. And when you do have to email about a failure, make the fix one tap, not a login-plus-billing-page scavenger hunt. Every step you add between the customer and their updated card is a step where a willing payer quietly falls out.
+
+## Why this is the highest-ROI retention work you have
 
 **Here is why this is the highest-ROI retention work you have.** With voluntary churn, you are trying to change someone's mind, usually with a discount that erodes the margin you were defending. With involuntary churn, the mind is already made up in your favor. The customer chose to stay. Your only job is to not lose them to a mechanical failure. You are not buying back a relationship; you are removing a glitch. That is cheaper, it compounds monthly, and it doesn't train your base to expect a save offer every time they threaten to leave.
 

@@ -30,7 +30,7 @@ offers:
   - name: Conversion audit
     description: A heuristic and behavioral review of the critical path, combining analytics, session data, and friction analysis into a prioritized hypothesis list.
   - name: Experimentation program
-    description: Test design, sample sizing, and analysis with the statistical discipline to distinguish a real lift from a lucky fortnight.
+    description: Test design, sample sizing, and analysis with the statistical discipline to tell a real lift from a lucky two weeks.
   - name: Measurement and tracking foundation
     description: Event architecture and funnel instrumentation, because a journey you cannot observe accurately cannot be optimized honestly.
 faq:
@@ -136,7 +136,7 @@ sequential change measured against a stable baseline.
 
 ## Where this lane connects to the others
 
-This is the lane that makes the other three legible. Paid media that drives
+This is the lane that makes sense of the other three. Paid media that drives
 qualified traffic into a broken step looks like a media problem. Organic and AI
 search that introduce a brand to buyers who then hit a trust gap look like a
 content problem. Lifecycle programs that return customers to a friction point

@@ -9,7 +9,7 @@
 ## Service lanes
 
 - [SEO, AEO & GEO](https://lindseysobrinski.com/seo-aeo-geo/): Organic and AI-search visibility built from a standing start, with a distinct play per engine — ChatGPT for awareness, Gemini and AI Overviews for consideration, Perplexity for research validation.
-- [Paid Media Analysis & Strategy](https://lindseysobrinski.com/paid-media/): Cross-channel planning and buying across paid social, search, programmatic, video, CTV, and OOH, with incrementality testing and media mix modeling underneath the allocation.
+- [Paid Media Analysis & Strategy](https://lindseysobrinski.com/paid-media/): Cross-channel planning and buying across paid social, search, programmatic, video, CTV, and out-of-home (OOH), with incrementality testing and media mix modeling underneath the allocation.
 - [Lifecycle Marketing & Retention](https://lindseysobrinski.com/lifecycle/): Retention, loyalty, churn, and win-back programs, plus subscription economics and cohort analysis.
 - [User Journey & Conversion](https://lindseysobrinski.com/user-journey/): Journey mapping, dropoff analysis, and experimentation run with the statistical discipline to distinguish real lift from noise.
 
