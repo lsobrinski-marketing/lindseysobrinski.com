@@ -58,3 +58,38 @@
   color: accent
   blurb: >-
     Testing, evidence, and the discipline to tell a real lift from noise.
+
+- slug: technical-seo
+  name: Technical SEO
+  color: accent
+  blurb: >-
+    Rendering, crawl budget, canonical integrity, redirects, and Core Web
+    Vitals — the infrastructure that decides whether a large site ranks at all.
+
+- slug: ecommerce-seo
+  name: Ecommerce SEO
+  color: good
+  blurb: >-
+    Category-page content, variant indexing, Shopping feeds, and seasonal
+    timing — turning commercial-page rankings into captured revenue.
+
+- slug: content-seo
+  name: Content SEO
+  color: purple
+  blurb: >-
+    Entity and topic architecture, answer-first structure, and content that
+    earns the position and the citation instead of renting them.
+
+- slug: local-seo
+  name: Local SEO
+  color: good
+  blurb: >-
+    Multi-location and appointment-driven visibility: exposing trust signals,
+    service schema, and a KPI that's booked appointments, not near-me rankings.
+
+- slug: ai
+  name: AI
+  color: purple
+  blurb: >-
+    Notes on AI and the systems it's reshaping — what the models are really
+    doing, and what it means for how we build, measure, and compete.

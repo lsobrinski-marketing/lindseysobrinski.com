@@ -13,7 +13,7 @@ lede: >-
   them. Most organic programs are still optimizing for the middle one.
 audience: Marketing and growth leaders who need organic visibility across both classic search and AI answer engines.
 cta: Want your AI-search visibility audited before a competitor takes the citation?
-blog_categories: [seo, aeo, geo]
+blog_categories: [seo, aeo, geo, technical-seo, ecommerce-seo, content-seo, local-seo]
 tools:
   - name: GEO Site Analyzer
     url: /geo.html
@@ -111,6 +111,31 @@ the moment their content is being read more than ever.
 The work is to stop optimizing for the session and start optimizing for the
 answer.
 
+## The four areas of the work
+
+<div class="grid">
+  <a class="tile" href="/seo-aeo-geo/technical-seo/">
+    <h3>Technical SEO</h3>
+    <p>Rendering, crawl budget, canonical integrity, redirects, and Core Web Vitals — the infrastructure that decides whether a large site ranks at all.</p>
+    <span class="go">Technical SEO →</span>
+  </a>
+  <a class="tile" href="/seo-aeo-geo/ecommerce-seo/">
+    <h3>Ecommerce SEO</h3>
+    <p>Category-page content, variant indexing, Shopping feeds, and seasonal timing — turning commercial-page rankings into captured revenue.</p>
+    <span class="go">Ecommerce SEO →</span>
+  </a>
+  <a class="tile" href="/seo-aeo-geo/content-seo/">
+    <h3>Content SEO</h3>
+    <p>Entity and topic architecture, answer-first structure, and content that earns the position and the citation instead of renting them.</p>
+    <span class="go">Content SEO →</span>
+  </a>
+  <a class="tile" href="/seo-aeo-geo/local-seo/">
+    <h3>Local SEO</h3>
+    <p>Multi-location and appointment-driven retail: exposing trust signals, service schema, and a KPI that's booked appointments.</p>
+    <span class="go">Local SEO →</span>
+  </a>
+</div>
+
 ## What the foundation actually requires
 
 Everything downstream depends on a few unglamorous conditions being true.
@@ -158,3 +183,17 @@ citation growth alongside the traditional organic numbers.
 And I do the work, not just the plan. The audit, the schema, the content
 architecture, the query set — those are things I build, which is the only way to
 know whether the strategy survives contact with the site.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "SEO, AEO and GEO — areas of work",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Technical SEO", "url": "{{ site.url }}/seo-aeo-geo/technical-seo/" },
+    { "@type": "ListItem", "position": 2, "name": "Ecommerce SEO", "url": "{{ site.url }}/seo-aeo-geo/ecommerce-seo/" },
+    { "@type": "ListItem", "position": 3, "name": "Content SEO", "url": "{{ site.url }}/seo-aeo-geo/content-seo/" },
+    { "@type": "ListItem", "position": 4, "name": "Local SEO", "url": "{{ site.url }}/seo-aeo-geo/local-seo/" }
+  ]
+}
+</script>
