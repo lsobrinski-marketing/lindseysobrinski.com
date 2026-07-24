@@ -15,6 +15,7 @@ lede: >-
   question that matters: what would have happened if the spend had never run?
   Answer that honestly and half of a mature media plan reorganizes itself.
 audience: Growth, performance, and finance leaders who need paid media measured in numbers that hold up in a budget conversation.
+blog_categories: [paid-media]
 cta: Want a measurement design that tells you which line items are actually earning their keep?
 faq:
   - q: Why is platform-reported ROAS misleading?

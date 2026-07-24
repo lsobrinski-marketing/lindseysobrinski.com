@@ -17,6 +17,7 @@ lede: >-
   actually are: different ways to reach a buyer at a different distance from the
   purchase.
 audience: Growth and performance leaders who need a paid media plan that covers the whole journey, not just the channels that are easy to measure.
+blog_categories: [paid-media]
 cta: Want a media plan organized around where your buyers actually are, not which channel is easiest to report on?
 faq:
   - q: What is full-funnel marketing?
