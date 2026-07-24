@@ -104,6 +104,23 @@ which mostly intercept demand that already exists — and away from the channels
 that created the demand in the first place. The dashboard improves. The business
 does not.
 
+## Two areas: intent and measurement
+
+The work splits into two questions that depend on each other. Intent decides where the money goes; measurement decides whether it worked — and referees the argument the first one starts.
+
+<div class="grid">
+  <a class="tile" href="/paid-media/intent/">
+    <h3>Intent</h3>
+    <p>Full-funnel planning organized around where the buyer actually is — matching channels to each level of intent, from latent demand to active demand, instead of by channel budget.</p>
+    <span class="go">Intent &amp; full-funnel &rarr;</span>
+  </a>
+  <a class="tile" href="/paid-media/measurement/">
+    <h3>Measurement</h3>
+    <p>Incrementality, media mix modeling, and attribution used for what each is good for — separating the spend that created revenue from the spend that just observed it.</p>
+    <span class="go">Measurement &amp; incrementality &rarr;</span>
+  </a>
+</div>
+
 ## What I do instead
 
 **Establish causality before allocating.** Holdouts and geo tests are cheap
@@ -142,3 +159,15 @@ I still build the media plans, sit in the accounts, and produce creative. That
 is deliberate. A media strategy written by someone who has not looked at the
 account in a year is a hypothesis, and the difference between a hypothesis and a
 plan is whether the person writing it knows what will break.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Paid Media — areas of work",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Intent — full-funnel paid media", "url": "{{ site.url }}/paid-media/intent/" },
+    { "@type": "ListItem", "position": 2, "name": "Measurement — incrementality and media mix modeling", "url": "{{ site.url }}/paid-media/measurement/" }
+  ]
+}
+</script>
