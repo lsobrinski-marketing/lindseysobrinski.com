@@ -3,6 +3,8 @@ title: "Is branded search incremental? Run the holdout you're afraid of"
 seo_title: "Is branded search incremental? How to test it"
 date: 2026-08-25 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/is-branded-search-incremental.svg
+image: /assets/img/blog/is-branded-search-incremental.png
 tags: [branded search, incrementality, paid search, ppc, measurement, demand capture]
 description: "Branded search reports some of the best ROAS in the account. It's also the spend most likely to be paying for clicks you'd get for free. The only way to know is a holdout — and most teams avoid running it."
 faq:

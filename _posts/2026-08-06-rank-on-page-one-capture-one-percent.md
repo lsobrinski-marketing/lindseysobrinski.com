@@ -3,6 +3,8 @@ title: "You can rank on page one and still capture 1% of the market"
 seo_title: "Ranking vs capture rate: why page one isn't enough"
 date: 2026-08-06 09:00:00 -0500
 category: ecommerce-seo
+hero: /assets/img/blog/rank-on-page-one-capture-one-percent.svg
+image: /assets/img/blog/rank-on-page-one-capture-one-percent.png
 tags: [ecommerce seo, capture rate, category pages, organic traffic, share of search]
 description: "Position is the input; captured traffic is the output — and they come apart more than anyone admits. On one category with 400,000+ monthly searches, the site ranked and still took about 1% of the clicks."
 faq:

@@ -3,6 +3,8 @@ title: "Crawl budget is a real constraint — and most enterprise sites spend it
 seo_title: "Crawl budget: why enterprise sites waste it"
 date: 2026-07-31 09:00:00 -0500
 category: technical-seo
+hero: /assets/img/blog/crawl-budget-is-a-real-constraint.svg
+image: /assets/img/blog/crawl-budget-is-a-real-constraint.png
 tags: [crawl budget, technical seo, googlebot, indexing, sitemaps, server response time]
 description: "On a large site, Google won't crawl everything. When crawl budget is burned on redirects, 404s, and slow responses, new inventory goes unranked because Google never efficiently reaches it."
 faq:

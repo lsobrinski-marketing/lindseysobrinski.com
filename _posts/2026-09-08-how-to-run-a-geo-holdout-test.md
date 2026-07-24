@@ -3,6 +3,8 @@ title: "How to run a geo holdout test without fooling yourself"
 seo_title: "How to run a geo holdout / incrementality test"
 date: 2026-09-08 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/how-to-run-a-geo-holdout-test.svg
+image: /assets/img/blog/how-to-run-a-geo-holdout-test.png
 tags: [incrementality testing, geo holdout, matched markets, measurement, paid media, media measurement]
 description: "Everyone says 'run a holdout.' Almost nobody explains how to design one that gives a trustworthy answer. Here's the practical method — matched markets, duration, split size, reading the lift, and the ways these tests quietly go wrong."
 faq:

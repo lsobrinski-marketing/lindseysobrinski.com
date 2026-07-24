@@ -3,6 +3,8 @@ title: "Your JavaScript site is invisible to AI crawlers"
 seo_title: "Is your JavaScript site invisible to AI crawlers?"
 date: 2026-07-24 09:00:00 -0500
 category: technical-seo
+hero: /assets/img/blog/your-javascript-site-is-invisible-to-ai-crawlers.png
+image: /assets/img/blog/your-javascript-site-is-invisible-to-ai-crawlers.png
 tags: [javascript seo, rendering, ai crawlers, gptbot, generative engine optimization, prerendering]
 description: "Most AI crawlers don't run JavaScript. If your product content only appears after JS executes, the engines answering your buyers' questions can't see it. Here's the 30-second way to prove it — and the fix."
 faq:

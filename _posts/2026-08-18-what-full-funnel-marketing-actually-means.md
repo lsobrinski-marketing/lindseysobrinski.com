@@ -3,6 +3,8 @@ title: "What full-funnel marketing actually means (and why most 'full-funnel' pl
 seo_title: "What full-funnel marketing actually means"
 date: 2026-08-18 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/what-full-funnel-marketing-actually-means.svg
+image: /assets/img/blog/what-full-funnel-marketing-actually-means.png
 tags: [full-funnel marketing, paid media, demand generation, media planning, buyer intent]
 description: "Full-funnel marketing isn't running ads on more platforms. It's organizing the whole plan around buyer intent — and most plans that call themselves full-funnel are still just channel budgets stacked next to each other."
 faq:

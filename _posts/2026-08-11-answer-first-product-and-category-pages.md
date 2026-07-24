@@ -3,6 +3,8 @@ title: "Answer-first product and category pages: writing for the question, not t
 seo_title: "Answer-first product & category pages for AEO"
 date: 2026-08-11 09:00:00 -0500
 category: ecommerce-seo
+hero: /assets/img/blog/answer-first-product-and-category-pages.svg
+image: /assets/img/blog/answer-first-product-and-category-pages.png
 tags: [answer engine optimization, aeo, product pages, category pages, faq schema, ecommerce seo]
 description: "AI answers and featured snippets are assembled from content that asks and answers real buyer questions. Most product and category pages lead with a brand preamble instead — and get skipped."
 faq:

@@ -3,6 +3,8 @@ title: "Attribution, incrementality, MMM: stop asking which one is right"
 seo_title: "Attribution vs incrementality vs MMM"
 date: 2026-08-29 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/attribution-incrementality-mmm-which-one.svg
+image: /assets/img/blog/attribution-incrementality-mmm-which-one.png
 tags: [media mix modeling, mmm, attribution, incrementality, measurement, paid media]
 description: "Teams argue about attribution vs incrementality vs media mix modeling as if they have to pick one. They answer different questions and work best layered — tests calibrate the model, the model allocates, attribution steers."
 faq:

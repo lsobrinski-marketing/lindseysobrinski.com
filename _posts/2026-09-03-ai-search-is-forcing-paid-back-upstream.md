@@ -3,6 +3,8 @@ title: "The cheap-acquisition era is ending: AI search is forcing paid back upst
 seo_title: "How AI search is shifting paid media to brand"
 date: 2026-09-03 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/ai-search-is-forcing-paid-back-upstream.png
+image: /assets/img/blog/ai-search-is-forcing-paid-back-upstream.png
 tags: [paid media, ai search, aeo, geo, demand generation, brand advertising, zero-click, full-funnel marketing]
 description: "AI Overviews, AI Mode, and LLM answers are eroding the clickable placements performance marketing was built on. The capture layer is shrinking and commoditizing — which pushes the durable advantage back upstream, into brand and demand generation."
 faq:

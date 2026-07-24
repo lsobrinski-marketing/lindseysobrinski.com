@@ -3,6 +3,8 @@ title: "One line in a header template was 92% of our redirect chains"
 seo_title: "One template line, 92% of a site's redirect chains"
 date: 2026-07-27 09:00:00 -0500
 category: technical-seo
+hero: /assets/img/blog/one-line-in-a-header-template-was-92-percent-of-our-redirect-chains.svg
+image: /assets/img/blog/one-line-in-a-header-template-was-92-percent-of-our-redirect-chains.png
 tags: [technical seo, crawl budget, redirect chains, internal linking, enterprise seo]
 description: "On a large site, one bad link isn't one problem — it's one problem times every page it renders on. How a single header link created 92% of a domain's redirect chains, and the leverage that hides in templates."
 faq:

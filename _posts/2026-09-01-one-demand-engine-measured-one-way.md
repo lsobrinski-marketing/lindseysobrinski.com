@@ -3,6 +3,8 @@ title: "One demand engine, measured one way: stop running paid and SEO as rival 
 seo_title: "Paid and SEO are one demand engine"
 date: 2026-09-01 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/one-demand-engine-measured-one-way.png
+image: /assets/img/blog/one-demand-engine-measured-one-way.png
 tags: [full-funnel marketing, seo, paid media, incrementality, buyer intent, demand generation, marketing strategy]
 description: "Paid and organic aren't two disciplines competing for budget. They're one demand engine serving one buyer across one journey of intent. Here's what changes when you organize and measure them that way."
 faq:

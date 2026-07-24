@@ -3,6 +3,8 @@ title: "Grid-first category pages are why a smaller competitor is beating you"
 seo_title: "Why grid-first category pages lose to content-led ones"
 date: 2026-08-08 09:00:00 -0500
 category: ecommerce-seo
+hero: /assets/img/blog/grid-first-category-pages-are-losing.svg
+image: /assets/img/blog/grid-first-category-pages-are-losing.png
 tags: [ecommerce seo, category pages, plp seo, on-page content, topical authority]
 description: "A category page that's nothing but a product grid gives an engine almost nothing to rank. A content-led competitor can use real editorial copy to claim the same keywords — and out-rank a bigger brand on nearly every non-brand term."
 faq:

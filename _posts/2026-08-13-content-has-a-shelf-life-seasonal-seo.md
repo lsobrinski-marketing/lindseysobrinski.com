@@ -3,6 +3,8 @@ title: "Content has a shelf life: why seasonal SEO has to ship six weeks early"
 seo_title: "Seasonal SEO: why content must ship weeks early"
 date: 2026-08-13 09:00:00 -0500
 category: ecommerce-seo
+hero: /assets/img/blog/content-has-a-shelf-life-seasonal-seo.svg
+image: /assets/img/blog/content-has-a-shelf-life-seasonal-seo.png
 tags: [seasonal seo, ecommerce seo, content calendar, indexing, editorial planning]
 description: "There's a lag between publishing and ranking, and seasonal demand windows are narrow. A page that goes live at the peak has already missed it. Seasonal SEO is an operations problem as much as a content one."
 faq:

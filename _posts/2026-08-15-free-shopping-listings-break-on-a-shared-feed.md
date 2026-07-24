@@ -3,6 +3,8 @@ title: "Free Shopping listings are quietly broken because paid and organic share
 seo_title: "Why free Shopping listings break on a shared feed"
 date: 2026-08-15 09:00:00 -0500
 category: ecommerce-seo
+hero: /assets/img/blog/free-shopping-listings-break-on-a-shared-feed.svg
+image: /assets/img/blog/free-shopping-listings-break-on-a-shared-feed.png
 tags: [google merchant center, free listings, product feed, shopping, ecommerce seo, paid media]
 description: "Free Shopping listings are high-intent, direct-revenue placements — and they quietly break when the same product feed built for paid ads is expected to power organic. Titles, descriptions, and data optimized for one job undercut the other."
 faq:

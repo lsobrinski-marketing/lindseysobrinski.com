@@ -3,6 +3,8 @@ title: "Demand generation vs demand capture: the split that decides whether you 
 seo_title: "Demand generation vs demand capture, explained"
 date: 2026-08-20 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/demand-generation-vs-demand-capture.svg
+image: /assets/img/blog/demand-generation-vs-demand-capture.png
 tags: [demand generation, demand capture, paid media, buyer intent, full-funnel marketing, incrementality]
 description: "Demand capture harvests intent that already exists. Demand generation creates intent that didn't. Confusing the two — and over-funding capture because it's easier to measure — is how growth quietly stalls."
 faq:

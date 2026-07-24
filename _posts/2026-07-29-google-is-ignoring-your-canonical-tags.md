@@ -3,6 +3,8 @@ title: "Google is ignoring your canonical tags — and a tracking parameter is w
 seo_title: "Why Google ignores your canonical tags"
 date: 2026-07-29 09:00:00 -0500
 category: technical-seo
+hero: /assets/img/blog/google-is-ignoring-your-canonical-tags.svg
+image: /assets/img/blog/google-is-ignoring-your-canonical-tags.png
 tags: [canonical tags, technical seo, url parameters, crawl budget, duplicate content, enterprise seo]
 description: "A canonical tag is a suggestion, not a command — and Google overrules it more than most teams realize. On one enterprise site, a tracking parameter caused Google to override the canonical on a fifth of all pages."
 faq:

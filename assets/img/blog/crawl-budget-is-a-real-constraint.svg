@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7fafc"/><stop offset="1" stop-color="#e8f0f6"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="10" height="630" fill="#1D6FA3"/>
+  <rect x="72" y="70" rx="20" ry="20" width="199" height="40" fill="#eef4f8"/>
+  <text x="171.5" y="96" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="18" font-weight="800" fill="#1D6FA3" letter-spacing="1.5">TECHNICAL SEO</text>
+  <text x="72" y="176" text-anchor="start" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#1a2333" letter-spacing="-0.5">Crawl</text>
+  <text x="72" y="234" text-anchor="start" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#1a2333" letter-spacing="-0.5">budget</text>
+  <text x="72" y="540" text-anchor="start" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#1a2333" letter-spacing="-0.3">Lindsey Sobrinski</text>
+  <text x="72" y="568" text-anchor="start" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#51607a">Growth that survives the measurement.</text>
+  
+  <circle cx="835" cy="300" r="120" fill="none" stroke="#dde7ee" stroke-width="34"/>
+  <path d="M 835 180 A 120 120 0 0 1 843 180" fill="none" stroke="#1D6FA3" stroke-width="34"/>
+  <text x="835" y="292" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" fill="#1D6FA3">2.56%</text>
+  <text x="835" y="326" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" fill="#51607a">to new content</text>
+  <text x="835" y="470" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#c0392b">the rest is wasted crawl</text>
+</svg>

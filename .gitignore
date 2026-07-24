@@ -6,3 +6,6 @@ vendor/
 Gemfile.lock
 .DS_Store
 copy-edit-notes.md
+
+# throwaway hero test artifacts (session cannot delete; safe to remove folder)
+assets/img/blog/_to_delete/

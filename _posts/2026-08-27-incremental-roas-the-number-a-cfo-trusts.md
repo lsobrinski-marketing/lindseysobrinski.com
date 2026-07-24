@@ -3,6 +3,8 @@ title: "Incremental ROAS: the only return number a CFO will actually trust"
 seo_title: "Incremental ROAS vs reported ROAS, explained"
 date: 2026-08-27 09:00:00 -0500
 category: paid-media
+hero: /assets/img/blog/incremental-roas-the-number-a-cfo-trusts.svg
+image: /assets/img/blog/incremental-roas-the-number-a-cfo-trusts.png
 tags: [incremental roas, iroas, incrementality, measurement, paid media, roas]
 description: "Reported ROAS answers what the platform observed. Incremental ROAS answers what the spend actually caused. Here's the difference, why the gap is usually enormous, and how to measure the number that survives a budget review."
 faq:
