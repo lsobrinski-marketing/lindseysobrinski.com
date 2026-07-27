@@ -1,7 +1,7 @@
 ---
 title: "Which channel for which level of intent — and how to sequence them"
 seo_title: "Which paid channel for which funnel stage / intent"
-date: 2026-09-05 09:00:00 -0500
+date: 2026-07-24 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/which-channel-for-which-level-of-intent.svg
 image: /assets/img/blog/which-channel-for-which-level-of-intent.png

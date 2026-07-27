@@ -1,7 +1,7 @@
 ---
 title: "Attribution, incrementality, MMM: stop asking which one is right"
 seo_title: "Attribution vs incrementality vs MMM"
-date: 2026-08-29 09:00:00 -0500
+date: 2026-07-21 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/attribution-incrementality-mmm-which-one.svg
 image: /assets/img/blog/attribution-incrementality-mmm-which-one.png

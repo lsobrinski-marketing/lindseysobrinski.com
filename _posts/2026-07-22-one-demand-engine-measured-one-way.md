@@ -1,7 +1,7 @@
 ---
 title: "One demand engine, measured one way: stop running paid and SEO as rival teams"
 seo_title: "Paid and SEO are one demand engine"
-date: 2026-09-01 09:00:00 -0500
+date: 2026-07-22 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/one-demand-engine-measured-one-way.png
 image: /assets/img/blog/one-demand-engine-measured-one-way.png

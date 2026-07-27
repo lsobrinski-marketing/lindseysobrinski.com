@@ -1,7 +1,7 @@
 ---
 title: "The cheap-acquisition era is ending: AI search is forcing paid back upstream"
 seo_title: "How AI search is shifting paid media to brand"
-date: 2026-09-03 09:00:00 -0500
+date: 2026-07-23 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/ai-search-is-forcing-paid-back-upstream.png
 image: /assets/img/blog/ai-search-is-forcing-paid-back-upstream.png

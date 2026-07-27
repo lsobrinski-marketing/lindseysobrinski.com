@@ -1,7 +1,7 @@
 ---
 title: "Answer-first product and category pages: writing for the question, not the grid"
 seo_title: "Answer-first product & category pages for AEO"
-date: 2026-08-11 09:00:00 -0500
+date: 2026-07-13 09:00:00 -0500
 category: ecommerce-seo
 hero: /assets/img/blog/answer-first-product-and-category-pages.svg
 image: /assets/img/blog/answer-first-product-and-category-pages.png

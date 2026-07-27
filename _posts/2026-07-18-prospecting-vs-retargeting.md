@@ -1,7 +1,7 @@
 ---
 title: "Prospecting vs retargeting: your retargeting ROAS is mostly a mirror"
 seo_title: "Prospecting vs retargeting: what the ROAS hides"
-date: 2026-08-22 09:00:00 -0500
+date: 2026-07-18 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/prospecting-vs-retargeting.svg
 image: /assets/img/blog/prospecting-vs-retargeting.png

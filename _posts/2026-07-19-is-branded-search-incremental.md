@@ -1,7 +1,7 @@
 ---
 title: "Is branded search incremental? Run the holdout you're afraid of"
 seo_title: "Is branded search incremental? How to test it"
-date: 2026-08-25 09:00:00 -0500
+date: 2026-07-19 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/is-branded-search-incremental.svg
 image: /assets/img/blog/is-branded-search-incremental.png

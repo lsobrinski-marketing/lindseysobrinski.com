@@ -1,7 +1,7 @@
 ---
 title: "How to run a geo holdout test without fooling yourself"
 seo_title: "How to run a geo holdout / incrementality test"
-date: 2026-09-08 09:00:00 -0500
+date: 2026-07-25 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/how-to-run-a-geo-holdout-test.svg
 image: /assets/img/blog/how-to-run-a-geo-holdout-test.png

@@ -1,7 +1,7 @@
 ---
 title: "Demand generation vs demand capture: the split that decides whether you grow"
 seo_title: "Demand generation vs demand capture, explained"
-date: 2026-08-20 09:00:00 -0500
+date: 2026-07-17 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/demand-generation-vs-demand-capture.svg
 image: /assets/img/blog/demand-generation-vs-demand-capture.png

@@ -1,7 +1,7 @@
 ---
 title: "What full-funnel marketing actually means (and why most 'full-funnel' plans aren't)"
 seo_title: "What full-funnel marketing actually means"
-date: 2026-08-18 09:00:00 -0500
+date: 2026-07-16 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/what-full-funnel-marketing-actually-means.svg
 image: /assets/img/blog/what-full-funnel-marketing-actually-means.png
