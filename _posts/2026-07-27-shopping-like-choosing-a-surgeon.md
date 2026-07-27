@@ -1,7 +1,7 @@
 ---
 title: "Why your customers are shopping like they're choosing a surgeon"
 seo_title: "The AI shopping shortlist: how buyers vet you now"
-date: 2026-07-27 09:00:00 -0500
+date: 2026-07-27 00:00:00 -0500
 category: geo
 hero: /assets/img/blog/shopping-like-choosing-a-surgeon.png
 image: /assets/img/blog/shopping-like-choosing-a-surgeon.png
