@@ -71,6 +71,19 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
 .tile-soon h3{color:#51607a;}
 .go.soon{color:#8ea2b5;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
 
+/* ---------- tools carousel (opt-in via page.tools_carousel) ---------- */
+.carousel{position:relative;margin:0 -4px;}
+.carousel-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 16px;scrollbar-width:thin;scrollbar-color:var(--line) transparent;}
+.carousel-track::-webkit-scrollbar{height:8px;}
+.carousel-track::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px;}
+.carousel-track > .tile{scroll-snap-align:start;flex:0 0 300px;min-width:0;}
+@media(max-width:680px){.carousel-track > .tile{flex-basis:84%;}}
+.carousel-btn{position:absolute;top:calc(50% - 8px);transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(26,35,51,.14);display:flex;align-items:center;justify-content:center;transition:.15s;}
+.carousel-btn:hover{background:var(--soft);}
+.carousel-btn.prev{left:-6px;} .carousel-btn.next{right:-6px;}
+.carousel-btn:disabled{opacity:0;pointer-events:none;}
+@media(max-width:680px){.carousel-btn{display:none;}}  /* touch: swipe instead of arrows */
+
 /* ---------- hero ---------- */
 .hero-banner{
   display:block;width:100%;height:auto;

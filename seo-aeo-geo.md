@@ -14,6 +14,10 @@ lede: >-
 audience: Marketing and growth leaders who need organic visibility across both classic search and AI answer engines.
 cta: Want your AI-search visibility audited before a competitor takes the citation?
 blog_categories: [seo, aeo, geo, technical-seo, ecommerce-seo, content-seo, local-seo]
+tools_position: top
+tools_carousel: true
+tools_heading: Free tools for this work
+tools_sub: "Interactive tools I built — paste a URL and get a real answer. Free, no signup, nothing collected. Swipe through them."
 tools:
   - name: GEO Site Analyzer
     url: /geo.html

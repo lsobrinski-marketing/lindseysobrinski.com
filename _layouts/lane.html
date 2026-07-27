@@ -20,16 +20,31 @@ layout: default
   </div>
   {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
 
-  {%- comment -%} ---------- 1. why it matters ---------- {%- endcomment -%}
-  <div class="post-body">
-  {{ content }}
-  </div>
-
-  {%- comment -%} ---------- 2. tools ---------- {%- endcomment -%}
+  {%- comment -%}
+    Tools section, captured so a page can hoist it above the prose with
+    `tools_position: top`. Set `tools_carousel: true` for a swipeable carousel
+    instead of the static grid (opt-in, page by page — other lanes keep the grid).
+  {%- endcomment -%}
+  {%- capture tools_html -%}
   {%- if page.tools %}
   <section id="tools">
     <h2>{{ page.tools_heading | default: "Tools" }}</h2>
     <p class="h2sub">{{ page.tools_sub | default: "Interactive tools I built for this lane. Free, no signup, nothing collected." }}</p>
+    {%- if page.tools_carousel %}
+    <div class="carousel" data-carousel>
+      <button type="button" class="carousel-btn prev" aria-label="Previous tools" data-carousel-prev>&#8249;</button>
+      <div class="carousel-track" data-carousel-track>
+        {%- for t in page.tools %}
+        {%- if t.url %}
+        <a class="tile" href="{{ t.url }}"><h3>{{ t.name }}</h3><p>{{ t.blurb }}</p><span class="go">{{ t.cta | default: "Open the tool →" }}</span></a>
+        {%- else %}
+        <div class="tile tile-soon"><h3>{{ t.name }}</h3><p>{{ t.blurb }}</p><span class="go soon">In build</span></div>
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      <button type="button" class="carousel-btn next" aria-label="Next tools" data-carousel-next>&#8250;</button>
+    </div>
+    {%- else %}
     <div class="grid">
       {%- for t in page.tools %}
       {%- if t.url %}
@@ -47,8 +62,21 @@ layout: default
       {%- endif %}
       {%- endfor %}
     </div>
+    {%- endif %}
   </section>
   {%- endif %}
+  {%- endcapture -%}
+
+  {%- comment -%} ---------- tools (top) ---------- {%- endcomment -%}
+  {%- if page.tools_position == 'top' %}{{ tools_html }}{%- endif %}
+
+  {%- comment -%} ---------- 1. why it matters ---------- {%- endcomment -%}
+  <div class="post-body">
+  {{ content }}
+  </div>
+
+  {%- comment -%} ---------- 2. tools (default position) ---------- {%- endcomment -%}
+  {%- unless page.tools_position == 'top' %}{{ tools_html }}{%- endunless %}
 
   {%- comment -%} ---------- 3. related writing, auto-populated ---------- {%- endcomment -%}
   {%- if page.blog_categories %}
@@ -97,6 +125,26 @@ layout: default
     </span>
   </div>
 </div>
+
+{%- comment -%} Tools-carousel controls. No-op on pages without a [data-carousel]. {%- endcomment -%}
+<script>
+document.querySelectorAll('[data-carousel]').forEach(function(c){
+  var track=c.querySelector('[data-carousel-track]'),
+      prev=c.querySelector('[data-carousel-prev]'),
+      next=c.querySelector('[data-carousel-next]');
+  if(!track||!prev||!next) return;
+  function step(){var t=track.querySelector('.tile');return t?t.offsetWidth+16:300;}
+  function update(){
+    prev.disabled = track.scrollLeft<=4;
+    next.disabled = track.scrollLeft+track.clientWidth>=track.scrollWidth-4;
+  }
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+  track.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+});
+</script>
 
 <script type="application/ld+json">
 {
