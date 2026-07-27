@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J1KSHKJPV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-6J1KSHKJPV");
+</script>
+<title>Crawl Budget Waste Checker — Free Technical SEO Tool</title>
+<meta name="description" content="Free tool: find where Googlebot is wasting crawl budget on your site. Checks your sitemap, indexability, canonical waste, and parameter sprawl — then quantifies the leak with your Search Console numbers.">
+<link rel="canonical" href="https://lindseysobrinski.com/crawl-budget.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lindsey Sobrinski">
+<meta property="og:title" content="Crawl Budget Waste Checker">
+<meta property="og:description" content="Free tool: find where Googlebot is wasting crawl budget on your site — sitemap hygiene, indexability, canonical waste, parameter sprawl — then quantify the leak with your Search Console numbers.">
+<meta property="og:url" content="https://lindseysobrinski.com/crawl-budget.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://lindseysobrinski.com/crawl-budget.html#app",
+  "name": "Crawl Budget Waste Checker",
+  "url": "https://lindseysobrinski.com/crawl-budget.html",
+  "description": "Free tool: find where Googlebot is wasting crawl budget on your site. Checks sitemap hygiene, indexability, canonical waste, and parameter sprawl, then quantifies the leak with your Search Console numbers.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (runs in the browser)",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@id": "https://lindseysobrinski.com/#person" },
+  "publisher": { "@id": "https://lindseysobrinski.com/#person" },
+  "about": { "@type": "Thing", "name": "Crawl Budget Optimization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lindseysobrinski.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Crawl Budget Waste Checker", "item": "https://lindseysobrinski.com/crawl-budget.html" }
+  ]
+}
+</script>
+<style>
+  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;--purple:#7a5ea8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;padding:32px 16px;}
+  .wrap{max-width:780px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(26,35,51,.08);padding:32px;}
+  h1{font-size:1.5rem;line-height:1.3;margin-bottom:8px;}
+  h1 span{color:var(--accent);}
+  .sub{color:#51607a;font-size:.95rem;margin-bottom:22px;line-height:1.5;}
+  .inrow{display:flex;gap:10px;}
+  .inrow input{flex:1;padding:13px 14px;border:1.5px solid #cfdae4;border-radius:10px;font-size:1rem;}
+  .inrow button{padding:13px 22px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;white-space:nowrap;}
+  .inrow button:disabled{background:#b9c8d4;cursor:wait;}
+  #status{margin-top:12px;font-size:.9rem;color:#51607a;min-height:1.2em;}
+  details.gsc{margin-top:14px;border:1.5px solid #dbe6ef;border-radius:12px;background:#fbfdfe;overflow:hidden;}
+  details.gsc summary{cursor:pointer;padding:12px 16px;font-weight:700;font-size:.92rem;color:var(--accent);list-style:none;}
+  details.gsc summary::-webkit-details-marker{display:none;}
+  details.gsc summary::before{content:'▸ ';font-size:.8rem;}
+  details.gsc[open] summary::before{content:'▾ ';}
+  .gsc-body{padding:4px 16px 16px;}
+  .gsc-body p.hint{font-size:.84rem;color:#51607a;line-height:1.5;margin-bottom:12px;}
+  .gsc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:560px){.gsc-grid{grid-template-columns:1fr;}}
+  .gsc-grid label{font-size:.82rem;font-weight:600;color:#41506a;display:block;margin-bottom:4px;}
+  .gsc-grid .fld small{display:block;font-weight:400;color:#7a8699;font-size:.76rem;margin-top:3px;line-height:1.35;}
+  .gsc-grid input{width:100%;padding:10px 12px;border:1.5px solid #cfdae4;border-radius:9px;font-size:.95rem;}
+  #report{display:none;margin-top:26px;}
+  .scoreRow{display:flex;align-items:center;gap:20px;padding:20px;background:var(--soft);border-radius:14px;flex-wrap:wrap;}
+  .scoreBig{font-size:2.8rem;font-weight:800;}
+  .scoreCtx{flex:1;min-width:220px;}
+  .scoreCtx .v{font-weight:700;font-size:1.05rem;margin-bottom:4px;}
+  .scoreCtx .m{font-size:.88rem;color:#51607a;line-height:1.4;}
+  .meter{height:10px;background:#dde7ee;border-radius:6px;overflow:hidden;margin-top:8px;}
+  .meter i{display:block;height:100%;border-radius:6px;transition:width .7s ease;}
+  h2{font-size:1.05rem;margin:26px 0 10px;}
+  .check{display:flex;gap:12px;padding:12px 0;border-top:1px solid #e9eef4;align-items:flex-start;}
+  .badge{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;margin-top:2px;}
+  .b-pass{background:var(--good);} .b-warn{background:var(--warn);} .b-fail{background:var(--bad);} .b-info{background:#8ea2b5;}
+  .check .t{font-weight:600;font-size:.95rem;}
+  .check .d{font-size:.87rem;color:#51607a;line-height:1.45;margin-top:2px;}
+  .realbox{margin-top:8px;border:1.5px solid #e0e9f0;border-radius:14px;padding:18px;background:#fbfdfe;}
+  .realbox h3{font-size:1rem;margin-bottom:4px;}
+  .realstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+  @media(max-width:560px){.realstats{grid-template-columns:1fr;}}
+  .rstat{border:1.5px solid #e6eef4;border-radius:12px;padding:14px;background:#fff;}
+  .rstat .n{font-size:1.5rem;font-weight:800;line-height:1;}
+  .rstat .l{font-size:.78rem;color:#51607a;margin-top:6px;line-height:1.35;}
+  .foot{margin-top:22px;font-size:.83rem;color:#7a8699;line-height:1.5;}
+  ul.fix{margin:8px 0 0 18px;} ul.fix li{font-size:.92rem;line-height:1.5;margin-bottom:7px;}
+  .explain{margin-top:22px;border-top:1px solid #e9eef4;padding-top:18px;}
+  .explain > summary{cursor:pointer;font-weight:700;font-size:1rem;color:var(--ink);list-style:none;}
+  .explain > summary::-webkit-details-marker{display:none;}
+  .explain > summary::before{content:'▸ ';color:var(--accent);font-size:.85rem;}
+  .explain[open] > summary::before{content:'▾ ';}
+  .explain .body{margin-top:14px;font-size:.9rem;color:#41506a;line-height:1.55;}
+  .explain .body p{margin-bottom:12px;}
+  .explain h4{font-size:.92rem;margin:16px 0 6px;color:var(--ink);}
+  .explain .legend{display:flex;flex-direction:column;gap:8px;margin:6px 0 4px;}
+  .explain .legend div{display:flex;gap:10px;align-items:flex-start;}
+  .explain .pill{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.72rem;margin-top:1px;}
+  .explain .bands{margin:6px 0 0 0;}
+  .explain .bands div{padding:6px 0;border-top:1px solid #eef2f6;}
+  .explain .bands b{display:inline-block;min-width:70px;}
+  .explain dl{margin:4px 0 0;} .explain dt{font-weight:700;color:var(--ink);margin-top:10px;font-size:.9rem;}
+  .explain dd{margin:2px 0 0;}
+</style>
+</head>
+<body>
+<nav style="max-width:780px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
+<div class="wrap"><div class="card">
+  <h1>Is Googlebot wasting its budget <span>on pages that never earn a thing?</span></h1>
+  <p class="sub">Paste your domain. This checker reads your robots.txt and sitemap, then samples interior pages to find the places crawl budget leaks: URLs Google crawls but can't index, pages that quietly point their canonical elsewhere, parameter sprawl, and sitemaps full of dead or duplicate URLs. Add three numbers from Search Console and it will quantify the leak in real terms.</p>
+  <div class="inrow">
+    <input type="url" id="url" placeholder="https://yourbrand.com" value="">
+    <button id="go">Check crawl budget</button>
+  </div>
+
+  <details class="gsc">
+    <summary>Optional: add your Search Console numbers for a real-data read</summary>
+    <div class="gsc-body">
+      <p class="hint">The live crawl finds the <em>structural</em> leaks. These three numbers turn them into a real percentage. Find them in Google Search Console → <strong>Indexing → Pages</strong> (indexed vs. not indexed) and → <strong>Settings → Crawl stats</strong> (total crawl requests). Leave any blank you don't have.</p>
+      <div class="gsc-grid">
+        <div class="fld"><label for="gIndexed">Indexed pages</label><input type="number" id="gIndexed" min="0" placeholder="e.g. 1,240"><small>Pages report → "Indexed" count.</small></div>
+        <div class="fld"><label for="gNotIndexed">Not indexed pages</label><input type="number" id="gNotIndexed" min="0" placeholder="e.g. 3,900"><small>Pages report → "Not indexed" count (crawled/discovered but excluded).</small></div>
+        <div class="fld"><label for="gCrawlReq">Total crawl requests</label><input type="number" id="gCrawlReq" min="0" placeholder="e.g. 210,000"><small>Crawl stats → total requests over the last 90 days. Optional.</small></div>
+        <div class="fld"><label for="gSiteUrls">Real, indexable URLs on the site</label><input type="number" id="gSiteUrls" min="0" placeholder="e.g. 1,300"><small>Your rough count of pages that <em>should</em> rank. Optional.</small></div>
+      </div>
+    </div>
+  </details>
+
+  <div id="status"></div>
+
+  <div id="report">
+    <div class="scoreRow">
+      <div class="scoreBig" id="score">—</div>
+      <div class="scoreCtx">
+        <div class="v" id="verdict"></div>
+        <div class="m" id="verdictM"></div>
+        <div class="meter"><i id="bar"></i></div>
+      </div>
+    </div>
+
+    <div id="realWrap" style="display:none;">
+      <h2>Your crawl budget, in real numbers</h2>
+      <div class="realbox">
+        <h3 id="realHead"></h3>
+        <div class="m" id="realDesc" style="font-size:.88rem;color:#51607a;line-height:1.45;"></div>
+        <div class="realstats" id="realStats"></div>
+      </div>
+    </div>
+
+    <h2>Where the budget goes</h2>
+    <div id="checks"></div>
+
+    <h2>Fix first</h2>
+    <ul class="fix" id="fixes"></ul>
+  </div>
+
+  <p class="foot">Runs entirely in your browser; no data is stored, and the Search Console numbers you type never leave the page. The crawl samples your sitemap and a handful of interior pages through a fetch proxy, so some sites will refuse the request. This tool detects the <em>structural</em> signals that predict wasted crawl budget — the definitive audit reads your server log files and Search Console crawl stats directly, which is the paid engagement this is a preview of. Built by a practitioner who does technical SEO for national brands.</p>
+
+  <details class="explain">
+    <summary>How to read this report</summary>
+    <div class="body">
+      <p><b>What "crawl budget" means.</b> Search engines only crawl so many URLs on your site in a given window. That budget is <em>wasted</em> when it's spent fetching pages that can't rank — duplicates, redirects, dead links, pages tagged "don't index" — instead of the pages you actually want found. On a small site it rarely matters; on a large or fast-growing one, waste means your important pages get crawled late or missed.</p>
+
+      <h4>The three result types</h4>
+      <div class="legend">
+        <div><span class="pill b-pass">✓</span><span><b>Pass</b> — no waste detected on this signal. Nothing to do.</span></div>
+        <div><span class="pill b-warn">!</span><span><b>Warning</b> — some waste, or a signal that becomes a problem at scale. Worth fixing, not urgent on a small site.</span></div>
+        <div><span class="pill b-fail">✕</span><span><b>Fail</b> — clear waste: budget is going to URLs that return nothing indexable. Fix these first.</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:.86rem;">A blue <b>i</b> is context, not a grade — it tells you what the report is based on or what couldn't be checked from a browser.</p>
+
+      <h4>The score</h4>
+      <div class="bands">
+        <div><b style="color:var(--good);">80–100</b> Lean crawl profile — little structural waste in what could be seen.</div>
+        <div><b style="color:var(--warn);">55–79</b> Some budget is leaking — real pages get crawled, but fixable waste is present.</div>
+        <div><b style="color:var(--bad);">0–54</b> Budget is being wasted — low-value URLs are likely crawled ahead of important ones.</div>
+      </div>
+      <p style="margin-top:8px;font-size:.86rem;">The score reflects only what a live crawl can see (sitemap health + a sample of pages). It's a directional read, not a substitute for a log-file audit.</p>
+
+      <h4>What the findings mean</h4>
+      <dl>
+        <dt>Noindex pages in the sitemap</dt><dd>A URL listed for crawling but tagged "don't index." Crawled, then discarded — pure waste.</dd>
+        <dt>Redirects / dead URLs in the sitemap</dt><dd>A sitemap should list final, live URLs. Redirects and 404s spend the crawl on a detour or a dead end.</dd>
+        <dt>Canonicalizes elsewhere</dt><dd>The page tells engines "the real version is another URL." Fine occasionally; at scale it's crawl spent on duplicates.</dd>
+        <dt>Parameter / faceted sprawl</dt><dd>Links with <code>?sort=</code>, <code>?filter=</code>, tracking tags, etc. can multiply into thousands of near-identical URLs to crawl.</dd>
+        <dt>Slow server response</dt><dd>The literal lever: engines fetch fewer pages per session on a slow server, so speed directly caps how much gets crawled.</dd>
+      </dl>
+
+      <h4>The optional Search Console numbers</h4>
+      <p style="font-size:.88rem;">The live crawl finds <em>structural</em> leaks; your Search Console numbers turn them into a real percentage. In Search Console: <b>Indexing → Pages</b> gives "indexed" vs "not indexed"; <b>Settings → Crawl stats</b> gives total crawl requests. A large "not indexed" share is your crawl leak, measured on your actual site.</p>
+
+      <p style="font-size:.86rem;color:#7a8699;">Accuracy note: the report labels whether it ran at full accuracy (true redirect chains and header-level signals) or standard accuracy (via public proxies). Either way, the definitive picture of what search engines actually crawl lives in your server log files — that's the paid audit this previews.</p>
+    </div>
+  </details>
+</div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+// Browsers cannot fetch other origins directly, so this goes through a proxy —
+// primarily the site's own Cloudflare Worker, with public CORS proxies as
+// fallbacks. Mirrors geo.html: several fallbacks, and an honest distinction
+// between "every proxy is down" and "that site refused us".
+let PROXY_STATE = {anyResponded:false};
+async function fetchText(url){
+  const tries=[
+    {u:t=>'https://geo-proxy.lsobrinski.workers.dev/?url='+encodeURIComponent(t), parse:r=>r.text()},
+    {u:t=>'https://api.allorigins.win/raw?url='+encodeURIComponent(t), parse:r=>r.text()},
+    {u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t), parse:r=>r.text()},
+    {u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
+     parse:async r=>{const j=await r.json(); return j && j.contents;}},
+    {u:t=>'https://corsproxy.io/?url='+encodeURIComponent(t), parse:r=>r.text()}
+  ];
+  const attempts = tries.map(p => (async () => {
+    const r = await fetch(p.u(url), {signal: AbortSignal.timeout(35000)});
+    if(!r.ok) throw new Error('proxy status ' + r.status);
+    PROXY_STATE.anyResponded = true;
+    const t = await p.parse(r);
+    if(!t || !t.length) throw new Error('empty body');
+    return t;
+  })());
+  try { return await Promise.any(attempts); }
+  catch(e){ return null; }
+}
+
+// Accurate per-page inspection. A sitemap URL that redirects, 404s, or is
+// noindex is wasted crawl — but public proxies follow redirects silently and
+// hide response headers, so they can only ever report the FINAL status of the
+// LAST hop and never see X-Robots-Tag. The site's own Worker, in ?mode=inspect,
+// walks the redirect chain hop-by-hop and returns the true chain, final status,
+// response time, and header-level noindex. We prefer it and fall back to the
+// public proxies (final-URL comparison still catches "this URL redirected"),
+// degrading accuracy gracefully rather than lying.
+const INSPECT_ENDPOINT='https://geo-proxy.lsobrinski.workers.dev/?mode=inspect&url=';
+let INSPECT_OK=null;   // null=unknown, true/false once probed
+
+// One quick probe up front decides which accuracy tier — and therefore how big
+// a sample — we can afford. The upgraded Worker is fast and concurrent, so we
+// sample deeply; the public-proxy fallback is slow (~20-30s/page), so we sample
+// shallower and keep the tool responsive instead of stalling for a minute.
+async function probeInspect(origin){
+  try{
+    const r=await fetch(INSPECT_ENDPOINT+encodeURIComponent(origin),{signal:AbortSignal.timeout(12000)});
+    if(r.ok){ const j=await r.json(); if(j&&j.inspect){ INSPECT_OK=true; PROXY_STATE.anyResponded=true; return; } }
+  }catch(e){}
+  INSPECT_OK=false;
+}
+
+async function inspectPage(url){
+  // 1) Preferred: the upgraded Worker's inspect mode (rich, accurate).
+  if(INSPECT_OK!==false){
+    try{
+      const r=await fetch(INSPECT_ENDPOINT+encodeURIComponent(url),{signal:AbortSignal.timeout(20000)});
+      if(r.ok){
+        const j=await r.json();
+        if(j && j.inspect){
+          INSPECT_OK=true; PROXY_STATE.anyResponded=true;
+          if(j.error) return {url, ok:false};
+          return {
+            url, ok:true, rich:true,
+            status:j.status, finalUrl:j.finalUrl, redirected:j.redirected, hops:j.hops, chain:j.chain||[],
+            xRobots:(j.headers&&j.headers['x-robots-tag']||'').toLowerCase(),
+            lastModified:(j.headers&&j.headers['last-modified'])||'',
+            responseMs:j.responseMs, ttfbMs:j.ttfbMs, text:j.body||''
+          };
+        }
+      }
+    }catch(e){}
+    // If we get here the inspect endpoint isn't there / not upgraded yet.
+    if(INSPECT_OK===null) INSPECT_OK=false;
+  }
+  // 2) Fallback: status-aware public proxies. allorigins /get exposes both the
+  //    final http_code AND the final url, so we can still detect that a URL
+  //    redirected (final url != requested) even without the hop-by-hop chain.
+  const providers=[
+    {u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
+     get:async r=>{const j=await r.json(); const st=j&&j.status||{}; return {text:j&&j.contents, status:st.http_code||null, finalUrl:st.url||null};}},
+    {u:t=>'https://geo-proxy.lsobrinski.workers.dev/?url='+encodeURIComponent(t),
+     get:async r=>({text:await r.text(), status:parseInt(r.headers.get('X-Proxy-Upstream-Status'))||r.status, finalUrl:null})},
+    {u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t),
+     get:async r=>({text:await r.text(), status:r.status, finalUrl:null})}
+  ];
+  for(const p of providers){
+    try{
+      const r=await fetch(p.u(url),{signal:AbortSignal.timeout(15000)});
+      const out=await p.get(r);
+      if(out.text && out.text.length){
+        PROXY_STATE.anyResponded=true;
+        const redirected = out.finalUrl ? normalizeUrl(out.finalUrl)!==normalizeUrl(url) : false;
+        return {url, ok:true, rich:false, status:out.status, finalUrl:out.finalUrl, redirected, hops:redirected?1:0, chain:[], xRobots:'', lastModified:'', text:out.text};
+      }
+    }catch(e){}
+  }
+  return {url, ok:false};
+}
+
+// Run async tasks with bounded concurrency — a bigger sample without hammering
+// the proxies into rate-limiting (which shows up as false "site refused us").
+async function mapPool(items, limit, fn){
+  const out=new Array(items.length); let i=0;
+  async function worker(){ while(i<items.length){ const idx=i++; out[idx]=await fn(items[idx], idx); } }
+  await Promise.all(Array.from({length:Math.min(limit,items.length)}, worker));
+  return out;
+}
+
+function parseRobots(txt){
+  const groups=[]; let cur=null;
+  txt.split(/\r?\n/).forEach(line=>{
+    const l=line.replace(/#.*$/,'').trim(); if(!l)return;
+    const m=l.match(/^(user-agent|allow|disallow)\s*:\s*(.*)$/i); if(!m)return;
+    const k=m[1].toLowerCase(), v=m[2].trim();
+    if(k==='user-agent'){ if(!cur||cur.rules.length){cur={agents:[],rules:[]};groups.push(cur);} cur.agents.push(v.toLowerCase()); }
+    else if(cur){ cur.rules.push({type:k,path:v}); }
+  });
+  return groups;
+}
+function add(list,status,title,desc){ list.push({status,title,desc}); }
+
+// ---- sitemap discovery + parsing -------------------------------------------
+function sitemapUrlsFromRobots(robots, origin){
+  const urls=[];
+  if(robots){ robots.split(/\r?\n/).forEach(l=>{ const m=l.match(/^\s*sitemap\s*:\s*(\S+)/i); if(m) urls.push(m[1].trim()); }); }
+  urls.push(origin+'/sitemap.xml');
+  urls.push(origin+'/sitemap_index.xml');
+  return [...new Set(urls)];
+}
+function locsFromSitemap(xml){
+  if(!xml) return [];
+  return [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map(m=>m[1].trim().replace(/&amp;/g,'&'));
+}
+function hasLastmod(xml){ return /<lastmod[\s>]/i.test(xml||''); }
+function isSitemapIndex(xml){ return /<sitemapindex[\s>]/i.test(xml||''); }
+
+function normalizeUrl(u){
+  try{ const x=new URL(u); let p=x.pathname.replace(/\/+$/,''); if(!p)p='/'; return x.hostname.toLowerCase().replace(/^www\./,'')+p; }
+  catch(e){ return (u||'').toLowerCase(); }
+}
+function metaRobots(doc){
+  const m=doc.querySelector('meta[name="robots"], meta[name="googlebot"]');
+  return m ? (m.getAttribute('content')||'').toLowerCase() : '';
+}
+function canonicalOf(doc){
+  const c=doc.querySelector('link[rel="canonical"]');
+  return c ? (c.getAttribute('href')||'').trim() : '';
+}
+function readableTextLen(doc){
+  const b=doc.body; if(!b) return 0;
+  return (b.innerText||b.textContent||'').replace(/\s+/g,' ').trim().length;
+}
+
+// Pick interior pages to sample from the sitemap URL list. Accuracy depends on
+// the sample being (a) big enough and (b) representative, so we de-dupe, drop
+// assets, then STRIDE across the full list within each section rather than
+// taking the first N (which on most sites are near-identical top-level pages).
+function pickInteriorPages(urls, origin, n){
+  const assetRx=/\.(jpg|jpeg|png|gif|webp|svg|pdf|xml|css|js|ico|mp4|zip|rss)$/i;
+  const seen=new Set(); const cand=[];
+  for(const u of urls){
+    let x; try{ x=new URL(u); }catch(e){ continue; }
+    if(x.origin!==origin) continue;
+    if(assetRx.test(x.pathname)) continue;
+    const key=normalizeUrl(u);
+    if(seen.has(key)) continue; seen.add(key);
+    const segs=x.pathname.replace(/\/$/,'').split('/').filter(Boolean);
+    cand.push({href:x.href, sec:segs[0]||''});
+  }
+  // Bucket by top-level section, then stride each bucket so the sample spans
+  // the whole list end-to-end, not just the first few entries.
+  const bySection={};
+  cand.forEach(c=>{ (bySection[c.sec]=bySection[c.sec]||[]).push(c.href); });
+  Object.keys(bySection).forEach(sec=>{
+    const arr=bySection[sec]; if(arr.length<=1) return;
+    const step=Math.max(1, Math.floor(arr.length/Math.ceil(n/Math.max(1,Object.keys(bySection).length)+1)));
+    const strided=[]; for(let i=0;i<arr.length;i+=step) strided.push(arr[i]);
+    // keep strided order but append the rest so we can still fill up to n
+    bySection[sec]=[...new Set([...strided, ...arr])];
+  });
+  const sections=Object.keys(bySection);
+  const out=[];
+  for(let i=0; out.length<n && sections.some(s=>bySection[s].length); i++){
+    const bucket=bySection[sections[i%sections.length]];
+    if(bucket.length) out.push(bucket.shift());
+  }
+  return out.slice(0,n);
+}
+
+// Count internal links that carry query strings — the raw material of crawl
+// sprawl (faceted nav, sorting, session ids, tracking params).
+const WASTE_PARAM_RX=/[?&](utm_|fbclid|gclid|sessionid|sid|sort|order|filter|facet|color|size|price|view|ref|replytocom)/i;
+function paramLinks(doc, origin){
+  const set=new Set();
+  [...doc.querySelectorAll('a[href]')].forEach(a=>{
+    let x; try{ x=new URL(a.getAttribute('href'), origin); }catch(e){ return; }
+    if(x.origin!==origin) return;
+    if(x.search) set.add(x.pathname+x.search);
+  });
+  return [...set];
+}
+function robotsBlocksParams(robots){
+  if(!robots) return false;
+  return /disallow:\s*[^\n]*(\*\?|\?|\/search|\/filter|sort=|\*sort|facet|utm_)/i.test(robots);
+}
+
+const numOr=(id)=>{ const v=parseFloat(($(id).value||'').replace(/[,\s]/g,'')); return isFinite(v)&&v>=0 ? v : null; };
+const fmt=n=>n.toLocaleString();
+
+$('go').onclick=async()=>{
+  let url=$('url').value.trim(); if(!url) return;
+  if(!/^https?:\/\//i.test(url)) url='https://'+url;
+  let origin; try{origin=new URL(url).origin;}catch(e){$('status').textContent='That URL does not look valid.';return;}
+  $('go').disabled=true; $('report').style.display='none';
+  PROXY_STATE.anyResponded=false;
+
+  $('status').textContent='Reading robots.txt and locating your sitemap…';
+  const [robots, homeHtml]=await Promise.all([fetchText(origin+'/robots.txt'), fetchText(url)]);
+
+  // Find a sitemap.
+  let sitemapXml=null, sitemapUrl=null;
+  for(const su of sitemapUrlsFromRobots(robots, origin)){ const x=await fetchText(su); if(x && /<(urlset|sitemapindex)[\s>]/i.test(x)){ sitemapXml=x; sitemapUrl=su; break; } }
+
+  // Expand a sitemap index (sample first couple of child sitemaps).
+  let sitemapUrls=[], anyLastmod=false, childCount=0;
+  if(sitemapXml){
+    anyLastmod=hasLastmod(sitemapXml);
+    if(isSitemapIndex(sitemapXml)){
+      const children=locsFromSitemap(sitemapXml); childCount=children.length;
+      for(const child of children.slice(0,3)){ const cx=await fetchText(child); if(cx){ sitemapUrls.push(...locsFromSitemap(cx)); if(hasLastmod(cx)) anyLastmod=true; } }
+    } else {
+      sitemapUrls=locsFromSitemap(sitemapXml);
+    }
+  }
+
+  if(!homeHtml){
+    $('go').disabled=false;
+    $('status').innerHTML = PROXY_STATE.anyResponded
+      ? 'Could not read that site. It may block automated requests, or be slow to respond. Try the bare domain (example.com) or another URL.'
+      : '<b>The fetch service this tool relies on is unavailable right now</b> — this is not a finding about your site. The checker runs in your browser and depends on public fetch proxies, which occasionally go down. Please try again later.';
+    return;
+  }
+
+  // Sample interior pages, preferring sitemap URLs; fall back to homepage links.
+  // Bigger sample = tighter estimates, so we sample up to 18 (bounded
+  // concurrency keeps the proxies happy). Fewer than ~5 readable pages and we
+  // downgrade the sampled-page findings to low-confidence rather than overclaim.
+  $('status').textContent='Sampling interior pages and checking redirects, status codes, and indexability…';
+  let sampleSource = sitemapUrls.length ? 'sitemap' : 'links';
+  let poolUrls = sitemapUrls;
+  const homeDoc=new DOMParser().parseFromString(homeHtml,'text/html');
+  if(!poolUrls.length){
+    poolUrls=[...homeDoc.querySelectorAll('a[href]')].map(a=>{try{return new URL(a.getAttribute('href'),url).href;}catch(e){return null;}}).filter(Boolean);
+  }
+  // Decide the accuracy tier once, then size the sample to what it can deliver
+  // quickly: deep with the fast Worker, shallower on the slow public fallback.
+  if(INSPECT_OK===null) await probeInspect(origin);
+  const SAMPLE_N = INSPECT_OK ? 20 : 10;
+  const CONC = INSPECT_OK ? 6 : 4;   // gentler on the public proxies (they rate-limit)
+  const sampleTargets=pickInteriorPages(poolUrls, origin, SAMPLE_N);
+  let done=0;
+  const sampled=await mapPool(sampleTargets, CONC, async u=>{
+    const r=await inspectPage(u);
+    $('status').textContent='Checking interior pages… '+(++done)+'/'+sampleTargets.length;
+    if(!r.ok) return {url:u, ok:false};
+    const doc=new DOMParser().parseFromString(r.text||'','text/html');
+    const headerNoindex=/noindex/.test(r.xRobots||'');
+    return {
+      url:u, ok:true, rich:!!r.rich, status:r.status,
+      redirected:!!r.redirected, hops:r.hops||0, chain:r.chain||[], finalUrl:r.finalUrl||null,
+      noindex:/noindex/.test(metaRobots(doc)) || headerNoindex,
+      headerNoindex,
+      canonical:canonicalOf(doc),
+      textLen:readableTextLen(doc),
+      ttfbMs:r.ttfbMs||null
+    };
+  });
+  const got=sampled.filter(s=>s.ok);
+  const richSample=got.some(s=>s.rich);            // did we get true redirect/header data?
+  const lowConfidence=got.length>0 && got.length<5; // too few pages to state percentages firmly
+  const conf = n => lowConfidence ? ' (low confidence — only '+got.length+' pages were readable)' : '';
+
+  $('go').disabled=false;
+  $('status').textContent='';
+  const checks=[]; const fixes=[];
+  let pts=0, max=0;
+  const award=(got,poss)=>{ pts+=got; max+=poss; };
+
+  // 1) Sitemap present (the master switch for efficient discovery) -----------
+  if(sitemapXml){
+    const total = childCount ? '~'+fmt(sitemapUrls.length)+' URLs sampled across '+fmt(childCount)+' child sitemaps' : fmt(sitemapUrls.length)+' URLs';
+    add(checks,'pass','Sitemap found','A valid sitemap at '+sitemapUrl+' ('+total+'). This is how Google discovers your pages efficiently instead of guessing.');
+    award(3,3);
+  } else {
+    add(checks,'fail','No sitemap found','No readable sitemap at the usual locations or in robots.txt. Without one, Google discovers pages by crawling links — slower, and budget gets spent wandering instead of on the pages you care about.');
+    fixes.push('Publish an XML sitemap listing only your canonical, indexable URLs, and declare it in robots.txt (Sitemap: '+origin+'/sitemap.xml).');
+    award(0,3);
+  }
+
+  // 2) Sitemap declared in robots.txt ----------------------------------------
+  if(robots && /^\s*sitemap\s*:/im.test(robots)){
+    add(checks,'pass','Sitemap declared in robots.txt','Crawlers are pointed straight at your sitemap. Good.');
+    award(1,1);
+  } else {
+    add(checks, sitemapXml?'warn':'info','Sitemap not declared in robots.txt', robots ? 'Your robots.txt exists but has no Sitemap: line. Add one so every crawler finds it without guessing.' : 'Could not read robots.txt to confirm. Verify it declares your sitemap.');
+    if(sitemapXml) fixes.push('Add a "Sitemap: '+(sitemapUrl||origin+'/sitemap.xml')+'" line to robots.txt.');
+    award(0,1);
+  }
+
+  // 3) Clean sitemap URLs (no query params) ----------------------------------
+  if(sitemapUrls.length){
+    const paramd=sitemapUrls.filter(u=>/\?/.test(u));
+    const ratio=paramd.length/sitemapUrls.length;
+    if(ratio<0.02){
+      add(checks,'pass','Sitemap URLs are clean','Effectively no parameterized URLs in the sampled sitemap. That keeps Google on canonical pages.');
+      award(2,2);
+    } else {
+      add(checks,'fail','Parameterized URLs in your sitemap','About '+Math.round(ratio*100)+'% of sampled sitemap URLs contain query strings (e.g. ?sort=, ?ref=). A sitemap should list only clean canonical URLs; parameter versions are duplicate crawl targets.');
+      fixes.push('Strip query-string URLs out of your sitemap — list only the canonical version of each page.');
+      award(0,2);
+    }
+  } else { award(0,0); }
+
+  // 4) Single canonical host (no www/non-www or protocol mixing) -------------
+  if(sitemapUrls.length){
+    const hosts=new Set(), protos=new Set();
+    sitemapUrls.slice(0,400).forEach(u=>{ try{ const x=new URL(u); hosts.add(x.hostname.toLowerCase()); protos.add(x.protocol);}catch(e){} });
+    if(hosts.size<=1 && protos.size<=1){
+      add(checks,'pass','One canonical host','All sampled sitemap URLs share a single host and protocol. No duplicate-host crawl waste.');
+      award(2,2);
+    } else {
+      add(checks,'warn','Mixed hosts or protocols in sitemap','Sampled URLs span '+[...hosts].join(', ')+(protos.size>1?' and mix http/https':'')+'. Google may crawl the same page under multiple hostnames — pure duplication.');
+      fixes.push('Pick one canonical host (www or non-www, https only) and make every sitemap URL, internal link, and redirect use it.');
+      award(0,2);
+    }
+  } else { award(0,0); }
+
+  // 5) lastmod present -------------------------------------------------------
+  if(sitemapXml){
+    if(anyLastmod){ add(checks,'pass','Sitemap includes <lastmod>','Freshness dates let Google spend budget re-crawling what actually changed instead of everything equally.'); award(1,1); }
+    else { add(checks,'warn','No <lastmod> in sitemap','Without lastmod, Google can\'t tell what changed, so it re-crawls blindly. Add accurate lastmod dates.'); fixes.push('Add accurate <lastmod> timestamps to sitemap entries so Google prioritizes changed pages.'); award(0,1); }
+  } else { award(0,0); }
+
+  // 6-10) Sampled-page findings ---------------------------------------------
+  // Require a real sample. One or two readable pages can't tell you anything
+  // about site-wide waste, and 8 trivially-green checks off a sample of 1 would
+  // inflate the score into a false "all clear". Below the floor we say so and
+  // score on sitemap structure alone rather than pretend.
+  const MIN_SAMPLE=3;
+  if(got.length>=MIN_SAMPLE){
+    const noidx=got.filter(s=>s.noindex);
+    const canonMismatch=got.filter(s=>s.canonical && normalizeUrl(s.canonical)!==normalizeUrl(s.url) && !s.redirected);
+    const errors=got.filter(s=>s.status && s.status>=400);
+    const redirects=got.filter(s=>s.redirected);
+    const longChains=redirects.filter(s=>s.hops>=2);
+    const thin=got.filter(s=>s.textLen>0 && s.textLen<250 && (!s.status||s.status<400));
+    const pct=arr=>Math.round(arr.length/got.length*100);
+    const listNames=arr=>arr.map(s=>{try{return (new URL(s.url).pathname||s.url)+(s.hops?(' ('+s.hops+' hop'+(s.hops>1?'s':'')+')'):'');}catch(e){return s.url;}}).slice(0,5).join(', ');
+    const detail = richSample ? '' : ' Based on final-status data only (deploy the upgraded Worker for full redirect-chain and header detail).';
+
+    // noindex in sitemap = pure waste (now catches BOTH meta and X-Robots-Tag header)
+    if(sampleSource==='sitemap'){
+      const hdrNote = noidx.some(s=>s.headerNoindex) ? ' Some are set via the X-Robots-Tag HTTP header — invisible without a header-level check.' : '';
+      if(!noidx.length){ add(checks,'pass','Sampled sitemap pages are indexable','None of the '+got.length+' sampled sitemap pages are noindex (checked both meta tag and X-Robots-Tag header).'+conf()); award(3,3); }
+      else { add(checks,'fail',noidx.length+' of '+got.length+' sampled pages are noindex ('+pct(noidx)+'%)','In your sitemap but tagged noindex ('+listNames(noidx)+'). Google crawls them, then is told to ignore them — pure wasted budget.'+hdrNote+conf()); fixes.push('Remove noindex pages from your sitemap (or drop the noindex if they should rank). A sitemap should list only indexable URLs.'); award(lowConfidence?1:0,3); }
+    } else { award(0,0); }
+
+    // redirects in the sitemap — a sitemap URL should be the FINAL url
+    if(!redirects.length){ add(checks,'pass','Sampled URLs resolve without redirects','No sampled URL redirected — the sitemap points straight at live final URLs.'+conf()); award(2,2); }
+    else { add(checks, longChains.length?'fail':'warn', redirects.length+' of '+got.length+' sampled URLs redirect ('+pct(redirects)+'%)', (longChains.length?longChains.length+' of them go through 2+ hops. ':'')+'A sitemap URL that redirects wastes the crawl on the way to the real page ('+listNames(redirects)+').'+detail+conf()); fixes.push('Update the sitemap (and internal links) to point at final URLs, not ones that redirect. Collapse any multi-hop redirect chains to a single 301.'); award(longChains.length?0:1,2); }
+
+    // dead ends (4xx/5xx)
+    if(!errors.length){ add(checks,'pass','No dead URLs in the sample','Every sampled URL that reported a status resolved without a 4xx/5xx error.'+conf()); award(3,3); }
+    else { add(checks,'fail',errors.length+' of '+got.length+' sampled URLs are dead ('+pct(errors)+'%)','Sampled URLs returned an error status ('+listNames(errors)+'). 404s/5xx in your sitemap are crawl budget spent on nothing.'+conf()); fixes.push('Remove error URLs (404/410/5xx) from your sitemap; list only live, 200-status URLs.'); award(lowConfidence?1:0,3); }
+
+    // canonical pointing elsewhere = consolidated, crawl still spent
+    if(!canonMismatch.length){ add(checks,'pass','Sampled pages are self-canonical','Each sampled page\'s canonical points to itself. No hidden consolidation eating crawls.'+conf()); award(3,3); }
+    else { add(checks,'warn',canonMismatch.length+' of '+got.length+' sampled pages canonicalize elsewhere ('+pct(canonMismatch)+'%)','These declare a different canonical URL ('+listNames(canonMismatch)+'). Google still crawls them but folds them into another page — fine in moderation, waste at scale.'+conf()); fixes.push('Audit why crawlable pages point their canonical elsewhere; if they\'re duplicates, block or consolidate them so they aren\'t crawled at all.'); award(1,3); }
+
+    // thin / soft-404 risk
+    if(!thin.length){ add(checks,'pass','No thin pages in the sample','Sampled pages carry real readable content — low soft-404 risk.'+conf()); award(2,2); }
+    else { add(checks,'warn',thin.length+' of '+got.length+' sampled pages look thin ('+pct(thin)+'%)','Very little readable text ('+listNames(thin)+'). Thin/near-empty pages get crawled, judged low-value, and can be treated as soft-404s.'+conf()); fixes.push('Consolidate or flesh out thin pages; near-empty URLs waste crawls and dilute quality signals.'); award(0,2); }
+
+    // server response time (accurate only from the Worker's own timing) -------
+    const timed=got.filter(s=>s.ttfbMs!=null);
+    if(richSample && timed.length){
+      const avg=Math.round(timed.reduce((a,s)=>a+s.ttfbMs,0)/timed.length);
+      if(avg<=800){ add(checks,'pass','Fast server response (~'+avg+'ms avg)','Quick responses let Googlebot fetch more pages per crawl session — the literal mechanism of crawl budget.'); award(1,1); }
+      else if(avg<=1800){ add(checks,'warn','Moderate server response (~'+avg+'ms avg)','Slower responses mean fewer pages crawled per session. Google explicitly reduces crawl rate on slow servers.'); fixes.push('Speed up server response time (~'+avg+'ms measured). Caching, a CDN, and lighter server rendering directly raise how many pages Google crawls.'); award(0,1); }
+      else { add(checks,'fail','Slow server response (~'+avg+'ms avg)','Slow origin responses are one of the biggest crawl-budget limiters — Google throttles crawl rate to avoid overloading a slow server.'); fixes.push('Server response time is slow (~'+avg+'ms). This directly caps crawl budget; prioritize caching/CDN/faster rendering.'); award(0,1); }
+    } else { award(0,0); }
+  } else if(got.length>0){
+    add(checks,'info','Too few pages readable to judge page-level waste','Only '+got.length+' interior page(s) could be fetched (the fetch proxy refused the rest) — too small a sample to fairly assess redirects, status codes, noindex, canonicals, or thin content, so those were skipped and not scored. This usually clears up on the live site with the deployed Worker; otherwise these signals need a direct crawl. The score below reflects sitemap structure only.');
+    // deliberately award nothing: don't let a 1-2 page sample move the score.
+  } else {
+    add(checks,'info','Could not sample interior pages','No interior pages were readable (no sitemap URLs and/or the proxy was refused), so redirect, status, indexability, canonical, thin-content, and timing checks were skipped. Re-run with the bare domain, or these need a direct crawl. The score below reflects sitemap structure only.');
+    // don't inflate or deflate the score on unreadable samples
+  }
+
+  // 10) Parameter / faceted sprawl exposure ----------------------------------
+  const pLinks=paramLinks(homeDoc, origin);
+  const blocksParams=robotsBlocksParams(robots);
+  max+=2;   // this check is always worth 2; pts added in the pass branches below
+  if(pLinks.length===0){
+    add(checks,'pass','No parameter sprawl on the homepage','No query-string internal links found on the homepage — low faceted-crawl risk from the front door.');
+    pts+=2;
+  } else if(blocksParams){
+    add(checks,'pass','Parameter URLs exist but robots.txt limits them','Found '+pLinks.length+' parameterized internal link(s), but your robots.txt appears to disallow common parameter/faceted paths. Good containment.');
+    pts+=2;
+  } else {
+    add(checks,'warn',pLinks.length+' parameter URL(s) exposed, not blocked','Internal links carry query strings (sort/filter/tracking) and robots.txt doesn\'t appear to disallow them. Faceted navigation like this can multiply into thousands of near-duplicate crawl targets.');
+    fixes.push('Contain parameter/faceted URLs: canonicalize them to the clean page, disallow the low-value ones in robots.txt, and avoid linking to tracking-parametered internal URLs.');
+  }
+
+  // Info: robots.txt readability
+  if(!robots){ add(checks,'info','robots.txt not readable','Could not fetch robots.txt, so robots-based checks are best-effort. Verify manually at '+origin+'/robots.txt'); }
+
+  // Transparency line at the top — includes the accuracy tier we actually ran at.
+  const sampledNames=got.map(s=>{try{return new URL(s.url).pathname||s.url;}catch(e){return s.url;}});
+  const tier = got.length===0 ? '' : (richSample
+    ? ' Ran at full accuracy: true redirect chains, status codes, and header-level (X-Robots-Tag) signals.'
+    : ' Ran at standard accuracy via public proxies (final status + redirect detection). Deploy the upgraded Worker for full redirect-chain and header detail.');
+  checks.unshift({status:'info', title:'What this report is based on', desc:(sitemapXml?('Sitemap: '+sitemapUrl+'. '):'No sitemap found. ')+(got.length?('Sampled '+got.length+' interior page(s) '+(sampleSource==='links'?'from homepage links':'from your sitemap')+': '+sampledNames.slice(0,6).join(', ')+'.'):'No interior pages could be sampled.')+tier+' Structural signals only — the definitive read is log files + Search Console.'});
+
+  // ---- score ---------------------------------------------------------------
+  const overall = max ? Math.round(pts/max*100) : 0;
+  $('score').textContent=overall;
+  const bar=$('bar'); bar.style.width=overall+'%';
+  let color,v,m;
+  if(overall>=80){ color='var(--good)'; v='Lean crawl profile.'; m='Little structural waste in what we could see. Confirm with log files, but Googlebot is mostly spending budget on pages that matter.'; }
+  else if(overall>=55){ color='var(--warn)'; v='Some budget is leaking.'; m='Real pages are getting crawled, but the gaps below are quietly spending budget on URLs that don\'t earn. Start at the top of the fix list.'; }
+  else { color='var(--bad)'; v='Crawl budget is being wasted.'; m='Enough structural waste that Google is likely crawling low-value URLs before your important ones. The fixes below are ranked.'; }
+  $('verdict').textContent=v; $('verdict').style.color=color; $('verdictM').textContent=m; bar.style.background=color;
+
+  // ---- real-data layer (GSC numbers) ---------------------------------------
+  const indexed=numOr('gIndexed'), notIndexed=numOr('gNotIndexed'), crawlReq=numOr('gCrawlReq'), siteUrls=numOr('gSiteUrls');
+  if(indexed!==null && notIndexed!==null && (indexed+notIndexed)>0){
+    const known=indexed+notIndexed;
+    const wasteRatio=notIndexed/known;               // URLs Google knows about that aren't indexed
+    const indexRatio=indexed/known;
+    const stats=[];
+    stats.push({n:Math.round(indexRatio*100)+'%', l:'of the URLs Google knows about are actually indexed'});
+    stats.push({n:fmt(Math.round(notIndexed)), l:'URLs crawled/discovered but NOT indexed — where budget leaks'});
+    if(crawlReq!==null){
+      const wastedCrawls=Math.round(crawlReq*wasteRatio);
+      stats.push({n:fmt(wastedCrawls), l:'est. crawl requests over 90 days spent on non-indexed URLs (rough: total × non-index rate)'});
+    } else if(siteUrls!==null && siteUrls>0){
+      const bloat=known/siteUrls;
+      stats.push({n:bloat.toFixed(1)+'×', l:'more URLs known to Google than real indexable pages you listed'});
+    }
+    let rh, rd;
+    if(wasteRatio>=0.6){ rh='About '+Math.round(wasteRatio*100)+'% of your known URLs never make it into the index.'; rd='That is a large crawl leak. Google is spending a majority of its effort on URLs it ultimately excludes — parameter duplicates, thin pages, soft-404s, or pages that should be consolidated. The structural checks above point to which.'; }
+    else if(wasteRatio>=0.3){ rh='Roughly '+Math.round(wasteRatio*100)+'% of your known URLs aren\'t indexed.'; rd='A meaningful share of crawl budget is going to pages Google decides not to keep. Trimming those (noindex+block, consolidate, or fix) redirects budget to pages that can rank.'; }
+    else { rh='Only '+Math.round(wasteRatio*100)+'% of your known URLs aren\'t indexed — healthy.'; rd='Most of what Google crawls, it keeps. Crawl budget is not your bottleneck; focus energy on content and links.'; }
+    $('realHead').textContent=rh; $('realDesc').textContent=rd;
+    const rs=$('realStats'); rs.innerHTML='';
+    stats.forEach(s=>{ const d=document.createElement('div'); d.className='rstat'; d.innerHTML='<div class="n">'+s.n+'</div><div class="l">'+s.l+'</div>'; rs.appendChild(d); });
+    $('realWrap').style.display='block';
+    if(wasteRatio>=0.3) fixes.unshift('Your Search Console numbers show '+Math.round(wasteRatio*100)+'% of known URLs aren\'t indexed. Open the "Not indexed" report, group by reason (Duplicate, Crawled-not-indexed, Soft 404, Redirect), and fix the biggest bucket first — that is your crawl leak in priority order.');
+  } else {
+    $('realWrap').style.display='none';
+  }
+
+  // ---- render --------------------------------------------------------------
+  const cc=$('checks'); cc.innerHTML='';
+  checks.forEach(c=>{
+    const d=document.createElement('div');d.className='check';
+    const b=document.createElement('div');b.className='badge b-'+c.status;b.textContent=c.status==='pass'?'✓':c.status==='fail'?'✕':c.status==='warn'?'!':'i';
+    const w=document.createElement('div');w.innerHTML='<div class="t">'+c.title+'</div><div class="d">'+c.desc+'</div>';
+    d.appendChild(b);d.appendChild(w);cc.appendChild(d);
+  });
+  const fl=$('fixes'); fl.innerHTML='';
+  (fixes.length?fixes:['Nothing structural to fix in what we could see. Confirm with a log-file analysis — that\'s the only way to see what Googlebot is actually spending budget on.']).forEach(f=>{const li=document.createElement('li');li.textContent=f;fl.appendChild(li);});
+  $('report').style.display='block';
+  $('report').scrollIntoView({behavior:'smooth'});
+};
+$('url').addEventListener('keydown',e=>{if(e.key==='Enter')$('go').click();});
+</script>
+</body>
+</html>

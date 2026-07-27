@@ -22,6 +22,14 @@ tools:
       Paste a URL and see what ChatGPT, Gemini, and Perplexity can actually read
       and cite: AI-crawler access in robots.txt, structured data, answer-first
       content, llms.txt, and a per-engine readiness score.
+  - name: Crawl Budget Waste Checker
+    url: /crawl-budget.html
+    cta: Check crawl budget →
+    blurb: >-
+      Crawls your robots.txt, sitemap, and interior pages to find where
+      Googlebot wastes its budget: redirects and dead URLs in the sitemap,
+      noindex pages still being crawled, canonical waste, and parameter sprawl.
+      Add your Search Console numbers to size the leak.
   - name: AEO/GEO Readiness Scorecard
     url: /scorecard.html
     cta: Get your score →
