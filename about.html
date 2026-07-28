@@ -6,7 +6,7 @@ description: "15+ years in growth and performance marketing across enterprise re
 ---
 
 <h1>About <span>Lindsey</span></h1>
-<p class="lede">Growth and performance marketing leader. 15+ years across enterprise retail, B2B services, agencies, and subscription DTC. The measurement is the point.</p>
+<p class="lede">Growth and performance marketing leader. 15+ years across enterprise retail, B2B services, agencies, and subscription DTC. The measurement is the point. Everything on this site — the tools, the numbers below, the AI-search work — is proof, not pitch.</p>
 
 <h2>What I do</h2>
 <div class="card">
@@ -52,9 +52,20 @@ description: "15+ years in growth and performance marketing across enterprise re
   <a class="tile lane-journey" href="/user-journey/"><h3>User Journey</h3><p>Where intent dies, and how to test the fix.</p><span class="go">Go →</span></a>
 </div>
 
+<style>
+.cta .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.cta a.btn{display:inline-block;padding:10px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem;transition:background .15s ease,color .15s ease;}
+.cta a.btn-primary{background:var(--accent);color:#fff;}
+.cta a.btn-primary:hover{background:#155a85;color:#fff;}
+.cta a.btn-secondary{background:#fff;color:var(--accent);border:1.5px solid var(--accent);}
+.cta a.btn-secondary:hover{background:var(--soft);}
+</style>
 <div class="cta">
-  <span><b>Want the full resume or a conversation?</b></span>
-  <span><a href="{{ site.author.linkedin }}">Connect on LinkedIn</a> &nbsp;&middot;&nbsp; <a href="mailto:{{ site.author.email }}">Email me</a></span>
+  <span><b>Open to senior growth leadership roles and select consulting engagements — let's talk.</b></span>
+  <span class="btns">
+    <a class="btn btn-primary" href="{{ site.author.linkedin }}">Connect on LinkedIn</a>
+    <a class="btn btn-secondary" href="mailto:{{ site.author.email }}">Email me</a>
+  </span>
 </div>
 
 <script type="application/ld+json">
