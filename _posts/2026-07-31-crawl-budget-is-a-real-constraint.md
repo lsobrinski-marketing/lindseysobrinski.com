@@ -62,11 +62,11 @@ It becomes a real constraint at scale — the point where your URL count is larg
 
 When crawl budget is being wasted, it's almost always some mix of the same four culprits — and on a big site, all four are usually template-level, which is why they get so large.
 
-**Redirect chains.** Every redirect is a request Googlebot makes and a hop it follows before reaching anything indexable. When a redirecting link sits in a header or footer, that's a wasted hop on every page. Chains that trace back to a handful of templates can account for the majority of a site's redirect activity.
+**Redirect chains.** Every redirect is a request Googlebot makes and a hop it follows before reaching anything indexable. When a redirecting link sits in a header or footer, that's a wasted hop on every page. Chains that trace back to [a handful of templates](/blog/one-line-in-a-header-template-was-92-percent-of-our-redirect-chains/) can account for the majority of a site's redirect activity.
 
 **Links to 404s.** On the same site, 4,293 internal links still pointed at pages that no longer existed. Every one of those is Googlebot fetching a dead end — pure waste, and a leak of the ranking signal the linking page was passing.
 
-**Duplicate and parameter URLs.** Tracking parameters, filter combinations, and session variants multiply the crawlable surface. Google spends budget fetching near-identical versions of pages it has already seen.
+**Duplicate and parameter URLs.** Tracking parameters, filter combinations, and session variants multiply the crawlable surface. Google spends budget fetching near-identical versions of pages it has already seen — the same tracking-parameter sprawl that gets Google [overriding your canonical tags](/blog/google-is-ignoring-your-canonical-tags/) at scale.
 
 **Slow responses.** Server response time on the site had risen 36% — from around 330ms to 448ms. That matters beyond page speed, because Google explicitly throttles its crawl rate on slow sites. A slower server literally buys you fewer crawls.
 
@@ -89,3 +89,5 @@ None of this is exotic. It's just rarely anyone's job, so it accumulates until t
 The payoff is speed of discovery. When the budget stops leaking, Googlebot spends its visits on real pages — and new inventory, seasonal collections, and updated content get found and ranked in days instead of weeks. On a site where content velocity is a competitive advantage, that gap is the difference between capturing a season and missing it.
 
 Check your own the way I check a new site: open Crawl Stats in Search Console, and look at how much of the crawling is hitting redirects and 404s, whether response time is climbing, and how much is going to new URLs at all. If the answer is "not much," you don't have a content problem yet. You have a budget being spent on garbage.
+
+Crawl budget is one piece of the technical-SEO foundation. For the whole picture — rendering, canonical integrity, redirects, and Core Web Vitals — see the [Technical SEO](/seo-aeo-geo/technical-seo/) hub.
