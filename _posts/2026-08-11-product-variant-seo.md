@@ -117,3 +117,5 @@ You do not need a project to see whether this is hurting you. Crawl your own sit
 None of this is about having fewer pages because small is virtuous. It is about concentrating signal where intent actually exists, so the pages that can rank have every advantage instead of competing with their own near-copies. Decide which variants are pages. Decide it on search intent, the same discipline that tells you [where on the journey buyer intent quietly dies](/blog/where-intent-dies/). Above all, decide it yourself — because if you do not, the platform will decide by default, and it will get it wrong at scale.
 
 So before you ship the next thousand SKUs: how many of your product URLs are real pages people search for — and how many are just a filter Google decided to index?
+
+Variant sprawl is one facet of the technical-SEO foundation. For the whole picture — rendering, canonical integrity, redirects, and crawl budget — see the [Technical SEO](/seo-aeo-geo/technical-seo/) hub.
