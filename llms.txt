@@ -4,7 +4,8 @@
 > retail, B2B services, agencies, and subscription DTC. Work spans cross-channel
 > paid media, SEO/AEO/GEO, lifecycle and retention, and user-journey conversion
 > optimization. Budgets are allocated by incrementality and contribution margin
-> rather than platform-reported ROAS.
+> rather than platform-reported ROAS. Available for fractional and advisory
+> engagements.
 
 ## Service lanes
 
@@ -12,6 +13,55 @@
 - [Paid Media Analysis & Strategy](https://lindseysobrinski.com/paid-media/): Cross-channel planning and buying across paid social, search, programmatic, video, CTV, and out-of-home (OOH), with incrementality testing and media mix modeling underneath the allocation.
 - [Lifecycle Marketing & Retention](https://lindseysobrinski.com/lifecycle/): Retention, loyalty, churn, and win-back programs, plus subscription economics and cohort analysis.
 - [User Journey & Conversion](https://lindseysobrinski.com/user-journey/): Journey mapping, dropoff analysis, and experimentation run with the statistical discipline to distinguish real lift from noise.
+
+## Key articles
+
+Measurement and incrementality (the through-line of the whole body of work):
+- [Platform ROAS is grading its own homework](https://lindseysobrinski.com/blog/platform-roas-is-grading-its-own-homework/): why platform-reported ROAS overstates return, and what it hides.
+- [Incremental ROAS: the only return number a CFO will actually trust](https://lindseysobrinski.com/blog/incremental-roas-the-number-a-cfo-trusts/): reported vs incremental return, and how to measure the real one.
+- [Attribution, incrementality, MMM: stop asking which one is right](https://lindseysobrinski.com/blog/attribution-incrementality-mmm-which-one/): how the three measurement methods layer instead of compete.
+- [How to run a geo holdout test without fooling yourself](https://lindseysobrinski.com/blog/how-to-run-a-geo-holdout-test/): a practical incrementality experiment for paid media.
+- [Is branded search incremental? Run the holdout you're afraid of](https://lindseysobrinski.com/blog/is-branded-search-incremental/): whether branded-search spend adds incremental revenue.
+
+Paid media and demand:
+- [Demand generation vs demand capture](https://lindseysobrinski.com/blog/demand-generation-vs-demand-capture/): the split that decides whether a brand grows or just harvests existing demand.
+- [Which channel for which level of intent](https://lindseysobrinski.com/blog/which-channel-for-which-level-of-intent/): matching channels to intent and sequencing them.
+- [The cheap-acquisition era is ending: AI search is forcing paid back upstream](https://lindseysobrinski.com/blog/ai-search-is-forcing-paid-back-upstream/): why AI search raises the cost of demand and pushes paid to demand generation.
+- [The model got 99% cheaper. Your CAC didn't.](https://lindseysobrinski.com/blog/the-model-got-cheaper-your-cac-didnt/): why cheaper AI lowers the cost of producing marketing, not the cost of demand.
+- [Your campaigns were beating their targets. Google just ended that.](https://lindseysobrinski.com/blog/google-target-based-bidding-change/): Google's Aug 2026 target-based bidding change and what to reset.
+- [Prospecting vs retargeting: your retargeting ROAS is mostly a mirror](https://lindseysobrinski.com/blog/prospecting-vs-retargeting/): why retargeting over-claims credit for demand that already existed.
+
+SEO, AEO and GEO (AI-search visibility):
+- [SXO vs SEO vs AEO vs GEO: you don't have four disciplines, you have one machine](https://lindseysobrinski.com/blog/sxo-vs-seo-one-machine/): why these acronyms describe one journey, not four teams.
+- [The 4 P's of AI visibility](https://lindseysobrinski.com/blog/the-4-ps-of-ai-visibility/): the IAB's Presence, Prominence, Portrayal, Persuasion framework, and how the tools measuring it stack up.
+- [One citation play per engine: ChatGPT, Gemini, and Perplexity don't read you the same way](https://lindseysobrinski.com/blog/one-citation-play-per-engine/): a distinct GEO play for each AI engine.
+- [The source-of-truth gap: when Reddit knows your catalog better than the AI does](https://lindseysobrinski.com/blog/the-source-of-truth-gap/): why AI answers about a brand come from third parties, and how to close the gap.
+- [Winning the answer box when the click never comes](https://lindseysobrinski.com/blog/winning-the-answer-box/): answer engine optimization for zero-click results.
+- [Why your customers are shopping like they're choosing a surgeon](https://lindseysobrinski.com/blog/shopping-like-choosing-a-surgeon/): how AI research shortlists changed high-consideration buying.
+- [The AI watermark is here. It measures the wrong thing.](https://lindseysobrinski.com/blog/the-ai-watermark-measures-the-wrong-thing/): why AI-content watermarks don't threaten SEO and what the real risk is.
+
+Technical SEO:
+- [Your JavaScript site is invisible to AI crawlers](https://lindseysobrinski.com/blog/your-javascript-site-is-invisible-to-ai-crawlers/): why client-rendered pages are blank to GPTBot, ClaudeBot, and PerplexityBot.
+- [Crawl budget is a real constraint](https://lindseysobrinski.com/blog/crawl-budget-is-a-real-constraint/): how enterprise sites waste crawl budget and starve new inventory.
+- [Google is ignoring your canonical tags](https://lindseysobrinski.com/blog/google-is-ignoring-your-canonical-tags/): why a tracking parameter makes Google override your canonicals.
+- [Every color and size collapses into one URL — on purpose](https://lindseysobrinski.com/blog/product-variant-seo/): deciding which product variants earn their own indexable URL.
+- [A 10-second LCP is a ranking decision you're making by accident](https://lindseysobrinski.com/blog/lcp-is-a-ranking-decision/): why third-party tags, not images, wreck Core Web Vitals.
+
+Lifecycle, retention and subscriptions:
+- [Your retention rate is lying if you don't cohort it](https://lindseysobrinski.com/blog/cohort-retention-analysis/): why a blended retention rate hides churn behind new-customer growth.
+- [Subscription churn is a pricing problem in disguise](https://lindseysobrinski.com/blog/subscription-churn-pricing/): splitting involuntary (failed-payment) churn from voluntary price-value churn.
+- [Your churn is a payments problem more often than a loyalty problem](https://lindseysobrinski.com/blog/your-churn-is-a-payments-problem/): involuntary churn and dunning as the cheapest retention win.
+- [The unit math that quietly kills subscription businesses](https://lindseysobrinski.com/blog/the-unit-math-of-subscriptions/): the cohort and margin math behind subscription viability.
+
+Ecommerce and user journey:
+- [Where intent dies: mapping the real path to conversion](https://lindseysobrinski.com/blog/where-intent-dies/): finding the steps where buyer intent quietly drops off.
+- [You can rank on page one and still capture 1% of the market](https://lindseysobrinski.com/blog/rank-on-page-one-capture-one-percent/): why ranking isn't the same as capturing demand.
+- [Grid-first category pages are why a smaller competitor is beating you](https://lindseysobrinski.com/blog/grid-first-category-pages-are-losing/): why bare product grids lose to content-led category pages.
+- [A real lift or just noise? The testing discipline most CRO programs skip](https://lindseysobrinski.com/blog/a-real-lift-or-just-noise/): distinguishing real experiment lift from noise.
+
+Measurement, incentives and AI (thesis pieces):
+- [The AI cheated to inflate its own score. Your ad platform does the same thing.](https://lindseysobrinski.com/blog/the-ai-gamed-its-own-scorecard/): Goodhart's law, from an AI gaming its benchmark to platforms gaming their metrics.
+- [The AI didn't break free. It was competitive.](https://lindseysobrinski.com/blog/the-ai-didnt-break-free-it-was-competitive/): what the OpenAI–Hugging Face incident says about optimizers and incentives.
 
 ## Free tools
 
@@ -22,8 +72,8 @@
 
 ## Writing
 
-- [Blog](https://lindseysobrinski.com/blog/): Categories covering SEO, AEO, GEO, paid media, lifecycle, subscriptions, user journey, and conversion optimization.
+- [Blog](https://lindseysobrinski.com/blog/): The full archive — SEO, AEO, GEO, paid media, lifecycle, subscriptions, user journey, and conversion optimization, all in an incrementality-first, "notes from inside the work" voice.
 
 ## About
 
-- [About](https://lindseysobrinski.com/about.html): Background, sectors, recognition, and approach to AI-assisted measurement.
+- [About](https://lindseysobrinski.com/about.html): Background, sectors, recognition, availability for fractional and advisory work, and approach to AI-assisted measurement.
