@@ -2,22 +2,22 @@
 layout: lane
 permalink: /lifecycle/
 title: Lifecycle Marketing & Retention
-eyebrow: Lane 03 — Lifecycle & Retention
+eyebrow: Lane 03, Lifecycle & Retention
 lane_class: lane-lifecycle
 service_type: Lifecycle Marketing, Retention, and Subscription Strategy
-description: "Retention, loyalty, churn, and win-back — plus the subscription economics that decide whether your acquisition spend was worth making."
+description: "Retention, loyalty, churn, and win-back, plus the subscription economics that decide whether your acquisition spend was worth making."
 lede: >-
   Acquisition decides how many customers you get. Retention decides whether
   getting them was a good idea. Most brands staff the first question generously
   and answer the second with an abandoned-cart email and a hope.
 audience: Growth, CRM, and P&L owners at subscription, DTC, retail, and ecommerce businesses.
-cta: Want to know where your customers are actually leaving — and what that costs?
+cta: Want to know where your customers are actually leaving, and what that costs?
 blog_categories: [lifecycle, subscriptions]
 tools:
   - name: Cohort Payback Calculator
     blurb: >-
       Enter acquisition cost, order frequency, and contribution margin to see
-      how long each cohort takes to pay itself back — and what a small retention
+      how long each cohort takes to pay itself back, and what a small retention
       improvement does to that curve.
   - name: Churn Decomposition Model
     blurb: >-
@@ -26,7 +26,7 @@ tools:
       another win-back email.
 offers:
   - name: Lifecycle architecture
-    description: The full map from first purchase to advocacy — onboarding, replenishment, cross-sell, loyalty, lapse, and win-back — designed as one system rather than a folder of campaigns.
+    description: The full map from first purchase to advocacy, onboarding, replenishment, cross-sell, loyalty, lapse, and win-back, designed as one system rather than a folder of campaigns.
   - name: Churn diagnosis and reduction
     description: Cohort-level analysis separating voluntary from involuntary churn, identifying the decision points where customers actually leave, and the interventions that hold them.
   - name: Subscription economics
@@ -37,14 +37,14 @@ faq:
   - q: What is the difference between lifecycle marketing and email marketing?
     a: >-
       Email is a channel. Lifecycle is the strategy that decides what should be
-      said to whom, at which moment, through whichever channel fits — email,
+      said to whom, at which moment, through whichever channel fits, email,
       SMS, push, direct mail, in-product, or a service call. Teams that conflate
       the two end up with a calendar of sends rather than an architecture, and a
       calendar cannot tell you why a customer left.
   - q: How do you find out why customers are churning?
     a: >-
       By separating the kinds of churn before trying to fix any of them.
-      Involuntary churn — failed payments, expired cards, address problems — is
+      Involuntary churn, failed payments, expired cards, address problems, is
       often a large share of the total and is a systems fix, not a marketing
       one. Voluntary churn splits again into customers who never got to value,
       customers who got value and finished, and customers who were actively
@@ -55,7 +55,7 @@ faq:
       For subscription businesses, cohort retention curves and orders per
       customer tell you more than a monthly churn rate, which averages away the
       behavior you need to see. For non-subscription, repeat purchase rate and
-      time-to-second-order are the leading indicators — the second purchase is
+      time-to-second-order are the leading indicators, the second purchase is
       the hinge, and the interval before it is the most predictive number most
       brands do not track. Underneath all of it sits contribution margin per
       cohort, because retention that is bought with discounts is not retention.
@@ -81,7 +81,7 @@ faq:
       Almost always with involuntary churn and the first ninety days. Payment
       recovery is unglamorous, purely operational, and frequently the single
       largest recoverable pool sitting in the business. After that, the
-      onboarding window — because a customer who reaches the habit or the second
+      onboarding window, because a customer who reaches the habit or the second
       order behaves differently forever, and everything you do later is more
       expensive than getting that right.
 ---
@@ -91,8 +91,8 @@ faq:
 A business that acquires well and retains poorly has to run faster every quarter
 to stand still. The media budget rises, the payback window stretches, and the
 model becomes progressively more dependent on the very channels that are hardest
-to defend. Meanwhile the customers already on the books — the ones who cost real
-money to acquire — quietly leave through a door no one is watching.
+to defend. Meanwhile the customers already on the books, the ones who cost real
+money to acquire, quietly leave through a door no one is watching.
 
 Retention is not the softer half of growth. It is the half that determines
 whether the other half was a good investment.
@@ -122,8 +122,8 @@ your publishing rhythm.
 
 Subscription models fail quietly. The acquisition numbers look fine, the monthly
 churn rate looks tolerable, and the cohort curves are telling a different story
-that no one is reading. The unit math — cohort payback period, orders per
-customer, contribution per cohort over time — is where the model reveals whether
+that no one is reading. The unit math, cohort payback period, orders per
+customer, contribution per cohort over time, is where the model reveals whether
 it compounds or leaks.
 
 I work these numbers directly rather than receiving them in a summary, because

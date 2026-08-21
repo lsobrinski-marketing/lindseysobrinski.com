@@ -6,7 +6,7 @@ name: Daily rebuild for scheduled posts
 # Pages build twice a day, publishing any post whose date has now passed.
 #
 # Times are UTC (GitHub cron does not observe DST). 13:05 UTC ~ 08:05 and
-# 17:05 UTC ~ 12:05 in America/Chicago during CDT — just after the two daily
+# 17:05 UTC ~ 12:05 in America/Chicago during CDT, just after the two daily
 # post timestamps.
 
 on:

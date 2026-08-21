@@ -10,7 +10,7 @@ layout: default
     lede:         one-paragraph positioning statement
     service_type: schema.org service category string
     description:  meta description
-    faq:          list of {q, a} — renders visible FAQ + FAQPage schema
+    faq:          list of {q, a}, renders visible FAQ + FAQPage schema
 {%- endcomment -%}
 
 <div class="{{ page.lane_class | default: 'lane-seo' }}">
@@ -23,7 +23,7 @@ layout: default
   {%- comment -%}
     Tools section, captured so a page can hoist it above the prose with
     `tools_position: top`. Set `tools_carousel: true` for a swipeable carousel
-    instead of the static grid (opt-in, page by page — other lanes keep the grid).
+    instead of the static grid (opt-in, page by page, other lanes keep the grid).
   {%- endcomment -%}
   {%- capture tools_html -%}
   {%- if page.tools %}

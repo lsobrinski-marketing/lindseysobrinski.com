@@ -11,7 +11,7 @@
   gtag("js", new Date());
   gtag("config", "G-6J1KSHKJPV");
 </script>
-<title>GEO Site Analyzer — Free AI Search Visibility Check</title>
+<title>GEO Site Analyzer, Free AI Search Visibility Check</title>
 <meta name="description" content="Free tool: check whether ChatGPT, Gemini, and Perplexity can read and cite your site. Tests AI-crawler access, structured data, llms.txt, and answer-first content.">
 <link rel="canonical" href="https://lindseysobrinski.com/geo.html">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -93,7 +93,7 @@
 <nav style="max-width:780px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
 <div class="wrap"><div class="card">
   <h1>Is your site visible to the engines <span>your buyers actually ask?</span></h1>
-  <p class="sub">Paste your domain. This analyzer reads your homepage, robots.txt, and llms.txt, then samples a few interior pages from your sitemap — because a homepage alone doesn't tell the whole story. It checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
+  <p class="sub">Paste your domain. This analyzer reads your homepage, robots.txt, and llms.txt, then samples a few interior pages from your sitemap, because a homepage alone doesn't tell the whole story. It checks what ChatGPT, Gemini, and Perplexity can actually see and cite. Most sites fail at least one check they've never heard of.</p>
   <div class="inrow">
     <input type="url" id="url" placeholder="https://yourbrand.com" value="">
     <button id="go">Analyze</button>
@@ -102,7 +102,7 @@
 
   <div id="report">
     <div class="scoreRow">
-      <div class="scoreBig" id="score">—</div>
+      <div class="scoreBig" id="score">-</div>
       <div class="scoreCtx">
         <div class="v" id="verdict"></div>
         <div class="m" id="verdictM"></div>
@@ -112,9 +112,9 @@
 
     <h2>Per-engine readiness (each plays a different position in the journey)</h2>
     <div class="engines">
-      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h3>ChatGPT</h3><div class="es" id="es1">—</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
-      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h3>Gemini + AI Overviews</h3><div class="es" id="es2">—</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
-      <div class="eng e3"><span class="stage">Research · Validation</span><h3>Perplexity</h3><div class="es" id="es3">—</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
+      <div class="eng e1"><span class="stage">Awareness · Top of Funnel</span><h3>ChatGPT</h3><div class="es" id="es1">-</div><p>Rewards citations and third-party corroboration. Your brand gets introduced here. Impressions, not clicks.</p></div>
+      <div class="eng e2"><span class="stage">Consideration · Mid/Bottom</span><h3>Gemini + AI Overviews</h3><div class="es" id="es2">-</div><p>Rewards entity authority and brand mentions while buyers compare, shortlist, and decide inside the answer box.</p></div>
+      <div class="eng e3"><span class="stage">Research · Validation</span><h3>Perplexity</h3><div class="es" id="es3">-</div><p>The researcher's engine. Dense citations, sources on display. Gated expertise does not exist here.</p></div>
     </div>
 
     <h2>What we found</h2>
@@ -143,7 +143,7 @@ const AI_BOTS=[
 // 2026 corsproxy.io moved to a paid plan and allorigins was returning 522 at
 // the same time, which took the whole tool down. Hence several fallbacks and,
 // importantly, an honest distinction between "every proxy is down" and "that
-// site refused us" — reporting the first as the second tells someone their
+// site refused us", reporting the first as the second tells someone their
 // site blocks crawlers when it does not.
 let PROXY_STATE = {anyResponded:false};
 async function fetchText(url){
@@ -163,8 +163,7 @@ async function fetchText(url){
   const attempts = tries.map(p => (async () => {
     const r = await fetch(p.u(url), {signal: AbortSignal.timeout(35000)});
     // Only a genuine 2xx from the proxy counts as "the fetch layer is alive".
-    // A 522/403/429 is the PROXY failing, not the analyzed site refusing us —
-    // counting those as "responded" made the tool tell people their own site
+    // A 522/403/429 is the PROXY failing, not the analyzed site refusing us, // counting those as "responded" made the tool tell people their own site
     // blocks crawlers when actually every proxy was down.
     if(!r.ok) throw new Error('proxy status ' + r.status);
     PROXY_STATE.anyResponded = true;
@@ -198,7 +197,7 @@ function add(list,status,title,desc){ list.push({status,title,desc}); }
 // ---- multi-page sampling ----------------------------------------------------
 // A homepage doesn't represent the site. We read the sitemap (its location is
 // usually declared in robots.txt) and sample a few interior pages, because
-// answer-first content lives on service/product/guide/FAQ pages — not the HP.
+// answer-first content lives on service/product/guide/FAQ pages, not the HP.
 function sitemapUrlsFromRobots(robots, origin){
   const urls=[];
   if(robots){ robots.split(/\r?\n/).forEach(l=>{ const m=l.match(/^\s*sitemap\s*:\s*(\S+)/i); if(m) urls.push(m[1].trim()); }); }
@@ -213,7 +212,7 @@ function isSitemapIndex(xml){ return /<sitemapindex[\s>]/i.test(xml||''); }
 function pickInteriorPages(urls, rootUrl, origin, n){
   let rootPath=''; try{ rootPath=new URL(rootUrl).pathname.replace(/\/$/,''); }catch(e){}
   const assetRx=/\.(jpg|jpeg|png|gif|webp|svg|pdf|xml|css|js|ico|mp4|zip|rss)$/i;
-  // Listing/archive pages don't hold answer content — sampling them and then
+  // Listing/archive pages don't hold answer content, sampling them and then
   // reporting "no FAQ" is exactly the false negative this tool must not make.
   const archiveRx=/(\/(categor(y|ies)|tags?|authors?|search|feed)(\/|$)|\/page\/\d+)/i;
   const listingWord=/^(blogs?|news|articles?|posts?|category|categories|tags?|resources?)$/i;
@@ -272,7 +271,7 @@ $('go').onclick=async()=>{
     // and on this tool that is the most damaging thing it could say.
     $('status').innerHTML = PROXY_STATE.anyResponded
       ? 'Could not read that site. It may block automated requests, or be slow to respond. Try the bare domain (example.com) or another URL.'
-      : '<b>The fetch service this tool relies on is unavailable right now</b> — this is not a finding about your site. '
+      : '<b>The fetch service this tool relies on is unavailable right now</b>, this is not a finding about your site. '
         + 'The analyzer runs entirely in your browser and depends on public CORS proxies, which occasionally go down. Please try again later.';
     return;
   }
@@ -376,8 +375,8 @@ $('go').onclick=async()=>{
   const analyzed=[{url:url, html:html, home:true}, ...interiorPages.map(p=>({url:p.url, html:p.html, home:false}))];
   const withAnswers=analyzed.filter(p=>{const s=answerSignals(p.html); return s.faq || s.q>=2;});
   if(interiorPages.length===0){
-    // Only the homepage was readable — do NOT score answer content off it.
-    add(checks,'info','Answer-first content: not assessed','We could only read your homepage (no reachable sitemap or internal links to sample), so we did not score answer-first content. It belongs on content pages — service, product, guide, and FAQ pages — not the homepage, so judging it from the homepage alone would be misleading.');
+    // Only the homepage was readable, do NOT score answer content off it.
+    add(checks,'info','Answer-first content: not assessed','We could only read your homepage (no reachable sitemap or internal links to sample), so we did not score answer-first content. It belongs on content pages, service, product, guide, and FAQ pages, not the homepage, so judging it from the homepage alone would be misleading.');
   } else {
     e1max+=2; e3max+=1;
     if(withAnswers.length){
@@ -386,7 +385,7 @@ $('go').onclick=async()=>{
       e1+=2;e3+=1;
     } else {
       add(checks,'warn','No answer-first content across the pages sampled','None of the '+analyzed.length+' pages analyzed (homepage plus '+interiorPages.length+' interior) use FAQ schema or question-and-answer headings. A homepage rarely needs this, but when it is missing site-wide it is the biggest answer-engine opportunity you have.');
-      fixes.push('Add answer-first content on content pages — service, product, or resource pages: real buyer questions as headings, direct answers underneath, FAQPage schema on top. Homepages rarely need it; content pages do.');
+      fixes.push('Add answer-first content on content pages, service, product, or resource pages: real buyer questions as headings, direct answers underneath, FAQPage schema on top. Homepages rarely need it; content pages do.');
     }
   }
 
@@ -403,7 +402,7 @@ $('go').onclick=async()=>{
   const analyzedLabels=analyzed.map(p=>labelFor(p.url,p.home));
   const sampleNote = interiorPages.length
     ? (sampleSource==='links' ? ' Interior pages were sampled from homepage links (no sitemap found).' : ' Interior pages were sampled from your sitemap.')
-    : ' Only your homepage was readable — no sitemap or internal links to sample.';
+    : ' Only your homepage was readable, no sitemap or internal links to sample.';
   checks.unshift({status:'info', title:'Pages analyzed: '+analyzed.length, desc:'This report is based on: '+analyzedLabels.join(', ')+'.'+sampleNote});
 
   // scores

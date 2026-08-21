@@ -33,7 +33,7 @@ faq:
   - q: Do I still need attribution if I run incrementality tests?
     a: >-
       Yes, for a different job. Attribution is a fast directional signal for
-      in-flight optimization — which creative, which audience, which day. It
+      in-flight optimization, which creative, which audience, which day. It
       should not be the basis of a budget reallocation. Tests establish causal
       truth periodically; a mix model turns that into continuous allocation;
       attribution handles the daily tactical read.
@@ -74,7 +74,7 @@ most likely to convert, which frequently means the users already intending to.
 The system then reports the resulting conversions as evidence it worked.
 
 The net effect is a bias toward whichever channels are best at *observing*
-conversions — usually branded search and retargeting — and away from the
+conversions, usually branded search and retargeting, and away from the
 channels that generated the demand those channels intercepted.
 
 ## What incrementality actually asks
@@ -121,7 +121,7 @@ undervaluing.
 Start with one test on the channel carrying the most spend with the weakest
 causal evidence. That is almost always retargeting or branded search. Size it so
 the result is unambiguous, run it long enough to clear the purchase cycle, and
-agree in advance what result would change the budget — before anyone has seen
+agree in advance what result would change the budget, before anyone has seen
 the outcome and started negotiating with it.
 
 Then calibrate. Tests give you causal truth about a narrow window; a mix model

@@ -33,10 +33,10 @@ python3 scripts/generate_hero.py _posts/... --title "Two|words" --motif funnel -
 ```
 
 ### Hand-drawn illustration instead of an abstract motif
-Some posts deserve a bespoke diagram (see the existing heroes — the redirect fan,
+Some posts deserve a bespoke diagram (see the existing heroes, the redirect fan,
 the funnel with a leak, etc.). To supply one, save an SVG fragment at
 `assets/img/blog/<slug>.diagram.svg` with elements positioned in the right region
-(x 590–1110, y 160–500, using the category color, `#c0392b` red for the "problem"
+(x 590 to 1110, y 160 to 500, using the category color, `#c0392b` red for the "problem"
 accent, `#51607a` muted labels, `#dde7ee` guide lines). If that file exists the
 script uses it verbatim instead of a generated motif.
 

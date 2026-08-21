@@ -6,12 +6,11 @@ category: ecommerce-seo
 hero: /assets/img/blog/free-shopping-listings-break-on-a-shared-feed.svg
 image: /assets/img/blog/free-shopping-listings-break-on-a-shared-feed.png
 tags: [google merchant center, free listings, product feed, shopping, ecommerce seo, paid media]
-description: "Free Shopping listings are high-intent, direct-revenue placements — and they quietly break when the same product feed built for paid ads is expected to power organic. Titles, descriptions, and data optimized for one job undercut the other."
+description: "Free Shopping listings are high-intent, direct-revenue placements, and they quietly break when the same product feed built for paid ads is expected to power organic. Titles, descriptions, and data optimized for one job undercut the other."
 faq:
   - q: What are free Google Shopping listings?
     a: >-
-      Free listings are organic product placements across Google's Shopping surfaces
-      — the Shopping tab and related results — that you don't pay per click for.
+      Free listings are organic product placements across Google's Shopping surfaces, the Shopping tab and related results, that you don't pay per click for.
       They're powered by your product feed in Google Merchant Center, the same place
       paid Shopping ads are configured. Because they serve high-intent shoppers at no
       media cost, they're one of the highest-ROI surfaces in ecommerce, and they're
@@ -41,17 +40,17 @@ faq:
       hardcoded, and missing or inconsistent identifiers like GTINs. Each one weakens
       eligibility or relevance for free listings, and they tend to accumulate quietly
       because no one owns the organic side of the feed.
-  - q: Who owns the product feed — SEO, paid media, or engineering?
+  - q: Who owns the product feed, SEO, paid media, or engineering?
     a: >-
       That ambiguity is usually the root cause. The feed is built by or for the paid
-      team, engineering maintains the plumbing, and no one owns the organic side — so
+      team, engineering maintains the plumbing, and no one owns the organic side, so
       free listings run on data optimized for a different goal. The fix is to give the
       organic feed a clear owner (typically SEO or ecommerce), with the mandate to
       align it to on-site data and keep it clean, working alongside the paid team
       rather than inheriting their feed.
 ---
 
-Free Shopping listings are one of the best placements in ecommerce: high-intent shoppers, direct revenue, no cost per click. And on a lot of sites they're quietly broken — not because anyone neglected them on purpose, but because the same product feed built for paid Shopping ads is being asked to power organic listings too, and the two jobs pull in opposite directions.
+Free Shopping listings are one of the best placements in ecommerce: high-intent shoppers, direct revenue, no cost per click. And on a lot of sites they're quietly broken, not because anyone neglected them on purpose, but because the same product feed built for paid Shopping ads is being asked to power organic listings too, and the two jobs pull in opposite directions.
 
 The tell is subtle. Paid Shopping looks fine, so no one digs into the feed. Meanwhile the free listings underperform, and because nobody owns the organic side, the cause never gets diagnosed. It's a feed problem hiding behind a healthy-looking paid dashboard.
 
@@ -59,7 +58,7 @@ The tell is subtle. Paid Shopping looks fine, so no one digs into the feed. Mean
 
 Paid and organic Shopping reward different things, and a feed tuned for one undercuts the other.
 
-A feed built for paid ads often carries titles engineered for ad matching — stuffed with modifiers, brand prefixes, size and color tokens, keyword variants — because that's what helps a Shopping ad surface for the right queries. Free listings do better when the title mirrors the clean, human product name shown on the page, and when the description matches the on-site copy rather than a separate marketing block written for ads.
+A feed built for paid ads often carries titles engineered for ad matching, stuffed with modifiers, brand prefixes, size and color tokens, keyword variants, because that's what helps a Shopping ad surface for the right queries. Free listings do better when the title mirrors the clean, human product name shown on the page, and when the description matches the on-site copy rather than a separate marketing block written for ads.
 
 When a single paid-built feed drives both surfaces, the organic side inherits all the paid optimizations as liabilities: titles that don't match the on-page name, descriptions that diverge from the product page, and data quirks that weaken relevance. The free listings are running on someone else's optimization.
 
@@ -69,7 +68,7 @@ A Merchant Center audit on one retailer surfaced exactly this pattern, and the s
 
 **Titles that don't match the page.** The feed title was a modifier-stuffed string; the on-site H1 was the clean product name. That mismatch weakens the relevance signal for free listings, which favor alignment between feed and page.
 
-**Descriptions that diverge.** The feed carried separate description copy — sometimes truncated or reformatted — instead of the clean on-site description, stripping out intent signals the product page actually communicated.
+**Descriptions that diverge.** The feed carried separate description copy, sometimes truncated or reformatted, instead of the clean on-site description, stripping out intent signals the product page actually communicated.
 
 **Products in the feed that aren't live.** Items that were archived, unpublished, or discontinued on the site were still in the feed, creating eligibility and trust risk.
 
@@ -85,10 +84,10 @@ The cleanest fix is to stop making one feed serve two goals. Create a dedicated 
 
 Now the two optimization goals stop fighting inside one file. Paid keeps its ad-tuned feed; organic gets a feed that mirrors the site and earns its eligibility.
 
-> A product feed built for paid ads and pointed at free listings is optimizing the wrong thing on the organic surface. Two goals, one file — and the organic side always loses the compromise.
+> A product feed built for paid ads and pointed at free listings is optimizing the wrong thing on the organic surface. Two goals, one file, and the organic side always loses the compromise.
 
 ## Who owns it
 
-The reason this persists is ownership. The feed is built by or for the paid team, engineering maintains the pipes, and no one owns the organic side — so free listings run on data shaped for a different objective and nobody notices. This is where SEO and paid media meet, and it needs a named owner: typically SEO or ecommerce, with a clear mandate to keep the organic feed aligned to on-site data and clean, working alongside paid rather than inheriting their feed.
+The reason this persists is ownership. The feed is built by or for the paid team, engineering maintains the pipes, and no one owns the organic side, so free listings run on data shaped for a different objective and nobody notices. This is where SEO and paid media meet, and it needs a named owner: typically SEO or ecommerce, with a clear mandate to keep the organic feed aligned to on-site data and clean, working alongside paid rather than inheriting their feed.
 
-It's an unglamorous fix — feed configuration, not content — but free listings are direct revenue at no media cost, and they're often the highest-ROI thing you can repair in an afternoon of feed work. Check whether one feed is doing both jobs on your site. If it is, the organic half is almost certainly the one losing.
+It's an unglamorous fix, feed configuration, not content, but free listings are direct revenue at no media cost, and they're often the highest-ROI thing you can repair in an afternoon of feed work. Check whether one feed is doing both jobs on your site. If it is, the organic half is almost certainly the one losing.

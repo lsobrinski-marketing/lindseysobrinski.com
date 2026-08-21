@@ -30,7 +30,7 @@
   color: good
   blurb: >-
     Planning and buying across paid social, search, programmatic, video, CTV,
-    and OOH — judged on incremental impact, not reported ROAS.
+    and OOH, judged on incremental impact, not reported ROAS.
 
 - slug: lifecycle
   name: Lifecycle
@@ -64,14 +64,14 @@
   color: accent
   blurb: >-
     Rendering, crawl budget, canonical integrity, redirects, and Core Web
-    Vitals — the infrastructure that decides whether a large site ranks at all.
+    Vitals, the infrastructure that decides whether a large site ranks at all.
 
 - slug: ecommerce-seo
   name: Ecommerce SEO
   color: good
   blurb: >-
     Category-page content, variant indexing, Shopping feeds, and seasonal
-    timing — turning commercial-page rankings into captured revenue.
+    timing, turning commercial-page rankings into captured revenue.
 
 - slug: content-seo
   name: Content SEO
@@ -91,5 +91,5 @@
   name: AI
   color: purple
   blurb: >-
-    Notes on AI and the systems it's reshaping — what the models are really
+    Notes on AI and the systems it's reshaping, what the models are really
     doing, and what it means for how we build, measure, and compete.

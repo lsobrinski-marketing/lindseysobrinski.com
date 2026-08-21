@@ -2,7 +2,7 @@ title: Lindsey Sobrinski
 tagline: Growth that survives the measurement.
 description: >-
   Growth and performance marketing: cross-channel paid media, SEO/AEO/GEO,
-  lifecycle and retention, and user-journey conversion work — allocated by
+  lifecycle and retention, and user-journey conversion work, allocated by
   incrementality and contribution, not platform-reported ROAS.
 url: "https://lindseysobrinski.com"
 baseurl: ""
@@ -22,7 +22,7 @@ author:
     retail, B2B services, agencies, and subscription DTC.
   award: "Marketer of the Year, 2022"
   memberOf: Center for Retail and Sales
-  # sameAs strengthens entity resolution — add more corroborating profiles
+  # sameAs strengthens entity resolution, add more corroborating profiles
   # (speaker pages, published articles, Crunchbase, Muck Rack) as URLs here.
   sameAs:
     - https://www.linkedin.com/in/lindsey-vandermaas
@@ -36,7 +36,7 @@ kramdown:
 permalink: /blog/:title/
 timezone: America/Chicago
 
-# Social share image, cut to exactly 1200x630 — the Open Graph target size.
+# Social share image, cut to exactly 1200x630, the Open Graph target size.
 og_image: /assets/img/lindsey-hero.jpg
 # Used for Person.image in schema, where an actual portrait is the right subject.
 portrait_image: /assets/img/lindsey-portrait.jpg
@@ -78,4 +78,4 @@ exclude:
 
 # Note: geo.html, roas.html, and scorecard.html have no front matter, so Jekyll
 # copies them through untouched and they keep their own self-contained styles.
-# That also means they do NOT get the shared nav — see README.
+# That also means they do NOT get the shared nav, see README.

@@ -24,7 +24,7 @@ faq:
     a: >-
       Get corroborated off your own domain. A claim that appears only on your site is a claim of one. The same claim, repeated and attributed across sources the engines already trust, is a claim the model will confidently surface and cite.
 ---
-**Ask ChatGPT, Gemini, and Perplexity the same question about your category and read the citations.** You'll get three different source lists. Not slightly different — structurally different. One pulls a page you published last week. One pulls your Google-shaped entity presence. One pulls a roundup on a site you don't own. If your GEO plan is a single tactic, at most one of those three just worked, and you can't tell which.
+**Ask ChatGPT, Gemini, and Perplexity the same question about your category and read the citations.** You'll get three different source lists. Not slightly different, structurally different. One pulls a page you published last week. One pulls your Google-shaped entity presence. One pulls a roundup on a site you don't own. If your GEO plan is a single tactic, at most one of those three just worked, and you can't tell which.
 
 GEO is not a channel. It's three retrieval systems wearing one interface. Optimizing them as if they read you the same way is why most "AI visibility" work underperforms.
 
@@ -44,30 +44,30 @@ That's the floor. Now the tilt.
 
 Perplexity is retrieval-heavy. It runs a real-time search and cites what it finds, favoring recently-updated, well-structured, clearly-sourced pages. This is the most SEO-adjacent engine and the most forgiving of new content.
 
-The play: **be freshly crawlable and instantly quotable.** Keep your core pages current — visible update dates, real revisions, not cosmetic ones. Front-load the answer. Structure so a paragraph can be pulled clean. Perplexity maps loosely to the research and comparison stage, where people are actively evaluating, so this is where a sharp, current, citable page converts a browsing question into a named mention.
+The play: **be freshly crawlable and instantly quotable.** Keep your core pages current, visible update dates, real revisions, not cosmetic ones. Front-load the answer. Structure so a paragraph can be pulled clean. Perplexity maps loosely to the research and comparison stage, where people are actively evaluating, so this is where a sharp, current, citable page converts a browsing question into a named mention.
 
 ## Gemini: Google's index and your entity
 
-Gemini leans on Google's index and Google's understanding of who you are — the knowledge graph, structured data, your Business Profile, the entity signals Google has spent years building. If Google already knows and trusts you, Gemini inherits that. This is the engine where classic SEO authority carries over most directly.
+Gemini leans on Google's index and Google's understanding of who you are, the knowledge graph, structured data, your Business Profile, the entity signals Google has spent years building. If Google already knows and trusts you, Gemini inherits that. This is the engine where classic SEO authority carries over most directly.
 
-The play: **the Google-native work you may have deprioritized still pays here.** Schema markup, entity consistency across the web, a clean Business Profile, the authority signals that earn traditional rankings. There's little net-new GEO tactic — there's making sure your existing Google presence is unambiguous. Gemini rewards being a known entity, which tends to matter at the trust-and-decision stage.
+The play: **the Google-native work you may have deprioritized still pays here.** Schema markup, entity consistency across the web, a clean Business Profile, the authority signals that earn traditional rankings. There's little net-new GEO tactic, there's making sure your existing Google presence is unambiguous. Gemini rewards being a known entity, which tends to matter at the trust-and-decision stage.
 
 ## ChatGPT: consensus plus browsing
 
-ChatGPT blends trained knowledge with live browsing. The trained layer reflects what the web broadly said about you at training time — consensus, breadth of mention, being talked about on trusted sites. The browsing layer adds fresh retrieval on top.
+ChatGPT blends trained knowledge with live browsing. The trained layer reflects what the web broadly said about you at training time, consensus, breadth of mention, being talked about on trusted sites. The browsing layer adds fresh retrieval on top.
 
-The play: **be part of the conversation, not just the publisher of it.** Third-party mentions, being referenced in the roundups and comparisons and expert pieces the model absorbed, broad corroboration across the open web. Then keep browsable structure clean so the live layer can confirm what the trained layer already believes. ChatGPT often shows up early, in the framing and discovery stage, which makes broad consensus especially valuable — it's shaping how the category gets described before anyone reaches your site.
+The play: **be part of the conversation, not just the publisher of it.** Third-party mentions, being referenced in the roundups and comparisons and expert pieces the model absorbed, broad corroboration across the open web. Then keep browsable structure clean so the live layer can confirm what the trained layer already believes. ChatGPT often shows up early, in the framing and discovery stage, which makes broad consensus especially valuable, it's shaping how the category gets described before anyone reaches your site.
 
 ## Measurement is hard. Sample anyway.
 
 You typically can't see the citation, and there's no clean rank report. So you sample.
 
-Run a **prompt panel:** a fixed set of category questions, asked across all three engines on a schedule, logged for whether and how you're cited. Watch **referral traffic from chat interfaces** — thin, but real, and directional. Track **brand mentions across the web,** because off-domain corroboration is both the input and the leading indicator. None of these is precise. Together they tell you which engine is working and which play to pull.
+Run a **prompt panel:** a fixed set of category questions, asked across all three engines on a schedule, logged for whether and how you're cited. Watch **referral traffic from chat interfaces**, thin, but real, and directional. Track **brand mentions across the web,** because off-domain corroboration is both the input and the leading indicator. None of these is precise. Together they tell you which engine is working and which play to pull.
 
 Treat every engine specific above as a current pattern, not a law. Retrieval sources and browsing behavior change with each release. Re-test quarterly.
 
 ## What to do first
 
-Run the diagnostic in the opening paragraph. One category question, three engines, read the citations. Then do the one thing that moves all three at once: pick your single most important claim and get it corroborated off your own domain — in a third-party piece, a comparison, a source the engines already trust. Everything else is tuning. That is the foundation.
+Run the diagnostic in the opening paragraph. One category question, three engines, read the citations. Then do the one thing that moves all three at once: pick your single most important claim and get it corroborated off your own domain, in a third-party piece, a comparison, a source the engines already trust. Everything else is tuning. That is the foundation.
 
 If you can't yet say which of the three engines cites you, you don't have a GEO program. You have a hope.

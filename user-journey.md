@@ -2,7 +2,7 @@
 layout: lane
 permalink: /user-journey/
 title: User Journey & Conversion
-eyebrow: Lane 04 — Journey & Conversion
+eyebrow: Lane 04, Journey & Conversion
 lane_class: lane-journey
 service_type: Conversion Rate Optimization and User Journey Analysis
 description: "Mapping the real path to conversion, finding the steps where intent quietly dies, and testing the fixes rigorously enough to tell real lift from noise."
@@ -11,13 +11,13 @@ lede: >-
   because something in the path asked for more than the moment could support.
   The job is to find those moments, in order of what they cost you.
 audience: Growth, product, and ecommerce leaders responsible for conversion rate and funnel performance.
-cta: Want to see where your funnel is losing the most money — and what to test first?
+cta: Want to see where your funnel is losing the most money, and what to test first?
 blog_categories: [user-journey, conversion-optimization]
 tools:
   - name: Test Sample Size Calculator
     blurb: >-
       Enter your baseline conversion rate and the smallest lift worth acting on,
-      and see how long the test actually has to run — before you start it, not
+      and see how long the test actually has to run, before you start it, not
       after someone asks whether it was significant.
   - name: Dropoff Value Ranker
     blurb: >-
@@ -26,7 +26,7 @@ tools:
       surprises people.
 offers:
   - name: Journey mapping and dropoff analysis
-    description: The real path buyers take across devices, sessions, and channels — with the dropoff points quantified and ranked by revenue at stake rather than by percentage.
+    description: The real path buyers take across devices, sessions, and channels, with the dropoff points quantified and ranked by revenue at stake rather than by percentage.
   - name: Conversion audit
     description: A heuristic and behavioral review of the critical path, combining analytics, session data, and friction analysis into a prioritized hypothesis list.
   - name: Experimentation program
@@ -37,7 +37,7 @@ faq:
   - q: What is a user journey analysis and how is it different from a funnel report?
     a: >-
       A funnel report shows aggregate progression through steps you defined in
-      advance. A journey analysis starts from what buyers actually did — across
+      advance. A journey analysis starts from what buyers actually did, across
       sessions, devices, and channels, including the loops, the research
       detours, and the returns days later. The difference matters because most
       real purchases are not a single linear session, and a funnel report
@@ -45,8 +45,8 @@ faq:
   - q: How do you find where users are dropping off?
     a: >-
       By combining three views. Quantitative funnel data tells you where volume
-      is lost. Behavioral data — session recordings, click and scroll behavior,
-      form field analysis, error logging — tells you what was happening at that
+      is lost. Behavioral data, session recordings, click and scroll behavior,
+      form field analysis, error logging, tells you what was happening at that
       moment. Qualitative input from surveys, support tickets, and sales
       conversations tells you why it mattered. Any one alone produces confident
       wrong answers; the overlap is where real hypotheses come from.
@@ -56,7 +56,7 @@ faq:
       percent of a small, low-intent audience often matters far less than a step
       losing eight percent of buyers with a payment method already entered.
       Multiply the traffic at each step by the value beyond it, and the list
-      reorders itself immediately — usually away from the redesign someone
+      reorders itself immediately, usually away from the redesign someone
       wanted and toward something unglamorous near the end of the path.
   - q: How much traffic do you need to run a valid A/B test?
     a: >-
@@ -64,7 +64,7 @@ faq:
       rather than a rule of thumb. Sample size depends on baseline conversion
       rate, the minimum lift worth acting on, and the confidence you need. The
       practical consequence is that low-traffic sites should not run underpowered
-      tests and pretend otherwise — they get more from sequential changes,
+      tests and pretend otherwise, they get more from sequential changes,
       qualitative research, and fixing outright defects than from a test that
       cannot resolve the effect it is looking for.
   - q: Why do so many winning tests fail to show up in the business results?
@@ -103,8 +103,8 @@ noise about the wrong question.
 
 Dropoff has causes, and they repeat across categories.
 
-- **A question the page did not answer.** The buyer had an objection — cost,
-  fit, timing, risk — and the page addressed a different one.
+- **A question the page did not answer.** The buyer had an objection, cost,
+  fit, timing, risk, and the page addressed a different one.
 - **A cost revealed too late.** Shipping, fees, minimums, or terms that appear
   after the buyer has committed emotionally. This is less about the amount than
   the ambush.
@@ -113,7 +113,7 @@ Dropoff has causes, and they repeat across categories.
 - **A break in the path.** Cross-device handoffs, expiring carts, broken
   returns from email, and states nobody designed for.
 - **A trust gap.** Nothing on the page corroborated the claims, and the buyer
-  left to verify — which is increasingly a question asked of an AI engine rather
+  left to verify, which is increasingly a question asked of an AI engine rather
   than a search box.
 
 ## Testing with enough rigor to believe the result

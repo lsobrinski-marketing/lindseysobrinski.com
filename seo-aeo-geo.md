@@ -2,7 +2,7 @@
 layout: lane
 permalink: /seo-aeo-geo/
 title: SEO, AEO, and GEO
-eyebrow: Lane 01 — Organic & AI Search
+eyebrow: Lane 01, Organic & AI Search
 lane_class: lane-seo
 service_type: Search Engine Optimization and Generative Engine Optimization
 description: "Organic and AI-search visibility from a standing start: technical SEO, answer engine optimization, and a distinct GEO play for ChatGPT, Gemini, and Perplexity."
@@ -17,7 +17,7 @@ blog_categories: [seo, aeo, geo, technical-seo, ecommerce-seo, content-seo, loca
 tools_position: top
 tools_carousel: true
 tools_heading: Free tools for this work
-tools_sub: "Interactive tools I built — paste a URL and get a real answer. Free, no signup, nothing collected. Swipe through them."
+tools_sub: "Interactive tools I built, paste a URL and get a real answer. Free, no signup, nothing collected. Swipe through them."
 tools:
   - name: GEO Site Analyzer
     url: /geo.html
@@ -64,7 +64,7 @@ faq:
     a: >-
       Yes, because they sit in different places in the buyer journey. ChatGPT
       tends to act as the awareness layer, rewarding third-party corroboration
-      and citation — your brand gets introduced there, and you should think in
+      and citation, your brand gets introduced there, and you should think in
       impressions rather than clicks. Gemini and AI Overviews sit in
       consideration, rewarding entity authority and brand mentions while buyers
       compare and shortlist. Perplexity is the researcher's engine, dense with
@@ -85,7 +85,7 @@ faq:
       buyers actually ask about your category, run it per engine on a schedule,
       and record whether you appear, how you are characterized, and who gets
       cited instead of you. That gives you share of answer, sentiment, and a
-      competitive gap — none of which show up in a traditional rank tracker.
+      competitive gap, none of which show up in a traditional rank tracker.
       Paired with branded search lift and direct traffic, it is a real
       measurement program rather than a vibe.
   - q: Does traditional SEO still matter if AI answers are taking the clicks?
@@ -98,8 +98,8 @@ faq:
       is losing while its influence grows.
   - q: How long before this shows results?
     a: >-
-      The access and structure fixes — crawler permissions, server rendering,
-      structured data, llms.txt — can land in weeks and sometimes change
+      The access and structure fixes, crawler permissions, server rendering,
+      structured data, llms.txt, can land in weeks and sometimes change
       citation behavior quickly, because they remove a hard block rather than
       compete for a position. Content and off-site corroboration follow a
       normal organic curve, typically a couple of quarters before the trend is
@@ -117,7 +117,7 @@ The other two behave differently. An answer box takes your content and returns
 it to the buyer without the visit. A generative engine reads your site, decides
 whether you are credible enough to name, and either cites you or assembles the
 answer from a competitor. In both cases the traffic report understates what
-happened — which is why so many teams believe organic is declining at exactly
+happened, which is why so many teams believe organic is declining at exactly
 the moment their content is being read more than ever.
 
 The work is to stop optimizing for the session and start optimizing for the
@@ -128,12 +128,12 @@ answer.
 <div class="grid">
   <a class="tile" href="/seo-aeo-geo/technical-seo/">
     <h3>Technical SEO</h3>
-    <p>Rendering, crawl budget, canonical integrity, redirects, and Core Web Vitals — the infrastructure that decides whether a large site ranks at all.</p>
+    <p>Rendering, crawl budget, canonical integrity, redirects, and Core Web Vitals, the infrastructure that decides whether a large site ranks at all.</p>
     <span class="go">Technical SEO →</span>
   </a>
   <a class="tile" href="/seo-aeo-geo/ecommerce-seo/">
     <h3>Ecommerce SEO</h3>
-    <p>Category-page content, variant indexing, Shopping feeds, and seasonal timing — turning commercial-page rankings into captured revenue.</p>
+    <p>Category-page content, variant indexing, Shopping feeds, and seasonal timing, turning commercial-page rankings into captured revenue.</p>
     <span class="go">Ecommerce SEO →</span>
   </a>
   <a class="tile" href="/seo-aeo-geo/content-seo/">
@@ -158,9 +158,8 @@ Everything downstream depends on a few unglamorous conditions being true.
 - **The engines can read you.** Most crawlers do not execute JavaScript. If your
   page is a client-rendered shell, the content you are proud of does not exist
   to them.
-- **The engines can identify you.** Structured data — Organization, Person,
-  Service, FAQPage, and the `sameAs` links that connect you to your profiles —
-  is how a model resolves you as an entity rather than a string of words.
+- **The engines can identify you.** Structured data, Organization, Person,
+  Service, FAQPage, and the `sameAs` links that connect you to your profiles, is how a model resolves you as an entity rather than a string of words.
 - **The engines have something to lift.** Answer-first content means real buyer
   questions as headings with direct, quotable answers underneath. Not a preamble
   and a brand story before the substance.
@@ -193,14 +192,14 @@ per engine, on a schedule, so the program is judged on share of answer and
 citation growth alongside the traditional organic numbers.
 
 And I do the work, not just the plan. The audit, the schema, the content
-architecture, the query set — those are things I build, which is the only way to
+architecture, the query set, those are things I build, which is the only way to
 know whether the strategy survives contact with the site.
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "SEO, AEO and GEO — areas of work",
+  "name": "SEO, AEO and GEO, areas of work",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Technical SEO", "url": "{{ site.url }}/seo-aeo-geo/technical-seo/" },
     { "@type": "ListItem", "position": 2, "name": "Ecommerce SEO", "url": "{{ site.url }}/seo-aeo-geo/ecommerce-seo/" },

@@ -13,7 +13,7 @@
 {%- comment -%}
   Guard the lookup. Jekyll's `where` returns the input unfiltered when the
   value is nil, so on a page with no category `| first` yields the FIRST
-  category and every such page inherits its title. That put "SEO — Blog" on
+  category and every such page inherits its title. That put "SEO · Blog" on
   the homepage.
 {%- endcomment -%}
 {%- assign cat = nil -%}
@@ -23,11 +23,11 @@
 {%- if page.seo_title -%}
   {%- assign ptitle = page.seo_title -%}
 {%- elsif page.title -%}
-  {%- assign ptitle = page.title | append: " — " | append: site.title -%}
+  {%- assign ptitle = page.title | append: " · " | append: site.title -%}
 {%- elsif cat -%}
-  {%- assign ptitle = cat.name | append: " — Blog — " | append: site.title -%}
+  {%- assign ptitle = cat.name | append: " · Blog · " | append: site.title -%}
 {%- else -%}
-  {%- assign ptitle = site.title | append: " — " | append: site.tagline -%}
+  {%- assign ptitle = site.title | append: " · " | append: site.tagline -%}
 {%- endif -%}
 {%- if page.description -%}
   {%- assign pdesc = page.description -%}

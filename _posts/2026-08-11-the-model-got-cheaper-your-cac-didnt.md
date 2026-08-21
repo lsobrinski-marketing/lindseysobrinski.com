@@ -6,12 +6,11 @@ category: paid-media
 hero: /assets/img/blog/the-model-got-cheaper-your-cac-didnt.png
 image: /assets/img/blog/the-model-got-cheaper-your-cac-didnt.png
 tags: [customer acquisition cost, ai marketing, demand generation, cost of demand, ai search, marketing measurement]
-description: "DeepSeek V4 Flash is 99% cheaper than frontier models. That lowers the cost of producing marketing — not the cost of demand. Why AI's price war won't cut your CAC."
+description: "DeepSeek V4 Flash is 99% cheaper than frontier models. That lowers the cost of producing marketing, not the cost of demand. Why AI's price war won't cut your CAC."
 faq:
   - q: Will cheaper AI models lower customer acquisition cost?
     a: >-
-      Not directly. Cheaper models lower the cost of *producing* marketing —
-      drafts, variants, creative, code. They do nothing to lower the cost of
+      Not directly. Cheaper models lower the cost of *producing* marketing, drafts, variants, creative, code. They do nothing to lower the cost of
       *demand*, which is the price of getting a customer to notice, trust, and
       choose you. AI search is pushing that cost up, not down, so a 99% cheaper
       model can leave your CAC flat or rising.
@@ -19,28 +18,28 @@ faq:
     a: >-
       DeepSeek V4 Flash is a 2026 model that matches or beats frontier models like
       Claude Opus 4.8 on some coding benchmarks while pricing its output at a tiny
-      fraction of the cost — cents per million tokens against roughly $25. It
+      fraction of the cost, cents per million tokens against roughly $25. It
       became a flashpoint in AI's "race to zero," alongside Qwen3.8-Max going
       open-weight and OpenAI cutting GPT-5.6 prices.
   - q: What's the difference between the cost of intelligence and the cost of demand?
     a: >-
-      The cost of intelligence is what it takes to produce an asset — a draft, an
-      image, a line of code — and it is falling fast. The cost of demand is what
+      The cost of intelligence is what it takes to produce an asset, a draft, an
+      image, a line of code, and it is falling fast. The cost of demand is what
       it takes to win a customer's attention and trust and convert it, and it is
       rising. Collapsing the two into one number is the core marketing error of
       the AI price war.
   - q: If content is cheap to generate, what becomes the advantage?
     a: >-
-      Distribution, distinctiveness, and measurement — the parts a cheaper model
+      Distribution, distinctiveness, and measurement, the parts a cheaper model
       does not touch. When everyone can generate adequate content for pennies,
       generating it stops being an edge. The scarce inputs become attention,
       trust, and provable incremental demand, and that is where the advantage
       moves.
 ---
 
-DeepSeek V4 Flash matches frontier models like Claude Opus 4.8 on coding and prices its output in cents per million tokens against roughly $25 — call it a 99% discount. Qwen3.8-Max is doing the same thing open-weight, and OpenAI has cut GPT-5.6 prices by around 80%. Every "AI makes marketing cheaper" deck is about to cite these numbers. Nearly all of them are making the same category error.
+DeepSeek V4 Flash matches frontier models like Claude Opus 4.8 on coding and prices its output in cents per million tokens against roughly $25, call it a 99% discount. Qwen3.8-Max is doing the same thing open-weight, and OpenAI has cut GPT-5.6 prices by around 80%. Every "AI makes marketing cheaper" deck is about to cite these numbers. Nearly all of them are making the same category error.
 
-The falling number is the cost of *intelligence* — the cost of producing marketing. The number that decides whether you have a business is the cost of *demand* — the cost of getting a customer to choose you. Cheaper models do nothing to move the second one. In fact, AI search is pushing it up. The model got 99% cheaper. Your CAC did not get the memo.
+The falling number is the cost of *intelligence*, the cost of producing marketing. The number that decides whether you have a business is the cost of *demand*, the cost of getting a customer to choose you. Cheaper models do nothing to move the second one. In fact, AI search is pushing it up. The model got 99% cheaper. Your CAC did not get the memo.
 
 ## The number everyone's about to misread
 
@@ -60,17 +59,17 @@ The second is the cost of demand: what it takes to get a human being to notice y
 
 Give the productivity story its due, precisely, so the rest of the argument is not mistaken for hype-skepticism. Real things got cheaper, and you should take the savings.
 
-First drafts are nearly free. Variant production — ten versions of a headline, twenty cuts of a creative — is trivial now. Briefs, outlines, first-pass creative, research synthesis, and a great deal of code all dropped to a fraction of their former cost in time and money. This is genuine, and a team that refuses to use it is leaving efficiency on the table for no reason. The point is not that the cheaper model is worthless. The point is exactly what it is worth: the production half of the work, and only that half.
+First drafts are nearly free. Variant production, ten versions of a headline, twenty cuts of a creative, is trivial now. Briefs, outlines, first-pass creative, research synthesis, and a great deal of code all dropped to a fraction of their former cost in time and money. This is genuine, and a team that refuses to use it is leaving efficiency on the table for no reason. The point is not that the cheaper model is worthless. The point is exactly what it is worth: the production half of the work, and only that half.
 
-## What didn't — and is getting more expensive
+## What didn't, and is getting more expensive
 
 Now the other half. Attention, trust, and *incremental* demand did not get cheaper, and the same force making production cheap is making them more expensive.
 
-When the cost of producing content falls toward zero, the market floods with adequate content. Everyone's competitor can now generate the same competent blog post, the same passable ad, the same serviceable landing page, for pennies. The moment everyone can produce it, producing it stops being an advantage. The scarce input is no longer the content — it is the distribution to get it seen and the distinctiveness to make it chosen. Commoditized supply always does this: it moves the value to whatever is still scarce, and what is still scarce is human attention and trust.
+When the cost of producing content falls toward zero, the market floods with adequate content. Everyone's competitor can now generate the same competent blog post, the same passable ad, the same serviceable landing page, for pennies. The moment everyone can produce it, producing it stops being an advantage. The scarce input is no longer the content, it is the distribution to get it seen and the distinctiveness to make it chosen. Commoditized supply always does this: it moves the value to whatever is still scarce, and what is still scarce is human attention and trust.
 
 ## AI search is pushing demand cost the wrong way
 
-This is where it connects to what is already happening in search. AI answers compress the cheap-acquisition funnel — the informational query that used to send a free click to your page now gets resolved inside the answer, and [paid gets forced back upstream](/blog/ai-search-is-forcing-paid-back-upstream/) to buy the visibility that organic used to earn. So the cost of intelligence is falling while the cost of *being discovered* is rising, at the same time, driven by the same wave of AI adoption.
+This is where it connects to what is already happening in search. AI answers compress the cheap-acquisition funnel, the informational query that used to send a free click to your page now gets resolved inside the answer, and [paid gets forced back upstream](/blog/ai-search-is-forcing-paid-back-upstream/) to buy the visibility that organic used to earn. So the cost of intelligence is falling while the cost of *being discovered* is rising, at the same time, driven by the same wave of AI adoption.
 
 Read those two trends together and the "AI makes marketing cheaper" thesis inverts. Yes, the asset got cheaper to make. But the environment you have to place that asset into to win a customer got more crowded and more expensive to reach. Cheaper to produce, harder to be chosen. That is not a cost reduction. That is a cost shift, toward the part of the job AI cannot do for you.
 
@@ -82,12 +81,12 @@ And incremental demand can be dead flat underneath all of it. Volume is not lift
 
 ## So what do you actually do with a 99%-cheaper model?
 
-Take the savings — and reinvest them in the half that got more expensive. The teams that win the next couple of years will treat cheap intelligence as a reason to spend *more* on the things it cannot commoditize: distinctiveness, so your adequate-content competitors do not blur into you; distribution, so the asset is actually seen by the right person at the right moment; and measurement that proves lift, so you know which of your now-abundant activity is doing real work.
+Take the savings, and reinvest them in the half that got more expensive. The teams that win the next couple of years will treat cheap intelligence as a reason to spend *more* on the things it cannot commoditize: distinctiveness, so your adequate-content competitors do not blur into you; distribution, so the asset is actually seen by the right person at the right moment; and measurement that proves lift, so you know which of your now-abundant activity is doing real work.
 
-Cheaper production is only an edge if you spend the surplus where demand is actually won — and demand is won [at the level of intent, on the right channel](/blog/which-channel-for-which-level-of-intent/), measured on [one honest scoreboard](/blog/one-demand-engine-measured-one-way/) rather than a busier one. Pocket the token savings and pour them into the expensive half. That is the whole play.
+Cheaper production is only an edge if you spend the surplus where demand is actually won, and demand is won [at the level of intent, on the right channel](/blog/which-channel-for-which-level-of-intent/), measured on [one honest scoreboard](/blog/one-demand-engine-measured-one-way/) rather than a busier one. Pocket the token savings and pour them into the expensive half. That is the whole play.
 
 ## Close
 
-Commoditized intelligence is good news — for your cost line, not your moat. When the model gets 99% cheaper, so does your competitor's model, which means the cheapness is not an advantage anyone keeps. The advantage moves to whatever stays scarce: attention, trust, and provable incremental demand. The teams that understand this will use cheap models as a reason to invest more in the parts AI cannot touch. The teams that misread it will generate more content than ever and wonder why nothing moved.
+Commoditized intelligence is good news, for your cost line, not your moat. When the model gets 99% cheaper, so does your competitor's model, which means the cheapness is not an advantage anyone keeps. The advantage moves to whatever stays scarce: attention, trust, and provable incremental demand. The teams that understand this will use cheap models as a reason to invest more in the parts AI cannot touch. The teams that misread it will generate more content than ever and wonder why nothing moved.
 
-So if producing marketing just got 99% cheaper, here is the real question: what is the one line item you would move that budget into — and why that one?
+So if producing marketing just got 99% cheaper, here is the real question: what is the one line item you would move that budget into, and why that one?

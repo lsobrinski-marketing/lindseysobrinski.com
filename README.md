@@ -43,7 +43,7 @@ faq:
       A direct answer. Markdown works here.
 ---
 
-Body in Markdown. Use ## and ### headings — the outline builds itself from them.
+Body in Markdown. Use ## and ### headings, the outline builds itself from them.
 ```
 
 The outline and the FAQ are automatic. Write `##`/`###` headings and fill in
@@ -55,14 +55,14 @@ outline on a short post.
 
 Every lane renders the same four sections, in this order:
 
-1. **Why it matters** — the Markdown body of the file.
-2. **Tools** — from `tools:` in front matter. An entry with a `url` renders as a
+1. **Why it matters**, the Markdown body of the file.
+2. **Tools**, from `tools:` in front matter. An entry with a `url` renders as a
    clickable tile; an entry without one renders as a visibly inert "In build"
    tile, so a planned tool never looks like a broken link.
-3. **Further reading** — auto-populated from `blog_categories:`. Pulls the 5
+3. **Further reading**, auto-populated from `blog_categories:`. Pulls the 5
    most recent posts across those categories and links to each category archive.
    Publishing a post makes it appear here with no edit to the lane page.
-4. **FAQ** — from `faq:`, which drives both the visible section and the
+4. **FAQ**, from `faq:`, which drives both the visible section and the
    `FAQPage` schema. They cannot drift apart because there is one source.
 
 ```yaml
@@ -70,7 +70,7 @@ Every lane renders the same four sections, in this order:
 layout: lane
 permalink: /your-lane/
 title: Lane Title
-eyebrow: Lane 05 — Short Label
+eyebrow: Lane 05, Short Label
 lane_class: lane-seo      # lane-seo | lane-paid | lane-lifecycle | lane-journey
 description: >-
   Meta description, also used in the Service schema.
@@ -90,7 +90,7 @@ faq:
       An answer.
 ---
 
-Markdown body — this becomes the "why it matters" section.
+Markdown body, this becomes the "why it matters" section.
 ```
 
 The full front matter contract is also documented at the top of
@@ -122,7 +122,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Preview runs at http://localhost:4000. This is optional — GitHub Pages builds
+Preview runs at http://localhost:4000. This is optional, GitHub Pages builds
 on push either way.
 
 ## Known follow-ups
@@ -154,5 +154,5 @@ on push either way.
 
 There is no Jekyll on the author's machine (system Ruby is 2.6; `github-pages`
 needs 3.x), so GitHub Pages performs the only real build. Before pushing, it is
-worth confirming the front matter YAML parses and the JSON-LD is valid — a
+worth confirming the front matter YAML parses and the JSON-LD is valid, a
 broken `faq:` block or an unescaped quote will fail the remote build.

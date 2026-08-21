@@ -2,7 +2,7 @@
 layout: lane
 permalink: /paid-media/
 title: Paid Media Analysis & Strategy
-eyebrow: Lane 02 — Performance Media
+eyebrow: Lane 02, Performance Media
 lane_class: lane-paid
 service_type: Paid Media Strategy and Marketing Analytics
 description: "Cross-channel paid media planning and buying, with budget allocated by incrementality and contribution margin rather than platform-reported ROAS."
@@ -20,7 +20,7 @@ tools:
     blurb: >-
       Your platform says the campaign worked. How much of that was going to
       happen anyway? See the gap between reported ROAS and likely incremental
-      ROAS — the number a CFO actually cares about.
+      ROAS, the number a CFO actually cares about.
   - name: Media Mix Scenario Planner
     blurb: >-
       Shift budget across channels and see the modeled contribution response,
@@ -34,7 +34,7 @@ offers:
   - name: Incrementality and measurement design
     description: Geo tests, holdouts, and lift studies that establish what each channel actually contributes, plus the reporting layer that keeps it honest.
   - name: Media mix modeling and allocation
-    description: Contribution-based budget allocation, scenario planning, and forecasting — including AI-assisted modeling with a human validating the decision chain.
+    description: Contribution-based budget allocation, scenario planning, and forecasting, including AI-assisted modeling with a human validating the decision chain.
 faq:
   - q: Why is platform-reported ROAS misleading?
     a: >-
@@ -48,9 +48,9 @@ faq:
   - q: What is incremental ROAS and how do you measure it?
     a: >-
       Incremental ROAS is the return on the revenue that would not have occurred
-      without the spend. You measure it by creating a comparison — a geographic
+      without the spend. You measure it by creating a comparison, a geographic
       holdout, a matched-market test, an audience-level suppression, or a
-      platform lift study — and reading the difference between exposed and
+      platform lift study, and reading the difference between exposed and
       unexposed groups. It is more work than opening a dashboard, and it is the
       only number that survives a conversation with a CFO.
   - q: Do I need media mix modeling, incrementality testing, or attribution?
@@ -99,24 +99,24 @@ channels and comparing it to the P&L, and the gap tells you exactly how much
 double-counting is baked into your optimization decisions.
 
 The consequence is not academic. Budgets get shifted toward whichever channel is
-best at *observing* conversions — typically branded search and retargeting,
-which mostly intercept demand that already exists — and away from the channels
+best at *observing* conversions, typically branded search and retargeting,
+which mostly intercept demand that already exists, and away from the channels
 that created the demand in the first place. The dashboard improves. The business
 does not.
 
 ## Two areas: intent and measurement
 
-The work splits into two questions that depend on each other. Intent decides where the money goes; measurement decides whether it worked — and referees the argument the first one starts.
+The work splits into two questions that depend on each other. Intent decides where the money goes; measurement decides whether it worked, and referees the argument the first one starts.
 
 <div class="grid">
   <a class="tile" href="/paid-media/intent/">
     <h3>Intent</h3>
-    <p>Full-funnel planning organized around where the buyer actually is — matching channels to each level of intent, from latent demand to active demand, instead of by channel budget.</p>
+    <p>Full-funnel planning organized around where the buyer actually is, matching channels to each level of intent, from latent demand to active demand, instead of by channel budget.</p>
     <span class="go">Intent &amp; full-funnel &rarr;</span>
   </a>
   <a class="tile" href="/paid-media/measurement/">
     <h3>Measurement</h3>
-    <p>Incrementality, media mix modeling, and attribution used for what each is good for — separating the spend that created revenue from the spend that just observed it.</p>
+    <p>Incrementality, media mix modeling, and attribution used for what each is good for, separating the spend that created revenue from the spend that just observed it.</p>
     <span class="go">Measurement &amp; incrementality &rarr;</span>
   </a>
 </div>
@@ -164,10 +164,10 @@ plan is whether the person writing it knows what will break.
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Paid Media — areas of work",
+  "name": "Paid Media, areas of work",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Intent — full-funnel paid media", "url": "{{ site.url }}/paid-media/intent/" },
-    { "@type": "ListItem", "position": 2, "name": "Measurement — incrementality and media mix modeling", "url": "{{ site.url }}/paid-media/measurement/" }
+    { "@type": "ListItem", "position": 1, "name": "Intent, full-funnel paid media", "url": "{{ site.url }}/paid-media/intent/" },
+    { "@type": "ListItem", "position": 2, "name": "Measurement, incrementality and media mix modeling", "url": "{{ site.url }}/paid-media/measurement/" }
   ]
 }
 </script>
