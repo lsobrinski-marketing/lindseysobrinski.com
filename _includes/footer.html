@@ -1,8 +1,34 @@
 <footer class="sitefoot">
-  <span>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}</span>
-  <span>
-    <a href="{{ site.author.linkedin }}">LinkedIn</a> &middot;
-    <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a> &middot;
-    <a href="/blog/feed.xml">RSS</a>
-  </span>
+  <nav class="footcols" aria-label="Footer">
+    <div class="footcol">
+      <span class="footh">Lanes</span>
+      <a href="/seo-aeo-geo/">SEO / AEO / GEO</a>
+      <a href="/paid-media/">Paid Media</a>
+      <a href="/lifecycle/">Lifecycle</a>
+      <a href="/user-journey/">User Journey</a>
+    </div>
+    <div class="footcol">
+      <span class="footh">Free tools</span>
+      <a href="/geo.html">GEO Site Analyzer</a>
+      <a href="/roas.html">Incrementality Gap</a>
+      <a href="/scorecard.html">AEO/GEO Scorecard</a>
+      <a href="/crawl-budget.html">Crawl Budget Checker</a>
+    </div>
+    <div class="footcol">
+      <span class="footh">More</span>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/fractional/">Fractional &amp; Advisory</a>
+    </div>
+    <div class="footcol">
+      <span class="footh">Connect</span>
+      <a href="{{ site.author.linkedin }}">LinkedIn</a>
+      <a href="mailto:{{ site.author.email }}">Email</a>
+      <a href="/blog/feed.xml">RSS</a>
+    </div>
+  </nav>
+  <div class="footbase">
+    <span>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}</span>
+    <span>Growth that survives the measurement.</span>
+  </div>
 </footer>

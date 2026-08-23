@@ -140,3 +140,6 @@ bought anyway, it is a discount with a dashboard.
 
 That discipline is what keeps a retention program from becoming an expensive way
 to be nice to people who already liked you.
+
+
+*Prefer this handled, not just explained? I take on [fractional and advisory engagements](/fractional/) in exactly this kind of work.*

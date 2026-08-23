@@ -76,4 +76,5 @@ Measurement, incentives and AI (thesis pieces):
 
 ## About
 
+- [Fractional & Advisory](https://lindseysobrinski.com/fractional/): Fractional and advisory marketing leadership for growth-stage and mid-market teams. Budgets measured by incrementality and contribution margin, not platform-reported ROAS. Currently available.
 - [About](https://lindseysobrinski.com/about.html): Background, sectors, recognition, availability for fractional and advisory work, and approach to AI-assisted measurement.

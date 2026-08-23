@@ -171,3 +171,6 @@ plan is whether the person writing it knows what will break.
   ]
 }
 </script>
+
+
+*Prefer this handled, not just explained? I take on [fractional and advisory engagements](/fractional/) in exactly this kind of work.*
