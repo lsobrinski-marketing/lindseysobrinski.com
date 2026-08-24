@@ -104,7 +104,7 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
    file, so the original stays intact and reversible. */
 .portrait{
   display:block;width:100%;max-width:240px;height:auto;
-  aspect-ratio:1024/872;object-fit:cover;object-position:center top;
+  aspect-ratio:1/1;object-fit:cover;object-position:50% 18%;
   border-radius:14px;float:right;margin:0 0 18px 22px;
 }
 @media(max-width:640px){
@@ -194,4 +194,19 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
   .sitenav .spacer{display:none;}
   .sitenav{gap:10px 14px;font-size:.9rem;}
   .sitenav .brand{flex-basis:100%;margin-right:0;}
+}
+
+
+/* ---------- homepage hero (photo + proof) ---------- */
+.hero{display:grid;grid-template-columns:1fr 250px;grid-template-areas:"copy media" "stats stats";gap:26px 34px;align-items:start;margin:6px 0 6px;}
+.hero-copy{grid-area:copy;}
+.hero-photo{grid-area:media;display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:14px;box-shadow:0 8px 26px rgba(26,35,51,.16);}
+.hero .role{margin:12px 0 0;font-size:.9rem;font-weight:600;color:var(--muted);}
+.hstats{grid-area:stats;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:20px;border-top:1px solid var(--line);}
+.hstat b{display:block;font-size:1.5rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
+.hstat span{display:block;margin-top:6px;font-size:.8rem;color:var(--muted);line-height:1.3;}
+@media(max-width:680px){
+  .hero{grid-template-columns:148px 1fr;grid-template-areas:"copy copy" "media stats";gap:20px 16px;}
+  .hstats{grid-template-columns:repeat(2,1fr);gap:16px 12px;padding-top:0;border-top:0;align-self:center;}
+  .hstat b{font-size:1.28rem;}
 }
