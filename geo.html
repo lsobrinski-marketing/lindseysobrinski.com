@@ -209,7 +209,35 @@ function locsFromSitemap(xml){
   return [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map(m=>m[1].trim());
 }
 function isSitemapIndex(xml){ return /<sitemapindex[\s>]/i.test(xml||''); }
-function pickInteriorPages(urls, rootUrl, origin, n){
+// Parse <url> entries WITH their <priority> and <lastmod> — the sitemap's own
+// signals of which pages matter most and which are freshest.
+function parseSitemapEntries(xml){
+  if(!xml) return [];
+  const entries=[];
+  (xml.match(/<url\b[\s\S]*?<\/url>/gi)||[]).forEach(b=>{
+    const loc=(b.match(/<loc>\s*([^<\s]+)\s*<\/loc>/i)||[])[1];
+    if(!loc) return;
+    const pri=b.match(/<priority>\s*([0-9.]+)\s*<\/priority>/i);
+    const lm=b.match(/<lastmod>\s*([^<\s]+)\s*<\/lastmod>/i);
+    entries.push({loc:loc.trim(), priority:pri?parseFloat(pri[1]):null, lastmod:lm?(Date.parse(lm[1])||null):null});
+  });
+  // Some sitemaps put <loc> outside <url> — fall back to loc-only entries.
+  return entries.length ? entries : locsFromSitemap(xml).map(loc=>({loc, priority:null, lastmod:null}));
+}
+// How prominently does the homepage itself link to each same-origin path?
+// Nav/header links weigh more than body links. Returns Map(path -> score).
+function homepageProminence(html, baseUrl){
+  const map=new Map();
+  if(!html) return map;
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const bump=(href,w)=>{ let x; try{ x=new URL(href,baseUrl); }catch(e){ return; } const p=x.pathname.replace(/\/$/,'')||'/'; map.set(p,(map.get(p)||0)+w); };
+  doc.querySelectorAll('nav a[href], header a[href]').forEach(a=>bump(a.getAttribute('href'),3));
+  doc.querySelectorAll('a[href]').forEach(a=>bump(a.getAttribute('href'),1));
+  return map;
+}
+// Pick the "top" interior pages by IMPORTANCE, combining the sitemap's own
+// signals (priority + recency) with how prominently the homepage links to each.
+function pickInteriorPages(entries, prominence, rootUrl, origin, n){
   let rootPath=''; try{ rootPath=new URL(rootUrl).pathname.replace(/\/$/,''); }catch(e){}
   const assetRx=/\.(jpg|jpeg|png|gif|webp|svg|pdf|xml|css|js|ico|mp4|zip|rss)$/i;
   // Listing/archive pages don't hold answer content, sampling them and then
@@ -217,8 +245,8 @@ function pickInteriorPages(urls, rootUrl, origin, n){
   const archiveRx=/(\/(categor(y|ies)|tags?|authors?|search|feed)(\/|$)|\/page\/\d+)/i;
   const listingWord=/^(blogs?|news|articles?|posts?|category|categories|tags?|resources?)$/i;
   const seen=new Set(); const cand=[];
-  for(const u of urls){
-    let x; try{ x=new URL(u); }catch(e){ continue; }
+  for(const e of entries){
+    let x; try{ x=new URL(e.loc); }catch(err){ continue; }
     if(x.origin!==origin) continue;                                   // same site only
     if(assetRx.test(x.pathname)) continue;
     if(archiveRx.test(x.pathname)) continue;                          // skip tag/category/author/pagination
@@ -227,18 +255,25 @@ function pickInteriorPages(urls, rootUrl, origin, n){
     const segs=p.split('/').filter(Boolean);
     if(segs.length===1 && listingWord.test(segs[0])) continue;        // skip bare section indexes like /blog
     if(seen.has(p)) continue; seen.add(p);
-    cand.push({href:x.href, sec:segs[0]||''});
+    cand.push({href:x.href, sec:segs[0]||'', prom:prominence.get(p)||0, priority:e.priority, lastmod:e.lastmod});
   }
-  // Diversify: round-robin across top-level sections so the sample spans the
-  // site (a service page, a post, a pillar…) instead of 4 near-identical URLs.
-  const bySection={};
-  cand.forEach(c=>{ (bySection[c.sec]=bySection[c.sec]||[]).push(c.href); });
-  const sections=Object.keys(bySection);
-  const out=[];
-  for(let i=0; out.length<n && sections.some(s=>bySection[s].length); i++){
-    const bucket=bySection[sections[i%sections.length]];
-    if(bucket.length) out.push(bucket.shift());
-  }
+  if(!cand.length) return [];
+  // Normalize each signal to 0..1 across the candidate set, then blend.
+  const maxProm=Math.max(1,...cand.map(c=>c.prom));
+  const lms=cand.map(c=>c.lastmod).filter(Boolean);
+  const minLm=lms.length?Math.min(...lms):0, maxLm=lms.length?Math.max(...lms):0, lmSpan=maxLm-minLm;
+  cand.forEach(c=>{
+    const promN = c.prom/maxProm;                                       // homepage prominence
+    const priN  = (c.priority!=null ? c.priority : 0.5);                // sitemap <priority>
+    const freshN= (c.lastmod && lmSpan>0) ? (c.lastmod-minLm)/lmSpan : 0.5; // sitemap <lastmod>
+    c.score = 0.45*promN + 0.35*priN + 0.20*freshN;
+  });
+  cand.sort((a,b)=> b.score-a.score || a.href.length-b.href.length);
+  // Importance-led, but a soft cap of 2 per section keeps one busy section
+  // (e.g. the blog) from taking every slot; fill any leftover slots after.
+  const out=[]; const perSec={};
+  for(const c of cand){ if(out.length>=n) break; if((perSec[c.sec]||0)>=2) continue; perSec[c.sec]=(perSec[c.sec]||0)+1; out.push(c.href); }
+  for(const c of cand){ if(out.length>=n) break; if(!out.includes(c.href)) out.push(c.href); }
   return out.slice(0,n);
 }
 // FAQ schema OR >=2 question-style headings on a single page.
@@ -278,19 +313,22 @@ $('go').onclick=async()=>{
 
   // --- discover + sample a few interior pages (answer content lives there) ---
   $('status').textContent='Reading your sitemap and sampling interior pages…';
-  let candidateUrls=[], sampleSource='sitemap', sitemapXml=null;
+  let entries=[], sampleSource='sitemap', sitemapXml=null;
   for(const su of sitemapUrlsFromRobots(robots, origin)){ sitemapXml=await fetchText(su); if(sitemapXml) break; }
   if(sitemapXml){
     if(isSitemapIndex(sitemapXml)){
-      for(const child of locsFromSitemap(sitemapXml).slice(0,2)){ const cx=await fetchText(child); if(cx) candidateUrls.push(...locsFromSitemap(cx)); }
-    } else { candidateUrls=locsFromSitemap(sitemapXml); }
+      for(const child of locsFromSitemap(sitemapXml).slice(0,2)){ const cx=await fetchText(child); if(cx) entries.push(...parseSitemapEntries(cx)); }
+    } else { entries=parseSitemapEntries(sitemapXml); }
   }
-  if(!candidateUrls.length){                        // fallback: internal links on the homepage
+  if(!entries.length){                              // fallback: internal links on the homepage
     sampleSource='links';
     const hpDoc=new DOMParser().parseFromString(html,'text/html');
-    candidateUrls=[...hpDoc.querySelectorAll('a[href]')].map(a=>{try{return new URL(a.getAttribute('href'),url).href;}catch(e){return null;}}).filter(Boolean);
+    entries=[...hpDoc.querySelectorAll('a[href]')].map(a=>{try{return {loc:new URL(a.getAttribute('href'),url).href, priority:null, lastmod:null};}catch(e){return null;}}).filter(Boolean);
   }
-  const interiorUrls=pickInteriorPages(candidateUrls, url, origin, 4);
+  // Rank the "top" pages by importance: sitemap priority + recency, blended
+  // with how prominently the homepage itself links to each page.
+  const prominence=homepageProminence(html, url);
+  const interiorUrls=pickInteriorPages(entries, prominence, url, origin, 4);
   const interiorHtml=await Promise.all(interiorUrls.map(u=>fetchText(u)));
   const interiorPages=interiorUrls.map((u,i)=>({url:u, html:interiorHtml[i]})).filter(p=>p.html);
 
@@ -401,7 +439,9 @@ $('go').onclick=async()=>{
   // Transparency: show exactly which pages this report is based on (first item).
   const analyzedLabels=analyzed.map(p=>labelFor(p.url,p.home));
   const sampleNote = interiorPages.length
-    ? (sampleSource==='links' ? ' Interior pages were sampled from homepage links (no sitemap found).' : ' Interior pages were sampled from your sitemap.')
+    ? (sampleSource==='links'
+        ? ' Top pages were chosen from your homepage links (no sitemap found), ranked by how prominently you link to them.'
+        : ' Top pages were chosen by sitemap priority and recency, weighted by how prominently your homepage links to them.')
     : ' Only your homepage was readable, no sitemap or internal links to sample.';
   checks.unshift({status:'info', title:'Pages analyzed: '+analyzed.length, desc:'This report is based on: '+analyzedLabels.join(', ')+'.'+sampleNote});
 
