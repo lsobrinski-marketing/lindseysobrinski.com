@@ -146,14 +146,16 @@ const AI_BOTS=[
 // site refused us", reporting the first as the second tells someone their
 // site blocks crawlers when it does not.
 let PROXY_STATE = {anyResponded:false};
+const DEBUG=/[?&#]debug/i.test(location.href);   // geo.html?debug=1 shows a fetch trace
+const DBG=[];
 async function fetchText(url){
   const tries=[
-    {u:t=>'https://geo-proxy.lsobrinski.workers.dev/?url='+encodeURIComponent(t), parse:r=>r.text()},
-    {u:t=>'https://api.allorigins.win/raw?url='+encodeURIComponent(t), parse:r=>r.text()},
-    {u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t), parse:r=>r.text()},
-    {u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
+    {label:'worker',        u:t=>'https://geo-proxy.lsobrinski.workers.dev/?url='+encodeURIComponent(t), parse:r=>r.text()},
+    {label:'allorigins',    u:t=>'https://api.allorigins.win/raw?url='+encodeURIComponent(t), parse:r=>r.text()},
+    {label:'codetabs',      u:t=>'https://api.codetabs.com/v1/proxy?quest='+encodeURIComponent(t), parse:r=>r.text()},
+    {label:'allorigins-get',u:t=>'https://api.allorigins.win/get?url='+encodeURIComponent(t),
      parse:async r=>{const j=await r.json(); return j && j.contents;}},
-    {u:t=>'https://corsproxy.io/?url='+encodeURIComponent(t), parse:r=>r.text()}
+    {label:'corsproxy',     u:t=>'https://corsproxy.io/?url='+encodeURIComponent(t), parse:r=>r.text()}
   ];
   // Race the proxies rather than trying each in turn (one slow proxy shouldn't
   // block the rest), BUT abort the losers the moment one wins. Without the
@@ -161,7 +163,7 @@ async function fetchText(url){
   // large site fetched across several pages that piles up into tens of megabytes
   // of concurrent transfer that saturates a normal connection and times out,
   // which showed up as "only the homepage was crawled".
-  const ctrls=[];
+  const ctrls=[]; let winnerLabel=null; const t0=Date.now();
   const timer=setTimeout(()=>ctrls.forEach(c=>{try{c.abort();}catch(e){}}), 35000);
   const attempts = tries.map(p => (async () => {
     const ctrl=new AbortController(); ctrls.push(ctrl);
@@ -170,14 +172,22 @@ async function fetchText(url){
     // A 522/403/429 is the PROXY failing, not the analyzed site refusing us —
     // counting those as "responded" made the tool tell people their own site
     // blocks crawlers when actually every proxy was down.
-    if(!r.ok) throw new Error('proxy status ' + r.status);
+    if(!r.ok) throw new Error(p.label+' '+r.status);
     PROXY_STATE.anyResponded = true;
     const t = await p.parse(r);
-    if(!t || !t.length) throw new Error('empty body');
+    if(!t || !t.length) throw new Error(p.label+' empty');
+    winnerLabel=p.label;
     return t;
   })());
-  try { const winner = await Promise.any(attempts); return winner; }
-  catch(e){ return null; }                       // every proxy rejected
+  try {
+    const winner = await Promise.any(attempts);
+    if(DEBUG) DBG.push({url, ok:true, via:winnerLabel, ms:Date.now()-t0});
+    return winner;
+  }
+  catch(e){                                        // every proxy rejected
+    if(DEBUG) DBG.push({url, ok:false, ms:Date.now()-t0, errors:((e&&e.errors)||[]).map(x=>String((x&&x.message)||x)).slice(0,5)});
+    return null;
+  }
   finally { clearTimeout(timer); ctrls.forEach(c=>{try{c.abort();}catch(e){}}); }
 }
 function parseRobots(txt){
@@ -302,7 +312,7 @@ $('go').onclick=async()=>{
   if(!/^https?:\/\//i.test(url)) url='https://'+url;
   let origin; try{origin=new URL(url).origin;}catch(e){$('status').textContent='That URL does not look valid.';return;}
   $('go').disabled=true; $('report').style.display='none';
-  PROXY_STATE.anyResponded=false;
+  PROXY_STATE.anyResponded=false; DBG.length=0;
   $('status').textContent='Reading your homepage, robots.txt, and llms.txt…';
   const [html,robots,llms]=await Promise.all([fetchText(url),fetchText(origin+'/robots.txt'),fetchText(origin+'/llms.txt')]);
   if(!html){
@@ -482,6 +492,19 @@ $('go').onclick=async()=>{
         ? ' We found '+interiorTried+' interior page'+(interiorTried>1?'s':'')+' but could not read '+(interiorTried>1?'them':'it')+' this run (a large or rate-limited site can be slow through the fetch proxy) — try again.'
         : ' Only your homepage was readable, no sitemap or internal links to sample.');
   checks.unshift({status:'info', title:'Pages analyzed: '+analyzed.length, desc:'This report is based on: '+analyzedLabels.join(', ')+'.'+sampleNote});
+
+  // Debug trace (geo.html?debug=1): show which proxy served each fetch, or why
+  // each one failed. Lets someone on a network where a fetch fails report back
+  // exactly what broke, without opening DevTools.
+  if(DEBUG){
+    const lines = DBG.map(d=>{
+      const p = (()=>{ try{ return new URL(d.url).pathname||d.url; }catch(e){ return d.url; } })();
+      return d.ok
+        ? '✓ '+p+' — via '+d.via+' ('+d.ms+'ms)'
+        : '✕ '+p+' — ALL proxies failed ('+d.ms+'ms): '+(d.errors||[]).join(' | ');
+    });
+    checks.unshift({status:'info', title:'Fetch trace (debug)', desc:'<pre style="white-space:pre-wrap;font-size:.8rem;margin:0;">'+lines.join('\n').replace(/</g,'&lt;')+'</pre>'});
+  }
 
   // scores
   const pct=(n,m)=>m?Math.round(n/m*100):0;
