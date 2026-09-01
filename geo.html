@@ -317,7 +317,19 @@ $('go').onclick=async()=>{
   for(const su of sitemapUrlsFromRobots(robots, origin)){ sitemapXml=await fetchText(su); if(sitemapXml) break; }
   if(sitemapXml){
     if(isSitemapIndex(sitemapXml)){
-      for(const child of locsFromSitemap(sitemapXml).slice(0,2)){ const cx=await fetchText(child); if(cx) entries.push(...parseSitemapEntries(cx)); }
+      // A sitemap index (Shopify and most large sites) lists child sitemaps.
+      // Prefer children likely to hold KEY pages — pages, collections, main —
+      // over bulk product/blog dumps. Otherwise a store's sample is 4
+      // near-identical product URLs while its About, landing, and collection
+      // pages (whose sitemap child comes later in the list) are never seen.
+      const childRank=c=>{ const s=c.toLowerCase();
+        if(/(^|[\/_])(pages?|main|index)([_.]|$|\?)/.test(s)) return 0;
+        if(/collection/.test(s)) return 1;
+        if(/product/.test(s))    return 3;
+        if(/blog|post|article|news/.test(s)) return 2;
+        return 1; };
+      const children=locsFromSitemap(sitemapXml).slice().sort((a,b)=>childRank(a)-childRank(b));
+      for(const child of children.slice(0,3)){ const cx=await fetchText(child); if(cx) entries.push(...parseSitemapEntries(cx)); }
     } else { entries=parseSitemapEntries(sitemapXml); }
   }
   if(!entries.length){                              // fallback: internal links on the homepage
@@ -328,9 +340,14 @@ $('go').onclick=async()=>{
   // Rank the "top" pages by importance: sitemap priority + recency, blended
   // with how prominently the homepage itself links to each page.
   const prominence=homepageProminence(html, url);
-  const interiorUrls=pickInteriorPages(entries, prominence, url, origin, 4);
-  const interiorHtml=await Promise.all(interiorUrls.map(u=>fetchText(u)));
-  const interiorPages=interiorUrls.map((u,i)=>({url:u, html:interiorHtml[i]})).filter(p=>p.html);
+  // Over-select, then keep the first 4 that actually fetch. A couple of slow or
+  // rate-limited interior fetches shouldn't collapse the whole report to the
+  // homepage (which read as "only one page tested" on large sites).
+  const ranked=pickInteriorPages(entries, prominence, url, origin, 7);
+  const interiorTried=ranked.length;
+  const fetched=await Promise.all(ranked.map(u=>fetchText(u)));
+  const interiorPages=[];
+  for(let i=0;i<ranked.length && interiorPages.length<4;i++){ if(fetched[i]) interiorPages.push({url:ranked[i], html:fetched[i]}); }
 
   $('go').disabled=false;
   $('status').textContent='';
@@ -413,8 +430,14 @@ $('go').onclick=async()=>{
   const analyzed=[{url:url, html:html, home:true}, ...interiorPages.map(p=>({url:p.url, html:p.html, home:false}))];
   const withAnswers=analyzed.filter(p=>{const s=answerSignals(p.html); return s.faq || s.q>=2;});
   if(interiorPages.length===0){
-    // Only the homepage was readable, do NOT score answer content off it.
-    add(checks,'info','Answer-first content: not assessed','We could only read your homepage (no reachable sitemap or internal links to sample), so we did not score answer-first content. It belongs on content pages, service, product, guide, and FAQ pages, not the homepage, so judging it from the homepage alone would be misleading.');
+    // No interior page HTML — do NOT score answer content off the homepage.
+    // Distinguish "we found pages but couldn't fetch them" (transient) from
+    // "this site really is just a homepage" (nothing to sample).
+    if(interiorTried>0){
+      add(checks,'warn','Answer-first content: not assessed this run','We found '+interiorTried+' interior page'+(interiorTried>1?'s':'')+' to check but could not read '+(interiorTried>1?'them':'it')+' just now (a large or rate-limited site can be slow through the fetch proxy). This is not a finding about your content, run it again and it usually goes through.');
+    } else {
+      add(checks,'info','Answer-first content: not assessed','We could only read your homepage (no reachable sitemap or internal links to sample), so we did not score answer-first content. It belongs on content pages, service, product, guide, and FAQ pages, not the homepage, so judging it from the homepage alone would be misleading.');
+    }
   } else {
     e1max+=2; e3max+=1;
     if(withAnswers.length){
@@ -442,7 +465,9 @@ $('go').onclick=async()=>{
     ? (sampleSource==='links'
         ? ' Top pages were chosen from your homepage links (no sitemap found), ranked by how prominently you link to them.'
         : ' Top pages were chosen by sitemap priority and recency, weighted by how prominently your homepage links to them.')
-    : ' Only your homepage was readable, no sitemap or internal links to sample.';
+    : (interiorTried>0
+        ? ' We found '+interiorTried+' interior page'+(interiorTried>1?'s':'')+' but could not read '+(interiorTried>1?'them':'it')+' this run (a large or rate-limited site can be slow through the fetch proxy) — try again.'
+        : ' Only your homepage was readable, no sitemap or internal links to sample.');
   checks.unshift({status:'info', title:'Pages analyzed: '+analyzed.length, desc:'This report is based on: '+analyzedLabels.join(', ')+'.'+sampleNote});
 
   // scores
