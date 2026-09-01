@@ -76,6 +76,7 @@ exclude:
   - cloudflare-worker      # deploys to Cloudflare, not part of the published site
   - copy-edit-notes.md
 
-# Note: geo.html, roas.html, and scorecard.html have no front matter, so Jekyll
-# copies them through untouched and they keep their own self-contained styles.
-# That also means they do NOT get the shared nav, see README.
+# Note: geo.html, roas.html, scorecard.html, crawl-budget.html, and
+# prompt-map.html have no front matter, so Jekyll copies them through untouched
+# and they keep their own self-contained styles. That also means they do NOT get
+# the shared nav, see README.

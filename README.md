@@ -22,7 +22,8 @@ _posts/                  blog posts, YYYY-MM-DD-slug.md
 blog/index.html          blog home
 blog/categories/*.html   one stub per category
 seo-aeo-geo.md  paid-media.md  lifecycle.md  user-journey.md    the four lanes
-geo.html  roas.html  scorecard.html                             standalone tools
+geo.html  roas.html  scorecard.html  crawl-budget.html
+prompt-map.html                                              standalone tools
 llms.txt                 curated map for AI engines
 ```
 
@@ -141,7 +142,8 @@ on push either way.
 - **Four tools are advertised as "In build"** on the Lifecycle and User Journey
   lanes. Committed for the week of 2026-07-27. Giving an entry a `url` in the
   lane's `tools:` front matter makes it stop rendering as "In build".
-- The three interactive tools (`geo.html`, `roas.html`, `scorecard.html`) are
+- The five interactive tools (`geo.html`, `roas.html`, `scorecard.html`,
+  `crawl-budget.html`, `prompt-map.html`) are
   passthrough files with their own inline styles. They now carry a hand-rolled
   nav, meta description, canonical, and `WebApplication` schema, but they still
   do not share `_layouts/default.html`, so their styling has to be maintained

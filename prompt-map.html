@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J1KSHKJPV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-6J1KSHKJPV");
+</script>
+<title>Prompt Cluster Mapper, Topic to Prompts to Engine</title>
+<meta name="description" content="Free tool: turn one topic into prompt clusters, then map each cluster to the AI engine that owns that moment, ChatGPT for awareness, Gemini for consideration, Perplexity for validation.">
+<link rel="canonical" href="https://lindseysobrinski.com/prompt-map.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lindsey Sobrinski">
+<meta property="og:title" content="Prompt Cluster Mapper">
+<meta property="og:description" content="Turn one topic into prompt clusters, then map each cluster to the AI engine that owns that moment and the asset that earns the citation.">
+<meta property="og:url" content="https://lindseysobrinski.com/prompt-map.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://lindseysobrinski.com/prompt-map.html#app",
+  "name": "Prompt Cluster Mapper",
+  "url": "https://lindseysobrinski.com/prompt-map.html",
+  "description": "Turn one topic into prompt clusters, then map each cluster to the AI engine that owns that moment, the asset to build, and the schema it needs.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (runs in the browser)",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@id": "https://lindseysobrinski.com/#person" },
+  "publisher": { "@id": "https://lindseysobrinski.com/#person" },
+  "about": { "@type": "Thing", "name": "Generative Engine Optimization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lindseysobrinski.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Prompt Cluster Mapper", "item": "https://lindseysobrinski.com/prompt-map.html" }
+  ]
+}
+</script>
+<style>
+  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;--purple:#7a5ea8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;padding:32px 16px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(26,35,51,.08);padding:32px;}
+  h1{font-size:1.55rem;line-height:1.25;margin-bottom:8px;}
+  h1 span{color:var(--accent);}
+  .sub{color:#51607a;font-size:.98rem;margin-bottom:24px;line-height:1.5;}
+  .journey{margin:6px 0 26px;}
+  .journey h2{font-size:1.05rem;margin-bottom:4px;}
+  .journey .jsub{color:#51607a;font-size:.9rem;margin-bottom:14px;}
+  .jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  @media(max-width:640px){.jgrid{grid-template-columns:1fr;}}
+  .jcard{border:1.5px solid #e0e9f0;border-radius:12px;padding:16px 14px;background:#fbfdfe;}
+  .jcard .stage{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:9px;color:#fff;}
+  .jcard.aware .stage{background:var(--accent);}
+  .jcard.consider .stage{background:var(--good);}
+  .jcard.research .stage{background:var(--purple);}
+  .jcard h3{font-size:1rem;margin-bottom:6px;}
+  .jcard p{font-size:.86rem;color:#41506a;line-height:1.5;}
+  .jcard p b{color:var(--ink);}
+
+  .form{border-top:1px solid #e6ecf2;padding-top:22px;}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  @media(max-width:640px){.row{grid-template-columns:1fr;}}
+  .fld label{display:block;font-size:.82rem;font-weight:700;color:#41506a;margin-bottom:5px;}
+  .fld .hint{font-weight:400;color:#8b97aa;}
+  .fld input,.fld select{width:100%;padding:11px 12px;border:1.5px solid #cfdae4;border-radius:10px;font-size:.95rem;font-family:inherit;color:var(--ink);background:#fff;}
+  .fld input:focus,.fld select:focus{outline:none;border-color:var(--accent);}
+  .cta{margin-top:8px;width:100%;padding:15px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:1.05rem;font-weight:700;cursor:pointer;}
+  .cta:disabled{background:#b9c8d4;cursor:not-allowed;}
+  .foot{margin-top:22px;font-size:.85rem;color:#7a8699;line-height:1.5;}
+
+  #report{display:none;margin-top:30px;}
+  .rhead{padding:22px 24px;border-radius:14px;background:var(--soft);margin-bottom:22px;}
+  .rhead h2{font-size:1.25rem;margin-bottom:6px;}
+  .rhead .rmeta{font-size:.9rem;color:#51607a;line-height:1.6;}
+  .split{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .pill{font-size:.78rem;font-weight:700;padding:5px 11px;border-radius:20px;color:#fff;}
+  .pill.chatgpt{background:var(--accent);}
+  .pill.gemini{background:var(--good);}
+  .pill.perplexity{background:var(--purple);}
+
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
+  .actions button{padding:10px 14px;border:1.5px solid #cfdae4;background:#fff;border-radius:10px;cursor:pointer;font-size:.87rem;font-weight:600;color:#41506a;font-family:inherit;}
+  .actions button:hover{border-color:var(--accent);color:var(--accent);}
+
+  .cl{border:1.5px solid #e0e9f0;border-radius:14px;padding:20px;margin-bottom:16px;background:#fff;}
+  .cl.chatgpt{border-left:5px solid var(--accent);}
+  .cl.gemini{border-left:5px solid var(--good);}
+  .cl.perplexity{border-left:5px solid var(--purple);}
+  .cl .clh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+  .cl h3{font-size:1.06rem;}
+  .cl .num{font-size:.78rem;font-weight:700;color:#8b97aa;letter-spacing:.05em;}
+  .cl .why{font-size:.89rem;color:#51607a;line-height:1.55;margin:8px 0 14px;}
+  .cl .why b{color:var(--ink);}
+  .spec{background:#fbfdfe;border:1px solid #e6ecf2;border-radius:10px;padding:12px 14px;margin-bottom:14px;}
+  .spec div{font-size:.85rem;color:#41506a;line-height:1.6;}
+  .spec div b{color:var(--ink);}
+  .spec code{background:#eef4f8;padding:1px 6px;border-radius:5px;font-size:.82rem;color:#1a2333;}
+  .plist{list-style:none;}
+  .plist li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-top:1px solid #f0f4f8;font-size:.93rem;line-height:1.45;}
+  .plist li:first-child{border-top:none;}
+  .chip{flex:none;font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:3px 7px;border-radius:6px;color:#fff;margin-top:2px;}
+  .chip.chatgpt{background:var(--accent);}
+  .chip.gemini{background:var(--good);}
+  .chip.perplexity{background:var(--purple);}
+
+  .rollup{margin:28px 0 0;}
+  .rollup h2{font-size:1.1rem;margin-bottom:12px;}
+  .rup{border:1.5px solid #e0e9f0;border-radius:12px;padding:16px 18px;margin-bottom:12px;background:#fbfdfe;}
+  .rup h4{font-size:.98rem;margin-bottom:6px;}
+  .rup p{font-size:.88rem;color:#41506a;line-height:1.55;}
+  .rup ul{margin:8px 0 0 18px;}
+  .rup li{font-size:.88rem;color:#41506a;line-height:1.5;margin-bottom:4px;}
+  @media print{body{background:#fff;padding:0;}.card{box-shadow:none;padding:0;}.form,.actions,nav,.journey{display:none;}}
+</style>
+</head>
+<body>
+<nav style="max-width:860px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
+<div class="wrap"><div class="card">
+  <h1>One topic in. A prompt map out, <span>with the engine that owns each moment.</span></h1>
+  <p class="sub">Keyword lists were built for a ranked page of links. Buyers now ask questions, and three different engines answer them at three different points in the journey. This turns a topic into prompt clusters, assigns each cluster to the engine that actually rewards it, and tells you the asset to build and the schema it needs.</p>
+
+  <div class="journey">
+    <h2>Each engine plays a different position in the journey</h2>
+    <p class="jsub">One "AI SEO playbook" is a mistake. The map below assigns every prompt to the engine that owns that moment.</p>
+    <div class="jgrid">
+      <div class="jcard aware">
+        <span class="stage">Awareness · Top of Funnel</span>
+        <h3>ChatGPT</h3>
+        <p>Rewards <b>citations and third-party corroboration</b>. Open category questions, where your brand gets introduced. Think <b>impressions, not clicks</b>.</p>
+      </div>
+      <div class="jcard consider">
+        <span class="stage">Consideration · Mid / Bottom Funnel</span>
+        <h3>Gemini + AI Overviews</h3>
+        <p>Rewards <b>entity authority</b> and surfaces <b>brand mentions</b>. Branded, comparison, and shortlist prompts get decided inside the answer box.</p>
+      </div>
+      <div class="jcard research">
+        <span class="stage">Research · Validation</span>
+        <h3>Perplexity</h3>
+        <p><b>Dense citations, sources on display.</b> Mid-funnel research and proof-seeking. Gated expertise does not exist here.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form">
+    <div class="row">
+      <div class="fld">
+        <label for="topic">Topic or service <span class="hint">required</span></label>
+        <input id="topic" type="text" placeholder="app development" autocomplete="off">
+      </div>
+      <div class="fld">
+        <label for="model">Business model</label>
+        <select id="model">
+          <option value="b2b">B2B services or agency</option>
+          <option value="saas">SaaS or software</option>
+          <option value="app">Mobile or web app</option>
+          <option value="ecom">Ecommerce or retail</option>
+          <option value="local">Local or multi-location</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="fld">
+        <label for="brand">Your brand <span class="hint">optional, unlocks branded prompts</span></label>
+        <input id="brand" type="text" placeholder="Acme" autocomplete="off">
+      </div>
+      <div class="fld">
+        <label for="competitor">Main competitor <span class="hint">optional, unlocks comparison prompts</span></label>
+        <input id="competitor" type="text" placeholder="Globex" autocomplete="off">
+      </div>
+    </div>
+    <div class="row">
+      <div class="fld">
+        <label for="audience">Buyer or audience <span class="hint">optional</span></label>
+        <input id="audience" type="text" placeholder="startup founders" autocomplete="off">
+      </div>
+      <div class="fld">
+        <label for="location">City or market <span class="hint">optional, unlocks local prompts</span></label>
+        <input id="location" type="text" placeholder="Chicago" autocomplete="off">
+      </div>
+    </div>
+    <button class="cta" id="go">Build the prompt map</button>
+  </div>
+
+  <div id="report">
+    <div class="rhead">
+      <h2 id="rTitle"></h2>
+      <div class="rmeta" id="rMeta"></div>
+      <div class="split" id="rSplit"></div>
+    </div>
+    <div class="actions">
+      <button id="copyMd">Copy as Markdown</button>
+      <button id="dlCsv">Download CSV</button>
+      <button id="prn">Print / save PDF</button>
+    </div>
+    <div id="clusters"></div>
+    <div class="rollup" id="rollup"></div>
+  </div>
+
+  <p class="foot">Nothing leaves this page, the map is generated in your browser. The prompt patterns are the ones buyers actually type; the engine assignment follows where each engine sits in the journey, not a guess at any single model's ranking algorithm. Use it as the content plan, then measure share of answer per engine against it.</p>
+</div></div>
+<script>
+const YEAR = new Date().getFullYear();
+
+const ENGINES = {
+  chatgpt:{key:'chatgpt',name:'ChatGPT',stage:'Awareness · top of funnel',
+    lever:'Citations and third-party corroboration',
+    kpi:'Share of answer and impressions, not clicks',
+    play:'Win these off-site as much as on-site. ChatGPT introduces a category from what third parties say, so the work is digital PR, industry lists, forums, review sites, and genuinely quotable answer-first pages it can lift a definition from.'},
+  gemini:{key:'gemini',name:'Gemini + AI Overviews',stage:'Consideration · mid and bottom funnel',
+    lever:'Entity authority and brand mentions',
+    kpi:'Presence in the shortlist, and how you are characterized',
+    play:'Win these with entity clarity. Organization and Service schema, consistent sameAs profiles, real review signal, and pages that state plainly who you serve and what you charge. Comparison and branded prompts are decided inside the answer box, before anyone visits.'},
+  perplexity:{key:'perplexity',name:'Perplexity',stage:'Validation · research',
+    lever:'Dense, ungated, citable depth',
+    kpi:'Citation count and which of your pages gets cited',
+    play:'Win these with published specificity. Original numbers, methodology, benchmarks, and step-level detail, all crawlable. Anything behind a form or inside a PDF deck does not exist to this engine, and a competitor with worse thinking but a public post gets the citation.'}
+};
+
+const CLUSTERS = [
+  {id:'definition',name:'Category definition',stage:'Awareness',engine:'chatgpt',pri:1,
+   why:'These are the first questions asked, before a vendor or a shortlist exists. <b>ChatGPT</b> owns this moment and answers it from corroborated, definitional sources.',
+   asset:'Pillar page, answer-first',
+   where:'A permanent hub at /{slug}/, not a dated blog post',
+   schema:'FAQPage, DefinedTerm, Organization with sameAs',
+   note:'Lead with a one-paragraph direct definition under an H2 that is the question itself. Everything an engine lifts comes from the first 60 words after the heading.',
+   prompts:[
+     {t:'what is {topic}',e:'chatgpt'},
+     {t:'how does {topic} work',e:'chatgpt'},
+     {t:'{topic} explained simply',e:'chatgpt'},
+     {t:'what does {a} {topic} team actually do',e:'chatgpt'},
+     {t:'what is included in {topic}',e:'chatgpt'},
+     {t:'explain {topic} to {audience}',e:'chatgpt',needs:'audience'}
+   ]},
+
+  {id:'problem',name:'Problem and symptom',stage:'Awareness',engine:'chatgpt',pri:2,
+   why:'Buyers describe a symptom long before they name the solution. <b>ChatGPT</b> is where the symptom gets translated into a category, and that translation decides who is in the running.',
+   asset:'Symptom-led blog cluster, one post per symptom',
+   where:'/blog/, each post titled as the symptom, not the service',
+   schema:'FAQPage plus Article with a clear author entity',
+   note:'Name the symptom in the buyer language, then diagnose. These posts earn the introduction; they are not where you sell.',
+   prompts:[
+     {t:'why is our {topic} not working',e:'chatgpt'},
+     {t:'signs you need {topic} help',e:'chatgpt'},
+     {t:'common {topic} mistakes',e:'chatgpt'},
+     {t:'{topic} problems and how to fix them',e:'chatgpt'},
+     {t:'we are spending on {topic} and seeing nothing, what now',e:'chatgpt',e2:'perplexity'}
+   ]},
+
+  {id:'howto',name:'How-to and implementation',stage:'Research',engine:'perplexity',pri:4,
+   why:'Step-level questions are researcher questions. <b>Perplexity</b> rewards the page that shows the actual steps, and <b>ChatGPT</b> picks up the same material once others cite it.',
+   asset:'Long-form guide or checklist, plus an interactive tool if the steps are mechanical',
+   where:'/blog/ for the guide, a standalone tool page if it can be automated',
+   schema:'HowTo, or Article with numbered H2 steps',
+   note:'Publish the whole method. A partial guide with a gated "full framework" is the fastest way to lose the citation to someone less qualified.',
+   prompts:[
+     {t:'how to do {topic} step by step',e:'perplexity'},
+     {t:'{topic} checklist',e:'perplexity'},
+     {t:'{topic} best practices ' + YEAR,e:'perplexity',e2:'chatgpt'},
+     {t:'{topic} framework or process',e:'perplexity'},
+     {t:'how to start {topic} from scratch',e:'chatgpt',e2:'perplexity'},
+     {t:'{topic} for {audience}, where to begin',e:'perplexity',needs:'audience'}
+   ]},
+
+  {id:'data',name:'Data, benchmarks and proof',stage:'Validation',engine:'perplexity',pri:3,
+   why:'This is the cluster most brands skip and the one <b>Perplexity</b> is built to reward. Original numbers get cited far past their traffic, because nobody else publishes them.',
+   asset:'Original data study or benchmark page, ungated',
+   where:'A permanent /{slug}-benchmarks/ page, updated annually, not a one-off post',
+   schema:'Dataset or Article, with a stated methodology section',
+   note:'You do not need a research budget. A named sample, a stated method, and a real number from your own work outranks a recycled statistic with no source.',
+   prompts:[
+     {t:'{topic} benchmarks ' + YEAR,e:'perplexity'},
+     {t:'{topic} statistics and data',e:'perplexity'},
+     {t:'does {topic} actually work, evidence',e:'perplexity'},
+     {t:'average results from {topic}',e:'perplexity'},
+     {t:'{topic} ROI, real numbers',e:'perplexity',e2:'gemini'},
+     {t:'how long does {topic} take to show results',e:'perplexity',e2:'chatgpt'}
+   ]},
+
+  {id:'cost',name:'Cost and pricing',stage:'Consideration',engine:'gemini',pri:5,
+   why:'Pricing prompts are late-stage and commercial. <b>Gemini and AI Overviews</b> answer them from entities they can identify, and <b>Perplexity</b> cross-checks the number against published sources.',
+   asset:'A "what it costs" page with real ranges and what drives them',
+   where:'A linked page off the service hub, or an honest pricing section on it',
+   schema:'Service with an offers block, FAQPage for the range questions',
+   note:'A published range beats a contact form. If your number is absent, the engine answers with a competitor range and you are pre-qualified out of the deal.',
+   prompts:[
+     {t:'how much does {topic} cost',e:'gemini',e2:'perplexity'},
+     {t:'{topic} pricing models explained',e:'perplexity'},
+     {t:'typical {topic} retainer or project fee',e:'gemini'},
+     {t:'is {topic} worth the money',e:'perplexity',e2:'chatgpt'},
+     {t:'cheapest way to do {topic}',e:'gemini'}
+   ]},
+
+  {id:'comparison',name:'Comparison and alternatives',stage:'Consideration',engine:'gemini',pri:6,
+   why:'The shortlist forms here. <b>Gemini and AI Overviews</b> assemble "best of" answers from entity signals and third-party lists, which is why an unlisted brand simply is not in the set.',
+   asset:'Comparison page, plus placement on the third-party lists the engines quote',
+   where:'/{slug}-comparison/ on-site, and off-site list placements you pitch for',
+   schema:'ItemList, Organization, and Review or AggregateRating where genuine',
+   note:'Half of this cluster is not on your site at all. Audit which lists get cited for these prompts, then earn a place on them.',
+   prompts:[
+     {t:'best {topic} companies',e:'gemini'},
+     {t:'top {topic} providers for {audience}',e:'gemini',needs:'audience'},
+     {t:'top {topic} providers',e:'gemini',skipIf:'audience'},
+     {t:'{topic} agency vs in-house',e:'perplexity',e2:'chatgpt'},
+     {t:'alternatives to {competitor}',e:'gemini',needs:'competitor'},
+     {t:'{brand} vs {competitor}',e:'gemini',needs:'both'},
+     {t:'who are the leaders in {topic}',e:'gemini',e2:'chatgpt'}
+   ]},
+
+  {id:'selection',name:'Selection criteria and buyer questions',stage:'Consideration',engine:'gemini',pri:7,
+   why:'The buyer is now writing their own evaluation criteria. Whoever supplies the criteria shapes the shortlist, and <b>Gemini</b> serves them straight into the comparison.',
+   asset:'Buyer guide, written as the questions to ask any vendor',
+   where:'/blog/ or a gated-free resource page, ungated',
+   schema:'FAQPage, with each criterion as a question heading',
+   note:'Write the criteria you win on, honestly. This is the highest-leverage post in the map and almost nobody publishes it.',
+   prompts:[
+     {t:'how to choose {a} {topic} partner',e:'gemini'},
+     {t:'questions to ask {a} {topic} vendor',e:'gemini',e2:'perplexity'},
+     {t:'what to look for in {a} {topic} company',e:'gemini'},
+     {t:'{topic} red flags to avoid',e:'perplexity',e2:'chatgpt'},
+     {t:'in-house vs outsourced {topic}, which for {audience}',e:'perplexity',needs:'audience'}
+   ]},
+
+  {id:'objection',name:'Objections and risk',stage:'Validation',engine:'perplexity',pri:8,
+   why:'Before signing, the buyer goes looking for reasons not to. <b>Perplexity</b> is where that search happens, and it will find someone else answering if you do not.',
+   asset:'Objection FAQ, or a post titled as the objection itself',
+   where:'/blog/, linked from the service hub and the pricing page',
+   schema:'FAQPage',
+   note:'Answering the objection honestly, including when the answer is "do not buy this yet", is what makes the rest of your content credible to a model weighing sources.',
+   prompts:[
+     {t:'risks of {topic}',e:'perplexity'},
+     {t:'why {topic} projects fail',e:'perplexity',e2:'chatgpt'},
+     {t:'when not to invest in {topic}',e:'perplexity'},
+     {t:'is {topic} a scam or overhyped',e:'chatgpt',e2:'perplexity'},
+     {t:'can we do {topic} ourselves',e:'chatgpt'}
+   ]},
+
+  {id:'brand',name:'Brand and vendor evaluation',stage:'Decision',engine:'gemini',pri:9,needs:'brand',
+   why:'Branded prompts are the last check before contact, and they are answered almost entirely from entity signals and third-party mentions. <b>Gemini</b> owns this, and a thin entity here undoes every earlier win.',
+   asset:'Entity foundation, About page, service page, case studies, review presence',
+   where:'/about, the service hub, and off-site profiles that corroborate both',
+   schema:'Organization or Person with sameAs, Service, Review, and a consistent NAP',
+   note:'Ask each engine your own branded prompts today and record how you are described. Wrong or missing characterization is the fastest fix in this entire map.',
+   prompts:[
+     {t:'who is {brand}',e:'gemini'},
+     {t:'is {brand} any good',e:'gemini'},
+     {t:'{brand} reviews',e:'gemini'},
+     {t:'{brand} pricing',e:'gemini'},
+     {t:'should we hire {brand} for {topic}',e:'gemini',e2:'perplexity'},
+     {t:'{brand} case studies and results',e:'perplexity'}
+   ]},
+
+  {id:'local',name:'Local and market-specific',stage:'Consideration',engine:'gemini',pri:10,needs:'location',
+   why:'Geo-qualified prompts resolve against map and entity data. <b>Gemini and AI Overviews</b> answer them from a place entity, not a page of copy.',
+   asset:'Market page with genuine local substance, plus profile and citation consistency',
+   where:'/{slug}-{loc}/ , one per market you can actually serve well',
+   schema:'LocalBusiness or Service with areaServed, consistent NAP everywhere',
+   note:'Thin duplicated city pages get filtered. One market page with real local proof beats forty templated ones.',
+   prompts:[
+     {t:'{topic} company in {location}',e:'gemini'},
+     {t:'best {topic} near me',e:'gemini'},
+     {t:'{topic} {location} reviews',e:'gemini'},
+     {t:'top {topic} firms in {location} for {audience}',e:'gemini',needs:'audience'}
+   ]}
+];
+
+const MODEL_EXTRA = {
+  b2b:[{c:'comparison',t:'{topic} agencies vs freelancers vs fractional',e:'gemini'},
+       {c:'cost',t:'{topic} retainer vs project pricing',e:'perplexity'},
+       {c:'selection',t:'what should a {topic} scope of work include',e:'gemini'}],
+  saas:[{c:'comparison',t:'best {topic} software ' + YEAR,e:'gemini'},
+        {c:'howto',t:'how to integrate {topic} into an existing stack',e:'perplexity'},
+        {c:'data',t:'{topic} tool comparison, real feature data',e:'perplexity'},
+        {c:'objection',t:'{topic} migration risks and switching cost',e:'perplexity'}],
+  app:[{c:'definition',t:'do apps still need SEO if they live in the app store',e:'chatgpt'},
+       {c:'comparison',t:'is there an app for {topic}',e:'gemini'},
+       {c:'howto',t:'ASO vs SEO, which surface owns app discovery',e:'perplexity',e2:'chatgpt'},
+       {c:'data',t:'app install conversion benchmarks for {topic}',e:'perplexity'},
+       {c:'objection',t:'why our app is invisible in search and AI answers',e:'perplexity'}],
+  ecom:[{c:'comparison',t:'best place to buy {topic} online',e:'gemini'},
+        {c:'data',t:'{topic} conversion rate benchmarks',e:'perplexity'},
+        {c:'objection',t:'{topic} return policy and shipping questions',e:'gemini'},
+        {c:'selection',t:'how to choose the right {topic} for {audience}',e:'chatgpt',needs:'audience'}],
+  local:[{c:'selection',t:'what to ask a local {topic} provider before booking',e:'gemini'},
+         {c:'cost',t:'{topic} cost in my area',e:'gemini'},
+         {c:'problem',t:'emergency {topic} help, what are my options',e:'chatgpt'}]
+};
+
+function slugify(s){return String(s).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
+function titleCase(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+let LAST = null;
+
+function build(){
+  const topic=document.getElementById('topic').value.trim();
+  if(!topic){document.getElementById('topic').focus();return;}
+  const brand=document.getElementById('brand').value.trim();
+  const competitor=document.getElementById('competitor').value.trim();
+  const audience=document.getElementById('audience').value.trim();
+  const location=document.getElementById('location').value.trim();
+  const model=document.getElementById('model').value;
+  const vars={topic:topic,Topic:titleCase(topic),brand:brand,competitor:competitor,audience:audience,location:location,
+              a:/^[aeiou]/i.test(topic)?'an':'a'};
+  const have={brand:!!brand,competitor:!!competitor,audience:!!audience,location:!!location,
+              both:!!(brand&&competitor)};
+
+  const extras=MODEL_EXTRA[model]||[];
+  const out=[];
+
+  CLUSTERS.forEach(cl=>{
+    if(cl.needs && !have[cl.needs]) return;
+    const pool=cl.prompts.concat(extras.filter(x=>x.c===cl.id));
+    const prompts=[];
+    pool.forEach(p=>{
+      if(p.needs && !have[p.needs]) return;
+      if(p.skipIf && have[p.skipIf]) return;
+      prompts.push({text:fill(p.t,vars),e:p.e,e2:p.e2});
+    });
+    if(!prompts.length) return;
+    out.push({
+      id:cl.id,name:cl.name,stage:cl.stage,engine:cl.engine,pri:cl.pri,
+      why:fill(cl.why,vars),asset:fill(cl.asset,vars),
+      where:fill(cl.where,vars).replace('{slug}',slugify(topic)).replace('{loc}',slugify(location||'market')),
+      schema:cl.schema,note:fill(cl.note,vars),prompts:prompts
+    });
+  });
+
+  out.sort((a,b)=>a.pri-b.pri);
+  LAST={topic:topic,brand:brand,model:model,clusters:out};
+  render(LAST);
+}
+
+function fill(t,v){
+  return String(t).replace(/\{(\w+)\}/g,function(m,k){return v[k]!==undefined&&v[k]!==''?v[k]:m;});
+}
+
+function render(data){
+  const total=data.clusters.reduce((n,c)=>n+c.prompts.length,0);
+  const count={chatgpt:0,gemini:0,perplexity:0};
+  data.clusters.forEach(c=>c.prompts.forEach(p=>{count[p.e]++;}));
+
+  document.getElementById('rTitle').textContent='Prompt map: '+titleCase(data.topic);
+  document.getElementById('rMeta').innerHTML=
+    '<b>'+data.clusters.length+' clusters, '+total+' prompts.</b> Each cluster is one asset to build, each prompt is a heading or a question that asset has to answer directly. Build in the order shown, the early clusters are what the later ones are cited against.';
+  document.getElementById('rSplit').innerHTML=
+    ['chatgpt','gemini','perplexity'].map(k=>'<span class="pill '+k+'">'+ENGINES[k].name+': '+count[k]+'</span>').join('');
+
+  const wrap=document.getElementById('clusters');wrap.innerHTML='';
+  data.clusters.forEach((c,i)=>{
+    const d=document.createElement('div');d.className='cl '+c.engine;
+    let h='<div class="clh"><h3>'+(i+1)+'. '+esc(c.name)+'</h3>'+
+          '<span class="num">'+c.stage.toUpperCase()+' · '+ENGINES[c.engine].name.toUpperCase()+'</span></div>'+
+          '<p class="why">'+c.why+'</p>'+
+          '<div class="spec">'+
+            '<div><b>Build:</b> '+esc(c.asset)+'</div>'+
+            '<div><b>Lives at:</b> <code>'+esc(c.where)+'</code></div>'+
+            '<div><b>Schema:</b> '+esc(c.schema)+'</div>'+
+            '<div style="margin-top:6px;color:#51607a;">'+esc(c.note)+'</div>'+
+          '</div><ul class="plist">';
+    c.prompts.forEach(p=>{
+      h+='<li><span class="chip '+p.e+'">'+ENGINES[p.e].name.split(' ')[0]+'</span>'+
+         '<span>'+esc(p.text)+(p.e2?' <span style="color:#8b97aa;font-size:.85em;">(also '+ENGINES[p.e2].name.split(' ')[0]+')</span>':'')+'</span></li>';
+    });
+    h+='</ul>';
+    d.innerHTML=h;wrap.appendChild(d);
+  });
+
+  const ru=document.getElementById('rollup');
+  let rh='<h2>What to do per engine</h2>';
+  ['chatgpt','gemini','perplexity'].forEach(k=>{
+    const e=ENGINES[k];
+    const owned=data.clusters.filter(c=>c.engine===k);
+    rh+='<div class="rup"><h4 style="color:'+(k==='chatgpt'?'var(--accent)':k==='gemini'?'var(--good)':'var(--purple)')+'">'+
+        e.name+' <span style="color:#8b97aa;font-weight:600;font-size:.85rem;">· '+e.stage+'</span></h4>'+
+        '<p><b>Lever:</b> '+e.lever+'. <b>Measured by:</b> '+e.kpi+'.</p>'+
+        '<p style="margin-top:6px;">'+e.play+'</p>';
+    if(owned.length){
+      rh+='<ul>'+owned.map(c=>'<li><b>'+esc(c.name)+':</b> '+esc(c.asset)+'</li>').join('')+'</ul>';
+    } else {
+      rh+='<ul><li>No cluster leads with this engine in the current map, it still picks up the assets above as secondary. Add a brand or competitor to unlock more.</li></ul>';
+    }
+    rh+='</div>';
+  });
+  ru.innerHTML=rh;
+
+  document.getElementById('report').style.display='block';
+  document.getElementById('report').scrollIntoView({behavior:'smooth'});
+}
+
+function toMarkdown(d){
+  let m='# Prompt map: '+titleCase(d.topic)+'\n\n';
+  const total=d.clusters.reduce((n,c)=>n+c.prompts.length,0);
+  m+=d.clusters.length+' clusters, '+total+' prompts. Engine assignment follows where each engine sits in the buyer journey.\n\n';
+  d.clusters.forEach((c,i)=>{
+    m+='## '+(i+1)+'. '+c.name+'\n\n';
+    m+='- Stage: '+c.stage+'\n- Primary engine: '+ENGINES[c.engine].name+'\n- Build: '+c.asset+'\n- Lives at: '+c.where+'\n- Schema: '+c.schema+'\n\n';
+    m+=c.note+'\n\n';
+    c.prompts.forEach(p=>{m+='- ['+ENGINES[p.e].name.split(' ')[0]+(p.e2?' + '+ENGINES[p.e2].name.split(' ')[0]:'')+'] '+p.text+'\n';});
+    m+='\n';
+  });
+  m+='## Per-engine play\n\n';
+  ['chatgpt','gemini','perplexity'].forEach(k=>{
+    const e=ENGINES[k];
+    m+='### '+e.name+' ('+e.stage+')\n\nLever: '+e.lever+'. Measured by: '+e.kpi+'.\n\n'+e.play+'\n\n';
+  });
+  m+='Generated with the Prompt Cluster Mapper, https://lindseysobrinski.com/prompt-map.html\n';
+  return m;
+}
+
+function toCsv(d){
+  const rows=[['cluster','stage','primary_engine','secondary_engine','prompt','asset_to_build','lives_at','schema']];
+  d.clusters.forEach(c=>{
+    c.prompts.forEach(p=>{
+      rows.push([c.name,c.stage,ENGINES[p.e].name,p.e2?ENGINES[p.e2].name:'',p.text,c.asset,c.where,c.schema]);
+    });
+  });
+  return rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+}
+
+document.getElementById('go').onclick=build;
+document.getElementById('topic').addEventListener('keydown',function(e){if(e.key==='Enter')build();});
+document.getElementById('copyMd').onclick=function(){
+  if(!LAST)return;const b=this;
+  navigator.clipboard.writeText(toMarkdown(LAST)).then(function(){
+    b.textContent='Copied';setTimeout(function(){b.textContent='Copy as Markdown';},1600);
+  });
+};
+document.getElementById('dlCsv').onclick=function(){
+  if(!LAST)return;
+  const blob=new Blob([toCsv(LAST)],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='prompt-map-'+slugify(LAST.topic)+'.csv';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+};
+document.getElementById('prn').onclick=function(){window.print();};
+</script>
+</body>
+</html>

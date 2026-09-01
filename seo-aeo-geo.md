@@ -34,6 +34,14 @@ tools:
       Googlebot wastes its budget: redirects and dead URLs in the sitemap,
       noindex pages still being crawled, canonical waste, and parameter sprawl.
       Add your Search Console numbers to size the leak.
+  - name: Prompt Cluster Mapper
+    url: /prompt-map.html
+    cta: Map a topic →
+    blurb: >-
+      Enter one topic and get the prompt clusters buyers actually ask, each
+      assigned to the engine that owns that moment: ChatGPT for the awareness
+      questions, Gemini for branded and comparison, Perplexity for validation
+      research. Plus the asset to build and the schema it needs.
   - name: AEO/GEO Readiness Scorecard
     url: /scorecard.html
     cta: Get your score →
