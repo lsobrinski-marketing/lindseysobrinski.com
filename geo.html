@@ -155,15 +155,20 @@ async function fetchText(url){
      parse:async r=>{const j=await r.json(); return j && j.contents;}},
     {u:t=>'https://corsproxy.io/?url='+encodeURIComponent(t), parse:r=>r.text()}
   ];
-  // Race them rather than trying each in turn. Sequential attempts mean one
-  // slow proxy blocks every other, and these are routinely slow: allorigins
-  // was answering in ~27s the day this was written, which silently blew the
-  // old 15s timeout and made the tool look broken. Racing means total latency
-  // is the FASTEST working proxy, not the sum of the dead ones.
+  // Race the proxies rather than trying each in turn (one slow proxy shouldn't
+  // block the rest), BUT abort the losers the moment one wins. Without the
+  // abort, all 5 proxies keep downloading the full page in the background; on a
+  // large site fetched across several pages that piles up into tens of megabytes
+  // of concurrent transfer that saturates a normal connection and times out,
+  // which showed up as "only the homepage was crawled".
+  const ctrls=[];
+  const timer=setTimeout(()=>ctrls.forEach(c=>{try{c.abort();}catch(e){}}), 35000);
   const attempts = tries.map(p => (async () => {
-    const r = await fetch(p.u(url), {signal: AbortSignal.timeout(35000)});
+    const ctrl=new AbortController(); ctrls.push(ctrl);
+    const r = await fetch(p.u(url), {signal: ctrl.signal});
     // Only a genuine 2xx from the proxy counts as "the fetch layer is alive".
-    // A 522/403/429 is the PROXY failing, not the analyzed site refusing us, // counting those as "responded" made the tool tell people their own site
+    // A 522/403/429 is the PROXY failing, not the analyzed site refusing us —
+    // counting those as "responded" made the tool tell people their own site
     // blocks crawlers when actually every proxy was down.
     if(!r.ok) throw new Error('proxy status ' + r.status);
     PROXY_STATE.anyResponded = true;
@@ -171,8 +176,9 @@ async function fetchText(url){
     if(!t || !t.length) throw new Error('empty body');
     return t;
   })());
-  try { return await Promise.any(attempts); }
-  catch(e){ return null; }   // every proxy rejected
+  try { const winner = await Promise.any(attempts); return winner; }
+  catch(e){ return null; }                       // every proxy rejected
+  finally { clearTimeout(timer); ctrls.forEach(c=>{try{c.abort();}catch(e){}}); }
 }
 function parseRobots(txt){
   const groups=[]; let cur=null;
@@ -340,14 +346,21 @@ $('go').onclick=async()=>{
   // Rank the "top" pages by importance: sitemap priority + recency, blended
   // with how prominently the homepage itself links to each page.
   const prominence=homepageProminence(html, url);
-  // Over-select, then keep the first 4 that actually fetch. A couple of slow or
-  // rate-limited interior fetches shouldn't collapse the whole report to the
-  // homepage (which read as "only one page tested" on large sites).
-  const ranked=pickInteriorPages(entries, prominence, url, origin, 7);
-  const interiorTried=ranked.length;
-  const fetched=await Promise.all(ranked.map(u=>fetchText(u)));
-  const interiorPages=[];
-  for(let i=0;i<ranked.length && interiorPages.length<4;i++){ if(fetched[i]) interiorPages.push({url:ranked[i], html:fetched[i]}); }
+  // Over-select candidates, then fetch them ONE AT A TIME until 4 succeed.
+  // Sequential, not Promise.all: fetching 7 pages at once (each racing 5
+  // proxies) meant dozens of large concurrent downloads, which saturated
+  // slower connections and timed out — collapsing the report to the homepage
+  // ("only one page tested"). One page at a time keeps the transfer small and
+  // reliable, and we stop as soon as we have enough.
+  const ranked=pickInteriorPages(entries, prominence, url, origin, 8);
+  const interiorPages=[]; let interiorTried=0;
+  for(const u of ranked){
+    if(interiorPages.length>=4) break;
+    interiorTried++;
+    $('status').textContent='Reading page '+interiorTried+' of your top pages…';
+    const h=await fetchText(u);
+    if(h) interiorPages.push({url:u, html:h});
+  }
 
   $('go').disabled=false;
   $('status').textContent='';
