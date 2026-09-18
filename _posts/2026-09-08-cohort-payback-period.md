@@ -3,9 +3,10 @@ title: "LTV to CAC is a ratio. Payback is a constraint."
 seo_title: "Cohort payback period: the number that runs a subscription business"
 date: 2026-09-08 09:00:00 -0500
 category: subscriptions
-hero: /assets/img/blog/cohort-payback-period.svg
-hero_title: "Payback|is the limit"
-hero_motif: funnel
+hero: /assets/img/blog/cohort-payback-period.jpg
+image: /assets/img/blog/cohort-payback-period.jpg
+hero_alt: "Two looping tracks compare cohort payback periods under the question 'When does the dollar come back?'. On the left a tight 5-month loop, on the right a long, sweeping 19-month one, with a stack of gold dollar coins between them."
+og_image_alt: "Two payback-period loops, 5 months versus 19 months, showing how long it takes a customer cohort to return the dollar spent to acquire it."
 tags: [cohort payback, subscription economics, LTV, CAC, contribution margin, retention]
 description: "Two businesses with identical LTV to CAC ratios and different payback periods are not in the same business. Why payback, not the ratio, is what actually governs how fast you can grow."
 faq:

@@ -20,7 +20,7 @@ layout: default
 
 <article>
   {%- if page.hero %}
-  <img class="post-hero" src="{{ page.hero }}" alt="{{ page.title | escape }}" width="1200" height="630" loading="eager" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 4px 18px rgba(26,35,51,.06);margin-bottom:26px;" />
+  <img class="post-hero" src="{{ page.hero }}" alt="{{ page.hero_alt | default: page.title | escape }}" width="1200" height="630" loading="eager" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 4px 18px rgba(26,35,51,.06);margin-bottom:26px;" />
   {%- endif %}
   <div class="post-head">
     {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
@@ -100,7 +100,8 @@ layout: default
   "@type": "BlogPosting",
   "@id": "{{ site.url }}{{ page.url }}#post",
   "headline": {{ page.title | jsonify }},
-  "description": {{ page.description | strip_newlines | strip | jsonify }},
+  "description": {{ page.description | strip_newlines | strip | jsonify }},{% if page.image %}
+  "image": "{{ site.url }}{{ page.image }}",{% endif %}
   "url": "{{ site.url }}{{ page.url }}",
   "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}" },
   "datePublished": "{{ page.date | date_to_xmlschema }}",
