@@ -52,6 +52,8 @@ Google will not crawl your entire site. On a large site, that's not a failure mo
 
 On one enterprise retail site, the answer was: mostly garbage. Only a low single-digit percentage of Googlebot's crawling was going to discovering new content. The rest was being consumed by redirects, dead links, duplicate URLs, and a server that had gotten slower. New products were going live and then sitting unranked for weeks, not because the pages were bad, but because Google was too busy crawling junk to reach them.
 
+If you want to see where your own crawl budget is going, I built a [free Crawl Budget Waste Checker](/crawl-budget.html) that surfaces the redirect chains, dead links, and duplicate URLs eating it.
+
 ## Crawl budget is real, but only past a certain size
 
 Let's be precise, because "crawl budget" gets thrown around loosely. For a small site it's a non-issue: Google can and will crawl everything you have, often. You don't need to think about it.

@@ -76,13 +76,13 @@ That's the pattern on big ecommerce sites: the visible content is fine, and the 
 
 ## Where large sites actually leak
 
-**They can't be rendered.** If your product name, price, and internal links only appear after JavaScript executes, most crawlers see an empty shell, and every AI crawler sees nothing, because none of them run JavaScript at all. Client-side rendering is the most expensive SEO decision most teams never realized they were making.
+**They can't be rendered.** If your product name, price, and internal links only appear after JavaScript executes, [most crawlers see an empty shell](/blog/your-javascript-site-is-invisible-to-ai-crawlers/), and every AI crawler sees nothing, because none of them run JavaScript at all. Client-side rendering is the most expensive SEO decision most teams never realized they were making, and when the crawlers cannot read you, the AI answers get [assembled from caches and third-party threads instead of your own pages](/blog/the-source-of-truth-gap/).
 
-**Crawl budget gets spent on garbage.** On one enterprise site, only a low single-digit percentage of Google's crawl activity was going to discovering new content, while 4,293 internal links still pointed at 404s and 11 of 15 sitemaps returned "couldn't fetch." New inventory went unranked because Google never efficiently reached it.
+**Crawl budget gets spent on garbage.** On one enterprise site, only a low single-digit percentage of Google's crawl activity was going to [discovering new content](/blog/crawl-budget-is-a-real-constraint/), while 4,293 internal links still pointed at 404s and 11 of 15 sitemaps returned "couldn't fetch." New inventory went unranked because Google never efficiently reached it. You can [check your own site's crawl-budget waste with the free tool](/crawl-budget.html).
 
 **The site overrides its own canonicals.** A tracking parameter baked into navigation links produced 257,362 "Google chose a different canonical" entries, Google overruling the site's own canonical tags on roughly a fifth of all pages.
 
-**Redirect debt accumulates in templates.** A single header link created 5,632 redirect chains, 92% of every chain on the domain. One footer template added over 12,000 redirect links across the subdomain it lived on.
+**Redirect debt accumulates in templates.** A single header link created 5,632 redirect chains, 92% of every chain on the domain. One footer template added over 12,000 redirect links across the subdomain it lived on. The same debt shows up after a replatform, where it [surfaces in the crawl logs about 90 days later](/blog/migration-seo-90-days-later/).
 
 **Speed is a ranking decision made by accident.** A ~10-second LCP and a 2.6 MB JavaScript payload is a Core Web Vitals problem and a conversion tax in the same breath.
 

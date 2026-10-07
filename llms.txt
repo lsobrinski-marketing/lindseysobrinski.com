@@ -69,6 +69,8 @@ Measurement, incentives and AI (thesis pieces):
 - [Crawl Budget Waste Checker](https://lindseysobrinski.com/crawl-budget.html): Crawls robots.txt, sitemap, and interior pages to find wasted crawl budget, redirects and dead URLs in the sitemap, noindex pages still being crawled, canonical waste, and parameter sprawl, and quantifies the leak with Search Console numbers.
 - [Incrementality Gap Calculator](https://lindseysobrinski.com/roas.html): Estimates the gap between platform-reported ROAS and likely incremental ROAS.
 - [AEO/GEO Readiness Scorecard](https://lindseysobrinski.com/scorecard.html): Ten questions on AI-search visibility with a score and a fix-first list.
+- [Cohort Payback Calculator](https://lindseysobrinski.com/cohort-payback.html): Models how many cycles a customer cohort takes to earn back its acquisition cost, using an activation cliff plus an ongoing retention rate, and shows what a retention improvement is worth in payback period and lifetime contribution.
+- [Churn Decomposition Model](https://lindseysobrinski.com/churn-decomposition.html): Splits churn into involuntary, never-activated, completed, and dissatisfied, prices each pool, applies realistic recovery rates, and ranks which one to work first and which team owns it.
 - [Prompt Cluster Mapper](https://lindseysobrinski.com/prompt-map.html): Turns one topic into prompt clusters and assigns each to the engine that owns that moment, ChatGPT for awareness, Gemini and AI Overviews for branded and comparison, Perplexity for validation research, with the asset to build and the schema it needs.
 
 ## Writing

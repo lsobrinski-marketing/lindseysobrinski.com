@@ -12,14 +12,18 @@ lede: >-
   and answer the second with an abandoned-cart email and a hope.
 audience: Growth, CRM, and P&L owners at subscription, DTC, retail, and ecommerce businesses.
 cta: Want to know where your customers are actually leaving, and what that costs?
-blog_categories: [lifecycle, subscriptions]
+blog_categories: [lifecycle, subscriptions, churn, loyalty]
 tools:
   - name: Cohort Payback Calculator
+    url: /cohort-payback.html
+    cta: Model the curve →
     blurb: >-
       Enter acquisition cost, order frequency, and contribution margin to see
       how long each cohort takes to pay itself back, and what a small retention
       improvement does to that curve.
   - name: Churn Decomposition Model
+    url: /churn-decomposition.html
+    cta: Split the number →
     blurb: >-
       Split total churn into involuntary, never-activated, completed, and
       dissatisfied, so the fix goes to the right team instead of defaulting to
@@ -97,6 +101,26 @@ money to acquire, quietly leave through a door no one is watching.
 Retention is not the softer half of growth. It is the half that determines
 whether the other half was a good investment.
 
+## The three areas of the work
+
+<div class="grid">
+  <a class="tile" href="/lifecycle/churn/">
+    <h3>Churn Reduction</h3>
+    <p>Separating involuntary, never-activated, completed, and dissatisfied churn, reading cohort curves instead of a monthly rate, and intervening before the customer has decided.</p>
+    <span class="go">Churn reduction →</span>
+  </a>
+  <a class="tile" href="/lifecycle/subscriptions/">
+    <h3>Subscription Economics</h3>
+    <p>Cohort payback, contribution margin by cohort, order frequency, and the unit math that decides whether the model compounds or leaks.</p>
+    <span class="go">Subscription economics →</span>
+  </a>
+  <a class="tile" href="/lifecycle/loyalty/">
+    <h3>Loyalty & Win-Back</h3>
+    <p>Program design and holdout measurement, so you can tell a program that changes behavior from one that discounts customers who were coming back anyway.</p>
+    <span class="go">Loyalty and win-back →</span>
+  </a>
+</div>
+
 ## The architecture, not the calendar
 
 Lifecycle work goes wrong in a predictable way: it becomes a content calendar.
@@ -143,3 +167,16 @@ to be nice to people who already liked you.
 
 
 *Prefer this handled, not just explained? I take on [fractional and advisory engagements](/fractional/) in exactly this kind of work.*
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Lifecycle marketing and retention, areas of work",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Customer Churn Reduction", "url": "{{ site.url }}/lifecycle/churn/" },
+    { "@type": "ListItem", "position": 2, "name": "Subscription Growth & Unit Economics", "url": "{{ site.url }}/lifecycle/subscriptions/" },
+    { "@type": "ListItem", "position": 3, "name": "Loyalty & Win-Back Programs", "url": "{{ site.url }}/lifecycle/loyalty/" }
+  ]
+}
+</script>

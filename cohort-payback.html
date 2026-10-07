@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J1KSHKJPV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-6J1KSHKJPV");
+</script>
+<title>Cohort Payback Calculator, How Long Until a Cohort Pays for Itself</title>
+<meta name="description" content="Free calculator: see how many cycles it takes a customer cohort to earn back its acquisition cost, and what one point of retention does to the payback curve.">
+<link rel="canonical" href="https://lindseysobrinski.com/cohort-payback.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lindsey Sobrinski">
+<meta property="og:title" content="Cohort Payback Calculator">
+<meta property="og:description" content="Free calculator: see how many cycles it takes a customer cohort to earn back its acquisition cost, and what one point of retention does to the payback curve.">
+<meta property="og:url" content="https://lindseysobrinski.com/cohort-payback.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://lindseysobrinski.com/cohort-payback.html#app",
+  "name": "Cohort Payback Calculator",
+  "url": "https://lindseysobrinski.com/cohort-payback.html",
+  "description": "Free calculator: see how many cycles it takes a customer cohort to earn back its acquisition cost, and what one point of retention does to the payback curve.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (runs in the browser)",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@id": "https://lindseysobrinski.com/#person" },
+  "publisher": { "@id": "https://lindseysobrinski.com/#person" },
+  "about": { "@type": "Thing", "name": "Subscription Unit Economics and Cohort Payback" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lindseysobrinski.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Lifecycle Marketing & Retention", "item": "https://lindseysobrinski.com/lifecycle/" },
+    { "@type": "ListItem", "position": 3, "name": "Cohort Payback Calculator", "item": "https://lindseysobrinski.com/cohort-payback.html" }
+  ]
+}
+</script>
+<style>
+  :root{--ink:#1a2333;--accent:#1D6FA3;--soft:#eef4f8;--good:#1e8e5a;--warn:#c98a1b;--bad:#c0392b;--muted:#51607a;--guide:#dde7ee;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,#f7fafc,#e8f0f6);color:var(--ink);min-height:100vh;padding:32px 16px;}
+  .wrap{max-width:780px;margin:0 auto;}
+  .card{background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(26,35,51,.08);padding:32px;}
+  h1{font-size:1.5rem;line-height:1.3;margin-bottom:8px;}
+  h1 span{color:var(--good);}
+  h2{font-size:1.05rem;margin:30px 0 4px;}
+  .sub{color:var(--muted);font-size:.97rem;margin-bottom:26px;line-height:1.5;}
+  label{display:block;font-weight:600;font-size:.92rem;margin:18px 0 6px;}
+  label small{display:block;font-weight:400;color:#7a8699;margin-top:2px;}
+  input[type=number]{width:100%;padding:11px 12px;border:1.5px solid #cfdae4;border-radius:10px;font-size:1rem;}
+  input[type=range]{width:100%;accent-color:var(--good);margin-top:6px;}
+  select{width:100%;padding:11px 12px;border:1.5px solid #cfdae4;border-radius:10px;font-size:1rem;background:#fff;}
+  .rangeVal{font-weight:700;color:var(--good);}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.row{grid-template-columns:1fr;}}
+  .out{margin-top:28px;padding:24px;border-radius:14px;background:var(--soft);}
+  .big{font-size:2.2rem;font-weight:800;line-height:1.15;}
+  .lbl{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+  @media(max-width:560px){.grid3{grid-template-columns:1fr;}}
+  .stat{background:#fff;border-radius:12px;padding:14px;}
+  .stat b{display:block;font-size:1.25rem;}
+  .verdict{margin-top:16px;font-weight:700;line-height:1.45;}
+  .chartbox{margin-top:20px;background:#fff;border-radius:12px;padding:14px 10px 6px;overflow-x:auto;}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.82rem;color:var(--muted);padding:6px 6px 4px;}
+  .key{display:inline-block;width:12px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px;}
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.9rem;}
+  th,td{text-align:right;padding:8px 6px;border-bottom:1px solid var(--guide);}
+  th:first-child,td:first-child{text-align:left;}
+  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700;}
+  .foot{margin-top:22px;font-size:.85rem;color:#7a8699;line-height:1.5;}
+  .foot a{color:var(--accent);}
+  .more{margin-top:26px;padding-top:20px;border-top:1px solid var(--guide);font-size:.92rem;line-height:1.6;color:var(--muted);}
+  .more a{color:var(--accent);font-weight:600;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav style="max-width:780px;margin:0 auto 20px;font-size:.93rem;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;"><a href="/" style="font-weight:800;color:#1a2333;text-decoration:none;">Lindsey Sobrinski</a><a href="/seo-aeo-geo/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">SEO/AEO/GEO</a><a href="/paid-media/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Paid Media</a><a href="/lifecycle/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Lifecycle</a><a href="/user-journey/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">User Journey</a><a href="/blog/" style="color:#1D6FA3;text-decoration:none;font-weight:600;">Blog</a><a href="/about.html" style="color:#1D6FA3;text-decoration:none;font-weight:600;">About</a></nav>
+<div class="wrap"><div class="card">
+  <h1>You know what a customer costs. <span>How long until they pay you back?</span></h1>
+  <p class="sub">Cohort payback is the number that quietly runs a subscription or repeat-purchase business: it folds acquisition cost, retention, and margin into one figure, and it decides how fast each dollar can be recycled into the next cohort. This models the curve, and shows what one point of retention is actually worth.</p>
+
+  <div class="row">
+    <div>
+      <label>Acquisition cost per customer ($)
+        <small>Fully loaded CAC, media plus the incentives it took to convert.</small>
+      </label>
+      <input type="number" id="cac" value="120" min="0" step="5">
+    </div>
+    <div>
+      <label>Cycle length
+        <small>Your billing interval, or the average gap between orders.</small>
+      </label>
+      <select id="cyclen">
+        <option value="12">Monthly</option>
+        <option value="26">Every two weeks</option>
+        <option value="4">Quarterly</option>
+        <option value="1">Annual</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div>
+      <label>Order or subscription value per cycle ($)</label>
+      <input type="number" id="aov" value="60" min="0" step="1">
+    </div>
+    <div>
+      <label>Contribution margin (%)
+        <small>After product cost, shipping, fulfillment, and payment fees.</small>
+      </label>
+      <input type="number" id="margin" value="45" min="0" max="100" step="1">
+    </div>
+  </div>
+
+  <h2>Retention shape</h2>
+  <p class="sub" style="margin-bottom:0">Real curves drop steeply and then flatten, so a single churn rate models the wrong thing. These two numbers give you the shape.</p>
+
+  <label>Customers who survive the first cycle (%)
+    <small>The activation cliff. This is where onboarding either worked or did not.</small>
+  </label>
+  <input type="range" id="r1" min="30" max="100" value="78"><span class="rangeVal" id="r1V">78%</span>
+
+  <label>Ongoing retention per cycle after that (%)
+    <small>The flat part of the curve, cycle over cycle among customers who stuck.</small>
+  </label>
+  <input type="range" id="rn" min="50" max="100" value="93"><span class="rangeVal" id="rnV">93%</span>
+
+  <label>Test a retention improvement (percentage points)
+    <small>Applied to the ongoing rate. Small numbers here do more than they look like they should.</small>
+  </label>
+  <input type="range" id="lift" min="0" max="10" value="2" step="0.5"><span class="rangeVal" id="liftV">+2.0 pts</span>
+
+  <div class="out">
+    <div class="lbl">Cohort payback period</div>
+    <div class="big" id="payback">-</div>
+    <div class="grid3">
+      <div class="stat"><span class="lbl">Contribution per cycle</span><b id="cpc">-</b></div>
+      <div class="stat"><span class="lbl">Lifetime contribution</span><b id="ltv">-</b></div>
+      <div class="stat"><span class="lbl">LTV to CAC</span><b id="ratio">-</b></div>
+    </div>
+    <div class="verdict" id="verdict"></div>
+
+    <div class="chartbox">
+      <div class="legend">
+        <span><span class="key" style="background:#1e8e5a"></span>Cumulative contribution</span>
+        <span><span class="key" style="background:#7a5ea8"></span>With the retention lift</span>
+        <span><span class="key" style="background:#c0392b"></span>Acquisition cost</span>
+      </div>
+      <svg id="chart" viewBox="0 0 720 300" width="100%" height="300" role="img" aria-label="Cumulative contribution per acquired customer over time, against acquisition cost"></svg>
+    </div>
+
+    <table>
+      <thead><tr><th>Scenario</th><th>Payback</th><th>Lifetime contribution</th><th>LTV:CAC</th></tr></thead>
+      <tbody>
+        <tr><td>Today</td><td id="t-pb">-</td><td id="t-ltv">-</td><td id="t-ratio">-</td></tr>
+        <tr><td id="t-liftlabel">With retention lift</td><td id="l-pb">-</td><td id="l-ltv">-</td><td id="l-ratio">-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="foot">The model treats the cohort as an activation cliff followed by a steady ongoing rate, which is the shape real retention curves take and the one a single blended churn rate cannot represent. Contribution is counted per surviving customer per cycle and is not discounted, so treat long paybacks as optimistic. It is a directional model: the real version gets built from your own cohort table, by acquisition source, because retention that degrades cohort over cohort is usually a media problem wearing a retention costume.</p>
+
+  <div class="more">
+    More on the math behind this: <a href="/lifecycle/subscriptions/">subscription unit economics</a> ·
+    <a href="/lifecycle/churn/">churn reduction</a> ·
+    <a href="/churn-decomposition.html">Churn Decomposition Model</a>
+  </div>
+</div></div>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>'$'+Math.round(n).toLocaleString();
+const CYCLES=96; // model horizon in cycles
+
+function survival(r1,rn,n){ return n<1?1:r1*Math.pow(rn,n-1); }
+
+function series(cac,contrib,r1,rn){
+  var cum=0, out=[], pb=null;
+  for(var n=1;n<=CYCLES;n++){
+    cum += contrib*survival(r1,rn,n);
+    out.push(cum);
+    if(pb===null && cum>=cac) pb=n;
+  }
+  var safeR=Math.min(rn,0.995);
+  return {cum:out, payback:pb, ltv:contrib*(r1/(1-safeR))};
+}
+
+function cycleWord(per){ return per==12?'months':per==26?'two-week cycles':per==4?'quarters':'years'; }
+function cycleWordN(per,n){ return n===1 ? cycleWord(per).replace(/s$/,'') : cycleWord(per); }
+
+function pbLabel(pb,per){
+  if(pb===null) return 'Never';
+  var months=per==12?pb:per==26?(pb/26*12):per==4?pb*3:pb*12;
+  var extra = per==12 ? '' : ' ('+(months<12?Math.round(months)+' months':(months/12).toFixed(1)+' years')+')';
+  return pb+' '+cycleWordN(per,pb)+extra;
+}
+
+function draw(a,b,cac,per){
+  var W=720,H=300,padL=64,padR=14,padT=14,padB=34;
+  var span=Math.min(CYCLES, Math.max(12, (a.payback||36)*2, (b.payback||36)*2));
+  var maxY=Math.max(cac*1.35, b.cum[span-1]);
+  var x=n=>padL+(n/span)*(W-padL-padR);
+  var y=v=>H-padB-(v/maxY)*(H-padT-padB);
+  var s='';
+  // grid + y labels
+  for(var i=0;i<=4;i++){
+    var v=maxY*i/4, yy=y(v);
+    s+='<line x1="'+padL+'" y1="'+yy+'" x2="'+(W-padR)+'" y2="'+yy+'" stroke="#dde7ee" stroke-width="1"/>';
+    s+='<text x="'+(padL-8)+'" y="'+(yy+4)+'" text-anchor="end" font-size="11" fill="#51607a">'+fmt(v)+'</text>';
+  }
+  // x labels
+  var stepX=Math.max(1,Math.round(span/6));
+  for(var n=0;n<=span;n+=stepX){
+    s+='<text x="'+x(n)+'" y="'+(H-12)+'" text-anchor="middle" font-size="11" fill="#51607a">'+n+'</text>';
+  }
+  s+='<text x="'+(W/2)+'" y="'+(H-1)+'" text-anchor="middle" font-size="11" fill="#7a8699">'+cycleWord(per)+' since acquisition</text>';
+  // CAC line
+  s+='<line x1="'+padL+'" y1="'+y(cac)+'" x2="'+(W-padR)+'" y2="'+y(cac)+'" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4"/>';
+  s+='<text x="'+(W-padR)+'" y="'+(y(cac)-6)+'" text-anchor="end" font-size="11" fill="#c0392b">acquisition cost '+fmt(cac)+'</text>';
+  // curves
+  function path(arr,color,width){
+    var d='M '+x(0)+' '+y(0);
+    for(var n=1;n<=span;n++) d+=' L '+x(n)+' '+y(arr[n-1]);
+    return '<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="'+width+'" stroke-linejoin="round"/>';
+  }
+  s+=path(b.cum,'#7a5ea8',2);
+  s+=path(a.cum,'#1e8e5a',2.5);
+  // payback marker
+  if(a.payback && a.payback<=span){
+    s+='<line x1="'+x(a.payback)+'" y1="'+y(cac)+'" x2="'+x(a.payback)+'" y2="'+(H-padB)+'" stroke="#1e8e5a" stroke-width="1.5" stroke-dasharray="3 3"/>';
+    s+='<circle cx="'+x(a.payback)+'" cy="'+y(cac)+'" r="4.5" fill="#1e8e5a"/>';
+  }
+  $('chart').innerHTML=s;
+}
+
+function calc(){
+  var cac=+$('cac').value||0, per=+$('cyclen').value,
+      aov=+$('aov').value||0, margin=(+$('margin').value||0)/100,
+      r1=(+$('r1').value)/100, rn=(+$('rn').value)/100, lift=(+$('lift').value)/100;
+  $('r1V').textContent=Math.round(r1*100)+'%';
+  $('rnV').textContent=Math.round(rn*100)+'%';
+  $('liftV').textContent='+'+(lift*100).toFixed(1)+' pts';
+  var rnL=Math.min(0.995, rn+lift);
+  var contrib=aov*margin;
+  var a=series(cac,contrib,r1,rn), b=series(cac,contrib,r1,rnL);
+
+  $('cpc').textContent=fmt(contrib);
+  $('ltv').textContent=fmt(a.ltv);
+  $('ratio').textContent=cac>0?(a.ltv/cac).toFixed(2)+'x':'n/a';
+  $('payback').textContent=pbLabel(a.payback,per);
+  $('t-pb').textContent=pbLabel(a.payback,per);
+  $('t-ltv').textContent=fmt(a.ltv);
+  $('t-ratio').textContent=cac>0?(a.ltv/cac).toFixed(2)+'x':'n/a';
+  $('t-liftlabel').textContent='With +'+(lift*100).toFixed(1)+' pts retention';
+  $('l-pb').textContent=pbLabel(b.payback,per);
+  $('l-ltv').textContent=fmt(b.ltv);
+  $('l-ratio').textContent=cac>0?(b.ltv/cac).toFixed(2)+'x':'n/a';
+
+  var v=$('verdict'), months=a.payback===null?999:(per==12?a.payback:per==26?a.payback/26*12:per==4?a.payback*3:a.payback*12);
+  var gain=(a.payback&&b.payback)?a.payback-b.payback:0;
+  var ltvGain=b.ltv-a.ltv;
+  if(a.payback===null){
+    v.textContent='This cohort never pays back. Customers leave before their contribution covers what they cost, which is an acquisition or a margin problem before it is a retention program.';
+    v.style.color='var(--bad)';
+  } else if(months<=6){
+    v.textContent='Payback inside six months. Each acquisition dollar recycles fast, which is what lets the business grow without financing it. The lift adds '+fmt(ltvGain)+' of lifetime contribution per customer'+(gain>0?' and pulls payback in by '+gain+' '+cycleWordN(per,gain):'')+'.';
+    v.style.color='var(--good)';
+  } else if(months<=12){
+    v.textContent='Payback inside a year. Workable, but it means a year of every acquisition dollar tied up before it can be spent again. The lift is worth '+fmt(ltvGain)+' per customer'+(gain>0?' and '+gain+' '+cycleWordN(per,gain)+' off payback':'')+'.';
+    v.style.color='var(--warn)';
+  } else {
+    v.textContent='Payback beyond twelve cycles of trading. Growth here is a financing question, not a marketing one, and the retention lift is worth more than another point of acquisition efficiency: '+fmt(ltvGain)+' per customer'+(gain>0?', '+gain+' '+cycleWordN(per,gain)+' sooner to payback':'')+'.';
+    v.style.color='var(--bad)';
+  }
+  draw(a,b,cac,per);
+}
+['cac','cyclen','aov','margin','r1','rn','lift'].forEach(id=>$(id).addEventListener('input',calc));
+$('cyclen').addEventListener('change',calc);
+calc();
+</script>
+</body>
+</html>

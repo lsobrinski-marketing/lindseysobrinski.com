@@ -17,6 +17,15 @@ faq:
       the difference in results is the incremental lift the media caused. It's
       the workhorse method for measuring channels with no reliable click to
       attribute, like CTV, out-of-home, and audio.
+  - q: How do I run a pilot geo-holdout test?
+    a: >-
+      Start small and prove the method before you scale it. Pick a handful of
+      comparable markets, hold the channel at baseline in a matched control set,
+      and define the metric, the duration, and the expected baseline before you
+      launch. Run it long enough to clear the channel's lag, then compare the
+      test markets against what the control predicts they would have done. A
+      pilot's job is to validate the design and the data plumbing, so a clean,
+      readable result is the real deliverable, not a headline lift.
   - q: How do I choose matched markets for an incrementality test?
     a: >-
       Pick test and control markets that behaved similarly before the test, similar baseline sales trend, seasonality, and ideally similar size and
@@ -52,6 +61,8 @@ faq:
       The defense is to design the test fully before it starts and to treat a
       too-good-to-be-true result as a reason to check the design, not celebrate.
 ---
+
+To run a geo holdout test, split comparable markets into a test group that gets the media and a matched control group that does not, confirm the two tracked together in a pre-period, run it long enough to clear the channel's lag, then measure the gap against the control. That gap is the incremental lift the media caused.
 
 Every measurement post, including [mine](/paid-media/measurement/), tells you to run a holdout. Far fewer explain how to design one that actually gives a trustworthy answer, which matters, because a badly designed incrementality test is worse than no test. It launders a wrong number into a confident one, and then you make budget decisions on it.
 

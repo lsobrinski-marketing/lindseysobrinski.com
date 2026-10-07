@@ -22,8 +22,13 @@ _posts/                  blog posts, YYYY-MM-DD-slug.md
 blog/index.html          blog home
 blog/categories/*.html   one stub per category
 seo-aeo-geo.md  paid-media.md  lifecycle.md  user-journey.md    the four lanes
+technical-seo.md  ecommerce-seo.md  content-seo.md  local-seo.md
+paid-media-intent.md  paid-media-measurement.md
+lifecycle-churn.md  lifecycle-subscriptions.md  lifecycle-loyalty.md
+                                                             lane sub-pillars
 geo.html  roas.html  scorecard.html  crawl-budget.html
-prompt-map.html                                              standalone tools
+prompt-map.html  cohort-payback.html  churn-decomposition.html
+                                                             standalone tools
 llms.txt                 curated map for AI engines
 ```
 
@@ -139,11 +144,12 @@ on push either way.
   are marginal: amber (`#c98a1b`) is roughly 2.6:1 and green (`#1e8e5a`) roughly
   3.5:1, both under the 4.5:1 AA needs for small text. Add darker text variants
   (amber to around `#8a5e12`) and keep the vivid originals for borders and fills.
-- **Four tools are advertised as "In build"** on the Lifecycle and User Journey
-  lanes. Committed for the week of 2026-07-27. Giving an entry a `url` in the
+- **Two tools are advertised as "In build"** on the User Journey lane (Test
+  Sample Size Calculator, Dropoff Value Ranker). Giving an entry a `url` in the
   lane's `tools:` front matter makes it stop rendering as "In build".
-- The five interactive tools (`geo.html`, `roas.html`, `scorecard.html`,
-  `crawl-budget.html`, `prompt-map.html`) are
+- The seven interactive tools (`geo.html`, `roas.html`, `scorecard.html`,
+  `crawl-budget.html`, `prompt-map.html`, `cohort-payback.html`,
+  `churn-decomposition.html`) are
   passthrough files with their own inline styles. They now carry a hand-rolled
   nav, meta description, canonical, and `WebApplication` schema, but they still
   do not share `_layouts/default.html`, so their styling has to be maintained

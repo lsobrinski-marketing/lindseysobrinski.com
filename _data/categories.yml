@@ -46,6 +46,20 @@
     Subscription economics: cohort behavior, order frequency, involuntary
     churn, and the unit math that makes or breaks the model.
 
+- slug: churn
+  name: Churn
+  color: accent
+  blurb: >-
+    Why customers actually leave: involuntary, never-activated, completed, and
+    dissatisfied churn, read on cohort curves rather than a monthly rate.
+
+- slug: loyalty
+  name: Loyalty
+  color: purple
+  blurb: >-
+    Loyalty and win-back programs judged on incremental behavior, not on members
+    who were going to buy anyway.
+
 - slug: user-journey
   name: User Journey
   color: purple
