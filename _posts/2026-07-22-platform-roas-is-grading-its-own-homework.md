@@ -130,3 +130,5 @@ second is the structure that holds up over time.
 
 The goal is not to prove any channel wrong. It is to be able to answer, in a
 room with a CFO, how you know.
+
+**Related:** [Default on: your ad platforms are making decisions you never approved](/blog/default-on-ad-platform-decisions/)

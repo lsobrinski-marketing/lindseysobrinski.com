@@ -96,3 +96,5 @@ The point is to make the target mean something before the platform starts spendi
 Google didn't take anything from you that it promised to keep. It stopped subsidizing a target you set too loosely and started honoring it exactly. That's the whole lesson of optimization in one release: a capable system will give you precisely what you asked for, so you'd better ask for the right thing.
 
 So before the rollout finishes reshaping your accounts: is every Target CPA and Target ROAS in your account a real number tied to what a customer is worth, or a padded guess the algorithm was quietly rescuing you from until today?
+
+**Related:** [Default on: your ad platforms are making decisions you never approved](/blog/default-on-ad-platform-decisions/)
