@@ -113,3 +113,5 @@ The defense against all of them is the same: design the entire test, markets, du
 ## Start small, but start
 
 You don't need a perfect experimental apparatus to begin. Pick your most-argued-about channel, the one whose reported ROAS nobody quite believes, match a handful of markets on each side, fix a duration and a metric, and run it. The first honest holdout you run will teach you more about your media plan than a year of dashboards, because it answers the one question dashboards can't: not what happened alongside the spend, but what happened *because* of it.
+
+Not sure you even need a vendor yet? Pilot it first: [run a geo-holdout pilot before you sign a measurement contract](/blog/geo-holdout-pilot-before-a-measurement-contract/).
