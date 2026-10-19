@@ -73,6 +73,7 @@ layout: default
         {%- endif -%}
       {%- endfor -%}
       {%- if open3 %}</ul></li>{% endif -%}
+      {%- if page.tool_link %}<li class="toc-tool"><a href="{{ page.tool_link }}">{{ page.tool_link_label | default: "Open the tool" }}</a></li>{% endif -%}
       </ul>
     </nav>
     {%- endif -%}

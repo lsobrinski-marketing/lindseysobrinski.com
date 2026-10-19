@@ -5,6 +5,8 @@ date: 2026-10-19 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/permission-not-statistics.svg
 image: /assets/img/blog/permission-not-statistics.png
+tool_link: /geo-holdout-planner.html
+tool_link_label: "Open the Geo-Holdout Pilot Planner →"
 hero_title: "Permission,|not statistics"
 hero_motif: funnel
 hero_alt: "A funnel narrowing from a wide, noisy set of channels down to a single approved test, representing an incrementality test that is blocked by a budget approval rather than by statistics."

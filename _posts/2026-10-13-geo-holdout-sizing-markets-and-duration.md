@@ -5,6 +5,8 @@ date: 2026-10-13 09:00:00 -0500
 category: paid-media
 hero: /assets/img/blog/geo-holdout-sizing-markets-and-duration.svg
 image: /assets/img/blog/geo-holdout-sizing-markets-and-duration.png
+tool_link: /geo-holdout-planner.html
+tool_link_label: "Open the Geo-Holdout Pilot Planner →"
 hero_title: "How many|markets?"
 hero_motif: bars
 tags: [geo holdout, sample size, minimum detectable effect, test duration, matched markets, measurement]

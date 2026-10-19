@@ -218,3 +218,7 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
 .tool-insert__body{margin:0 0 12px;color:var(--muted,#51607a)}
 .tool-insert__cta{font-weight:650;text-decoration:none;color:var(--accent,#1D6FA3)}
 .tool-insert__cta:hover{text-decoration:underline}
+
+/* Free-tool link inside the "What's in this piece" outline */
+.toc .toc-tool{margin-top:6px}
+.toc .toc-tool a{color:var(--accent,#1D6FA3);font-weight:650}

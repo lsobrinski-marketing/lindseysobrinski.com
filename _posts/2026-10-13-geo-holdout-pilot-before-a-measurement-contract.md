@@ -5,6 +5,8 @@ date: 2026-10-13 09:02:00 -0500
 category: paid-media
 hero: /assets/img/blog/geo-holdout-pilot-before-a-measurement-contract.svg
 image: /assets/img/blog/geo-holdout-pilot-before-a-measurement-contract.png
+tool_link: /geo-holdout-planner.html
+tool_link_label: "Open the Geo-Holdout Pilot Planner →"
 hero_title: "Pilot before|the contract"
 hero_motif: arcs
 hero_alt: "A single highlighted test region on a stylized map measured against a set of matched control regions, with a caliper comparing the two, representing one geo-holdout pilot run before committing to an ongoing measurement contract."

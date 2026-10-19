@@ -5,6 +5,8 @@ date: 2026-10-13 09:01:00 -0500
 category: paid-media
 hero: /assets/img/blog/which-incrementality-test-to-run.svg
 image: /assets/img/blog/which-incrementality-test-to-run.png
+tool_link: /geo-holdout-planner.html
+tool_link_label: "Open the Geo-Holdout Pilot Planner →"
 hero_title: "Which test|should you run?"
 hero_motif: nodes
 tags: [incrementality testing, geo holdout, conversion lift, ghost ads, media mix modeling, measurement]
