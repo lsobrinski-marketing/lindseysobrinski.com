@@ -210,3 +210,11 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
   .hstats{grid-template-columns:repeat(2,1fr);gap:16px 12px;padding-top:0;border-top:0;align-self:center;}
   .hstat b{font-size:1.28rem;}
 }
+
+/* Free-tool insert (Geo-Holdout Pilot Planner and future tools) */
+.tool-insert{background:var(--soft,#eef4f8);border:1px solid var(--line,#e2e9f0);border-left:3px solid var(--accent,#1D6FA3);border-radius:12px;padding:20px 22px;margin:28px 0}
+.tool-insert__eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,#1D6FA3);font-weight:700;margin:0 0 4px}
+.tool-insert__title{margin:0 0 6px;font-size:1.1rem}
+.tool-insert__body{margin:0 0 12px;color:var(--muted,#51607a)}
+.tool-insert__cta{font-weight:650;text-decoration:none;color:var(--accent,#1D6FA3)}
+.tool-insert__cta:hover{text-decoration:underline}

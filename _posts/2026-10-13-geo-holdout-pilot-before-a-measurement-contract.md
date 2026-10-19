@@ -77,6 +77,8 @@ The method is published and old enough to be boring. Google's Jon Vaver and Jim 
 
 The most common way a pilot fails is under-holding: cutting too little spend, in too few markets, for too short a window, so the test cannot detect an effect that is really there. I am not going to repeat the full mechanics here, because I have [written the step-by-step how-to separately](/blog/how-to-run-a-geo-holdout-test/). The point for this decision is narrower. The design is known, the method is documented, and nothing about running one pilot requires a vendor's platform.
 
+{% include tool-geo-holdout.html %}
+
 ## Reading the result: incremental lift, not platform-reported ROAS
 
 Read the test on incremental lift, not on attributed conversions. Establish what the treatment markets would have done without the change, using their pre-test relationship to the control, then measure the gap between that baseline and what actually happened. Divide incremental revenue by incremental spend and you have incremental ROAS, the [number a CFO can trust](/blog/incremental-roas-the-number-a-cfo-trusts/), rather than the platform-reported ROAS that counts demand you already had.

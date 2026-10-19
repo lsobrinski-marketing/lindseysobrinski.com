@@ -93,6 +93,8 @@ Pick the method from your constraints, not from fashion.
 
 Start with the channel. If you cannot split it by user, which is most upper-funnel and offline media, a geo holdout is your experiment. If it is a large in-platform audience, a conversion lift or ghost-ads test is available and cheap, with the seller caveat attached. Then check your scope. If the question is one channel, run the experiment that fits it. If the question is the whole budget at once, and you have the history, that is the MMM question. Finally, check your stage. A single decision needs one clean test. An always-on program that re-decides budget every month needs a standing method, and usually more than one. A startup testing one new channel and a brand managing forty are not asking the same measurement question, and should not buy the same measurement system.
 
+{% include tool-geo-holdout.html %}
+
 ## Why you still triangulate
 
 No single method is the truth. Attribution is fast and conflicted. Platform lift tests are real experiments run by an interested party. Geo holdouts are independent but coarse. MMM is comprehensive but correlational. Each one is wrong in a different direction, and knowing the direction of each error is most of the skill, which is exactly why reading them together beats trusting any one of them, and why the honest version of measurement is a [stack of methods, not a single number](/blog/attribution-incrementality-mmm-which-one/).

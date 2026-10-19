@@ -90,6 +90,8 @@ First, state the minimum detectable effect, the smallest lift that would change 
 
 The deeper mechanics of running the test live in the [how-to](/blog/how-to-run-a-geo-holdout-test/), and the question of whether to run one yourself at all is covered in the [pilot-before-a-vendor piece](/blog/geo-holdout-pilot-before-a-measurement-contract/). If you are still choosing between a geo-holdout and another method entirely, start with [which incrementality test to run](/blog/which-incrementality-test-to-run/). But the sizing is the part that decides whether any of it works. A geo-holdout that is too small does not give you a cautious answer. It gives you a confident wrong one.
 
+{% include tool-geo-holdout.html %}
+
 ## Sources
 
 - Jon Vaver and Jim Koehler, "Measuring Ad Effectiveness Using Geo Experiments," Google, 2011: [research.google](https://research.google/pubs/measuring-ad-effectiveness-using-geo-experiments/)

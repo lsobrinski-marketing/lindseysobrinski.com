@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geo-Holdout Pilot Planner | Lindsey Sobrinski</title>
+<meta name="description" content="Free tool. Pick the right incrementality test for your setup, then size a geo-holdout pilot: how many markets, how long, the smallest lift you can detect, the revenue at risk, and whether the result would actually move a budget decision.">
+<link rel="canonical" href="https://lindseysobrinski.com/geo-holdout-planner.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lindsey Sobrinski">
+<meta property="og:title" content="Geo-Holdout Pilot Planner">
+<meta property="og:description" content="Pick the right incrementality test, then size a geo-holdout pilot: markets, weeks, the smallest detectable lift, the revenue at risk, and whether it would move a decision.">
+<meta property="og:url" content="https://lindseysobrinski.com/geo-holdout-planner.html">
+<style>
+  /* Layout: single reading column, two interactive cards (selector, sizer) above an always-visible reference block. Palette mirrors the site tools. */
+  :root{
+    --bg:#eef3f7; --surface:#ffffff; --fg:#1a2333; --muted:#51607a;
+    --accent:#1D6FA3; --accent-ink:#ffffff; --soft:#eef4f8; --line:#e2e9f0;
+    --good:#1e8e5a; --warn:#b5791a; --bad:#c0392b;
+    --radius:14px; --maxw:780px;
+    --sans:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e141c; --surface:#18212d; --fg:#e7eef6; --muted:#9db0c6;
+      --accent:#5aa7d6; --accent-ink:#0e141c; --soft:#15202c; --line:#2a3644;
+      --good:#44b985; --warn:#d7a24c; --bad:#e2715f; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e141c; --surface:#18212d; --fg:#e7eef6; --muted:#9db0c6;
+    --accent:#5aa7d6; --accent-ink:#0e141c; --soft:#15202c; --line:#2a3644;
+    --good:#44b985; --warn:#d7a24c; --bad:#e2715f; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg); color:var(--fg); font-family:var(--sans);
+    line-height:1.5; font-size:16px; padding:30px 16px;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; display:flex; flex-direction:column; gap:22px}
+  h1,h2,h3{text-wrap:balance; line-height:1.2; margin:0}
+  h1{font-size:1.72rem; letter-spacing:-.01em}
+  h2{font-size:1.24rem; margin-top:4px}
+  h3{font-size:1.02rem}
+  p{margin:0}
+  a{color:var(--accent)}
+  .eyebrow{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:700}
+  .deck{background:var(--soft); border-left:3px solid var(--accent); padding:16px 18px; border-radius:10px; color:var(--fg)}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:0 6px 22px rgba(26,35,51,.05)}
+  .card>header{display:flex; flex-direction:column; gap:4px; margin-bottom:16px}
+  .muted{color:var(--muted)}
+  .small{font-size:.86rem}
+  .field{display:flex; flex-direction:column; gap:6px; margin-top:14px}
+  .field>label{font-weight:650; font-size:.92rem}
+  .field .hint{color:var(--muted); font-size:.8rem; font-weight:400}
+  select,input[type="number"]{
+    font:inherit; color:var(--fg); background:var(--bg);
+    border:1.5px solid var(--line); border-radius:9px; padding:11px 12px; width:100%;
+  }
+  select:focus-visible,input:focus-visible,button:focus-visible{outline:2.5px solid var(--accent); outline-offset:2px}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media (max-width:520px){ .grid2{grid-template-columns:1fr} }
+  .btn{
+    font:inherit; font-weight:650; cursor:pointer; border:none; border-radius:10px;
+    padding:12px 18px; background:var(--accent); color:var(--accent-ink); margin-top:18px;
+  }
+  .btn.secondary{background:transparent; color:var(--accent); border:1.5px solid var(--accent)}
+  .btn:hover{filter:brightness(1.05)}
+  .result{margin-top:18px; border-top:1px solid var(--line); padding-top:18px; display:flex; flex-direction:column; gap:12px}
+  .pill{display:inline-flex; align-items:center; gap:7px; font-size:.8rem; font-weight:700; padding:4px 11px; border-radius:999px; width:max-content}
+  .pill::before{content:""; width:8px; height:8px; border-radius:50%; background:currentColor}
+  .pill.good{color:var(--good); background:color-mix(in srgb,var(--good) 14%,transparent)}
+  .pill.warn{color:var(--warn); background:color-mix(in srgb,var(--warn) 16%,transparent)}
+  .pill.bad{color:var(--bad); background:color-mix(in srgb,var(--bad) 14%,transparent)}
+  .rec-name{font-size:1.3rem; font-weight:750; color:var(--accent)}
+  .runner{font-size:.92rem}
+  .reasonlist{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px}
+  .reasonlist li{display:flex; gap:9px; font-size:.92rem}
+  .reasonlist li b{color:var(--muted); font-weight:650; min-width:72px}
+  .bignum{font-size:2.5rem; font-weight:760; line-height:1; letter-spacing:-.02em}
+  .decision{background:var(--soft); border-left:3px solid var(--accent); border-radius:10px; padding:13px 15px; font-size:.96rem}
+  .decision b{color:var(--accent)}
+  .statrow{display:flex; flex-wrap:wrap; gap:10px}
+  .stat{flex:1 1 150px; min-width:0; background:var(--soft); border-radius:11px; padding:13px 14px}
+  .stat .k{font-size:.74rem; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); font-weight:700}
+  .stat .v{font-size:1.18rem; font-weight:700; margin-top:3px}
+  details.adv{margin-top:14px; border-top:1px dashed var(--line); padding-top:12px}
+  details.adv>summary{cursor:pointer; font-weight:650; font-size:.9rem; color:var(--accent)}
+  .verdict{font-size:.96rem}
+  .note{font-size:.84rem; color:var(--muted)}
+  table{border-collapse:collapse; width:100%; font-size:.9rem}
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px}
+  th,td{text-align:left; padding:11px 13px; border-bottom:1px solid var(--line); vertical-align:top; min-width:0}
+  th{background:var(--soft); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted)}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--accent)}
+  .faq{display:flex; flex-direction:column; gap:14px}
+  .faq h3{margin-bottom:4px}
+  .reflist{display:flex; flex-direction:column; gap:16px}
+  footer{color:var(--muted); font-size:.82rem; text-align:center; padding-top:6px}
+  hr{border:none; border-top:1px solid var(--line); margin:0}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <span class="eyebrow">Paid Media · Incrementality</span>
+    <h1>Geo-Holdout Pilot Planner</h1>
+    <p class="deck">Run a geo-holdout pilot before you sign a measurement vendor. Hold media in a few low-volume markets, keep it running in matched ones, and measure the gap. This planner picks the right incrementality test for your setup, then sizes the pilot: how many markets, how long, the smallest lift you can actually detect, the revenue you put at risk, and whether a result would be sharp enough to move a budget decision.</p>
+  </header>
+
+  <section class="card" aria-labelledby="sel-h">
+    <header>
+      <h2 id="sel-h">1 · Which incrementality test should you run?</h2>
+      <p class="muted small">Answer five questions. The planner routes you to geo-holdout, platform conversion lift, ghost ads, or a media mix model, and tells you when each one does not fit.</p>
+    </header>
+
+    <div class="grid2">
+      <div class="field">
+        <label for="q-goal">What are you trying to measure?</label>
+        <select id="q-goal">
+          <option value="one_channel">One channel's incremental value</option>
+          <option value="one_campaign">A single campaign or flight</option>
+          <option value="full_mix">My full media mix and budget split</option>
+          <option value="brand_perf">Brand versus performance</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-geo">Can you turn spend off in some regions?</label>
+        <span class="hint">Without hurting the business.</span>
+        <select id="q-geo">
+          <option value="yes">Yes, cleanly</option>
+          <option value="partial">Partially</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-data">Best conversion data you can get?</label>
+        <select id="q-data">
+          <option value="geo">Conversions by geography or DMA</option>
+          <option value="user">User or device level</option>
+          <option value="platform">Platform reported only</option>
+          <option value="modeled">Modeled only, or none</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-vol">Roughly how many conversions a week?</label>
+        <select id="q-vol">
+          <option value="lt50">Under 50</option>
+          <option value="50_500" selected>50 to 500</option>
+          <option value="500_5k">500 to 5,000</option>
+          <option value="gt5k">5,000 or more</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="q-risk">Budget and time you can put at risk?</label>
+        <select id="q-risk">
+          <option value="low">Low</option>
+          <option value="med" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn" id="recBtn" type="button">Recommend a test</button>
+
+    <div class="result" id="recResult" hidden aria-live="polite">
+      <div class="pill" id="recPill"></div>
+      <div class="rec-name" id="recName"></div>
+      <ul class="reasonlist">
+        <li><b>Why</b><span id="recWhy"></span></li>
+        <li><b>Tradeoff</b><span id="recTradeoff"></span></li>
+        <li><b>Skip it if</b><span id="recNot"></span></li>
+        <li><b>Runner-up</b><span id="recRunner" class="runner"></span></li>
+      </ul>
+      <button class="btn secondary" id="sizeJump" type="button" hidden>Size this geo-holdout &darr;</button>
+    </div>
+  </section>
+
+  <section class="card" id="sizer" aria-labelledby="siz-h">
+    <header>
+      <h2 id="siz-h">2 · Size the geo-holdout pilot</h2>
+      <p class="muted small">Example values are loaded so you can see how it works. Replace them with your own. This is a planning estimate, not a substitute for a full power analysis.</p>
+    </header>
+
+    <div class="grid2">
+      <div class="field">
+        <label for="s-conv">Total weekly conversions</label>
+        <span class="hint">Across all markets, the thing you sell.</span>
+        <input id="s-conv" type="number" min="1" step="1" value="2500">
+      </div>
+      <div class="field">
+        <label for="s-mtest">Holdout markets</label>
+        <span class="hint">Small, low-volume markets you pause.</span>
+        <input id="s-mtest" type="number" min="1" step="1" value="10">
+      </div>
+      <div class="field">
+        <label for="s-mctrl">Control markets</label>
+        <span class="hint">Matched markets you keep running.</span>
+        <input id="s-mctrl" type="number" min="1" step="1" value="30">
+      </div>
+      <div class="field">
+        <label for="s-conc">How concentrated is your volume?</label>
+        <span class="hint">A few big markets, or fairly even?</span>
+        <select id="s-conc">
+          <option value="even">Fairly even across markets</option>
+          <option value="somewhat" selected>Top markets run 2 to 3x the rest</option>
+          <option value="very">A few markets dominate everything</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="s-swing">How much do weekly sales swing?</label>
+        <span class="hint">Week to week, before you touch anything.</span>
+        <select id="s-swing">
+          <option value="steady">Steady, rarely moves much</option>
+          <option value="normal" selected>Normal ups and downs</option>
+          <option value="swingy">Swingy or seasonal</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="s-weeks">Test length in weeks</label>
+        <span class="hint">On top of a 2-week pre-period freeze.</span>
+        <input id="s-weeks" type="number" min="1" step="1" value="5">
+      </div>
+      <div class="field">
+        <label for="s-rev">Weekly revenue (optional)</label>
+        <span class="hint">All markets. Lets the tool show dollars at risk.</span>
+        <input id="s-rev" type="number" min="0" step="1000" placeholder="e.g. 250000">
+      </div>
+      <div class="field">
+        <label for="s-target">Lift you hope to detect</label>
+        <span class="hint">Used to estimate the weeks you would need.</span>
+        <input id="s-target" type="number" min="1" step="1" value="10">
+      </div>
+    </div>
+
+    <details class="adv">
+      <summary>Advanced assumptions</summary>
+      <div class="grid2" style="margin-top:12px">
+        <div class="field" style="margin-top:0">
+          <label for="s-holdrev">Holdout share of revenue, % (optional)</label>
+          <span class="hint">If you held out smaller markets, this is lower than the market count. Sets the true dollars at risk.</span>
+          <input id="s-holdrev" type="number" min="1" max="99" step="1" placeholder="e.g. 8">
+        </div>
+        <div class="field" style="margin-top:0">
+          <label for="s-cv">Coefficient of variation (optional)</label>
+          <span class="hint">Overrides the swing setting if you know it.</span>
+          <input id="s-cv" type="number" min="0.05" max="1" step="0.05" placeholder="e.g. 0.30">
+        </div>
+        <div class="field" style="margin-top:0">
+          <label for="s-alpha">Confidence</label>
+          <select id="s-alpha">
+            <option value="0.10" selected>90% (p &lt; 0.10)</option>
+            <option value="0.05">95% (p &lt; 0.05)</option>
+          </select>
+        </div>
+        <div class="field" style="margin-top:0">
+          <label for="s-power">Power</label>
+          <select id="s-power">
+            <option value="0.80" selected>80%</option>
+            <option value="0.90">90%</option>
+          </select>
+        </div>
+      </div>
+    </details>
+
+    <button class="btn" id="sizeBtn" type="button">Size the pilot</button>
+
+    <div class="result" id="sizeResult" hidden aria-live="polite">
+      <div>
+        <div class="note">Smallest lift this design can detect</div>
+        <div class="bignum" id="mdeOut">&mdash;</div>
+      </div>
+      <div class="pill" id="sizePill"></div>
+      <p class="verdict" id="sizeVerdict"></p>
+      <div class="decision" id="decisionOut"></div>
+      <div class="statrow">
+        <div class="stat"><div class="k">Holdout share</div><div class="v" id="shareOut">&mdash;</div></div>
+        <div class="stat"><div class="k">Holdout conv / week</div><div class="v" id="cellOut">&mdash;</div></div>
+        <div class="stat"><div class="k">Test window</div><div class="v" id="durOut">&mdash;</div></div>
+        <div class="stat"><div class="k">Revenue at risk</div><div class="v" id="riskOut">&mdash;</div></div>
+      </div>
+      <p class="note" id="weeksLine"></p>
+      <p class="note" id="concNote" hidden></p>
+      <p class="note" id="methodLine">Read it with difference-in-differences or a synthetic control against the matched markets, not a raw before-and-after. If the confidence interval crosses zero, the honest answer is that you could not tell, not that the channel is dead.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <header><h2>Measuring the lift is half the job</h2></header>
+    <p class="muted">A geo-holdout tells you whether a channel is incremental. It does not tell you why, or how to make the lift bigger. That part lives in the conversion path. The same spend produces a larger incremental lift when the offer is sharper, the creative matches the intent behind the click, the landing page answers the question the ad raised, and the steps between click and purchase are few. The test and the funnel are one job. You hold spend out to learn whether it is real, and you read the click, the landing page, and the drop-off to learn what is making it work. Measuring incrementality without understanding what makes users click just tells you to cut a channel you could have fixed.</p>
+  </section>
+
+  <section class="card">
+    <header><h2>The four tests, and when each one fits</h2></header>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Test</th><th>Use it when</th><th>Main tradeoff</th><th>Skip it when</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Geo-holdout</b></td>
+            <td>You can split spend by geography and have conversions by market. You want a channel or media-level causal read without user tracking.</td>
+            <td>Needs enough markets and volume to reach statistical power. Thin per-market volume kills it.</td>
+            <td>You cannot separate media by region, or per-market conversions are too few to detect a real effect.</td>
+          </tr>
+          <tr>
+            <td><b>Platform conversion lift</b></td>
+            <td>The question is one platform's incremental value and you will accept its managed holdout (Meta, Google).</td>
+            <td>The platform runs and reports the test it is being graded on.</td>
+            <td>You need a cross-platform or vendor-neutral read you can defend to a CFO.</td>
+          </tr>
+          <tr>
+            <td><b>Ghost ads / PSA holdout</b></td>
+            <td>You want a user-level control inside a platform and have user or device-level delivery data.</td>
+            <td>Setup is technical and specific to each platform.</td>
+            <td>You lack user-level data, or the platform does not support a clean control group.</td>
+          </tr>
+          <tr>
+            <td><b>Media mix model (MMM)</b></td>
+            <td>You cannot turn anything off and have two to three years of weekly data across channels.</td>
+            <td>Correlational with priors, not a clean experiment. It explains the past, it does not prove a counterfactual.</td>
+            <td>You have a single channel question you could answer with a direct test instead.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card reflist">
+    <div>
+      <h2>How the sizing works</h2>
+      <p class="muted" style="margin-top:8px">A geo-holdout compares the held-out markets against a matched control built from the markets you keep running. The smallest lift you can detect scales with how noisy the markets are week to week and how many market-weeks of data you gather. More markets and more weeks lower the detectable effect. Fewer, noisier markets raise it. The planner also docks the effective sample when a few markets dominate, because a handful of large markets behaves like fewer independent markets, not more. It uses a standard two-sample approximation across market-weeks at your chosen confidence and power, then reports the smallest lift that design could catch, the revenue you expose by pausing the holdout markets, and whether that result would be sharp enough to move a real budget decision. Treat the output as a plan to pressure-test, not a guarantee.</p>
+    </div>
+    <hr>
+    <div class="faq">
+      <h2 style="margin-bottom:4px">Questions people ask</h2>
+      <div><h3>How long should a geo-holdout run?</h3><p class="muted">Long enough to clear weekly noise and short enough to get approved. A common window is four to six weeks of test on top of a two-week pre-period freeze on promotions. Thin conversion volume needs more time or more markets to reach the power to detect a real effect.</p></div>
+      <div><h3>How many markets do I need?</h3><p class="muted">Enough that the holdout and control groups each carry a stable baseline, and enough total conversions to detect the lift you care about. Few markets with low conversion counts is the most common reason a pilot proves nothing. Size it before you run it, not after.</p></div>
+      <div><h3>What if a few markets dominate my volume?</h3><p class="muted">Keep your biggest markets in the control group and hold out several mid-size ones. Holding out one giant market makes the result hostage to that single market and shrinks your effective sample. The planner accounts for this, and the more concentrated your volume, the larger the lift you will be able to detect.</p></div>
+      <div><h3>Do I need a vendor to run a geo-holdout?</h3><p class="muted">No. The design and the readout can be done with open-source tools and a competent analyst. A vendor buys you execution and convenience, not the ability to run the test. Know what a sound test looks like first, so you are buying execution and not permission to believe a number.</p></div>
+      <div><h3>Geo-holdout, conversion lift, or MMM?</h3><p class="muted">Geo-holdout when you can separate spend by region and want a clean read without user tracking. Platform conversion lift when the question is one platform's value and you accept that the platform runs the test. MMM when you cannot turn anything off and have years of weekly data. The selector above walks you through it.</p></div>
+    </div>
+  </section>
+
+  <section class="card" style="text-align:center">
+    <h2 style="margin-bottom:8px">Want a second set of eyes on the design?</h2>
+    <p class="muted">You can run this yourself. If you want someone to sanity-check the markets, the window, and the readout before you spend, that is worth a conversation. More at <a href="https://lindseysobrinski.com">lindseysobrinski.com</a>.</p>
+  </section>
+
+  <footer>Planning estimates only. Replace the example inputs with your own numbers. No client data is shown here.</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+
+  var METHODS = {
+    geo: {
+      name:"Geo-holdout",
+      why:"You can separate spend by region and read lift from the gap between held-out and matched markets, with no user tracking and no vendor required.",
+      tradeoff:"You need enough markets and conversion volume to reach statistical power.",
+      not:"You cannot split media by region, or per-market conversions are too thin to detect a real effect."
+    },
+    lift: {
+      name:"Platform conversion lift",
+      why:"The question is a single platform's incremental value, and its managed holdout is the fastest way to a causal read there.",
+      tradeoff:"The platform runs and reports the test it is being graded on.",
+      not:"You need a cross-platform or vendor-neutral number you can defend to finance."
+    },
+    ghost: {
+      name:"Ghost ads / PSA holdout",
+      why:"You have user-level delivery data and want a user-level control group inside the platform without its managed product.",
+      tradeoff:"Setup is technical and specific to each platform.",
+      not:"You lack user-level data or the platform does not support a clean control."
+    },
+    mmm: {
+      name:"Media mix model (MMM)",
+      why:"You cannot turn anything off, so a model across years of weekly data is the only way to allocate the full mix.",
+      tradeoff:"It is correlational with priors, not a clean experiment.",
+      not:"You have a single channel question you could answer with a direct test."
+    }
+  };
+
+  function recommend(a){
+    var canGeo = (a.geo==="yes" || a.geo==="partial") && a.data==="geo";
+    var lowVol = a.vol==="lt50";
+    var primary, runner, warn="";
+    if(a.goal==="full_mix" && a.geo==="no"){
+      primary="mmm"; runner="lift";
+    } else if(canGeo){
+      primary="geo"; runner="lift";
+      if(lowVol) warn="Your weekly volume looks low. A geo-holdout may not have the power to detect anything but a very large lift. Size it below before you commit, and consider adding markets or time.";
+    } else if((a.goal==="one_channel" || a.goal==="one_campaign") && a.data==="user"){
+      primary="lift"; runner="ghost";
+    } else if(a.geo==="no"){
+      if(a.goal==="full_mix"){ primary="mmm"; runner="lift"; }
+      else { primary="lift"; runner="mmm"; }
+    } else {
+      primary="lift"; runner="mmm";
+    }
+    return {primary:primary, runner:runner, warn:warn};
+  }
+
+  function runRec(){
+    var a = {
+      goal:$("q-goal").value, geo:$("q-geo").value, data:$("q-data").value,
+      vol:$("q-vol").value, risk:$("q-risk").value
+    };
+    var r = recommend(a);
+    var m = METHODS[r.primary], run = METHODS[r.runner];
+    $("recName").textContent = m.name;
+    $("recWhy").textContent = r.warn ? (m.why + " " + r.warn) : m.why;
+    $("recTradeoff").textContent = m.tradeoff;
+    $("recNot").textContent = m.not;
+    $("recRunner").textContent = run.name + ". " + run.why;
+    var pill = $("recPill");
+    if(r.warn){ pill.className="pill warn"; pill.textContent="Recommended, with a caution"; }
+    else { pill.className="pill good"; pill.textContent="Recommended test"; }
+    $("recResult").hidden = false;
+    $("sizeJump").hidden = (r.primary!=="geo");
+  }
+  $("recBtn").addEventListener("click", runRec);
+  $("sizeJump").addEventListener("click", function(){
+    $("sizer").scrollIntoView({behavior:"smooth", block:"start"});
+    $("s-conv").focus({preventScroll:true});
+  });
+
+  var SWING = { steady:0.15, normal:0.30, swingy:0.50 };
+  var CONC  = { even:1.0, somewhat:0.7, very:0.45 };
+
+  function zAlpha(alpha){ return alpha===0.05 ? 1.9599 : 1.6449; }
+  function zBeta(power){ return power===0.90 ? 1.2816 : 0.8416; }
+  function fmtPct(x){ return (x*100).toFixed(x<0.1?1:0) + "%"; }
+  function fmtInt(x){ return Math.round(x).toLocaleString("en-US"); }
+  function money(x){ return "$" + Math.round(x).toLocaleString("en-US"); }
+
+  function runSize(){
+    var C = Math.max(1, +$("s-conv").value || 0);
+    var Mt = Math.max(1, Math.round(+$("s-mtest").value || 0));
+    var Mc = Math.max(1, Math.round(+$("s-mctrl").value || 0));
+    var W = Math.max(1, Math.round(+$("s-weeks").value || 0));
+    var rev = +$("s-rev").value || 0;
+    var target = Math.max(1, +$("s-target").value || 10)/100;
+    var holdrev = +$("s-holdrev").value || 0;
+    var cvOverride = +$("s-cv").value || 0;
+    var CV = cvOverride > 0 ? Math.min(1, Math.max(0.05, cvOverride)) : (SWING[$("s-swing").value] || 0.30);
+    var k = CONC[$("s-conc").value] || 0.7;
+    var alpha = +$("s-alpha").value;
+    var power = +$("s-power").value;
+
+    var zsum = zAlpha(alpha) + zBeta(power);
+    // Dock effective markets for concentration: uneven markets behave like fewer independent units.
+    var MtEff = Math.max(1, Mt * k);
+    var McEff = Math.max(1, Mc * k);
+    var se = CV * Math.sqrt(1/(MtEff*W) + 1/(McEff*W));
+    var mde = zsum * se;
+
+    var countShare = Mt/(Mt+Mc);
+    var volShare = holdrev > 0 ? holdrev/100 : countShare;
+    var cellWeekly = C * volShare;
+    var weeksNeeded = Math.pow(zsum*CV,2) * (1/MtEff + 1/McEff) / Math.pow(target,2);
+
+    $("mdeOut").textContent = fmtPct(mde);
+    $("shareOut").textContent = fmtPct(volShare);
+    $("cellOut").textContent = fmtInt(cellWeekly);
+    $("durOut").textContent = W + " wk + 2 wk freeze";
+    if(rev>0){ $("riskOut").textContent = money(rev * volShare * W); }
+    else { $("riskOut").textContent = fmtPct(volShare) + " of revenue, " + W + " wk"; }
+
+    var pill = $("sizePill"), verdict = $("sizeVerdict");
+    if(mde <= 0.10){
+      pill.className="pill good"; pill.textContent="Well powered";
+      verdict.textContent = "This design can detect a lift as small as " + fmtPct(mde) + ". That is a credible pilot. A result here would mean something.";
+    } else if(mde <= 0.20){
+      pill.className="pill warn"; pill.textContent="Workable, blunt";
+      verdict.textContent = "This design only catches moderate lifts, around " + fmtPct(mde) + " and up. Smaller real effects will be invisible. Add markets or weeks to sharpen it.";
+    } else {
+      pill.className="pill bad"; pill.textContent="Underpowered";
+      verdict.textContent = "Only a very large lift, " + fmtPct(mde) + " or more, would register. This pilot would most likely come back inconclusive. Add markets, add weeks, or lower your ambition on precision.";
+    }
+
+    // Decision framing: turn the statistic into the budget call it can and cannot support.
+    var riskPhrase = rev>0 ? ("the " + money(rev*volShare*W) + " you would put at risk") : "the revenue you would put at risk";
+    var decision = "<b>What this decides:</b> this pilot can only confirm a lift of about " + fmtPct(mde) + " or larger. ";
+    if(mde <= 0.10){
+      decision += "That is sharp enough to inform a real reallocation, not just a yes or no. It is worth " + riskPhrase + ".";
+    } else if(mde <= 0.20){
+      decision += "If the budget move you are weighing turns on a smaller effect than that, this test will not settle it. It is built to catch a large, budget-moving result, so only run it if that is the question worth " + riskPhrase + ".";
+    } else {
+      decision += "At this size, treat a null result as “we could not tell at this spend,” not “it does not work.” Add markets or weeks before you spend " + riskPhrase + " on a test this blunt.";
+    }
+    $("decisionOut").innerHTML = decision;
+
+    var wline = "To detect " + fmtPct(target) + ", you would need about " + Math.ceil(weeksNeeded) + " weeks at these markets and variability.";
+    if(cellWeekly < 30){ wline += " Heads up: the holdout cell is thin at about " + fmtInt(cellWeekly) + " conversions a week, so power will be the binding constraint, not budget."; }
+    $("weeksLine").textContent = wline;
+
+    var cNote = $("concNote");
+    if($("s-conc").value !== "even"){
+      var msg = "Because your volume is concentrated, keep your biggest markets in control and hold out several mid-size ones. One dominant market in the holdout wrecks the read.";
+      if(holdrev <= 0){ msg += " Enter your holdout markets' share of revenue in Advanced for a truer dollars-at-risk number."; }
+      cNote.textContent = msg; cNote.hidden = false;
+    } else {
+      cNote.hidden = true;
+    }
+
+    $("sizeResult").hidden = false;
+  }
+  $("sizeBtn").addEventListener("click", runSize);
+  runSize();
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"SoftwareApplication",
+      "name":"Geo-Holdout Pilot Planner",
+      "applicationCategory":"BusinessApplication",
+      "operatingSystem":"Any",
+      "url":"https://lindseysobrinski.com/geo-holdout-planner.html",
+      "description":"Pick the right incrementality test for your setup, then size a geo-holdout pilot: how many markets, how long, the smallest lift you can detect, the revenue at risk, and whether it would move a budget decision.",
+      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+      "author":{"@type":"Person","name":"Lindsey Sobrinski","url":"https://lindseysobrinski.com"}
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"How long should a geo-holdout run?","acceptedAnswer":{"@type":"Answer","text":"Long enough to clear weekly noise and short enough to get approved. A common window is four to six weeks of test on top of a two-week pre-period freeze on promotions. Thin conversion volume needs more time or more markets to reach the power to detect a real effect."}},
+        {"@type":"Question","name":"How many markets do I need for a geo-holdout?","acceptedAnswer":{"@type":"Answer","text":"Enough that the holdout and control groups each carry a stable baseline, and enough total conversions to detect the lift you care about. Few markets with low conversion counts is the most common reason a pilot proves nothing. Size it before you run it, not after."}},
+        {"@type":"Question","name":"What if a few markets dominate my volume?","acceptedAnswer":{"@type":"Answer","text":"Keep your biggest markets in the control group and hold out several mid-size ones. Holding out one giant market makes the result hostage to that single market and shrinks your effective sample. The more concentrated your volume, the larger the lift you will be able to detect."}},
+        {"@type":"Question","name":"Do I need a vendor to run a geo-holdout?","acceptedAnswer":{"@type":"Answer","text":"No. The design and the readout can be done with open-source tools and a competent analyst. A vendor buys you execution and convenience, not the ability to run the test. Know what a sound test looks like first, so you are buying execution and not permission to believe a number."}},
+        {"@type":"Question","name":"Geo-holdout, conversion lift, or MMM, which should I use?","acceptedAnswer":{"@type":"Answer","text":"Geo-holdout when you can separate spend by region and want a clean read without user tracking. Platform conversion lift when the question is one platform's value and you accept that the platform runs the test. MMM when you cannot turn anything off and have years of weekly data."}}
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

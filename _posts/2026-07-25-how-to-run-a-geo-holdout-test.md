@@ -94,6 +94,8 @@ To calculate the result, first build the counterfactual, what the test markets *
 
 The whole rigor lives in that baseline. "Lift" is meaningless without a defensible answer to "compared to what?" A number that compares actual results to a sloppy baseline is just a sloppy baseline wearing a lift's clothing.
 
+{% include tool-geo-holdout.html %}
+
 ## The ways these tests go wrong
 
 Almost every untrustworthy geo test fails at design, not analysis. The recurring culprits:

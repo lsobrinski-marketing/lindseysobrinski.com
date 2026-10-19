@@ -21,6 +21,13 @@ tools:
       Your platform says the campaign worked. How much of that was going to
       happen anyway? See the gap between reported ROAS and likely incremental
       ROAS, the number a CFO actually cares about.
+  - name: Geo-Holdout Pilot Planner
+    url: /geo-holdout-planner.html
+    cta: Open the planner →
+    blurb: >-
+      Pick the right incrementality test for your setup, then size a pilot:
+      how many markets, how long, the smallest lift you can actually detect,
+      and the revenue you put at risk.
   - name: Media Mix Scenario Planner
     blurb: >-
       Shift budget across channels and see the modeled contribution response,
@@ -103,6 +110,8 @@ best at *observing* conversions, typically branded search and retargeting,
 which mostly intercept demand that already exists, and away from the channels
 that created the demand in the first place. The dashboard improves. The business
 does not.
+
+{% include tool-geo-holdout.html %}
 
 ## Two areas: intent and measurement
 
