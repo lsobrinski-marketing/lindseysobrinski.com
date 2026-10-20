@@ -55,6 +55,7 @@ Because no one will let you turn them off. Incrementality does not go unmeasured
 - How a good last-click number guarantees a no
 - What the no is actually costing you
 - How to design a test small enough to get approved
+- When you do not even need to ask: the holdout the business already ran
 - How to read the result without hiring a vendor
 
 ## The blocker is a person, not a p-value
@@ -88,6 +89,16 @@ A pilot that gets approved usually has four things. It holds out a small share o
 Sized that way, the ask changes shape. You are no longer proposing to turn off a good channel. You are proposing to risk a named, small amount for a few weeks to find out what the whole budget is really doing. That is a yes. The mechanics of picking the markets and the duration are a power-analysis question, not a guess, and I have [written the sizing up separately](/blog/geo-holdout-sizing-markets-and-duration/): you put in your weekly conversions, how many markets you can hold out, and the lift you need to detect, and that determines the test-cell size, the smallest effect you can actually measure, the duration, and the revenue you would be putting at risk. The point is not the math. It is handing the executive the bounded, approvable version of the ask.
 
 {% include tool-geo-holdout.html %}
+
+## And sometimes you do not even need to ask
+
+The ideal is the clean randomized holdout, where you withhold spend on purpose. But the binding constraint here was never data quality. It was permission. So the real skill is getting the cleanest read your constraints allow, and being honest about which one you got. The cleanest test you can actually run beats the perfect one you are never allowed to run.
+
+Start with the experiment you are already running without calling it one. The business creates holdout-shaped events all the time: a budget cut last quarter, a market you launched late, a region you pulled out of, a channel that went dark for two weeks because the creative was not ready. Each one is a change in spend with the rest of the business sitting there as a comparison. You can read those with the same method a deliberate holdout uses, and you never had to ask anyone to turn off a working channel, because nothing new is being turned off. You are instrumenting what already happened, which sidesteps the permission problem entirely.
+
+Below that sits matched-market or synthetic-control analysis on the ordinary variation that already exists across your geographies. It is weaker, because no one randomized anything, but it is still a counterfactual. And at the bottom is plain observational analysis, which is a first screen to decide whether a channel is even worth the fight, not proof on its own. The research is clear that it overstates lift, which is exactly why it is a screen and not a verdict.
+
+The rule that holds the ladder together is simple. The further down you go, the more you have to caveat the claim, but every rung is more honest than a number the seller handed you. You are not choosing between a perfect experiment and nothing. You are choosing the most rigorous read your situation permits, and saying out loud how far to trust it. Often that means you do not need to win permission to run a holdout at all. You need to measure the one the business already handed you.
 
 ## How to read it without hiring a vendor
 
