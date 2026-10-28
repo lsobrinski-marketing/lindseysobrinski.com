@@ -502,7 +502,7 @@ $('go').onclick=async()=>{
     award(3,3);
   } else {
     add(checks,'fail','No sitemap found','No readable sitemap at the usual locations or in robots.txt. Without one, Google discovers pages by crawling links, slower, and budget gets spent wandering instead of on the pages you care about.');
-    fixes.push('Publish an XML sitemap listing only your canonical, indexable URLs, and declare it in robots.txt (Sitemap: '+origin+'/sitemap.xml).');
+    fixes.push('Publish an XML sitemap listing only your canonical, indexable URLs, and declare it in robots.txt with a "Sitemap: '+origin+'/sitemap.xml" line.');
     award(0,3);
   }
 
