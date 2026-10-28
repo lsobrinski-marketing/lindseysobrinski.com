@@ -1,5 +1,5 @@
 ---
-title: "Why your brand is not in the AI answer, and what it takes to get cited"
+title: "Why your brand is not in the AI answer, and what it takes to get named"
 seo_title: "Why your brand is not in the AI answer"
 date: 2026-10-27 09:00:00 -0500
 category: geo
@@ -9,7 +9,7 @@ hero_title: "Not in the|AI answer"
 hero_motif: orbit
 hero_alt: "A brand's card sitting outside a glowing ring of cited sources while competitor sources are named inside the ring, representing a brand that is absent from AI answers while its rivals are cited."
 tags: [generative engine optimization, AI visibility, GEO, AI search, brand visibility, AEO]
-description: "Your brand is missing from AI answers because the engines have no credible, corroborated source to cite. It is an authority problem, not keywords."
+description: "Your brand is missing from AI answers because the engines have no credible, corroborated source to name you from. It is an authority problem, not keywords."
 faq:
   - q: Why does ChatGPT recommend my competitor and not me?
     a: >-
@@ -43,7 +43,7 @@ faq:
       being named is the result you are managing.
 ---
 
-Your brand is absent from AI answers because the engines cannot find a credible, machine-readable version of your expertise, and because the places they trust, your own authored pages plus Wikipedia, YouTube, Reddit, and reviews, do not corroborate you. Getting cited is an authority and entity problem, not a keyword problem, and you measure it as visibility, not clicks.
+Your brand is absent from AI answers because the engines cannot find a credible, machine-readable version of your expertise, and because the places they trust, your own authored pages plus Wikipedia, YouTube, Reddit, and reviews, do not corroborate you. Being named in the answer is an authority and entity problem, not a keyword problem. You earn the mention by being a citable, corroborated source, and you measure the result as presence in the answer, not clicks.
 
 ## What's in this piece
 
