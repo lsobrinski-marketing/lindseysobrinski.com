@@ -45,7 +45,7 @@ faq:
       surface it cannot bid on.
 ---
 
-Each paid channel does one job well. Connected TV, YouTube, and paid social prospecting create demand. Paid search and shopping capture it. Retargeting and brand search harvest it. Lifecycle keeps it. Most waste comes from judging a demand-creation channel by a demand-capture metric, so you cut the channel that was working and credit the one that was only there at the end.
+Each [paid channel](/paid-media/) does one job well. Connected TV, YouTube, and paid social prospecting create demand. Paid search and shopping capture it. Retargeting and brand search harvest it. Lifecycle keeps it. Most waste comes from judging a demand-creation channel by a demand-capture metric, so you cut the channel that was working and credit the one that was only there at the end.
 
 ## What's in this piece
 

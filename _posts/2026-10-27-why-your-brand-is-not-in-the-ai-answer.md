@@ -99,7 +99,7 @@ The opening month is an audit and a foundation, not a content sprint. First, est
 
 Second, fix the highest-value citable pages. Take the proof you already own, the research, the data, the genuine expertise, and republish it as attributed, credentialed, machine-readable claims on the pages that map to the questions where competitors are winning. Third, stand up the off-site corroboration plan: the reviews, the third-party discussion, the presence in the trusted sources the engines actually pull from, so your owned claims are confirmed where it counts.
 
-None of that is a checklist an SEO team runs in a sprint and closes. It is the work of becoming the credible, corroborated authority on a specific set of questions, which is exactly the job a nine-figure brand should hand to someone who does it on purpose. So the real question for the leadership team reading the alarm report is not how fast can we add this to the backlog. It is who owns being the answer, and have we ever resourced that as its own job.
+None of that is a checklist an SEO team runs in a sprint and closes. It is [the work of becoming the credible, corroborated authority](/seo-aeo-geo/) on a specific set of questions, which is exactly the job a nine-figure brand should hand to someone who does it on purpose. So the real question for the leadership team reading the alarm report is not how fast can we add this to the backlog. It is who owns being the answer, and have we ever resourced that as its own job.
 
 ## Sources
 
