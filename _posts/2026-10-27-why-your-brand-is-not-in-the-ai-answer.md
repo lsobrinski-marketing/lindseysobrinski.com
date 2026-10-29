@@ -53,7 +53,7 @@ Your brand is absent from AI answers because the engines cannot find a credible,
 - Being a clean entity the engine can actually model
 - Being corroborated off-site, where the answers are really built
 - Measuring it as visibility, not sessions
-- The first 30 days
+- Where to start, and why it begins with an audit
 
 ## The alarm is now a report, not a hunch
 
@@ -93,11 +93,11 @@ Because the goal is a citation and not a click, the scoreboard changes. You do n
 
 In practice that means tracking which category questions name your brand, which name competitors, and how that share moves over time across the major assistants. A click-based report will tell you this program is failing long after it has started working, because being named is the leading outcome and traffic is a lagging, undercounted shadow of it. A leadership team that funds this on a traffic KPI will defund it before it pays off. The right metric is the one the alarm report used in the first place: are we in the answer, and are we gaining or losing share against the competitors who are.
 
-## The first 30 days
+## Where to start
 
-The opening month is an audit and a foundation, not a content sprint. First, establish the baseline the way the alarm report did, but systematically: across the questions that matter in your category, record where you are cited, where you are absent, and which competitors are named in your place, per engine. That is the map, and it tells you where the share is being lost.
+Start with the audit, not a content sprint. Before anything new is written, establish the baseline the alarm report only sampled, but do it systematically: across the questions that matter in your category, record where you are cited, where you are absent, and which competitors are named in your place, per engine. That map is what tells you where the share is actually being lost.
 
-Second, fix the highest-value citable pages. Take the proof you already own, the research, the data, the genuine expertise, and republish it as attributed, credentialed, machine-readable claims on the pages that map to the questions where competitors are winning. Third, stand up the off-site corroboration plan: the reviews, the third-party discussion, the presence in the trusted sources the engines actually pull from, so your owned claims are confirmed where it counts.
+With the map in hand, the work goes in a clear order. Fix the highest-value citable pages first: take the proof you already own, the research, the data, the genuine expertise, and republish it as attributed, credentialed, machine-readable claims on the pages that map to the questions where competitors are winning. In parallel, build the off-site corroboration that confirms those claims: the reviews, the third-party discussion, and the presence in the trusted sources the engines actually pull from, so what you say about yourself is backed where it counts.
 
 None of that is a checklist an SEO team runs in a sprint and closes. It is [the work of becoming the credible, corroborated authority](/seo-aeo-geo/) on a specific set of questions, which is exactly the job a nine-figure brand should hand to someone who does it on purpose. So the real question for the leadership team reading the alarm report is not how fast can we add this to the backlog. It is who owns being the answer, and have we ever resourced that as its own job.
 
