@@ -3,6 +3,7 @@ title: "Your best trust signal is a database field you never exposed"
 seo_title: "Review Schema: Star Ratings in Search and AI Answers"
 date: 2026-09-01 09:00:00 -0500
 category: technical-seo
+toc: false
 hero: /assets/img/blog/review-schema-trust-signal.png
 image: /assets/img/blog/review-schema-trust-signal.png
 tags: [review schema, structured data, aggregaterating, json-ld, rich results, technical seo]

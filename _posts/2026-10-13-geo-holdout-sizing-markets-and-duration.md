@@ -3,6 +3,7 @@ title: "How many markets and how long does a geo-holdout actually need?"
 seo_title: "How many markets and how long for a geo holdout?"
 date: 2026-10-13 09:00:00 -0500
 category: paid-media
+toc: false
 hero: /assets/img/blog/geo-holdout-sizing-markets-and-duration.svg
 image: /assets/img/blog/geo-holdout-sizing-markets-and-duration.png
 tool_link: /geo-holdout-planner.html

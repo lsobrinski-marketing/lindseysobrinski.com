@@ -3,6 +3,7 @@ title: "When the KPI is appointments, not clicks"
 seo_title: "Local SEO for Appointments: Bookings, Not Clicks"
 date: 2026-09-08 09:00:00 -0500
 category: local-seo
+toc: false
 hero: /assets/img/blog/local-seo-appointments.png
 image: /assets/img/blog/local-seo-appointments.png
 tags: [local seo, google business profile, appointments, local search, aeo, conversion]

@@ -3,6 +3,7 @@ title: "Which incrementality test should you run? Geo holdout vs conversion lift
 seo_title: "Which incrementality test should you run?"
 date: 2026-10-13 09:01:00 -0500
 category: paid-media
+toc: false
 hero: /assets/img/blog/which-incrementality-test-to-run.svg
 image: /assets/img/blog/which-incrementality-test-to-run.png
 tool_link: /geo-holdout-planner.html

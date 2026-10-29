@@ -3,6 +3,7 @@ title: "Why your brand is not in the AI answer, and what it takes to get named"
 seo_title: "Why your brand is not in the AI answer"
 date: 2026-10-27 09:00:00 -0500
 category: geo
+toc: false
 hero: /assets/img/blog/why-your-brand-is-not-in-the-ai-answer.svg
 image: /assets/img/blog/why-your-brand-is-not-in-the-ai-answer.png
 hero_title: "Not in the|AI answer"

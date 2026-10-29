@@ -3,6 +3,7 @@ title: "Migration SEO shows up 90 days later, in the crawl logs"
 seo_title: "Migration SEO: Why Damage Surfaces 90 Days Later"
 date: 2026-08-25 09:00:00 -0500
 category: technical-seo
+toc: false
 hero: /assets/img/blog/migration-seo-90-days-later.png
 image: /assets/img/blog/migration-seo-90-days-later.png
 tags: [site migration, replatforming, 301 redirects, technical seo, redirect chains, crawl budget]

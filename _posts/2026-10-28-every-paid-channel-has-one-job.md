@@ -3,6 +3,7 @@ title: "Every paid channel is good at one job. Most brands buy them for the wron
 seo_title: "Every paid channel is good at one job"
 date: 2026-10-28 09:00:00 -0500
 category: paid-media
+toc: false
 hero: /assets/img/blog/every-paid-channel-has-one-job.svg
 image: /assets/img/blog/every-paid-channel-has-one-job.png
 hero_title: "One channel|one job"

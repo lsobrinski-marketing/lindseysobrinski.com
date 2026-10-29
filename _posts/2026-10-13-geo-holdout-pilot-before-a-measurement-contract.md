@@ -3,6 +3,7 @@ title: "Run a geo-holdout pilot before you sign a measurement vendor"
 seo_title: "Run a geo-holdout pilot before a measurement vendor"
 date: 2026-10-13 09:02:00 -0500
 category: paid-media
+toc: false
 hero: /assets/img/blog/geo-holdout-pilot-before-a-measurement-contract.svg
 image: /assets/img/blog/geo-holdout-pilot-before-a-measurement-contract.png
 tool_link: /geo-holdout-planner.html

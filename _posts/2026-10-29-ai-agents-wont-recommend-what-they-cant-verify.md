@@ -3,6 +3,7 @@ title: "An AI agent will not recommend what it cannot verify"
 seo_title: "An AI agent won't recommend what it can't verify"
 date: 2026-10-29 09:00:00 -0500
 category: ecommerce-seo
+toc: false
 hero: /assets/img/blog/ai-agents-wont-recommend-what-they-cant-verify.svg
 image: /assets/img/blog/ai-agents-wont-recommend-what-they-cant-verify.png
 hero_title: "Verify, then|recommend"

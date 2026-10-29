@@ -3,6 +3,7 @@ title: "You cannot prove your ads work, because no one will let you turn them of
 seo_title: "Why you cannot prove your ads work"
 date: 2026-10-19 09:00:00 -0500
 category: paid-media
+toc: false
 hero: /assets/img/blog/permission-not-statistics.svg
 image: /assets/img/blog/permission-not-statistics.png
 tool_link: /geo-holdout-planner.html
