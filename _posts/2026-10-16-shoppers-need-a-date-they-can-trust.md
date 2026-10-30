@@ -85,6 +85,6 @@ Five changes, most important first.
 2. Put the total cost, including shipping and returns, where the shopper can see it before the cart.
 3. State the refund timeline in days, not "processed promptly."
 4. If you charge for returns, test it with a holdout before rolling it out, and read repeat purchase and order value, not just return volume, so you can [tell a real effect from noise](/blog/a-real-lift-or-just-noise/).
-5. Make the promise readable by machines too. The same delivery and return data belongs in your product feed and structured data, because [AI shopping agents read it to decide whether to buy](/blog/can-an-ai-agent-buy-from-you/).
+5. Make the promise readable by machines too. The same delivery and return data belongs in your product feed and structured data, [tied to a product identifier the engines can match](/blog/gtin-connects-your-marketplace-reviews/), because [AI shopping agents read it to decide whether to buy](/blog/can-an-ai-agent-buy-from-you/).
 
 Before you fund another free-shipping promo, check the two things shoppers actually rated highest. What does your site promise a shopper about timing, and how often do you keep it?
