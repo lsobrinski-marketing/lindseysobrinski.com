@@ -15,6 +15,9 @@ author:
   name: Lindsey Vandermaas Sobrinski
   email: lsobrinski@gmail.com
   linkedin: https://www.linkedin.com/in/lindsey-vandermaas
+  # Public booking page (Google Appointment Scheduling). CTAs read this, so a
+  # future change is a one-line edit here.
+  booking_url: https://calendar.app.google/LoDy4QmsJr4fZ5F66
   jobTitle: Growth & Performance Marketing Leader
   # Entity-authority fields for the Person schema. Sourced from the About page.
   description: >-
