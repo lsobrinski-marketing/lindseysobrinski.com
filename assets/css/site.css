@@ -83,6 +83,7 @@ h3{font-size:1.04rem;margin:24px 0 6px;}
 .carousel-btn.prev{left:-6px;} .carousel-btn.next{right:-6px;}
 .carousel-btn:disabled{opacity:0;pointer-events:none;}
 @media(max-width:680px){.carousel-btn{display:none;}}  /* touch: swipe instead of arrows */
+.tile-ico{width:40px;height:40px;padding:8px;border-radius:10px;color:var(--lane,var(--accent));background:var(--soft,#eef4f8);margin:0 0 12px;flex:none;box-sizing:border-box;}
 
 /* ---------- hero ---------- */
 .hero-banner{

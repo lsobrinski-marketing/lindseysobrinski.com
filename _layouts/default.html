@@ -128,5 +128,25 @@
   {{ content }}
   {% include footer.html %}
 </div>
+
+{%- comment -%} Tools-carousel controls. No-op on pages without a [data-carousel]. {%- endcomment -%}
+<script>
+document.querySelectorAll('[data-carousel]').forEach(function(c){
+  var track=c.querySelector('[data-carousel-track]'),
+      prev=c.querySelector('[data-carousel-prev]'),
+      next=c.querySelector('[data-carousel-next]');
+  if(!track||!prev||!next) return;
+  function step(){var t=track.querySelector('.tile');return t?t.offsetWidth+16:300;}
+  function update(){
+    prev.disabled = track.scrollLeft<=4;
+    next.disabled = track.scrollLeft+track.clientWidth>=track.scrollWidth-4;
+  }
+  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+  track.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+});
+</script>
 </body>
 </html>
