@@ -222,3 +222,15 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
 /* Free-tool link inside the "What's in this piece" outline */
 .toc .toc-tool{margin-top:6px}
 .toc .toc-tool a{color:var(--accent,#1D6FA3);font-weight:650}
+
+/* Auto hub up-link (beside the category pill) + related-posts block */
+.pill-hub{display:inline-block;margin-left:6px;font-size:.78rem;font-weight:600;color:var(--accent,#1D6FA3);text-decoration:none;border:1px solid var(--line,#e2e9f0);border-radius:999px;padding:3px 10px}
+.pill-hub:hover{background:var(--soft,#eef4f8)}
+.related{margin:34px 0 0;padding:20px 22px;background:var(--soft,#eef4f8);border:1px solid var(--line,#e2e9f0);border-radius:12px}
+.related h2{margin:0 0 10px;font-size:1.05rem}
+.related ul{margin:0;padding-left:18px}
+.related li{margin:5px 0}
+.related a{color:var(--accent,#1D6FA3);text-decoration:none}
+.related a:hover{text-decoration:underline}
+.related-hub{margin:12px 0 0}
+.related-hub a{font-weight:650;color:var(--accent,#1D6FA3);text-decoration:none}

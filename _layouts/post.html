@@ -23,7 +23,7 @@ layout: default
   <img class="post-hero" src="{{ page.hero }}" alt="{{ page.hero_alt | default: page.title | escape }}" width="1200" height="630" loading="eager" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 4px 18px rgba(26,35,51,.06);margin-bottom:26px;" />
   {%- endif %}
   <div class="post-head">
-    {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
+    {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}{% if cat.hub %} <a class="pill-hub" href="{{ cat.hub }}">Part of {{ cat.hub_name }}</a>{% endif %}
     <h1>{{ page.title }}</h1>
     {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
     <p class="post-meta">
@@ -85,6 +85,32 @@ layout: default
 
   {% include faq.html %}
 </article>
+
+{%- comment -%}
+  Auto "related" block: the most recent posts in this post's category, plus a
+  link up to the topic hub. This is what keeps posts from being orphaned as a
+  topic grows past the hub's Further-reading teaser: every post links to recent
+  siblings and to its hub automatically, with no manual interlinking. Future
+  dated posts are excluded by future:false, so no link is ever dead.
+{%- endcomment -%}
+{%- if cat -%}
+  {%- assign siblings = site.posts | where: "category", page.category | sort: "date" | reverse -%}
+  {%- assign sib_shown = 0 -%}
+  {%- capture sib_items -%}
+    {%- for p in siblings -%}
+      {%- unless p.url == page.url -%}
+        {%- if sib_shown < 4 -%}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{%- assign sib_shown = sib_shown | plus: 1 -%}{%- endif -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if sib_shown > 0 -%}
+<nav class="related" aria-label="More in this topic">
+  <h2>More in {{ cat.name }}</h2>
+  <ul>{{ sib_items }}</ul>
+  {%- if cat.hub %}<p class="related-hub"><a href="{{ cat.hub }}">See the {{ cat.hub_name }} hub &rarr;</a></p>{%- endif %}
+</nav>
+  {%- endif -%}
+{%- endif -%}
 
 <div class="cta">
   <span><b>Disagree with any of this?</b> That's the useful conversation.</span>

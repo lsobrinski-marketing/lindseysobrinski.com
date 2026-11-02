@@ -2,7 +2,7 @@
 title: "The source-of-truth gap: when Reddit knows your catalog better than the AI does"
 seo_title: "The source-of-truth gap in AI search"
 date: 2026-07-10 09:00:00 -0500
-category: geo
+category: technical-seo
 hero: /assets/img/blog/the-source-of-truth-gap.svg
 image: /assets/img/blog/the-source-of-truth-gap.png
 tags: [generative engine optimization, ai search, rendering, citations, llm visibility, prerendering]

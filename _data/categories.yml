@@ -3,10 +3,18 @@
 #
 # `blurb` is the visible lede AND the page's meta description, so keep it
 # under ~160 characters or it will truncate in search results.
+#
+# `hub` + `hub_name` wire every post in this category UP to its pillar page
+# automatically (rendered by _layouts/post.html). Leave `hub` off to render
+# no up-link. This is what keeps posts from being orphaned as a topic grows:
+# the post layout links each post to its hub and to recent siblings, and the
+# category archive at /blog/categories/<slug>/ always lists every post.
 
 - slug: seo
   name: SEO
   color: accent
+  hub: /seo-aeo-geo/
+  hub_name: SEO, AEO & GEO
   blurb: >-
     Organic visibility that compounds: technical foundations, entity and topic
     architecture, and content that earns the position instead of renting it.
@@ -14,6 +22,8 @@
 - slug: aeo
   name: AEO
   color: accent
+  hub: /seo-aeo-geo/
+  hub_name: SEO, AEO & GEO
   blurb: >-
     Answer Engine Optimization: structuring content so it gets lifted into the
     answer box, where the click may never happen.
@@ -21,6 +31,8 @@
 - slug: geo
   name: GEO
   color: purple
+  hub: /seo-aeo-geo/
+  hub_name: SEO, AEO & GEO
   blurb: >-
     Generative Engine Optimization: getting cited by ChatGPT, Gemini, and
     Perplexity, with a different play per engine and journey stage.
@@ -28,6 +40,8 @@
 - slug: paid-media
   name: Paid Media
   color: good
+  hub: /paid-media/
+  hub_name: Paid Media
   blurb: >-
     Planning and buying across paid social, search, programmatic, video, CTV,
     and OOH, judged on incremental impact, not reported ROAS.
@@ -35,6 +49,8 @@
 - slug: lifecycle
   name: Lifecycle
   color: good
+  hub: /lifecycle/
+  hub_name: Lifecycle
   blurb: >-
     Retention, loyalty, churn, and win-back: the half of growth that decides
     whether acquisition was worth paying for.
@@ -42,6 +58,8 @@
 - slug: subscriptions
   name: Subscriptions
   color: good
+  hub: /lifecycle/subscriptions/
+  hub_name: Subscriptions
   blurb: >-
     Subscription economics: cohort behavior, order frequency, involuntary
     churn, and the unit math that makes or breaks the model.
@@ -49,6 +67,8 @@
 - slug: churn
   name: Churn
   color: accent
+  hub: /lifecycle/churn/
+  hub_name: Churn
   blurb: >-
     Why customers actually leave: involuntary, never-activated, completed, and
     dissatisfied churn, read on cohort curves rather than a monthly rate.
@@ -56,6 +76,8 @@
 - slug: loyalty
   name: Loyalty
   color: purple
+  hub: /lifecycle/loyalty/
+  hub_name: Loyalty
   blurb: >-
     Loyalty and win-back programs judged on incremental behavior, not on members
     who were going to buy anyway.
@@ -63,6 +85,8 @@
 - slug: user-journey
   name: User Journey
   color: purple
+  hub: /user-journey/
+  hub_name: User Journey
   blurb: >-
     Mapping the real path to conversion and finding the steps where buyer
     intent quietly dies.
@@ -70,12 +94,16 @@
 - slug: conversion-optimization
   name: Conversion Optimization
   color: accent
+  hub: /user-journey/
+  hub_name: User Journey
   blurb: >-
     Testing, evidence, and the discipline to tell a real lift from noise.
 
 - slug: technical-seo
   name: Technical SEO
   color: accent
+  hub: /seo-aeo-geo/technical-seo/
+  hub_name: Technical SEO
   blurb: >-
     Rendering, crawl budget, canonical integrity, redirects, and Core Web
     Vitals, the infrastructure that decides whether a large site ranks at all.
@@ -83,6 +111,8 @@
 - slug: ecommerce-seo
   name: Ecommerce SEO
   color: good
+  hub: /seo-aeo-geo/ecommerce-seo/
+  hub_name: Ecommerce SEO
   blurb: >-
     Category-page content, variant indexing, Shopping feeds, and seasonal
     timing, turning commercial-page rankings into captured revenue.
@@ -90,6 +120,8 @@
 - slug: content-seo
   name: Content SEO
   color: purple
+  hub: /seo-aeo-geo/content-seo/
+  hub_name: Content SEO
   blurb: >-
     Entity and topic architecture, answer-first structure, and content that
     earns the position and the citation instead of renting them.
@@ -97,6 +129,8 @@
 - slug: local-seo
   name: Local SEO
   color: good
+  hub: /seo-aeo-geo/local-seo/
+  hub_name: Local SEO
   blurb: >-
     Multi-location and appointment-driven visibility: exposing trust signals,
     service schema, and a KPI that's booked appointments, not near-me rankings.

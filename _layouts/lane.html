@@ -86,6 +86,7 @@ layout: default
     {%- assign lane_posts = lane_posts | concat: matched -%}
   {%- endfor -%}
   {%- assign lane_posts = lane_posts | sort: "date" | reverse -%}
+  {%- assign writing_limit = page.writing_limit | default: 8 -%}
   <section id="writing">
     <h2>{{ page.writing_heading | default: "Further reading" }}</h2>
     <p class="h2sub">Posts from this lane. Browse the full archive by category:
@@ -96,7 +97,7 @@ layout: default
     </p>
     {%- if lane_posts.size > 0 %}
     <ul class="post-list">
-      {%- for post in lane_posts limit: 5 %}
+      {%- for post in lane_posts limit: writing_limit %}
       {%- assign cat = site.data.categories | where: "slug", post.category | first %}
       <li>
         <p class="post-meta">
