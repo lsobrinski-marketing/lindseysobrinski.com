@@ -274,3 +274,13 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
 
 .sitenav .navtop{color:var(--accent);font-weight:600;cursor:pointer;}
 .sitenav .navtop:focus{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;}
+
+
+/* --- end-of-post author bio (added) --- */
+.postbio{display:flex;gap:18px;align-items:flex-start;background:var(--soft);border-radius:14px;padding:24px;margin:34px 0 10px;}
+.postbio-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;}
+.postbio-name{font-weight:800;color:var(--ink);margin-bottom:4px;}
+.postbio-text{color:#41506a;font-size:.96rem;line-height:1.55;margin-bottom:14px;}
+.postbio-cta{display:flex;flex-wrap:wrap;gap:10px;}
+.postbio-cta .hero-btn{font-size:.92rem;padding:10px 16px;}
+@media(max-width:560px){.postbio{flex-direction:column;}}
