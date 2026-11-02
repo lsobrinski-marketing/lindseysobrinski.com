@@ -62,7 +62,7 @@ Those are four different business problems with four different owners, and they 
 
 **Involuntary.** The payment failed. The card expired, the charge declined, a fraud rule fired, the billing address went stale. These customers did not decide anything, and on most subscription businesses they are a fifth to two fifths of total churn. The fix is dunning logic, card-updater coverage, retry timing, and pre-expiration outreach. That belongs to payments operations, and in most orgs it belongs to nobody at all, which is exactly why it stays broken.
 
-**Never activated.** They bought, and then never reached the value they bought for. The box arrived and stayed unopened. The account was created and never configured. The second order never happened. This group churns early and gets reported as a marketing failure while almost always being an onboarding one.
+**Never activated.** They bought, and then never reached the value they bought for. The box arrived and stayed unopened. The account was created and never configured. The [second order never happened](/blog/marketplace-first-order-own-the-repeat/). This group churns early and gets reported as a marketing failure while almost always being an onboarding one.
 
 **Completed.** They got exactly what they came for. The project ended, the child outgrew the size, the course finished. This is not a failure at all, and treating it as one produces win-back campaigns aimed at people with no remaining need. The honest responses are an adjacent offer or an acceptance that this cohort has a natural life the acquisition math has to work within.
 
