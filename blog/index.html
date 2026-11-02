@@ -23,7 +23,7 @@ permalink: /blog/
 <a class="blog-hero" href="{{ feat.url }}">
   {%- if feat.hero %}<div class="blog-hero__img"><img src="{{ feat.hero }}" alt="{{ feat.title | escape }}" width="1200" height="630" loading="eager"></div>{% endif %}
   <div class="blog-hero__body">
-    <p class="post-meta"><span class="blog-hero__tag">Latest</span>{% if fcat %} <a class="pill c-{{ fcat.color }}" href="/blog/categories/{{ fcat.slug }}/">{{ fcat.name }}</a>{% endif %} <time datetime="{{ feat.date | date_to_xmlschema }}">{{ feat.date | date: "%B %-d, %Y" }}</time></p>
+    <p class="post-meta"><span class="blog-hero__tag">Latest</span>{% if fcat %} <span class="pill c-{{ fcat.color }}">{{ fcat.name }}</span>{% endif %} <time datetime="{{ feat.date | date_to_xmlschema }}">{{ feat.date | date: "%B %-d, %Y" }}</time></p>
     <h2>{{ feat.title }}</h2>
     <p>{{ feat.description | default: feat.excerpt | strip_html | truncatewords: 42 }}</p>
     <span class="go">Read →</span>
