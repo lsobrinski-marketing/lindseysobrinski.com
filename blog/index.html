@@ -11,9 +11,54 @@ permalink: /blog/
 </div>
 <p class="lede">{{ page.description }}</p>
 
-<div class="card">
-  <p>Everything here comes out of work I am actually doing: a measurement result that contradicted the dashboard, a structural fix that changed how an engine read a site, a retention problem that turned out to be a payments problem. If a post makes a claim about what worked, it will also say how that was established.</p>
-  <p>The four lanes, <a href="/seo-aeo-geo/">SEO/AEO/GEO</a>, <a href="/paid-media/">paid media</a>, <a href="/lifecycle/">lifecycle</a>, and <a href="/user-journey/">user journey</a>, are one system, so the categories below overlap on purpose. A post about why a funnel leaks is often really a post about which channel sent unqualified traffic into it.</p>
+{%- comment -%} ----- category -> pillar map (self-contained to this page) ----- {%- endcomment -%}
+{%- assign p_organic = "seo,aeo,geo,technical-seo,ecommerce-seo,content-seo,local-seo" | split: "," -%}
+{%- assign p_lifecycle = "lifecycle,subscriptions,churn,loyalty" | split: "," -%}
+{%- assign p_journey = "user-journey,conversion-optimization" | split: "," -%}
+
+{%- if site.posts.size > 0 %}
+{%- comment -%} ----- Featured: the latest post ----- {%- endcomment -%}
+{%- assign feat = site.posts.first %}
+{%- assign fcat = site.data.categories | where: "slug", feat.category | first %}
+<a class="blog-hero" href="{{ feat.url }}">
+  {%- if feat.hero %}<div class="blog-hero__img"><img src="{{ feat.hero }}" alt="{{ feat.title | escape }}" width="1200" height="630" loading="eager"></div>{% endif %}
+  <div class="blog-hero__body">
+    <p class="post-meta"><span class="blog-hero__tag">Latest</span>{% if fcat %} <a class="pill c-{{ fcat.color }}" href="/blog/categories/{{ fcat.slug }}/">{{ fcat.name }}</a>{% endif %} <time datetime="{{ feat.date | date_to_xmlschema }}">{{ feat.date | date: "%B %-d, %Y" }}</time></p>
+    <h2>{{ feat.title }}</h2>
+    <p>{{ feat.description | default: feat.excerpt | strip_html | truncatewords: 42 }}</p>
+    <span class="go">Read →</span>
+  </div>
+</a>
+{%- endif %}
+
+<h2>Browse by channel</h2>
+<p class="h2sub">The four lanes are one system, so pick where to start. Filters the feed below.</p>
+<div class="pillars" data-pillars>
+  <button type="button" class="pillar pil-all is-active" data-filter="all" aria-pressed="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+    <span class="pillar__name">All writing</span>
+    <span class="pillar__sub">Everything</span>
+  </button>
+  <button type="button" class="pillar pil-organic" data-filter="organic" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span class="pillar__name">Organic</span>
+    <span class="pillar__sub">SEO · AEO · GEO</span>
+  </button>
+  <button type="button" class="pillar pil-paid" data-filter="paid" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+    <span class="pillar__name">Paid Media</span>
+    <span class="pillar__sub">Channels · measurement</span>
+  </button>
+  <button type="button" class="pillar pil-lifecycle" data-filter="lifecycle" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 8"/><polyline points="20 3 20 8 15 8"/><path d="M20 12a8 8 0 0 1-13.7 5.6L4 16"/><polyline points="4 21 4 16 9 16"/></svg>
+    <span class="pillar__name">Lifecycle</span>
+    <span class="pillar__sub">Retention · churn · loyalty</span>
+  </button>
+  <button type="button" class="pillar pil-journey" data-filter="journey" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M7.4 16.6c3-3 1-6.5 4.6-6.5 3.4 0 1.6-3.1 4.6-5.1"/></svg>
+    <span class="pillar__name">User Journey</span>
+    <span class="pillar__sub">On-site · conversion</span>
+  </button>
 </div>
 
 <h2>Browse by topic</h2>
@@ -23,12 +68,23 @@ permalink: /blog/
   {%- endfor %}
 </div>
 
+<div class="card">
+  <p>Everything here comes out of work I am actually doing: a measurement result that contradicted the dashboard, a structural fix that changed how an engine read a site, a retention problem that turned out to be a payments problem. If a post makes a claim about what worked, it will also say how that was established.</p>
+  <p>The four lanes above are one system, so the topics overlap on purpose. A post about why a funnel leaks is often really a post about which channel sent unqualified traffic into it.</p>
+</div>
+
 {% if site.posts.size > 0 %}
-<h2>Latest</h2>
-<ul class="post-list">
+<h2 id="feed">Latest</h2>
+<ul class="post-list" data-feed>
   {%- for post in site.posts %}
   {%- assign cat = site.data.categories | where: "slug", post.category | first %}
-  <li>
+  {%- assign pillar = "" -%}
+  {%- if p_organic contains post.category %}{% assign pillar = "organic" %}
+  {%- elsif post.category == "paid-media" %}{% assign pillar = "paid" %}
+  {%- elsif p_lifecycle contains post.category %}{% assign pillar = "lifecycle" %}
+  {%- elsif p_journey contains post.category %}{% assign pillar = "journey" %}
+  {%- endif -%}
+  <li data-pillar="{{ pillar }}">
     {%- if post.hero %}<a href="{{ post.url }}"><img src="{{ post.hero }}" alt="{{ post.title | escape }}" width="1200" height="630" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #dde7ee;margin-bottom:14px;" /></a>{% endif %}
     <p class="post-meta">
       {% if cat %}<a class="pill c-{{ cat.color }}" href="/blog/categories/{{ cat.slug }}/">{{ cat.name }}</a>{% endif %}
@@ -39,9 +95,38 @@ permalink: /blog/
   </li>
   {%- endfor %}
 </ul>
+<p class="feed-empty" data-feed-empty hidden>No posts in this channel yet. <button type="button" class="linklike" data-filter="all">Show all writing</button>.</p>
 {% else %}
 <div class="empty">No posts published yet.</div>
 {% endif %}
+
+{%- comment -%} Pillar filter: toggles [hidden] on feed items; no reload. {%- endcomment -%}
+<script>
+(function(){
+  var group=document.querySelector('[data-pillars]');
+  var feed=document.querySelector('[data-feed]');
+  if(!group||!feed) return;
+  var items=feed.querySelectorAll(':scope > li');
+  var empty=document.querySelector('[data-feed-empty]');
+  function apply(f){
+    var shown=0;
+    items.forEach(function(li){
+      var match = (f==='all') || (li.getAttribute('data-pillar')===f);
+      li.hidden=!match; if(match) shown++;
+    });
+    if(empty) empty.hidden = shown>0;
+  }
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-filter]'); if(!btn) return;
+    var f=btn.getAttribute('data-filter');
+    group.querySelectorAll('[data-filter]').forEach(function(b){
+      var on=b.getAttribute('data-filter')===f;
+      b.classList.toggle('is-active',on); b.setAttribute('aria-pressed',on);
+    });
+    apply(f);
+  });
+})();
+</script>
 
 <script type="application/ld+json">
 {
