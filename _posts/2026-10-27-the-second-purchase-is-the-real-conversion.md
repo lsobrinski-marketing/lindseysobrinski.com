@@ -75,7 +75,7 @@ First, report second-order rate at 30, 60 and 90 days by acquisition channel and
 
 I have watched the second order carry an entire model. At a subscription wellness brand I ran as a fractional head of growth, orders per customer went from 2.0 to 3.5, retention rose 33% and [churn](/blog/four-kinds-of-churn/) fell 62%. The second order was the whole business, and improving the [unit math](/blog/the-unit-math-of-subscriptions/) behind it did more than any acquisition push could have.
 
-The order of operations is the lesson. We did not fix retention by emailing harder. We changed who came in the door, then made the first experience good enough that the second order did not need a coupon to happen.
+The order of operations is the lesson. We did not fix retention by emailing harder. We changed who came in the door, then made the first experience good enough that the second order did not need a coupon to happen. Where that first door is a marketplace, the same logic holds: [let the marketplace win the first sale, and own the repeat on your own site](/blog/marketplace-first-order-own-the-repeat/).
 
 ## When there is no second order
 
