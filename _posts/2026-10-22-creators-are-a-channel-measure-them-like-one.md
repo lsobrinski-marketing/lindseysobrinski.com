@@ -43,7 +43,7 @@ faq:
 
 Creators are now a must buy for nearly half of ad buyers. The IAB, with Advertiser Perceptions, found [48% of ad spenders](https://iab.com/news/creator-economy-ad-spend-to-reach-37-billion-in-2025-growing-4x-faster-than-total-media-industry-according-to-iab) consider creators a must buy, behind only social media and paid search, and Disney says [more than 40% of the assets](https://www.marketingdive.com/news/how-brands-deeper-creator-deals-are-unlocking-cost-efficiencies-results/832205/) in any of its media campaigns are now creator-led, up from probably under 10 percent five years ago.
 
-And yet the IAB's own measurement review says budgets "continue to grow based on directional confidence rather than mathematically provable incrementality." That is the thing worth sitting with. The channel with the least proof is taking the fastest-growing share of the budget. The answer is not to pull back. It is to measure creators the way you measure any channel with real money in it.
+And yet the IAB's own measurement review says budgets "continue to grow based on directional confidence rather than mathematically provable incrementality." That is the thing worth sitting with. The channel with the least proof is taking the fastest-growing share of the budget. The answer is not to pull back. It is to measure creators the way you measure any channel with real money in it. The other budget growing fast on the thinnest proof is [CTV and retail media](/blog/ctv-and-retail-media-weakest-proof/), and in both the hard part is rarely the method; it is [getting permission to turn the spend off long enough to read it](/blog/permission-not-statistics/).
 
 ## Creators became a line item, not a test
 

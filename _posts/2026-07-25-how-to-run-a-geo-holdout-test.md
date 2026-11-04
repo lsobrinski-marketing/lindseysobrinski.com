@@ -112,7 +112,7 @@ Almost every untrustworthy geo test fails at design, not analysis. The recurring
 
 **Moving the goalposts.** Changing the metric, the markets, or the end date once results start coming in. Each adjustment biases the answer toward what you expected.
 
-The defense against all of them is the same: design the entire test, markets, duration, metric, analysis method, before it launches, and treat a too-good-to-be-true result as a prompt to re-check the design rather than a reason to celebrate. Incrementality is worth doing precisely because it's the one number that survives a [budget conversation](/paid-media/measurement/). It only earns that status if the test underneath it was honest with itself first.
+The defense against all of them is the same: design the entire test, markets, duration, metric, analysis method, before it launches, and treat a too-good-to-be-true result as a prompt to re-check the design rather than a reason to celebrate. Incrementality is worth doing precisely because it's the one number that survives a [budget conversation](/paid-media/measurement/). It only earns that status if the test underneath it was honest with itself first. Before you run one, confirm a geo holdout is even [the right incrementality test for this channel](/blog/which-incrementality-test-to-run/); the harder part is usually [getting permission to turn working spend off long enough to read it](/blog/permission-not-statistics/).
 
 ## Start small, but start
 
