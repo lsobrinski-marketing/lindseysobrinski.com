@@ -18,6 +18,8 @@ lede: >-
 audience: Growth, ecommerce, and SEO leaders responsible for category and product-page performance and revenue.
 cta: Want to know which category pages are ranking but not capturing?
 blog_categories: [ecommerce-seo]
+writing_limit: 12
+related_posts: [shoppers-need-a-date-they-can-trust, marketplace-first-order-own-the-repeat]
 faq:
   - q: What is ecommerce SEO, and how is it different from content SEO?
     a: >-

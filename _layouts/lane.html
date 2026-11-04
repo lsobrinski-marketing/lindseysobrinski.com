@@ -79,11 +79,19 @@ layout: default
   {%- unless page.tools_position == 'top' %}{{ tools_html }}{%- endunless %}
 
   {%- comment -%} ---------- 3. related writing, auto-populated ---------- {%- endcomment -%}
-  {%- if page.blog_categories %}
+  {%- if page.blog_categories or page.related_posts %}
   {%- assign lane_posts = "" | split: "" -%}
   {%- for slug in page.blog_categories -%}
     {%- assign matched = site.posts | where: "category", slug -%}
     {%- assign lane_posts = lane_posts | concat: matched -%}
+  {%- endfor -%}
+  {%- comment -%} optional cross-lane pins by post slug; skip any already in a lane category {%- endcomment -%}
+  {%- for s in page.related_posts -%}
+    {%- assign rp = site.posts | where: "slug", s | first -%}
+    {%- unless page.blog_categories contains rp.category -%}
+    {%- assign one = site.posts | where: "slug", s -%}
+    {%- assign lane_posts = lane_posts | concat: one -%}
+    {%- endunless -%}
   {%- endfor -%}
   {%- assign lane_posts = lane_posts | sort: "date" | reverse -%}
   {%- assign writing_limit = page.writing_limit | default: 8 -%}
