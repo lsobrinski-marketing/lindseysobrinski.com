@@ -98,6 +98,6 @@ A team that introduces holdouts to a program that never had them should expect t
 
 That is not a failure of the program and it should not be handled as one. It is the first quarter in which the number means something. The programs that survive this are the ones where leadership decided in advance that they wanted the real figure, and the ones that do not survive it were spending margin on a story.
 
-More on how this fits the rest of the work: [loyalty and win-back](/lifecycle/loyalty/) covers program design against the churn mix, and [subscription economics](/lifecycle/subscriptions/) sets the ceiling on what recovering any customer is worth.
+More on how this fits the rest of the work: [loyalty and win-back](/lifecycle/loyalty/) covers program design against the churn mix, [subscription economics](/lifecycle/subscriptions/) sets the ceiling on what recovering any customer is worth, and [your loyalty data is now ad targeting](/blog/loyalty-data-is-ad-targeting/) prices the first-party data the program itself generates.
 
 So: if your loyalty program were switched off tomorrow for a randomly chosen tenth of members, do you know what would happen? And if not, what exactly is the reported return describing?

@@ -92,7 +92,7 @@ That gap, between where you rank and how much of the demand you actually convert
 
 I work these pages the way I work paid media: judged on what they actually contribute, not on a vanity metric. That means measuring capture rate against the addressable search demand, fixing the page *type* before fine-tuning the copy, and sequencing the work against each category's season so pages are live and indexed before the demand arrives.
 
-The commercial-page work now reaches past your own site. A [matching product identifier ties the reviews you earned on a marketplace back to your own page](/blog/gtin-connects-your-marketplace-reviews/), and the strongest catalogs [let the marketplace win the first sale, then own the repeat where the margin is theirs](/blog/marketplace-first-order-own-the-repeat/).
+The commercial-page work now reaches past your own site. A [matching product identifier ties the reviews you earned on a marketplace back to your own page](/blog/gtin-connects-your-marketplace-reviews/), and the strongest catalogs [let the marketplace win the first sale, then own the repeat where the margin is theirs](/blog/marketplace-first-order-own-the-repeat/). On the page itself, shoppers on a considered purchase [need a delivery date they can trust](/blog/shoppers-need-a-date-they-can-trust/) before they commit.
 
 ## Where this fits
 
