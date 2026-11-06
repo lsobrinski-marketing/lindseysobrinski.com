@@ -91,4 +91,4 @@ Start with prerendering to stop the bleeding, plan the move to native rendering 
 
 Measure it the way the crawlers experience it. Baseline first, crawl your key templates as a non-rendering bot, or just run the two tests above, and document which page types come back empty. After the fix, confirm that GPTBot, ClaudeBot, and PerplexityBot receive full HTML with products and prices in it, and watch whether your pages start showing up, accurately, when you ask the engines about your category.
 
-The test that started this piece is also the one that ends it. Disable JavaScript, view the source, and look for your products. When they're there in the raw HTML, so are you.
+The test that started this piece is also the one that ends it. Disable JavaScript, view the source, and look for your products. When they're there in the raw HTML, so are you. An invisible site is one of the most common reasons [a brand is left out of the AI answer](/blog/why-your-brand-is-not-in-the-ai-answer/) altogether.

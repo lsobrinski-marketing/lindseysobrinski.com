@@ -96,6 +96,8 @@ The fix order over thirty days is short. First, get price and availability into 
 
 So the question is not whether your store looks good to a shopper. It is whether an agent, querying your raw data right now, could confirm your price, your stock, your delivery date, and your returns. If it could not, which competitor is it recommending in your place?
 
+Failing that check is one of the reasons [a brand is left out of the AI answer](/blog/why-your-brand-is-not-in-the-ai-answer/) in the first place.
+
 ## Sources
 
 - Google Search Central, "Merchant listing (Product, Offer) structured data" (price, availability, and shipping fields): [developers.google.com](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing)

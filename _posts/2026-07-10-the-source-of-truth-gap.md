@@ -88,4 +88,4 @@ Second, keep earning the off-site corroboration, but now it points at a site the
 
 That's the whole game. Corroboration without a readable site leaves your brand described secondhand and slightly wrong, forever. A readable site without corroboration is accurate but invisible. You need both, and most brands have neither pointed the right way.
 
-Stop letting the AI describe you from stale, secondhand fragments. Make your own site the thing it reads, and let everyone else's mentions point at a source you actually control.
+Stop letting the AI describe you from stale, secondhand fragments. Make your own site the thing it reads, and let everyone else's mentions point at a source you actually control. That secondhand description is one of the reasons [a brand is missing from the AI answer](/blog/why-your-brand-is-not-in-the-ai-answer/).
