@@ -309,3 +309,15 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
 .pil-all{--pil:#64748b;} .pil-organic{--pil:var(--accent);} .pil-paid{--pil:var(--good);} .pil-lifecycle{--pil:var(--purple);} .pil-journey{--pil:var(--warn);}
 .feed-empty{color:var(--muted);}
 .linklike{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-weight:700;cursor:pointer;text-decoration:underline;}
+
+/* --- how-to banner card (added) --- */
+.howto-banner{display:flex;align-items:stretch;background:#fff;border:1px solid var(--line);border-left:4px solid #e2a83b;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(26,35,51,.06);text-decoration:none;color:var(--ink);margin:26px 0 34px;transition:box-shadow .15s,transform .15s,border-color .15s;}
+.howto-banner:hover{box-shadow:0 10px 28px rgba(26,35,51,.14);transform:translateY(-2px);border-color:var(--accent);border-left-color:#e2a83b;}
+.howto-banner-media{flex:0 0 38%;max-width:300px;background:var(--soft);}
+.howto-banner-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.howto-banner-text{display:flex;flex-direction:column;justify-content:center;padding:20px 24px;gap:3px;}
+.howto-banner-kicker{font-size:.68rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);}
+.howto-banner-title{font-size:1.12rem;font-weight:800;color:var(--ink);line-height:1.25;}
+.howto-banner-fix{font-size:.95rem;color:#41506a;margin-top:2px;}
+.howto-banner-go{font-size:.9rem;font-weight:700;color:var(--accent);margin-top:8px;}
+@media(max-width:560px){.howto-banner{flex-direction:column;border-left:none;border-top:4px solid #e2a83b;}.howto-banner-media{flex:none;max-width:none;height:160px;}}

@@ -3,7 +3,7 @@ title: "Your best reviews live on a marketplace. A GTIN tells AI they are yours.
 seo_title: "GTIN: how AI connects your marketplace reviews to you"
 date: 2026-10-30 09:00:00 -0500
 category: ecommerce-seo
-hero: /assets/img/blog/gtin-connects-your-marketplace-reviews.svg
+hero: /assets/img/blog/gtin-connects-your-marketplace-reviews.png
 image: /assets/img/blog/gtin-connects-your-marketplace-reviews.png
 hero_title: "One number,|one product"
 hero_motif: nodes

@@ -3,7 +3,7 @@ title: "Getting cited was step one. Can an AI agent actually buy from you?"
 seo_title: "Can an AI agent actually buy from you?"
 date: 2026-10-14 09:00:00 -0500
 category: ecommerce-seo
-hero: /assets/img/blog/can-an-ai-agent-buy-from-you.svg
+hero: /assets/img/blog/can-an-ai-agent-buy-from-you.png
 image: /assets/img/blog/can-an-ai-agent-buy-from-you.png
 hero_title: "Cited. Now|can it buy?"
 hero_motif: nodes
