@@ -106,6 +106,8 @@ Put it together and the plan stops being a pile of channels fighting over one RO
 
 Read down the metric column and the pattern is the whole argument: three of the five jobs are invisible or distorted under last-click, which is exactly why one blended ROAS number mismanages the plan. The channels are not the problem. The scoreboard is. So before the next budget cycle grades every channel on the same number, which job is each channel in your plan actually being paid to do, and are you measuring it on that job or on the one that happens last?
 
+If it helps to see this by platform rather than by stage, [which platform does which job](/blog/which-platform-does-which-job/) walks the same logic across connected TV, YouTube, AI assistants, Instagram, Google, and the checkout.
+
 ## Sources
 
 - Blake, Nosko and Tadelis, "Consumer Heterogeneity and Paid Search Effectiveness: A Large-Scale Field Experiment" (the eBay brand-search study), 2015: [nber.org](https://www.nber.org/papers/w20171)
