@@ -12,8 +12,8 @@ baseurl: ""
 google_analytics: G-6J1KSHKJPV
 
 # Microsoft Clarity project ID. Emitted by _includes/clarity.html on every
-# layout page in production. Leave blank until the Clarity project is created.
-clarity_id:
+# layout page in production. Standalone tool pages carry the snippet inline.
+clarity_id: zc0dkai2t9
 
 author:
   name: Lindsey Vandermaas Sobrinski
