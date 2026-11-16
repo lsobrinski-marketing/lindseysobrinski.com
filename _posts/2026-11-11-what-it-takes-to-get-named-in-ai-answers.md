@@ -42,18 +42,9 @@ faq:
       you are not in those lists, you are usually not in the answer, which is why
       earning a place on them is a direct lever on getting named, not a vanity
       metric.
-toc: false
 ---
 
 Getting cited is not the same as getting named. AI assistants name the brands that are a clean, resolvable entity and are corroborated across the sources the model trusts. Being the best answer on your own site is necessary and not sufficient. The lever that moves naming is off-site: a consistent entity, third-party corroboration, and original research the model has seen.
-
-## What's in this piece
-
-- Cited versus named, and why the distinction decides everything
-- The entity layer: becoming a brand the model can resolve
-- The corroboration layer: why off-site is the real gate
-- The answer layer: being the cleanest extractable source
-- A 30-day order of operations
 
 ## Cited versus named: why does the distinction decide everything?
 

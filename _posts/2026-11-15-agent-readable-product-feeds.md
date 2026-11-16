@@ -43,19 +43,9 @@ faq:
       the revenue with a holdout. AI-referred traffic is small and tracked late,
       so the attributed number over-credits it. A geo or audience holdout tells
       you whether the feed work created sales or only coincided with them.
-toc: false
 ---
 
 AI shopping agents do not browse your store, they query your catalog. Getting found and bought in AI starts with a complete, approved product feed: GTINs, accurate price and availability, specific titles, and the newer AI attributes, matched by on-page structured data. Build the feed first, then prove the revenue with a holdout. The feed is the catalog the machine reads; your pretty page is not.
-
-## What's in this piece
-
-- Why the feed decides whether AI shopping finds you
-- What goes in an agent-readable feed
-- Why the page has to match the feed
-- Reviews and the trust signals an agent checks
-- How to prove the feed work paid
-- The 30-day feed-readiness order
 
 ## Why does the feed decide whether AI shopping finds you?
 

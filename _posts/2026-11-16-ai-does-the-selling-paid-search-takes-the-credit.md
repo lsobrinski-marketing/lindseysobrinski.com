@@ -38,18 +38,9 @@ faq:
       the Google search, so the leverage is in being the brand the engine names
       and the shopper already recognizes, not in bidding harder for the click at
       the bottom.
-toc: false
 ---
 
 I came up in performance marketing. Spending on awareness is not the sentence I expected to write. Here is the number that changed my mind. Out of every 100 shopping chats with an AI, 47 ended in a Google search within 30 minutes, and only 2 went straight to a store. The AI did the research. Paid search caught the click. Your dashboard is giving paid search the credit, and the work that actually sold the customer has no line on the report.
-
-## What's in this piece
-
-- The new path: shoppers decide in AI, then Google to buy
-- Why your paid search looks like a genius right now
-- The part no one is saying: the work moved back to awareness
-- Why no one funds it: the dashboard cannot see the top of the funnel
-- How to spend on awareness without losing the next budget review
 
 ## The shopper decides in AI, then Googles to buy
 

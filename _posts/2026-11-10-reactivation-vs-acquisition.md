@@ -41,18 +41,9 @@ faq:
       future order. A holdout helps here too, because it shows whether the
       discount is buying incremental returns or just subsidizing returns you
       already had and conditioning the rest of the list to wait.
-toc: false
 ---
 
 Reactivation looks cheaper than acquisition on a cost-per-order basis, and that comparison is a trap. Much of what a win-back campaign claims is not incremental: customers who were going to return anyway. The honest number is incremental cost per reactivated customer, measured with a holdout. Measured that way, reactivation is often cheaper, and sometimes it is not.
-
-## What's in this piece
-
-- Why reactivation looks cheaper than it is
-- The would-have-returned-anyway problem
-- How to measure incremental reactivation
-- When reactivation actually beats acquisition, and when it does not
-- What to do with the finding
 
 ## Why does reactivation look cheaper than it is?
 

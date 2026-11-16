@@ -39,18 +39,9 @@ faq:
       prospecting engine across Google's inventory. Used out of the box, it is a
       branded-search harvester wearing a prospecting costume, and it will quietly
       take credit for demand you already had.
-toc: false
 ---
 
 Performance Max automates targeting, placement, and bidding across every Google surface from a single campaign, and hides where the money went. It reports blended conversions, often inflated by branded search it was always going to win, so the reported return looks strong while much of it is harvest. You measure it with experiments and brand exclusions, not its own dashboard.
-
-## What's in this piece
-
-- What Performance Max actually automates
-- Why the reported ROAS is grading its own homework
-- How to measure Performance Max without its dashboard
-- What it should optimize toward
-- What to check first in a Performance Max account
 
 ## What does Performance Max actually automate?
 

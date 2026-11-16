@@ -42,18 +42,9 @@ faq:
       fills. Pass the qualified or funded outcome back through the Conversions API
       and it will start optimizing toward leads that actually close. The
       automation is only as good as the event you tell it to chase.
-toc: false
 ---
 
 ABO gives you control over spend per ad set, CBO lets Meta allocate across ad sets, and Advantage+ automates most of the campaign. The right choice is not a loyalty test. Use ABO to learn and to protect a test, CBO and Advantage+ to scale what you have already proven. Match the tool to the decision, not to a philosophy about automation.
-
-## What's in this piece
-
-- What each one actually controls
-- When ABO is the right tool
-- When CBO and Advantage+ win
-- What automation cannot do for you
-- A simple decision rule
 
 ## What does each one actually control?
 

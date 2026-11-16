@@ -43,18 +43,9 @@ faq:
       reflects margin or expected lifetime value, back through the Conversions
       API, and the algorithm starts buying customers worth having instead of the
       cheapest possible order.
-toc: false
 ---
 
 Meta is the best demand-creation engine you can buy and the worst judge of its own work. Let its algorithm optimize inside the platform with clean conversion signals, and never grade it on platform ROAS. Meta creates demand that shows up later in search and direct, so you measure it off-platform, on blended cost per acquisition, marketing efficiency ratio, and a holdout.
-
-## What's in this piece
-
-- Why platform ROAS overstates Meta
-- The lag: Meta creates demand, search harvests it
-- How to feed Meta a clean signal
-- How to measure Meta off-platform
-- Why the optimization loop and the measurement loop are the same loop
 
 ## Why does platform ROAS overstate Meta?
 
