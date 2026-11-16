@@ -1,0 +1,60 @@
+name: IndexNow ping on publish
+
+# Fires after every GitHub Pages build (both pushes and the daily-rebuild
+# that publishes future-dated posts). Diffs the freshly built live sitemap
+# against a committed snapshot and submits only new/changed URLs to IndexNow,
+# so Bing and the shared IndexNow network learn about a post the moment it
+# publishes instead of waiting to be crawled.
+#
+# State (the previously submitted URL list) lives on the orphan branch
+# `indexnow-state` as submitted.tsv. Writing it there does NOT trigger a Pages
+# build (Pages only builds from the source branch), so there is no loop.
+
+on:
+  page_build: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    # page_build fires for successful and failed builds; only act on success.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.build.status == 'built' }}
+    steps:
+      - name: Check out main (for the script)
+        uses: actions/checkout@v4
+
+      - name: Check out the state branch
+        uses: actions/checkout@v4
+        with:
+          ref: indexnow-state
+          path: _state
+
+      - name: Submit changed URLs to IndexNow
+        env:
+          INDEXNOW_PREV: _state/submitted.tsv
+          INDEXNOW_OUT: _state/submitted.tsv
+        run: |
+          # Give the CDN a moment to serve the freshly built sitemap; the
+          # script also cache-busts, but a short wait avoids a stale read.
+          sleep 25
+          python3 .github/scripts/indexnow_ping.py
+
+      - name: Persist the updated snapshot
+        run: |
+          cd _state
+          if git diff --quiet -- submitted.tsv; then
+            echo "snapshot unchanged, nothing to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add submitted.tsv
+            git commit -m "IndexNow: update submitted-URL snapshot [skip ci]"
+            git push origin indexnow-state
+          fi
