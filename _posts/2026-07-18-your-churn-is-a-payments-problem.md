@@ -52,7 +52,7 @@ Give the recovery some runway. A grace period keeps access alive while you retry
 
 **Here is why this is the highest-ROI retention work you have.** With voluntary churn, you are trying to change someone's mind, usually with a discount that erodes the margin you were defending. With involuntary churn, the mind is already made up in your favor. The customer chose to stay. Your only job is to not lose them to a mechanical failure. You are not buying back a relationship; you are removing a glitch. That is cheaper, it compounds monthly, and it doesn't train your base to expect a save offer every time they threaten to leave.
 
-There is a strategic tax here too. When involuntary churn hides inside your total, it poisons every downstream decision. Your LTV looks worse than reality, so you underbid on acquisition and starve channels that actually work. Your cohort curves look leakier than the product is. You "fix" retention problems that are really billing problems, and the real ones stay untouched. Clean the involuntary layer out and you are finally reading the true health of the base.
+There is a strategic tax here too. When involuntary churn hides inside your total, it poisons every downstream decision. Your LTV looks worse than reality, so you underbid on acquisition and starve channels that actually work. Your cohort curves look leakier than the product is. You "fix" retention problems that are really billing problems, and the real ones stay untouched. Clean the involuntary layer out and you are finally reading the true health of the base. The voluntary churn that remains is often a pricing story, which is why [subscription churn is a pricing problem in disguise](/blog/subscription-churn-pricing/).
 
 ## What to do first
 

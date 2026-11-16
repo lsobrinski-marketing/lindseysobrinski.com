@@ -52,7 +52,7 @@ faq:
 
 Open your biggest category page and read it the way a search engine does. Strip out the product images and the price tags and ask: what's actually here for an engine to understand? On most ecommerce sites the answer is *the product titles, and nothing else.* A grid, a filter rail, a pagination control. No copy that says what this category is, who it's for, or how to choose within it.
 
-That's a grid-first page, and it's why a smaller competitor with a fraction of your brand strength can out-rank you on nearly every non-brand term in the category.
+That's a grid-first page, and it's why a smaller competitor with a fraction of your brand strength can out-rank you on nearly every non-brand term in the category. It is also how a page can [rank on page one and still capture almost none of the market](/blog/rank-on-page-one-capture-one-percent/), green in the rank report and empty in the revenue line.
 
 ## A grid gives the engine almost nothing
 

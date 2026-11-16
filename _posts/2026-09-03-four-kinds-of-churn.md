@@ -60,13 +60,13 @@ Those are four different business problems with four different owners, and they 
 
 ## The four, and who actually owns each one
 
-**Involuntary.** The payment failed. The card expired, the charge declined, a fraud rule fired, the billing address went stale. These customers did not decide anything, and on most subscription businesses they are a fifth to two fifths of total churn. The fix is dunning logic, card-updater coverage, retry timing, and pre-expiration outreach. That belongs to payments operations, and in most orgs it belongs to nobody at all, which is exactly why it stays broken.
+**Involuntary.** The payment failed. The card expired, the charge declined, a fraud rule fired, the billing address went stale. These customers did not decide anything, and on most subscription businesses they are a fifth to two fifths of total churn. The fix is dunning logic, card-updater coverage, retry timing, and pre-expiration outreach. That belongs to payments operations, and in most orgs it belongs to nobody at all, which is exactly why it stays broken. When this slice is large, [your churn is really a payments problem](/blog/your-churn-is-a-payments-problem/).
 
 **Never activated.** They bought, and then never reached the value they bought for. The box arrived and stayed unopened. The account was created and never configured. The [second order never happened](/blog/marketplace-first-order-own-the-repeat/). This group churns early and gets reported as a marketing failure while almost always being an onboarding one.
 
-**Completed.** They got exactly what they came for. The project ended, the child outgrew the size, the course finished. This is not a failure at all, and treating it as one produces win-back campaigns aimed at people with no remaining need. The honest responses are an adjacent offer or an acceptance that this cohort has a natural life the acquisition math has to work within.
+**Completed.** They got exactly what they came for. The project ended, the child outgrew the size, the course finished. This is not a failure at all, and treating it as one produces win-back campaigns aimed at people with no remaining need. The honest responses are an adjacent offer or an acceptance that this cohort has a natural life the acquisition math has to work within. Where win-back does fit, [its timing has to match the customer's own rhythm](/blog/win-back-timing/), not a calendar default.
 
-**Dissatisfied.** They experienced the value and returned a verdict: not worth the price. The product, the service, or the price is the problem, and the only genuinely useful thing marketing can do is report that accurately to the people who can change it. A discount aimed at this group buys silence, not retention.
+**Dissatisfied.** They experienced the value and returned a verdict: not worth the price. The product, the service, or the price is the problem, and the only genuinely useful thing marketing can do is report that accurately to the people who can change it. A discount aimed at this group buys silence, not retention. Often what reads as dissatisfaction is really the wrong price, which is why [subscription churn is a pricing problem in disguise](/blog/subscription-churn-pricing/).
 
 ## Why the mix decides everything
 

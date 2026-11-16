@@ -54,7 +54,7 @@ faq:
 
 A cancellation looks like an event. It is not. It is the paperwork at the end of a decision the customer made weeks earlier, and quite often it is the third or fourth thing that happened rather than the first.
 
-Which means a churn program that starts at the cancel screen has chosen to intervene at the one moment when the customer has already concluded, has already looked at alternatives, and has already made peace with leaving. That is the least valuable moment in the entire lifecycle, and it is where a surprising amount of retention budget lives.
+Which means a churn program that starts at the cancel screen has chosen to intervene at the one moment when the customer has already concluded, has already looked at alternatives, and has already made peace with leaving. That is the least valuable moment in the entire lifecycle, and it is where a surprising amount of retention budget lives. And some of what shows up here was never a decision at all; when the card simply failed, [your churn is a payments problem](/blog/your-churn-is-a-payments-problem/), not a persuasion one.
 
 ## The drift comes first, and it is visible
 
@@ -69,7 +69,7 @@ Before a customer cancels, they usually stop behaving like a customer. The signa
 
 None of these is dramatic. All of them are recorded. The reason they get missed is not sophistication, it is that most risk models are built against segment averages instead of the customer's own baseline.
 
-That distinction is the whole game. A monthly buyer going quiet for six weeks is a serious signal. The same six weeks means nothing at all about a quarterly buyer, and a model that flags both, or neither, is worse than useless because it burns the credibility of the flag. Measure each customer against their own established rhythm and the signal sharpens immediately.
+That distinction is the whole game. A monthly buyer going quiet for six weeks is a serious signal. The same six weeks means nothing at all about a quarterly buyer, and a model that flags both, or neither, is worse than useless because it burns the credibility of the flag. Measure each customer against their own established rhythm and the signal sharpens immediately. The same per-customer rhythm decides [when a win-back should actually fire](/blog/win-back-timing/), rather than a one-size trigger.
 
 ## Why the cancel-screen offer is a trap
 

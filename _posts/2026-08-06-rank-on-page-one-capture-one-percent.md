@@ -59,7 +59,7 @@ That gap, between where you rank and how much of the demand actually reaches you
 
 A ranking position makes you *eligible* for clicks. It does not deliver them. Between the position and the visit sits a whole set of filters: who holds the top spot, how many AI overviews and shopping units push you down the page, whether your title matches what the searcher actually wants, and whether your page is even the *kind* of page the query is asking for.
 
-Any one of those can quietly strip most of the traffic off a page that "ranks." Stack a few of them and you get the 1% result, a page that looks like a win in the rank report and does nothing for the business.
+Any one of those can quietly strip most of the traffic off a page that "ranks." Stack a few of them and you get the 1% result, a page that looks like a win in the rank report and does nothing for the business. A [grid-first category page](/blog/grid-first-category-pages-are-losing/) that hands the engine nothing to understand is the most common version of exactly that.
 
 ## Capture rate is the honest scoreboard
 
