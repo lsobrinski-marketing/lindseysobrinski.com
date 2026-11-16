@@ -60,8 +60,20 @@ def get_sitemap():
         loc = (u.findtext("sm:loc", default="", namespaces=SM_NS) or "").strip()
         lm = (u.findtext("sm:lastmod", default="", namespaces=SM_NS) or "").strip()
         if loc:
-            out[loc] = lm
+            out[loc] = _effective_lastmod(loc, lm)
     return out
+
+
+def _effective_lastmod(loc, lm):
+    # The standalone tool pages (roas.html, geo.html, ...) are pure static HTML
+    # with no front-matter date, so jekyll-sitemap stamps their <lastmod> with
+    # the build time, which changes on every rebuild. Treating that as a real
+    # change would re-ping them on every build forever. Ignore the lastmod for
+    # .html pages (they ping once, when first added); keep real content-derived
+    # lastmods for blog posts so a genuine edit still re-pings.
+    if loc.endswith(".html"):
+        return ""
+    return lm
 
 
 def load_prev(path):
