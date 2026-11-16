@@ -57,6 +57,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # jekyll-feed defaults to /feed.xml; the footer and <head> both point at
 # /blog/feed.xml, so move it rather than leave a broken link.

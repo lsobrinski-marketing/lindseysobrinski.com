@@ -27,6 +27,8 @@ layout: default
     <h1>{{ page.title }}</h1>
     {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
     <p class="post-meta">
+      <span class="byline">By <a href="/about/">Lindsey Sobrinski</a></span>
+      <span>&middot;</span>
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       {%- if page.last_modified_at %}
       <span>&middot; updated {{ page.last_modified_at | date: "%B %-d, %Y" }}</span>
@@ -87,10 +89,10 @@ layout: default
 </article>
 
 <aside class="postbio">
-  <img class="postbio-photo" src="/assets/img/lindsey-photo-480.jpg" width="72" height="72" alt="Lindsey Sobrinski" loading="lazy">
+  <img class="postbio-photo" src="{{ site.data.profile.headshot }}" width="72" height="72" alt="Lindsey Sobrinski" loading="lazy">
   <div class="postbio-body">
-    <p class="postbio-name">Lindsey Sobrinski</p>
-    <p class="postbio-text">I lead growth and performance marketing measured by incrementality, not platform-reported ROAS. 15+ years and $36M+ in media managed across retail, DTC, and B2B. I own the number, and I build the work myself as much as I lead it.</p>
+    <p class="postbio-name"><a href="/about/">Lindsey Sobrinski</a></p>
+    <p class="postbio-text">{{ site.data.profile.bio_short }}</p>
     <p class="postbio-cta"><a class="hero-btn hero-btn-primary" href="{{ site.author.booking_url }}">Book a 30-minute intro call</a> <a class="hero-btn hero-btn-ghost" href="/fractional/">See how I work</a></p>
   </div>
 </aside>

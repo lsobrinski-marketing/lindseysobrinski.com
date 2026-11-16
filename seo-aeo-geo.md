@@ -131,7 +131,7 @@ the moment their content is being read more than ever.
 The work is to stop optimizing for the session and start optimizing for the
 answer.
 
-## The four areas of the work
+## The five areas of the work
 
 <div class="grid">
   <a class="tile" href="/seo-aeo-geo/technical-seo/">
@@ -143,6 +143,11 @@ answer.
     <h3>Ecommerce SEO</h3>
     <p>Category-page content, variant indexing, Shopping feeds, and seasonal timing, turning commercial-page rankings into captured revenue.</p>
     <span class="go">Ecommerce SEO →</span>
+  </a>
+  <a class="tile" href="/seo-aeo-geo/ai-commerce/">
+    <h3>AI Commerce</h3>
+    <p>Getting an ecommerce catalog found and bought in AI shopping: feed and structured-data readiness for AI Mode, Gemini, and ChatGPT, proven with incrementality.</p>
+    <span class="go">AI Commerce →</span>
   </a>
   <a class="tile" href="/seo-aeo-geo/content-seo/">
     <h3>Content SEO</h3>
@@ -180,7 +185,8 @@ Once the foundation holds, the lanes separate.
 
 For **ChatGPT**, the lever is corroboration. It introduces your brand into the
 conversation, and it does that on the strength of what third parties say about
-you. That makes it a digital PR and citation problem more than an on-site one.
+you. That makes it a digital PR and citation problem more than an on-site one,
+and it is the whole of [what it takes to get named in AI answers](/blog/what-it-takes-to-get-named-in-ai-answers/).
 
 For **Gemini and AI Overviews**, the lever is entity authority. Buyers are
 comparing here, inside the answer, and the engine leans on structured facts and
@@ -212,7 +218,8 @@ know whether the strategy survives contact with the site.
     { "@type": "ListItem", "position": 1, "name": "Technical SEO", "url": "{{ site.url }}/seo-aeo-geo/technical-seo/" },
     { "@type": "ListItem", "position": 2, "name": "Ecommerce SEO", "url": "{{ site.url }}/seo-aeo-geo/ecommerce-seo/" },
     { "@type": "ListItem", "position": 3, "name": "Content SEO", "url": "{{ site.url }}/seo-aeo-geo/content-seo/" },
-    { "@type": "ListItem", "position": 4, "name": "Local SEO", "url": "{{ site.url }}/seo-aeo-geo/local-seo/" }
+    { "@type": "ListItem", "position": 4, "name": "Local SEO", "url": "{{ site.url }}/seo-aeo-geo/local-seo/" },
+    { "@type": "ListItem", "position": 5, "name": "AI Commerce", "url": "{{ site.url }}/seo-aeo-geo/ai-commerce/" }
   ]
 }
 </script>

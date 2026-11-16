@@ -103,4 +103,5 @@ Ecommerce SEO sits on top of the technical foundation and borrows from content, 
 - [Technical SEO →](/seo-aeo-geo/technical-seo/), the foundation these pages depend on
 - [Content SEO →](/seo-aeo-geo/content-seo/), the editorial and topical-authority work
 - [Local SEO →](/seo-aeo-geo/local-seo/), for multi-location retail
+- [AI Commerce →](/seo-aeo-geo/ai-commerce/), getting the same catalog found and bought in AI shopping, including [agent-readable product feeds](/blog/agent-readable-product-feeds/)
 - [← Back to SEO, AEO &amp; GEO](/seo-aeo-geo/)

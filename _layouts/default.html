@@ -110,12 +110,12 @@
 {%- if site.author.memberOf %}
   "memberOf": { "@type": "Organization", "name": {{ site.author.memberOf | jsonify }} },
 {%- endif %}
-  "knowsAbout": ["Performance Marketing","SEO","AEO","GEO","Generative Engine Optimization","Answer Engine Optimization","Ecommerce","Ecommerce SEO","Paid Media","Media Mix Modeling","Incrementality","Lifecycle Marketing","Retention Marketing","Subscription Economics","Conversion Rate Optimization","User Journey Mapping","DTC Growth","AI Marketing Agents"],
-{%- if site.author.sameAs %}
-  "sameAs": {{ site.author.sameAs | jsonify }}
-{%- else %}
-  "sameAs": ["{{ site.author.linkedin }}"]
-{%- endif %}
+{%- assign ka = "Performance Marketing,SEO,AEO,GEO,Generative Engine Optimization,Answer Engine Optimization,Ecommerce,Ecommerce SEO,Paid Media,Media Mix Modeling,Incrementality,Lifecycle Marketing,Retention Marketing,Subscription Economics,Conversion Rate Optimization,User Journey Mapping,DTC Growth,AI Marketing Agents" | split: "," -%}
+{%- if site.data.profile.knows_about %}{%- assign ka = ka | concat: site.data.profile.knows_about | uniq -%}{%- endif %}
+  "knowsAbout": {{ ka | jsonify }},
+{%- assign sa = site.author.sameAs | default: site.data.profile.same_as -%}
+{%- if site.data.profile.same_as %}{%- assign sa = sa | concat: site.data.profile.same_as | uniq -%}{%- endif %}
+  "sameAs": {{ sa | jsonify }}
 }
 </script>
 {%- comment -%}

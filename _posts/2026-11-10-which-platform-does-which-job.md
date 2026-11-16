@@ -69,7 +69,7 @@ Connected TV also carries [the weakest proof of any channel](/blog/ctv-and-retai
 
 ## Instagram and paid social: demand creation the dashboard calls capture
 
-Instagram and the rest of paid social mostly do the top-of-funnel job too, reaching people before they were searching. The trap is that social platforms report a conversion they can associate with the tap, which dresses a demand-creation platform in a demand-capture number. Much of that reported return is demand you already had, counted again. Worse, the platforms keep changing what they count, so a reported number can move while nothing in the market does, which is why every team needs to track [when the ruler moves](/blog/when-the-ruler-moves/) before reading a jump or a drop as performance.
+Instagram and the rest of paid social mostly do the top-of-funnel job too, reaching people before they were searching. The trap is that social platforms report a conversion they can associate with the tap, which dresses a demand-creation platform in a demand-capture number. Much of that reported return is demand you already had, counted again. Worse, the platforms keep changing what they count, so a reported number can move while nothing in the market does, which is why every team needs to track [when the ruler moves](/blog/when-the-ruler-moves/) before reading a jump or a drop as performance. On Meta specifically, the budget structure you pick, [CBO, ABO, or Advantage+](/blog/cbo-abo-or-advantage-plus/), shapes what you can even test, and the honest read means [optimizing on Meta but measuring off-platform](/blog/optimize-meta-measure-off-platform/).
 
 ## The AI assistant: the recommendation you cannot bid on
 
@@ -79,7 +79,7 @@ A new step now sits between awareness and purchase: the AI assistant. More buyer
 
 Google is where the single-number habit does the most damage, because it is really two platforms with one login. Non-brand search and shopping capture demand that already exists, meeting people at the moment of intent, and here a click-based metric is close to fair, since the click really is near the decision. The discipline for capture is sizing: spend to the real volume of unmet intent, not past the point where you are paying to be present for buyers who would have found you anyway.
 
-Brand search is the other platform, and it harvests demand rather than creating it. It reaches people who already chose you and collects credit for conversions that were going to happen regardless. It is worth running and worth far less than its dashboard claims, and the only way to know how much is real is to withhold it from a random group and measure.
+Brand search is the other platform, and it harvests demand rather than creating it. It reaches people who already chose you and collects credit for conversions that were going to happen regardless. It is worth running and worth far less than its dashboard claims, and the only way to know how much is real is to withhold it from a random group and measure. Google also hides the seams between these jobs: [Performance Max blends every surface into one number](/blog/performance-max-what-it-hides/), and in the AI era [paid search quietly takes credit for the sale the assistant actually made](/blog/ai-does-the-selling-paid-search-takes-the-credit/).
 
 ## The honest read needs permission, not just math
 

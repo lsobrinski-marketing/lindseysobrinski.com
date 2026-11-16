@@ -108,6 +108,8 @@ Read down the metric column and the pattern is the whole argument: three of the 
 
 If it helps to see this by platform rather than by stage, [which platform does which job](/blog/which-platform-does-which-job/) walks the same logic across connected TV, YouTube, AI assistants, Instagram, Google, and the checkout.
 
+Going one level deeper into the platforms themselves: on Google, [Performance Max hides which surface actually spent the money](/blog/performance-max-what-it-hides/) and, in the AI era, [paid search takes the credit for the sale the assistant made](/blog/ai-does-the-selling-paid-search-takes-the-credit/). On Meta, the budget structure you pick, [CBO, ABO, or Advantage+](/blog/cbo-abo-or-advantage-plus/), decides what you can even test, and the honest read means [optimizing on the platform but measuring off it](/blog/optimize-meta-measure-off-platform/).
+
 ## Sources
 
 - Blake, Nosko and Tadelis, "Consumer Heterogeneity and Paid Search Effectiveness: A Large-Scale Field Experiment" (the eBay brand-search study), 2015: [nber.org](https://www.nber.org/papers/w20171)

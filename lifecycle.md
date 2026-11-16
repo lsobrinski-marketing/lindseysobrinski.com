@@ -158,7 +158,7 @@ erases.
 
 Everything in this lane gets held to the same standard I hold paid media to. If
 a win-back program cannot show incrementality against a holdout, it is a report
-of customers who came back, not a program that brought them. If a loyalty
+of customers who came back, not a program that brought them, which is the whole case for weighing [reactivation against acquisition](/blog/reactivation-vs-acquisition/) on the incremental slice rather than the gross. If a loyalty
 program's return depends on counting purchases from members who would have
 bought anyway, it is a discount with a dashboard.
 

@@ -1,0 +1,28 @@
+# Canonical entity + positioning source of truth for lindseysobrinski.com
+# The author box and the Person / ProfessionalService schema render from this file.
+# Wiring into _layouts and the post byline is the code-agent step in
+# entity-positioning-punch-list.md. Leave a value blank to have the agent omit it; never invent one.
+
+# One positioning line, used verbatim everywhere (home, about, fractional, author box).
+positioning: "Lindsey Sobrinski helps ecommerce and growth brands get found and get bought in AI, and proves it with incrementality."
+positioning_short: "Growth and measurement for the AI-commerce era, proven with incrementality."
+role_title: "Marketing Incrementality and AEO/GEO Consultant"
+
+# Bio, two lengths. bio_short is the author-box credential line.
+bio: "Lindsey Sobrinski is a growth and measurement consultant who helps ecommerce brands get found and bought in AI and proves it with incrementality, with 15+ years across performance marketing, SEO, AEO and GEO, lifecycle, and CRO."
+bio_short: "Growth and measurement consultant. I help ecommerce brands get found and bought in AI, and I prove it with incrementality. 15+ years across performance, SEO/AEO/GEO, lifecycle, and CRO."
+
+headshot: /assets/img/lindsey-photo.jpg
+booking_url: https://calendar.app.google/LoDy4QmsJr4fZ5F66
+email:        # intentionally blank: keep Gmail out of new markup; /fractional/ already carries a public mailto if needed
+
+same_as:
+  - https://www.linkedin.com/in/lindsey-vandermaas
+
+knows_about:
+  - Marketing incrementality and geo-holdout testing
+  - Demand creation versus demand capture
+  - AEO and GEO, AI search visibility
+  - AI-commerce and product-feed readiness
+  - Lifecycle and retention measurement
+  - Technical SEO

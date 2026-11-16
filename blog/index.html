@@ -18,12 +18,13 @@ permalink: /blog/
 
 {%- if site.posts.size > 0 %}
 {%- comment -%} ----- Featured: the latest post ----- {%- endcomment -%}
-{%- assign feat = site.posts.first %}
+{%- assign featq = site.posts | where: "featured", true -%}
+{%- if featq.size > 0 %}{%- assign feat = featq | first %}{%- else %}{%- assign feat = site.posts.first %}{%- endif %}
 {%- assign fcat = site.data.categories | where: "slug", feat.category | first %}
 <a class="blog-hero" href="{{ feat.url }}">
   {%- if feat.hero %}<div class="blog-hero__img"><img src="{{ feat.hero }}" alt="{{ feat.title | escape }}" width="1200" height="630" loading="eager"></div>{% endif %}
   <div class="blog-hero__body">
-    <p class="post-meta"><span class="blog-hero__tag">Latest</span>{% if fcat %} <span class="pill c-{{ fcat.color }}">{{ fcat.name }}</span>{% endif %} <time datetime="{{ feat.date | date_to_xmlschema }}">{{ feat.date | date: "%B %-d, %Y" }}</time></p>
+    <p class="post-meta"><span class="blog-hero__tag">{% if feat.featured %}Featured{% else %}Latest{% endif %}</span>{% if fcat %} <span class="pill c-{{ fcat.color }}">{{ fcat.name }}</span>{% endif %} <time datetime="{{ feat.date | date_to_xmlschema }}">{{ feat.date | date: "%B %-d, %Y" }}</time></p>
     <h2>{{ feat.title }}</h2>
     <p>{{ feat.description | default: feat.excerpt | strip_html | truncatewords: 42 }}</p>
     <span class="go">Read →</span>
