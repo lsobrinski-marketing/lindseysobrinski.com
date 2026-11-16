@@ -70,7 +70,7 @@ The product feed used to be a paid-media artifact. It is now the record an agent
 
 I also learned that Merchant Center is not just a paid tool. The feed is how a product enters the Shopping Graph and AI Mode. That reframes two old technical jobs. A feed that breaks takes your free listings down with the paid ones, because [they run on the same source](/blog/free-shopping-listings-break-on-a-shared-feed/). And variants are where an agent is most likely to choose the wrong size or color, which is exactly the case for giving [high-demand variants their own clean, indexable identity](/blog/product-variant-seo/) rather than collapsing them into one ambiguous product.
 
-A feed that was tuned to win a Shopping auction is not automatically a feed an agent can transact against. The auction forgives a missing return window or a stale delivery estimate. An agent completing a purchase does not, because those fields are the ones it shows the buyer before it places the order.
+A feed that was tuned to win a Shopping auction is not automatically a feed an agent can transact against. The auction forgives a missing return window or a stale delivery estimate. An agent completing a purchase does not, because those fields are the ones it shows the buyer before it places the order. Getting the catalog into that shape is its own build: [agent-readable product feeds](/blog/agent-readable-product-feeds/).
 
 ## Trust has to be machine readable too
 

@@ -67,7 +67,7 @@ Both errors come from the same source: lapse defined against a site-wide average
 
 The second failure is treating everyone past the line as one audience. There are at least three groups here, and they need different messages.
 
-**The drifted.** No dramatic cause. Frequency slipped, attention moved, nothing broke. This group responds to a reason to come back and often to nothing more than a well-timed reminder of something relevant. It is also the group most likely to return unprompted, which matters enormously for measurement.
+**The drifted.** No dramatic cause. Frequency slipped, attention moved, nothing broke. This group responds to a reason to come back and often to nothing more than a well-timed reminder of something relevant. It is also the group most likely to return unprompted, which matters enormously for measurement, and it is why winning a lapsed customer back is only cheaper than fresh acquisition on the incremental slice, the [reactivation-versus-acquisition math](/blog/reactivation-vs-acquisition/).
 
 **The completed.** They got what they came for. The project finished, the child outgrew the size, the need ended. Asking them to come back for the same thing is asking them to have a need they do not have. If there is an adjacent offer, that is the play. If there is not, the honest response is to stop spending on them, which no win-back program ever seems willing to do.
 

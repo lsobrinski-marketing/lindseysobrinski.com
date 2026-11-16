@@ -90,13 +90,13 @@ So the delivery promise is not two projects, one for conversion-rate optimizatio
 
 ## How to see what an agent sees, and the fix order
 
-You can check this today without any special tooling. Open your top product page, disable JavaScript, and reload. Whatever disappears, the price, the stock status, the delivery date, is exactly what an agent fetching your raw HTML fails to see. Then look at your product feed and confirm its price, availability, and delivery fields match what the page claims. Where the page and the feed disagree, the agent has no single truth to trust, and disagreement reads as risk.
+You can check this today without any special tooling. Open your top product page, disable JavaScript, and reload. Whatever disappears, the price, the stock status, the delivery date, is exactly what an agent fetching your raw HTML fails to see. Then look at your product feed and confirm its price, availability, and delivery fields match what the page claims. Where the page and the feed disagree, the agent has no single truth to trust, and disagreement reads as risk. Shaping that feed for machines, not just the Shopping auction, is its own build: [agent-readable product feeds](/blog/agent-readable-product-feeds/).
 
 The fix order over thirty days is short. First, get price and availability into static, machine-readable markup on your highest-revenue products, because those two fields are the hard go or no-go. Second, make the delivery date a real structured field rather than an image or a phrase. Third, expose return terms as structured data. Fourth, reconcile the feed and the pages so they tell one story. None of this is a redesign. It is moving facts you already have out of images and scripts and into the layer a machine reads. That same layer is where a [shared product identifier ties your off-site reviews back to your page](/blog/gtin-connects-your-marketplace-reviews/), so an agent can weigh your reputation, not just your facts.
 
 So the question is not whether your store looks good to a shopper. It is whether an agent, querying your raw data right now, could confirm your price, your stock, your delivery date, and your returns. If it could not, which competitor is it recommending in your place?
 
-Failing that check is one of the reasons [a brand is left out of the AI answer](/blog/why-your-brand-is-not-in-the-ai-answer/) in the first place.
+Failing that check is one of the reasons [a brand is left out of the AI answer](/blog/why-your-brand-is-not-in-the-ai-answer/) in the first place, and clearing the whole list is [what it takes to get named in AI answers](/blog/what-it-takes-to-get-named-in-ai-answers/).
 
 ## Sources
 

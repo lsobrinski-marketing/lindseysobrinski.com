@@ -81,7 +81,7 @@ Certainty also compounds in a way a discount never does. A shopper who got the d
 
 Five changes, most important first.
 
-1. Show an accurate delivery date on product and cart pages, and measure how often you actually hit it.
+1. Show an accurate delivery date on product and cart pages, and measure how often you actually hit it. Expose it as a structured field rather than an image, so AI shopping agents can read it too, which is part of turning your catalog into [agent-readable product feeds](/blog/agent-readable-product-feeds/).
 2. Put the total cost, including shipping and returns, where the shopper can see it before the cart.
 3. State the refund timeline in days, not "processed promptly."
 4. If you charge for returns, test it with a holdout before rolling it out, and read repeat purchase and order value, not just return volume, so you can [tell a real effect from noise](/blog/a-real-lift-or-just-noise/).

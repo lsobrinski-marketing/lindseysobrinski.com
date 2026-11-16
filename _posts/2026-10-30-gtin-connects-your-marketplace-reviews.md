@@ -74,7 +74,7 @@ The number is not yours to invent. It is assigned through GS1 when the manufactu
 
 The signal is simple. Keeping it clean is where catalogs fall down. The common failures:
 
-The GTIN is in the feed but not in the page. Many stores send a GTIN to Merchant Center and never put it in the on-page `Product` structured data. An AI crawler reading your HTML sees no identifier, so the page stays an island even though the feed is fine. The number has to live in the markup a crawler reads, not only in a feed it may never see.
+The GTIN is in the feed but not in the page. Many stores send a GTIN to Merchant Center and never put it in the on-page `Product` structured data. An AI crawler reading your HTML sees no identifier, so the page stays an island even though the feed is fine. The number has to live in the markup a crawler reads, not only in a feed it may never see. Getting the whole catalog readable to those crawlers is the broader job: [agent-readable product feeds](/blog/agent-readable-product-feeds/).
 
 The GTIN differs across channels. Your site lists one number, your Amazon listing shows another, a distributor used a third. Now the join key does not join. Each listing looks like a separate product, and the reviews stay stranded where they were earned.
 

@@ -70,7 +70,7 @@ A single retention curve, or worse a single retention rate, averages every sourc
 
 The result is a slow, unexplained decline that never points at its own cause. Each individual quarter is a small enough move to absorb. The cumulative effect over six quarters is large, and by then the story that has calcified is "our retention is deteriorating", which reliably produces a retention project.
 
-Split the curve by acquisition source and the shape of the problem changes completely. Usually one or two sources are dragging, they have grown as a share of volume, and the rest of the book is unchanged. That is a budget conversation, not a CRM one.
+Split the curve by acquisition source and the shape of the problem changes completely. Usually one or two sources are dragging, they have grown as a share of volume, and the rest of the book is unchanged. That is a budget conversation, not a CRM one. Part of that conversation is whether the next dollar is better spent reacquiring lapsed customers than chasing new ones, where [reactivation usually wins only on the incremental slice](/blog/reactivation-vs-acquisition/).
 
 ## The economics run through payback, not the retention rate
 
