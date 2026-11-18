@@ -131,7 +131,9 @@ The alternative is to design around the customer's actual states rather than
 your publishing rhythm.
 
 - **Onboarding.** Getting the customer to first value, and then to the second
-  order. This window is disproportionately predictive of everything after it.
+  order. This window is disproportionately predictive of everything after it, and
+  when the first order came from a marketplace, the second is where you
+  [move the relationship onto your own site](/blog/marketplace-first-order-own-the-repeat/).
 - **Core.** Replenishment timing, cross-sell into adjacent needs, and the
   cadence that increases order frequency without training people to wait for a
   discount.
