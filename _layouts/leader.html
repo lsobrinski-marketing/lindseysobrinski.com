@@ -1,0 +1,181 @@
+---
+layout: default
+---
+{%- comment -%}
+  Author / contributor page layout. One file per person in _leaders/.
+  Front-matter contract:
+    name:        display name (H1)
+    slug:        matches a post's `author:` value; wires the byline to this page
+    role:        job title line under the name (Person.jobTitle)
+    headshot:    /assets/img/... portrait
+    linkedin:    profile URL (outbound "link back")
+    website:     personal/company site (optional, becomes Person.url if present)
+    same_as:     list of corroborating profile URLs (Person.sameAs)
+    knows_about: list of expertise topics (Person.knowsAbout)
+    bio_short:   one-line credential (used in the post byline box)
+    is_host:     true only for Lindsey; lists all posts and reuses /#person
+    person_ref:  "/#person" for the host; omit for guests (a new @id is minted)
+    featured:    true to take the spotlight slot on /leaders/
+    joined:      YYYY-MM-DD, used to order the spotlight by newest
+  The body of the file is the long bio, rendered as prose.
+{%- endcomment -%}
+
+{%- if page.is_host -%}
+  {%- assign authored = site.posts -%}
+{%- else -%}
+  {%- assign authored = site.posts | where: "author", page.slug -%}
+{%- endif -%}
+{%- assign canon = page.website | default: page.linkedin -%}
+
+<div class="ldr">
+
+  <nav class="ldr-crumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> <span>/</span> <a href="/leaders/">Leaders</a> <span>/</span> <span>{{ page.name }}</span>
+  </nav>
+
+  <header class="ldr-head">
+    {%- if page.headshot %}<img class="ldr-photo" src="{{ page.headshot }}" width="150" height="150" alt="{{ page.name }}" loading="eager">{%- endif %}
+    <div class="ldr-id">
+      {%- if page.is_host %}<span class="ldr-kicker">Host</span>{%- else %}<span class="ldr-kicker">Contributor</span>{%- endif %}
+      <h1>{{ page.name }}</h1>
+      {%- if page.role %}<p class="ldr-role">{{ page.role }}</p>{%- endif %}
+      <div class="ldr-links">
+        {%- if page.linkedin %}<a href="{{ page.linkedin }}">LinkedIn &rarr;</a>{%- endif %}
+        {%- if page.website %}<a href="{{ page.website }}">{{ page.website | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | first }} &rarr;</a>{%- endif %}
+        {%- if page.is_host %}<a href="/about/">Full background &rarr;</a> <a href="/fractional/">Work with me &rarr;</a>{%- endif %}
+      </div>
+    </div>
+  </header>
+
+  {%- if page.knows_about %}
+  <ul class="ldr-topics">
+    {%- for t in page.knows_about %}<li>{{ t }}</li>{%- endfor %}
+  </ul>
+  {%- endif %}
+
+  <div class="ldr-bio">
+    {{ content }}
+  </div>
+
+  {%- assign shown = authored | sort: "date" | reverse -%}
+  {%- if shown.size > 0 %}
+  <section class="ldr-pieces">
+    <h2>{% if page.is_host %}Recent writing{% else %}On lindseysobrinski.com{% endif %}</h2>
+    <div class="ldr-piece-grid">
+      {%- assign cap = 0 -%}
+      {%- for p in shown -%}
+        {%- if cap < 8 -%}
+        <a class="ldr-piece" href="{{ p.url }}">
+          <span class="ldr-piece-t">{{ p.title }}</span>
+          {%- if p.description %}<span class="ldr-piece-d">{{ p.description | truncate: 110 }}</span>{%- endif %}
+        </a>
+        {%- assign cap = cap | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if page.is_host %}<p class="ldr-more"><a href="/blog/">All writing &rarr;</a></p>{%- endif %}
+  </section>
+  {%- endif %}
+
+  <div class="ldr-cta">
+    {%- if page.is_host %}
+    <p><b>Want the measurement read on your growth?</b></p>
+    <a class="f-btn f-btn-primary" href="{{ site.author.booking_url }}">Book a 30-minute intro call</a>
+    {%- else %}
+    <p><b>{{ page.name | split: " " | first }} contributed to lindseysobrinski.com.</b> Explore the ideas across the site.</p>
+    <a class="f-btn f-btn-primary" href="/leaders/">See all contributors</a>
+    <a class="f-btn f-btn-ghost" href="/blog/">Read the blog</a>
+    {%- endif %}
+  </div>
+
+</div>
+
+<style>
+.ldr{max-width:760px;margin:0 auto;}
+.ldr-crumb{font-size:.82rem;color:var(--muted);margin:0 0 20px;}
+.ldr-crumb a{color:var(--accent);text-decoration:none;font-weight:600;}
+.ldr-crumb span{margin:0 2px;}
+.ldr-head{display:flex;gap:24px;align-items:center;margin:0 0 20px;}
+.ldr-photo{width:150px;height:150px;border-radius:18px;object-fit:cover;box-shadow:0 10px 30px rgba(26,35,51,.16);flex:0 0 auto;}
+.ldr-kicker{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 10px;border-radius:20px;margin:0 0 8px;}
+.ldr-id h1{font-size:2rem;line-height:1.1;letter-spacing:-.02em;margin:0 0 6px;color:var(--ink);}
+.ldr-role{font-size:1.02rem;color:var(--muted);font-weight:600;margin:0 0 10px;}
+.ldr-links{display:flex;flex-wrap:wrap;gap:14px;}
+.ldr-links a{font-size:.9rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.ldr-links a:hover{text-decoration:underline;}
+.ldr-topics{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0 0 24px;}
+.ldr-topics li{font-size:.76rem;font-weight:600;color:var(--accent);background:var(--soft);border-radius:20px;padding:5px 12px;}
+.ldr-bio{font-size:1.05rem;line-height:1.7;color:#2b3850;}
+.ldr-bio > *+*{margin-top:16px;}
+.ldr-bio a{color:var(--accent);font-weight:600;}
+.ldr-pieces{margin:34px 0 0;}
+.ldr-pieces h2{font-size:1.3rem;margin:0 0 16px;color:var(--ink);}
+.ldr-piece-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ldr-piece{display:flex;flex-direction:column;gap:5px;background:#fff;border-radius:12px;padding:16px 18px;text-decoration:none;box-shadow:0 4px 18px rgba(26,35,51,.06);border-left:3px solid var(--accent);transition:.15s;}
+.ldr-piece:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,35,51,.12);}
+.ldr-piece-t{font-weight:700;color:var(--ink);font-size:.96rem;line-height:1.3;}
+.ldr-piece-d{font-size:.84rem;color:var(--muted);line-height:1.4;}
+.ldr-more{margin:14px 0 0;}
+.ldr-more a{color:var(--accent);font-weight:700;text-decoration:none;}
+.ldr-cta{margin:36px 0 0;background:var(--soft);border-radius:16px;padding:26px 28px;text-align:center;}
+.ldr-cta p{margin:0 0 16px;color:var(--ink);font-size:1.05rem;}
+.ldr-cta .f-btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.95rem;padding:12px 20px;border-radius:11px;margin:0 4px;}
+.ldr-cta .f-btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(29,111,163,.28);}
+.ldr-cta .f-btn-ghost{background:#fff;color:var(--accent);border:2px solid var(--accent);}
+@media(max-width:620px){
+  .ldr-head{flex-direction:column;text-align:center;}
+  .ldr-topics{justify-content:center;}
+  .ldr-links{justify-content:center;}
+  .ldr-piece-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "{{ site.url }}{{ page.url }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "name": {{ page.name | append: ", " | append: page.role | jsonify }},
+{%- if page.joined %}
+  "dateCreated": "{{ page.joined | date_to_xmlschema }}",
+  "dateModified": "{{ page.joined | date_to_xmlschema }}",
+{%- endif %}
+{%- if page.is_host %}
+  "mainEntity": { "@id": "{{ site.url }}/#person" },
+  "about": { "@id": "{{ site.url }}/#person" }
+{%- else %}
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "{{ site.url }}{{ page.url }}#person",
+    "name": {{ page.name | jsonify }},
+    "url": "{{ canon }}",
+{%- if page.role %}
+    "jobTitle": {{ page.role | jsonify }},
+{%- endif %}
+{%- if page.bio_short %}
+    "description": {{ page.bio_short | jsonify }},
+{%- endif %}
+{%- if page.headshot %}
+    "image": "{{ site.url }}{{ page.headshot }}",
+{%- endif %}
+{%- if page.knows_about %}
+    "knowsAbout": {{ page.knows_about | jsonify }},
+{%- endif %}
+    "sameAs": {{ page.same_as | default: page.linkedin | jsonify }}
+  }
+{%- endif %}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Leaders", "item": "{{ site.url }}/leaders/" },
+    { "@type": "ListItem", "position": 3, "name": {{ page.name | jsonify }}, "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>

@@ -17,6 +17,8 @@ layout: default
 {%- endcomment -%}
 
 {%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+{%- assign ldr = nil -%}
+{%- if page.author -%}{%- assign ldr = site.leaders | where: "slug", page.author | first -%}{%- endif -%}
 
 <article>
   {%- if page.hero %}
@@ -27,7 +29,7 @@ layout: default
     <h1>{{ page.title }}</h1>
     {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
     <p class="post-meta">
-      <span class="byline">By <a href="/about/">Lindsey Sobrinski</a></span>
+      <span class="byline">By <a href="{% if ldr %}{{ ldr.url }}{% else %}/about/{% endif %}">{% if ldr %}{{ ldr.name }}{% else %}Lindsey Sobrinski{% endif %}</a></span>
       <span>&middot;</span>
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
       {%- if page.last_modified_at %}
@@ -88,6 +90,16 @@ layout: default
   {% include faq.html %}
 </article>
 
+{%- if ldr -%}
+<aside class="postbio">
+  <img class="postbio-photo" src="{{ ldr.headshot }}" width="72" height="72" alt="{{ ldr.name }}" loading="lazy">
+  <div class="postbio-body">
+    <p class="postbio-name"><a href="{{ ldr.url }}">{{ ldr.name }}</a></p>
+    <p class="postbio-text">{{ ldr.bio_short }}</p>
+    <p class="postbio-cta"><a class="hero-btn hero-btn-primary" href="{{ ldr.url }}">More from {{ ldr.name | split: " " | first }}</a>{% if ldr.linkedin %} <a class="hero-btn hero-btn-ghost" href="{{ ldr.linkedin }}">LinkedIn</a>{% endif %}</p>
+  </div>
+</aside>
+{%- else -%}
 <aside class="postbio">
   <img class="postbio-photo" src="{{ site.data.profile.headshot }}" width="72" height="72" alt="Lindsey Sobrinski" loading="lazy">
   <div class="postbio-body">
@@ -96,6 +108,7 @@ layout: default
     <p class="postbio-cta"><a class="hero-btn hero-btn-primary" href="{{ site.author.booking_url }}">Book a 30-minute intro call</a> <a class="hero-btn hero-btn-ghost" href="/fractional/">See how I work</a></p>
   </div>
 </aside>
+{%- endif -%}
 
 {%- comment -%}
   Auto "related" block: the most recent posts in this post's category, plus a
@@ -145,7 +158,7 @@ layout: default
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
   "wordCount": {{ content | number_of_words }},
-  "author": { "@id": "{{ site.url }}/#person" },
+  "author": { "@id": "{% if ldr %}{% if ldr.person_ref %}{{ site.url }}{{ ldr.person_ref }}{% else %}{{ site.url }}{{ ldr.url }}#person{% endif %}{% else %}{{ site.url }}/#person{% endif %}" },
   "publisher": { "@id": "{{ site.url }}/#person" }{% if cat %},
   "articleSection": {{ cat.name | jsonify }}{% endif %}{% if page.tags %},
   "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}

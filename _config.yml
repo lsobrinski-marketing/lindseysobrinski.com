@@ -34,6 +34,11 @@ author:
   sameAs:
     - https://www.linkedin.com/in/lindsey-vandermaas
 
+collections:
+  leaders:
+    output: true
+    permalink: /leaders/:name/
+
 markdown: kramdown
 kramdown:
   input: GFM
