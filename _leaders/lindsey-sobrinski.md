@@ -3,7 +3,7 @@ layout: leader
 name: "Lindsey Sobrinski"
 slug: lindsey-sobrinski
 role: "Marketing Incrementality & AEO/GEO Consultant"
-headshot: /assets/img/lindsey-portrait.jpg
+headshot: /assets/img/leaders/lindsey-sobrinski.jpg
 linkedin: https://www.linkedin.com/in/lindsey-vandermaas
 is_host: true
 person_ref: "/#person"
