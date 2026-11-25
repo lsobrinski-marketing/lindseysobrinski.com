@@ -5,9 +5,14 @@ noindex: true          # live for review, kept out of the index until Eric appro
 name: "Eric Brinker"
 slug: eric-brinker
 role: "Founder, Brinker Analytics"
+credential: "Founder, Brinker Analytics · 70+ incrementality tests led"
 headshot: /assets/img/leaders/eric-brinker.jpg
 linkedin: https://www.linkedin.com/in/eric-brinker/
 website: https://brinkeranalytics.com
+# "More from the author" banner target. Point at his single best, on-topic piece
+# when he picks one; currently points at his site as a placeholder.
+top_article_url: https://brinkeranalytics.com
+top_article_title: "Brinker Analytics"
 featured: true
 joined: 2026-11-25
 bio_short: "Founder of Brinker Analytics, an independent marketing-measurement consultancy helping DTC brands prove which ad channels actually drive incremental sales. He has led 70+ incrementality tests."

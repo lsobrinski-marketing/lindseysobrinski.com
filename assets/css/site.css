@@ -321,3 +321,19 @@ footer.sitefoot a{color:var(--accent);text-decoration:none;}
 .howto-banner-fix{font-size:.95rem;color:#41506a;margin-top:2px;}
 .howto-banner-go{font-size:.9rem;font-weight:700;color:var(--accent);margin-top:8px;}
 @media(max-width:560px){.howto-banner{flex-direction:column;border-left:none;border-top:4px solid #e2a83b;}.howto-banner-media{flex:none;max-width:none;height:160px;}}
+
+/* ===== Guest contributor components (guest posts only) ===== */
+.guestcard{display:flex;gap:14px;align-items:center;background:var(--soft);border-radius:14px;padding:14px 16px;margin:0 0 24px;border-left:4px solid var(--accent);}
+.guestcard img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto;}
+.guestcard .gc-label{display:block;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 2px;}
+.guestcard .gc-name{font-weight:700;color:var(--ink);text-decoration:none;}
+.guestcard .gc-name:hover{text-decoration:underline;}
+.guestcard .gc-cred{display:block;font-size:.85rem;color:var(--muted);margin-top:3px;line-height:1.35;}
+
+.pullquote{border:0;border-left:4px solid var(--accent);margin:26px 0;padding:2px 0 2px 22px;font-size:1.3rem;line-height:1.38;font-weight:700;color:var(--ink);letter-spacing:-.01em;font-style:normal;}
+.pullquote p{margin:0;}
+
+.author-banner{display:block;background:#fff;border:1px solid var(--line);border-left:4px solid var(--good,#1e8e5a);border-radius:12px;padding:14px 18px;margin:28px 0;text-decoration:none;box-shadow:0 4px 14px rgba(26,35,51,.05);transition:box-shadow .15s ease,transform .15s ease;}
+.author-banner:hover{box-shadow:0 8px 20px rgba(26,35,51,.1);transform:translateY(-1px);}
+.author-banner .ab-k{display:block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--good,#1e8e5a);margin:0 0 3px;}
+.author-banner .ab-t{color:var(--ink);font-weight:700;}

@@ -54,11 +54,15 @@ Platform dashboards show attributed conversions. I think "attributed" conversion
 
 If a founder starts thinking, "platform conversions can only see some sales, and only some of those sales are caused by the ad; there are also sales the platform is not recording but that are caused by the ad," the founder very quickly starts comparing platform-recorded sales to whole-business results. There are steps you can take to sharpen this comparison, like geo testing or marketing mix modeling. But using numbers besides the ones reported in the platform is a great way to keep the larger customer journey in mind, so you can truly drive the channels that push your whole business forward.
 
+<blockquote class="pullquote">"Attributed conversions should be called observed conversions."</blockquote>
+
 ## How big does the move have to be?
 
 **You write that a small bump will not tell you much. How do you decide how big the channel move needs to be, and what do you tell a brand that cannot afford a big move?**
 
 How big does a channel move need to be? With a little bit of math, your LLM can analyze your previous sales to figure out how stable versus how "noisy" your daily numbers are. The wilder your daily numbers, the bigger the channel move needs to be to rise above the normal noise, just to prove that a pop in sales was not simply a random good day. This is called the "minimum detectable effect" (MDE): a sales increase that says "your previous days were high sometimes, but they were not this high for this long. You must be doing something right." If a brand cannot afford a big move, you can (A) play with the numbers until you are simulating a big move in a smaller sandbox, or (B) try a holdout test. A holdout test always finds savings. Either you prove a channel was not working, and pausing that channel in a fraction of the country saved you money, or you prove a channel absolutely must be on to help your business, and you prove that spending money makes you money.
+
+<blockquote class="pullquote">"A holdout test always finds savings."</blockquote>
 
 ## Where the mix test starts to break
 
@@ -120,8 +124,8 @@ However, your second question, about whether consideration delays can affect tes
 
 But if AI shortens someone's consideration cycle, it might actually help sharpen geo tests. And if AI moves people to buy your product who are in treatment geos but who did not see your upper-funnel TV advertising, this could show up as a false positive in your upper-funnel advertising geo test. Hopefully that will wash out over a large enough sample size. That is why the jury is out on AI. It may help in some measurement areas, it may not matter in others.
 
+{% include author-banner.html %}
+
 ## Where to go next
 
 Eric's thread runs straight through the measurement argument this site keeps making. If platform dashboards only show you observed conversions, start with [why platform ROAS is grading its own homework](/blog/platform-roas-is-grading-its-own-homework/). On reading a swing against the daily noise, see [a real lift or just noise](/blog/a-real-lift-or-just-noise/). When you are ready to graduate from the mix test, here is [how to run a geo-holdout test](/blog/how-to-run-a-geo-holdout-test/), [which incrementality test to run](/blog/which-incrementality-test-to-run/), and [how to size the markets and duration](/blog/geo-holdout-sizing-markets-and-duration/) so the consideration cycle Eric warns about does not sink the read. On the AI-search question, here is the companion piece on [how AI is doing the selling while paid search takes the credit](/blog/ai-does-the-selling-paid-search-takes-the-credit/).
-
-*Eric Brinker is the founder of Brinker Analytics, an independent marketing measurement consultancy helping DTC brands prove which ad channels actually drive incremental sales. He has personally launched $123M in digital campaigns, directed about $60M a year in department ad spend, and led 70+ incrementality tests. He writes about holdout testing, marketing mix modeling, and practical ad measurement for founders and marketing leaders. More at [brinkeranalytics.com](https://brinkeranalytics.com).*

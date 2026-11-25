@@ -1,0 +1,13 @@
+{%- comment -%}
+  "More from the author" banner for guest posts. A one-link nod to the guest's
+  own best work on their site. Renders only when the post has an `author:` whose
+  _leaders page sets `top_article_url`. Drop {% include author-banner.html %}
+  at a natural break in a guest post body; emits nothing for host posts.
+{%- endcomment -%}
+{%- assign bl = site.leaders | where: "slug", page.author | first -%}
+{%- if bl and bl.top_article_url -%}
+<a class="author-banner" href="{{ bl.top_article_url }}" rel="noopener">
+  <span class="ab-k">More from {{ bl.name | split: " " | first }}</span>
+  <span class="ab-t">{{ bl.top_article_title | default: bl.website }} &rarr;</span>
+</a>
+{%- endif -%}

@@ -39,6 +39,17 @@ layout: default
     </p>
   </div>
 
+  {%- if ldr -%}
+  <aside class="guestcard">
+    {%- if ldr.headshot %}<img src="{{ ldr.headshot }}" alt="{{ ldr.name }}" width="56" height="56" loading="eager">{%- endif %}
+    <div class="gc-body">
+      <span class="gc-label">Guest contributor</span>
+      <a class="gc-name" href="{{ ldr.url }}">{{ ldr.name }}</a>
+      <span class="gc-cred">{{ ldr.credential | default: ldr.role }}</span>
+    </div>
+  </aside>
+  {%- endif -%}
+
   {%- comment -%} ---------- auto-generated outline ---------- {%- endcomment -%}
   {%- unless page.toc == false -%}
     {%- assign tocdata = "" -%}
