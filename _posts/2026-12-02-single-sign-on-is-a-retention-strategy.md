@@ -33,6 +33,8 @@ At a national retailer where I led retention, a shopper lived as two people. The
 
 Everyone treated this as a minor inconvenience. It was not. The moment a customer becomes two identities, you have lost the thread, and every retention decision after that is made on half the evidence. I came to see it as the single biggest unforced failure of the business, and it never got fixed because no one whose job was retention was ever in the room when it was scoped.
 
+<blockquote class="pullquote">"She was two records wearing one name."</blockquote>
+
 ## What does a split identity actually break?
 
 It breaks the things retention is supposed to protect, one by one.
@@ -51,6 +53,8 @@ Because of where it sits on the org chart. Single sign-on is scoped as an engine
 
 So it stays a convenience feature that would be nice to have, instead of what it actually is, which is the data spine the entire retention program stands on. The framing is the failure. Call it a login upgrade and it waits forever. Call it the foundation for measuring and keeping customers and it becomes urgent.
 
+<blockquote class="pullquote">"The framing is the failure."</blockquote>
+
 ## What is the retention case for single sign-on?
 
 One identity gives you one customer record, and one customer record is the thing every downstream retention tactic silently assumes you already have. Honest cohort measurement assumes it. Personalization assumes it. Lifecycle triggers that fire on real behavior assume it. A loyalty program that can be judged on [incremental behavior rather than members who would have bought anyway](/blog/the-second-purchase-is-the-real-conversion/) assumes it most of all.
@@ -64,6 +68,8 @@ Start by moving identity off the IT ticket and onto the retention roadmap, with 
 Either way, the test is simple. Pick your best loyalty member and ask whether every team that touches her is looking at the same customer, or at a login that shows them a fraction of her. If the answer is a fraction, you do not have a loyalty problem or a personalization problem. You have an identity problem wearing their costumes.
 
 So before your next loyalty relaunch or win-back push, ask the uncomfortable question I wish we had asked sooner: is the customer you are measuring one person, or two logins you never introduced to each other?
+
+{% include author-banner.html %}
 
 ## Sources
 
