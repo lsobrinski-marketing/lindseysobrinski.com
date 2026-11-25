@@ -21,18 +21,25 @@ noindex: true
   </header>
 
   {%- if feat %}
-  <a class="lead-spotlight" href="{{ feat.url }}">
-    <span class="lead-spot-flag">Newest conversation</span>
+  <div class="lead-spotlight{% unless feat.approved %} is-pending{% endunless %}">
+    <span class="lead-spot-flag">Featured conversation</span>
     <div class="lead-spot-grid">
       {%- if feat.headshot %}<img src="{{ feat.headshot }}" width="120" height="120" alt="{{ feat.name }}">{%- endif %}
       <div>
         <span class="lead-spot-name">{{ feat.name }}</span>
         {%- if feat.role %}<span class="lead-spot-role">{{ feat.role }}</span>{%- endif %}
         {%- if feat.bio_short %}<p class="lead-spot-bio">{{ feat.bio_short }}</p>{%- endif %}
-        <span class="lead-spot-go">Read the conversation &rarr;</span>
+        {%- if feat.approved -%}
+        <span class="lead-spot-cta">
+          {%- if feat.article_url %}<a class="lead-spot-btn lead-spot-btn-primary" href="{{ feat.article_url }}">Read the article &rarr;</a>{%- endif %}
+          <a class="lead-spot-btn lead-spot-btn-ghost" href="{{ feat.url }}">More about {{ feat.name | split: " " | first }}</a>
+        </span>
+        {%- else -%}
+        <span class="lead-spot-go is-dead">Read the conversation &rarr;</span>
+        {%- endif -%}
       </div>
     </div>
-  </a>
+  </div>
   {%- endif %}
 
   <div class="lead-grid">
@@ -59,15 +66,21 @@ noindex: true
 .lead-top{margin:0 0 26px;}
 .lead-top h1{font-size:2.1rem;line-height:1.1;letter-spacing:-.02em;margin:4px 0 12px;color:var(--ink);}
 .lead-lede{font-size:1.08rem;line-height:1.6;color:#2b3850;max-width:40em;margin:0;}
-.lead-spotlight{display:block;text-decoration:none;background:linear-gradient(162deg,#1a2333,#223049);border-radius:18px;padding:24px 26px;margin:0 0 24px;color:#fff;transition:.15s;}
-.lead-spotlight:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(26,35,51,.22);}
+.lead-spotlight{display:block;background:linear-gradient(162deg,#1a2333,#223049);border-radius:18px;padding:24px 26px;margin:0 0 24px;color:#fff;}
 .lead-spot-flag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#1a2333;background:var(--gold,#e2a83b);padding:3px 10px;border-radius:20px;margin:0 0 14px;}
 .lead-spot-grid{display:flex;gap:20px;align-items:center;}
 .lead-spot-grid img{width:120px;height:120px;border-radius:14px;object-fit:cover;flex:0 0 auto;}
 .lead-spot-name{display:block;font-size:1.3rem;font-weight:800;letter-spacing:-.01em;}
 .lead-spot-role{display:block;font-size:.92rem;color:#c7d3e2;margin:3px 0 0;}
 .lead-spot-bio{font-size:.95rem;color:#e4ebf3;line-height:1.5;margin:10px 0 10px;}
+.lead-spot-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.lead-spot-btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.9rem;padding:10px 16px;border-radius:10px;transition:.15s;}
+.lead-spot-btn-primary{background:var(--gold,#e2a83b);color:#1a2333;}
+.lead-spot-btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px);}
+.lead-spot-btn-ghost{color:#e4ebf3;border:1px solid rgba(255,255,255,.32);}
+.lead-spot-btn-ghost:hover{background:rgba(255,255,255,.08);}
 .lead-spot-go{font-size:.9rem;font-weight:700;color:var(--gold,#e2a83b);}
+.lead-spot-go.is-dead{color:#7e8ea3;cursor:default;}
 .lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .lead-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;background:#fff;border-radius:14px;padding:22px 16px;text-decoration:none;box-shadow:0 4px 18px rgba(26,35,51,.06);border-top:4px solid var(--accent);transition:.15s;}
 .lead-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(26,35,51,.12);}

@@ -9,6 +9,13 @@ credential: "Founder, Brinker Analytics · 70+ incrementality tests led"
 headshot: /assets/img/leaders/eric-brinker.jpg
 linkedin: https://www.linkedin.com/in/eric-brinker/
 website: https://brinkeranalytics.com
+# The guest post this contributor authored on the site. Powers the "Read the
+# article" button on the /leaders/ spotlight.
+article_url: /blog/the-budget-mix-test-is-a-plan-c/
+# Flip to true once the guest signs off. false = the spotlight CTA is a dead
+# link (conversation not public yet); true = the two buttons light up and the
+# post can leave noindex.
+approved: false
 # "More from the author" banner target. Point at his single best, on-topic piece
 # when he picks one; currently points at his site as a placeholder.
 top_article_url: https://brinkeranalytics.com
