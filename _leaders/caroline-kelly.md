@@ -6,6 +6,7 @@ name: "Caroline Kelly"
 slug: caroline-kelly    # a guest post credits her with:  author: caroline-kelly
 role: "Retention & Lifecycle Marketing Leader"   # expertise framing; her LinkedIn title is "Director, Retention Marketing" (currently between roles)
 headshot: /assets/img/leaders/caroline-kelly.jpg   # add her approved portrait at this path
+image: /assets/img/leaders/caroline-kelly.jpg   # social-share (og:image) = her own headshot, not the site default
 linkedin: https://www.linkedin.com/in/carolinehonorskelly/
 website:                # optional; her site if she has one
 featured: true          # first contributor takes the /leaders/ spotlight

@@ -5,6 +5,7 @@ name: "First Last"
 slug: first-last        # <-- must match the `author:` value in their guest post's front matter
 role: "Their title, e.g. Head of SEO at Example"
 headshot: /assets/img/leaders/first-last.jpg   # <-- add their approved portrait here
+image: /assets/img/leaders/first-last.jpg   # social-share (og:image); point at the headshot above
 linkedin: https://www.linkedin.com/in/their-handle
 website: https://theirsite.com                 # optional; becomes Person.url if present
 featured: true          # <-- the newest yes takes the spotlight slot on /leaders/

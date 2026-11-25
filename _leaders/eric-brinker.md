@@ -7,6 +7,7 @@ slug: eric-brinker
 role: "Founder, Brinker Analytics"
 credential: "Founder, Brinker Analytics · 70+ incrementality tests led"
 headshot: /assets/img/leaders/eric-brinker.jpg
+image: /assets/img/leaders/eric-brinker.jpg   # social-share (og:image) = his own headshot, not the site default
 linkedin: https://www.linkedin.com/in/eric-brinker/
 website: https://brinkeranalytics.com
 # The guest post this contributor authored on the site. Powers the "Read the
